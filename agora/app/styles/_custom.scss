@@ -1,0 +1,104 @@
+$consent: #437eb1; 
+$end_of_life_care: #625c9f; 
+$child_protection: #3368a6; 
+$zero_to_eighteen: #851764; 
+$leadership_and_management: #6e2072; 
+$confidentiality: #7b698f; 
+$gmc_purple: #3e2782; 
+$gmc_dark_blue: #00377b; 
+$gmc_light_blue: #30a5be; 
+$gmc_light_grey: #edece4; 
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Tahoma';
+}
+p, div {
+    font-family: 'Tahoma';
+}
+
+
+
+.box {
+	background-color: $gmc_light_grey; 
+	min-height: 200px !important; 
+}
+
+.margin-bottom-20 {
+	margin-bottom: 20px; 
+}
+
+.consent {
+	color: $consent; 
+}
+
+.end_of_life_care {
+	color: $end_of_life_care;
+}
+
+.child_protection {
+	color: $child_protection;
+}
+
+.zero_to_eighteen {
+	color: $zero_to_eighteen;
+}
+
+.leadership_and_management {
+	color: $leadership_and_management;
+}
+
+.confidentiality {
+	color: $confidentiality;
+}
+
+.gmc_purple {
+	color: $gmc_purple;
+}
+
+.gmc_dark_blue {
+	color: $gmc_dark_blue;
+}
+
+.gmc_light_blue {
+	color: $gmc_light_blue;
+}
+
+.gmc_light_grey {
+	color: $gmc_light_grey;
+}
+
+.gmc-logo-large {
+	height: 70px; 
+	width: 84px;
+	background-image: url('../images/logos/gmc_logo.gif');
+	background-repeat: no-repeat;
+	margin-bottom: 23px;
+	margin-left: 23px; 
+}
+
+.strapline {
+	font-size: 23px;
+	color: $gmc_light_blue;
+	padding-top: 23px;
+	margin-right: 23px; 
+}
+
+.purple_bottom {
+	border-bottom: 8px solid $gmc_purple !important;
+}
+
+.rotate90 {
+    transform: rotate(90deg);
+}
+
+
+
+.section-title {
+	font-size: 23px;
+}
+
+
+
+
+

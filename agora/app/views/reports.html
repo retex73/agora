@@ -1,0 +1,24 @@
+<div ng-controller="ReportsCtrl">
+	<p>&nbsp;</p>
+	<div class="row">
+		<div class="col-md-12">
+			
+			<!-- <div ng-repeat="page in pages"> -->
+			<div ng-repeat="(key, value) in pages">
+				<div class="col-md-4">
+					
+					<div class="panel panel-default reports-box">
+						<div class=" hvr-border-fade">
+							<div class="panel-heading reports-box-title">
+								{{value.groupName}}
+							</div>
+							<div class="panel-body">
+								<div ng-bind-html="value.description" class="reports-box-description"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

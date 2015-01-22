@@ -1,0 +1,44 @@
+
+.reports-box {
+	border-radius: 0px !important; 
+	border: none !important; 
+    background:$gmc_light_grey !important; 
+    -o-transition:color 520ms ease-out, background 520ms ease-in;
+    -ms-transition:color 520ms ease-out, background 520ms ease-in;
+    -moz-transition:color 520ms ease-out, background 520ms ease-in;
+    -webkit-transition:color 520ms ease-out, background 520ms ease-in;
+    transition:color 520ms ease-out, background 520ms ease-in;
+}
+
+.reports-box:hover {
+    // box-shadow: 1px 1px 1px 1px; 
+     box-shadow: 0 4px 6px -6px #222;
+}
+
+.reports-box-title {
+	font-weight: bold; 
+	box-shadow: 0 4px 6px -6px #222; 
+	margin: 4px; 
+	padding: 2px; 
+	background-color: $gmc_light_blue; 
+	
+	color: white; 
+	border-radius: 0px !important; 
+}
+
+.reports-box-title:hover {
+	color: #fff; 
+}
+
+.reports-box .panel {
+	border: none !important; 
+}
+
+.panel-height-100 {
+	min-height: 200px; 
+}
+
+
+.sections {
+	padding: 4px; 
+}

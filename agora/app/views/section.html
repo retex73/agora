@@ -1,0 +1,49 @@
+<div ng-controller="SectionCtrl">
+	<div class="row">
+		<h1>Section: {{sectionName}}</h1>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div ng-repeat="(key, data) in pages" class="col-md-4">
+					<div  ng-click="gotoViz(data[0].url)" class="panel panel-default reports-box">
+						<div class="hvr-border-fade panel-height-100">
+							<div class="row">
+								<div class="col-md-4 vcenter">
+									<div class="sections">
+										<img ng-src="images/{{key}}.png" height=50 width=50/>
+									</div>
+								</div>
+								<div class="col-md-8 sections">
+									<span class="section-title">{{key}}</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 sections">
+									&nbsp;
+								</div>
+								<div class="col-md-8 sections">
+									{{sectionDescriptions[key]}}
+								</div>
+
+								<!-- Test Div --> 
+								<div> 
+									Test
+
+									{{data[0].url}}
+								</div> 
+			
+
+
+
+
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>

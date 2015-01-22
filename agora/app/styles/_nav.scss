@@ -1,0 +1,295 @@
+$navHeight:30px; 
+
+.custom-bootstrap-menu-nav {
+    height: $navHeight;
+}
+
+
+#custom-bootstrap-menu.navbar-default .navbar-brand {
+    color: rgba(0, 55, 123, 1);
+}
+
+ #custom-bootstrap-menu.navbar { min-height:$navHeight;   }
+ #custom-bootstrap-menu.navbar .navbar-brand{ padding: 0 12px;font-size: 16px;line-height: $navHeight;height: $navHeight; }
+ #custom-bootstrap-menu.navbar .navbar-nav > li > a {  padding-top: 0px; padding-bottom: 0px; line-height: $navHeight; }
+ #custom-bootstrap-menu.navbar .navbar-toggle {  margin-top: 3px; margin-bottom: 0px; padding: 8px 9px; }
+ #custom-bootstrap-menu.navbar .navbar-form { margin-top: 2px; margin-bottom: 0px }
+ #custom-bootstrap-menu.navbar .navbar-collapse {border-color: #A40303;}
+
+
+
+#custom-bootstrap-menu.navbar-default {
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 1);
+    /*border-width: 1px;
+    border-radius: 4px;*/
+    border: none; 
+    padding: 0px; 
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    color: rgba(0, 55, 123, 1);
+    background-color: rgba(255, 255, 255, 1);
+    -o-transition:color .2s ease-out, background 1s ease-in;
+    -ms-transition:color .2s ease-out, background 1s ease-in;
+    -moz-transition:color .2s ease-out, background 1s ease-in;
+    -webkit-transition:color .2s ease-out, background 1s ease-in;
+    /* ...and now override with proper CSS property */
+    transition:color .2s ease-out, background 1s ease-in;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(48, 165, 190, 1);
+    background-color: rgba(248, 248, 248, 0);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(0, 55, 123, 1);
+    // background-color: rgba(255, 255, 255, 1);
+    border-bottom: 2px solid $gmc_dark_blue; 
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #ffffff;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: #ffffff;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #ffffff;
+}
+
+// tier two
+$tierTwoNavHeight:15px; 
+
+
+.custom-tier2-bootstrap-menu-nav {
+    // display: none; 
+    height: $tierTwoNavHeight; 
+    
+}
+
+
+#custom-tier2-bootstrap-menu.navbar-default .navbar-brand {
+    color: rgba(0, 55, 123, 1);
+}
+
+ #custom-tier2-bootstrap-menu.navbar { min-height:$navHeight;   }
+ #custom-tier2-bootstrap-menu.navbar .navbar-brand{ padding: 0 12px;font-size: 16px;line-height: $navHeight;height: $navHeight; }
+ #custom-tier2-bootstrap-menu.navbar .navbar-nav > li > a {  padding-top: 0px; padding-bottom: 0px; line-height: $navHeight; }
+ #custom-tier2-bootstrap-menu.navbar .navbar-toggle {  margin-top: 3px; margin-bottom: 0px; padding: 8px 9px; }
+ #custom-tier2-bootstrap-menu.navbar .navbar-form { margin-top: 2px; margin-bottom: 0px }
+ #custom-tier2-bootstrap-menu.navbar .navbar-collapse {border-color: #A40303;}
+
+
+
+#custom-tier2-bootstrap-menu.navbar-default {
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 1);
+    // background-color: $gmc_dark_blue; 
+    /*border-width: 1px;
+    border-radius: 4px;*/
+    border: none; 
+    padding: 0px; 
+}
+
+#custom-tier2-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    color:#fff; 
+    background:$gmc_dark_blue; 
+    -o-transition:color 120ms ease-out, background 120ms ease-in;
+    -ms-transition:color 120ms ease-out, background 120ms ease-in;
+    -moz-transition:color 120ms ease-out, background 120ms ease-in;
+    -webkit-transition:color 120ms ease-out, background 120ms ease-in;
+    /* ...and now override with proper CSS property */
+    transition:color 120ms ease-out, background 120ms ease-in;
+}
+
+#custom-tier2-bootstrap-menu.navbar-default .navbar-nav>li>a:hover {
+    color: $gmc_light_blue; 
+    background: $gmc_light_grey; 
+}
+
+// #custom-tier2-bootstrap-menu.navbar-default .navbar-nav>li>a {
+//     background-color: $gmc_dark_blue; 
+//     color: #fff; 
+// }
+// #custom-tier2-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+// #custom-tier2-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+//     color: rgba(48, 165, 190, 1);
+//     background-color: rgba(248, 248, 248, 0);
+// }
+#custom-tier2-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-tier2-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-tier2-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: white; 
+    // background-color: rgba(255, 255, 255, 1);
+    
+    background-color: $gmc_light_blue; 
+    
+    border-bottom: 0px;
+}
+#custom-tier2-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #ffffff;
+}
+#custom-tier2-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-tier2-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: #ffffff;
+}
+#custom-tier2-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+#custom-tier2-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-tier2-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #ffffff;
+}
+
+#custom-tier2-bootstrap-menu.navbar-default .navbar-menubuilder {
+    // margin-top: 10px; 
+    background-color: $gmc_dark_blue; 
+}
+
+#custom-tier2-bootstrap-menu.navbar-default .container-fluid {
+    background-color: $gmc_dark_blue; 
+}
+
+.custom-tier2-bootstrap-menu-spacer {
+    height: 2px; 
+}
+
+
+.custom-tier2-bootstrap-menu-row {
+    height: 32px; 
+}
+
+.custom-tier2-bootstrap-menu-nav {
+    // display: none; 
+}
+
+
+
+// tier three
+$tierThreeNavHeight:15px; 
+
+
+.custom-tier3-bootstrap-menu-nav {
+    display: none; 
+    height: $tierThreeNavHeight; 
+    
+}
+
+
+#custom-tier3-bootstrap-menu.navbar-default .navbar-brand {
+    color: rgba(0, 55, 123, 1);
+}
+
+ #custom-tier3-bootstrap-menu.navbar { min-height:$navHeight;   }
+ #custom-tier3-bootstrap-menu.navbar .navbar-brand{ padding: 0 12px;font-size: 16px;line-height: $navHeight;height: $navHeight; }
+ #custom-tier3-bootstrap-menu.navbar .navbar-nav > li > a {  padding-top: 0px; padding-bottom: 0px; line-height: $navHeight; }
+ #custom-tier3-bootstrap-menu.navbar .navbar-toggle {  margin-top: 3px; margin-bottom: 0px; padding: 8px 9px; }
+ #custom-tier3-bootstrap-menu.navbar .navbar-form { margin-top: 2px; margin-bottom: 0px }
+ #custom-tier3-bootstrap-menu.navbar .navbar-collapse {border-color: #A40303;}
+
+
+
+#custom-tier3-bootstrap-menu.navbar-default {
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 1);
+    // background-color: $gmc_dark_blue; 
+    /*border-width: 1px;
+    border-radius: 4px;*/
+    border: none; 
+    padding: 0px; 
+}
+
+#custom-tier3-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    color:#333; 
+    text-transform: capitalize; 
+    background:$gmc_light_blue; 
+    -o-transition:color 120ms ease-out, background 120ms ease-in;
+    -ms-transition:color 120ms ease-out, background 120ms ease-in;
+    -moz-transition:color 120ms ease-out, background 120ms ease-in;
+    -webkit-transition:color 120ms ease-out, background 120ms ease-in;
+    /* ...and now override with proper CSS property */
+    transition:color 120ms ease-out, background 120ms ease-in;
+}
+
+#custom-tier3-bootstrap-menu.navbar-default .navbar-nav>li>a:hover {
+    color: $gmc_light_blue; 
+    background: $gmc_light_grey; 
+}
+
+// #custom-tier3-bootstrap-menu.navbar-default .navbar-nav>li>a {
+//     background-color: $gmc_dark_blue; 
+//     color: #fff; 
+// }
+// #custom-tier3-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+// #custom-tier3-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+//     color: rgba(48, 165, 190, 1);
+//     background-color: rgba(248, 248, 248, 0);
+// }
+#custom-tier3-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-tier3-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-tier3-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: white; 
+    // background-color: rgba(255, 255, 255, 1);
+    
+    background-color: $gmc_light_blue; 
+    
+    border-bottom: 0px;
+
+}
+#custom-tier3-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #ffffff;
+}
+#custom-tier3-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-tier3-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: #ffffff;
+}
+#custom-tier3-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+#custom-tier3-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-tier3-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #ffffff;
+}
+
+#custom-tier3-bootstrap-menu.navbar-default .navbar-menubuilder {
+    // margin-top: 10px; 
+    background-color: $gmc_light_blue; 
+}
+
+#custom-tier3-bootstrap-menu.navbar-default .container-fluid {
+    background-color: $gmc_light_blue; 
+}
+
+.custom-tier3-bootstrap-menu-spacer {
+    height: 2px; 
+}
+
+
+.custom-tier3-bootstrap-menu-row {
+    height: 32px; 
+}
+
+.custom-tier3-bootstrap-menu-nav {
+    // display: none; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
