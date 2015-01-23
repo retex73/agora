@@ -29,24 +29,29 @@ $navHeight:30px;
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
     color: rgba(0, 55, 123, 1);
     background-color: rgba(255, 255, 255, 1);
-    -o-transition:color .2s ease-out, background 1s ease-in;
-    -ms-transition:color .2s ease-out, background 1s ease-in;
-    -moz-transition:color .2s ease-out, background 1s ease-in;
-    -webkit-transition:color .2s ease-out, background 1s ease-in;
+
+    -o-transition:color 50ms ease-out, background 50ms ease-in;
+    -ms-transition:color 50ms ease-out, background 50ms ease-in;
+    -moz-transition:color 50ms ease-out, background 50ms ease-in;
+    -webkit-transition:color 50ms ease-out, background 50ms ease-in;
     /* ...and now override with proper CSS property */
-    transition:color .2s ease-out, background 1s ease-in;
+    transition:color 50ms ease-out, background 50ms ease-in;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
-    color: rgba(48, 165, 190, 1);
-    background-color: rgba(248, 248, 248, 0);
+    color: #fff; 
+    /*background-color: rgba(248, 248, 248, 0);*/
+    background-color: $gmc_purple;
+    
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
-    color: rgba(0, 55, 123, 1);
+    /*color: rgba(0, 55, 123, 1);*/
+    color: #fff; 
+    background-color: $gmc_purple;
     // background-color: rgba(255, 255, 255, 1);
-    border-bottom: 2px solid $gmc_dark_blue; 
+    
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle {
     border-color: #ffffff;
@@ -89,8 +94,8 @@ $tierTwoNavHeight:15px;
 
 #custom-tier2-bootstrap-menu.navbar-default {
     font-size: 13px;
-    background-color: rgba(255, 255, 255, 1);
-    // background-color: $gmc_dark_blue; 
+    /*background-color: rgba(255, 255, 255, 1);*/
+    /*background-color: $gmc_dark_blue; */
     /*border-width: 1px;
     border-radius: 4px;*/
     border: none; 
@@ -98,8 +103,8 @@ $tierTwoNavHeight:15px;
 }
 
 #custom-tier2-bootstrap-menu.navbar-default .navbar-nav>li>a {
-    color:#fff; 
-    background:$gmc_dark_blue; 
+    /*color:#fff; 
+    background:$gmc_dark_blue; */
     -o-transition:color 120ms ease-out, background 120ms ease-in;
     -ms-transition:color 120ms ease-out, background 120ms ease-in;
     -moz-transition:color 120ms ease-out, background 120ms ease-in;
@@ -113,10 +118,10 @@ $tierTwoNavHeight:15px;
     background: $gmc_light_grey; 
 }
 
-// #custom-tier2-bootstrap-menu.navbar-default .navbar-nav>li>a {
-//     background-color: $gmc_dark_blue; 
-//     color: #fff; 
-// }
+#custom-tier2-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    
+    font-weight: bold; 
+}
 // #custom-tier2-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
 // #custom-tier2-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
 //     color: rgba(48, 165, 190, 1);
@@ -130,7 +135,7 @@ $tierTwoNavHeight:15px;
     
     background-color: $gmc_light_blue; 
     
-    border-bottom: 0px;
+    border-bottom: 0px;    
 }
 #custom-tier2-bootstrap-menu.navbar-default .navbar-toggle {
     border-color: #ffffff;
@@ -149,15 +154,18 @@ $tierTwoNavHeight:15px;
 
 #custom-tier2-bootstrap-menu.navbar-default .navbar-menubuilder {
     // margin-top: 10px; 
-    background-color: $gmc_dark_blue; 
+    /*background-color: $gmc_dark_blue; */
 }
 
 #custom-tier2-bootstrap-menu.navbar-default .container-fluid {
-    background-color: $gmc_dark_blue; 
+    /*background-color: $gmc_dark_blue; */
+    background-color: #fff5d9;
+    border-bottom: 1px solid #e3e3e3;     
 }
 
-.custom-tier2-bootstrap-menu-spacer {
-    height: 2px; 
+.nav-spacer {
+    height: 9px; 
+    background-color: $gmc_purple;
 }
 
 
@@ -208,7 +216,9 @@ $tierThreeNavHeight:15px;
 #custom-tier3-bootstrap-menu.navbar-default .navbar-nav>li>a {
     color:#333; 
     text-transform: capitalize; 
-    background:$gmc_light_blue; 
+    /*background:$gmc_light_blue; */
+    /*background-color: #fff; */
+    background-color: #e3e3e3;
     -o-transition:color 120ms ease-out, background 120ms ease-in;
     -ms-transition:color 120ms ease-out, background 120ms ease-in;
     -moz-transition:color 120ms ease-out, background 120ms ease-in;
@@ -234,10 +244,11 @@ $tierThreeNavHeight:15px;
 #custom-tier3-bootstrap-menu.navbar-default .navbar-nav>.active>a,
 #custom-tier3-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
 #custom-tier3-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
-    color: white; 
+    /*color: white; */
     // background-color: rgba(255, 255, 255, 1);
     
-    background-color: $gmc_light_blue; 
+    /*background-color: $gmc_light_blue; */
+    background-color: #e3e3e3; 
     
     border-bottom: 0px;
 
@@ -259,11 +270,15 @@ $tierThreeNavHeight:15px;
 
 #custom-tier3-bootstrap-menu.navbar-default .navbar-menubuilder {
     // margin-top: 10px; 
-    background-color: $gmc_light_blue; 
+    /*background-color: $gmc_light_blue; */
 }
 
 #custom-tier3-bootstrap-menu.navbar-default .container-fluid {
-    background-color: $gmc_light_blue; 
+    background-color: #e3e3e3; 
+
+    /*border-bottom: 1px solid #e3e3e3; */
+    margin-top: -1px; 
+    box-shadow: 1px 1px 1px 1px #A8A4A4; 
 }
 
 .custom-tier3-bootstrap-menu-spacer {
@@ -280,6 +295,24 @@ $tierThreeNavHeight:15px;
 }
 
 
+html {
+    position: relative; 
+    min-height: 100%; 
+}
+
+body {
+    margin-bottom: 60px; 
+}
+.custom-footer {
+    background-color: #222222; 
+    color: #3a3a3a; 
+    font-weight: 700; 
+    position: absolute !important; 
+    padding: 20px; 
+    width: 100%; 
+    bottom: 0; 
+    height: 60px; 
+}
 
 
 

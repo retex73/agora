@@ -88,6 +88,15 @@ angular.module('agoraApp')
       return active;
     };
 
+
+
+
+    $scope.hideSubNav = function() {      
+      $("#collapseReportSections").collapse('hide'); 
+      $("#collapseReports").collapse('hide'); 
+    }
+
+
     $scope.toggleTier = function(action, selector) {
       if (action == 'show') {
         showTier(selector);
@@ -116,8 +125,9 @@ angular.module('agoraApp')
       }); 
 
 
-      $(".reportSections").append(html); 
+      $(".reportSections").append(html);       
       // $scope.reportSections = Pages.getPages('The Register'); 
+      $("#collapseReportSections").collapse('show'); 
     }
 
 
@@ -155,6 +165,9 @@ angular.module('agoraApp')
 
     $scope.groups = Pages.getGroups();
 
+
+
+  
 
 
   });

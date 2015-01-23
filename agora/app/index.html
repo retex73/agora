@@ -14,7 +14,7 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="container-fluid">
       <!-- logo and banner -->
       <header>
         <div class="row">
@@ -39,9 +39,10 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
               <ul class="nav navbar-nav navbar-right">
-                <li ng-click="toggleTier('hide', '.custom-tier2-bootstrap-menu-nav')" ng-class="{ active: isActive('#/') }"><a href="#/">Home</a></li>
-                <li ng-click="toggleTier('show', '.custom-tier2-bootstrap-menu-nav')" ng-class="{ active: isActive('#/reports') }"><a href="#/reports">Reports</a></li>
-                <li ng-click="toggleTier('hide', '.custom-tier2-bootstrap-menu-nav')" id="test" ng-class="{ active: isActive('#/about') }"><a href="#/about">About</a></li>
+                <li ng-click="hideSubNav()" ng-class="{ active: isActive('#/') }"><a href="#/">Home</a></li>
+                <!-- <li ng-click="toggleTier('show', '.custom-tier2-bootstrap-menu-nav')" ng-class="{ active: isActive('#/reports') }"><a href="#/reports">Reports</a></li> -->
+                <li ng-class="{ active: isActive('#/reports') }"><a data-toggle="collapse" data-target="#collapseReports" href="#/reports">Reports</a></li>
+                <li ng-click="hideSubNav()" ng-class="{ active: isActive('#/about') }"><a href="#/about">About</a></li>
               </ul>
             </div>
           </div>
@@ -49,11 +50,11 @@
       </nav>
     </div>
     
-    <!-- <div class="row custom-tier2-bootstrap-menu-spacer">&nbsp;</div> -->
+    <div class="row nav-spacer">&nbsp;</div>
     
     <div class="row custom-tier2-bootstrap-menu-row">
-      <nav ng-controller="NavCtrl" class="custom-tier2-bootstrap-menu-nav">
-        <div id="custom-tier2-bootstrap-menu" class="navbar navbar-default " role="navigation">
+      <nav ng-controller="NavCtrl" class="custom-tier2-bootstrap-menu-nav collapse" id="collapseReports">
+        <div id="custom-tier2-bootstrap-menu" class="navbar navbar-default" role="navigation">
           <div class="container-fluid">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
@@ -64,7 +65,8 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
               <ul class="nav navbar-nav navbar-left">
-                <li ng-repeat="group in groups" ng-click="reportSelect(group); toggleTier('show', '.custom-tier3-bootstrap-menu-nav')" ng-class="{ active: isActive('#/reports/{{group}}') }"><a href="/#reports/{{group}}">{{group}}</a></li>
+                <li ng-repeat="group in groups" ng-click="reportSelect(group)" ng-class="{ active: isActive('#/reports/{{group}}') }"><a href="/#reports/{{group}}">{{group}}</a></li>
+                <!-- <li ng-repeat="group in groups" ng-click="reportSelect(group)" ng-class="{ active: isActive('#/reports/{{group}}') }"><a data-toggle="collapse" data-target="#collapseReportSections" href="/#reports/{{group}}">{{group}}</a></li> -->
               </ul>
             </div>
           </div>
@@ -74,7 +76,7 @@
 
     <!-- third tier nav --> 
 <div class="row custom-tier3-bootstrap-menu-row">
-      <nav ng-controller="NavCtrl" class="custom-tier3-bootstrap-menu-nav">
+      <nav ng-controller="NavCtrl" class="custom-tier3-bootstrap-menu-nav collapse" id="collapseReportSections">
         <div id="custom-tier3-bootstrap-menu" class="navbar navbar-default " role="navigation">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -98,26 +100,33 @@
 
     <!-- end of nav -->
     <div ng-view="" class="gmc-container"></div>
+
+
+
+
     <!-- footer -->
-<nav class="navbar navbar-bottom"> 
-  <div class="container"> 
-    <div class="row"> 
-      <div class="col-md-6"> 
+    <div class="row">
+      <footer class="footer">
+        <nav class="navbar navbar-bottom custom-footer"> 
+          <div class="container-fluid"> 
+            <div class="row"> 
+              <div class="col-md-6 pull-left"> 
         The GMC is a registered charity in England and Wales (1089278) and Scotland (SC037750).<br/>
         &copy Copyright General Medical Council 2015. All rights reserved
-      </div>
-
-      <div class="col-md-6 pull-right"> 
-        <ul>
-          <li><a href="/contact">Contact us</a></li>
-          <li><a href="/disclaimer">Disclaimer</a></li>
-          <li><a href="/privacy_and_cookies">Privacy and Cookies</a></li>
-        </ul>
-      </div> 
+              </div>
+              <div class="col-md-6 pull-right"> 
+                <ul class="list-inline">
+                  <li><a href="/contact">Contact us</a></li>
+                  <li><a href="/disclaimer">Disclaimer</a></li>
+                  <li><a href="/privacy_and_cookies">Privacy and Cookies</a></li>
+                </ul>
+              </div> 
+            </div>
+          </div> 
+        </nav> 
+      </footer>
     </div>
-  </div> 
-</nav> 
-
+    
 
   <!-- end of alternative footer --> 
 
