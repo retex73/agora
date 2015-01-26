@@ -113,20 +113,18 @@ angular.module('agoraApp')
 
     $scope.reportSelect = function(group) {
 
-      
       var reportSections = Pages.getPages(group); 
       
       $(".reportSections").html(""); 
 
       var html = ''; 
-      angular.forEach(reportSections, function(value, key){
-        console.log('Key: ' + key); 
-        html += "<li><a href='/#reports/" + group + "/" + key + "/report1'>" + key + "</a></li>"; 
+      angular.forEach(reportSections, function(value, key){      
+        var reportName = encodeURIComponent(value[0].pageHeading); 
+        html += "<li><a href='/#reports/" + group + "/" + key + "/" + reportName + "'>" + key + "</a></li>"; 
       }); 
 
 
-      $(".reportSections").append(html);       
-      // $scope.reportSections = Pages.getPages('The Register'); 
+      $(".reportSections").append(html);             
       $("#collapseReportSections").collapse('show'); 
     }
 

@@ -1,5 +1,5 @@
 var pagesObj = {
-    reportsBaseUrl: 'https://tstreports.gmc-uk.org/tsttab/submit2.aspx?view=',
+    reportsBaseUrl: 'http://s1tsttabaps01/views/',
     sectionDescriptions: {
         stats: 'Graphs describing the medical register',
         uk: 'Maps describing the medical register',
@@ -16,7 +16,7 @@ var pagesObj = {
                 description: 'The Register Stats',
                 pageHeading: 'The Register',
                 pageSubheading: 'Key stats from the medical register',
-                url: 'TheRegisterv5/PRS1'
+                url: 'TheRegister_pub/PRS1?'
 
             }, {
                 pageId: 'PRS1_H',
@@ -107,7 +107,8 @@ var pagesObj = {
                 pageId: 'PFS1',
                 description: 'FTP Stats',
                 pageHeading: 'Fitness to practice',
-                pageSubheading: 'Key volumes by year'
+                pageSubheading: 'Key volumes by year', 
+                url: 'FitnesstoPractice_pub/PFS1'
             }, {
                 pageId: 'PFS2',
                 description: 'allegations',
