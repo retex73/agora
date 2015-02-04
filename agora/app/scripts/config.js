@@ -1,5 +1,7 @@
 var pagesObj = {
-    reportsBaseUrl: 'https://tstreports.gmc-uk.org/tsttab/submit2.aspx?view=',
+    reportsBaseUrl: 'http://s1tsttabaps01/views/', 
+    // reportsBaseUrl: 'https://public.tableausoftware.com/',    
+
     sectionDescriptions: {
         stats: 'Graphs describing the medical register',
         uk: 'Maps describing the medical register',
@@ -16,8 +18,8 @@ var pagesObj = {
                 description: 'The Register Stats',
                 pageHeading: 'The Register',
                 pageSubheading: 'Key stats from the medical register',
-                url: 'TheRegisterv5/PRS1'
-
+                url: 'TheRegister_pub/PRS1'                
+                // url: 'shared/RXR9Q6PPD?:display_count=yes'
             }, {
                 pageId: 'PRS1_H',
                 description: 'The Register over time',
