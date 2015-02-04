@@ -61,8 +61,4 @@ var agora = window.agora || {};
 
 	}; 
 
-})()
-
-
-
-
+})();
