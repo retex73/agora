@@ -11,16 +11,12 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	$scope.h1 = $routeParams.reportname;
 
+
+	$scope.showMegaBox = function() {
+		console.log('clicked on the mega menu'); 
+	}; 
+
 	var refreshScopeVars = function() {
-
-		// $scope.h1 = agora.vizfuncs.h1;
-		// $scope.h2 = agora.vizfuncs.h2;
-		// $scope.reportUrl = agora.vizfuncs.reportUrl;
-		// $scope.pages = agora.vizfuncs.pages;
-		// $scope.url = agora.vizfuncs.url;
-
-
-
 		$scope.$apply(function() {
 			$scope.h1 = agora.vizfuncs.h1;
 			$scope.h2 = agora.vizfuncs.h2;
