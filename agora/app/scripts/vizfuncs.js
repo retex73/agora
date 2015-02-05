@@ -136,39 +136,55 @@ var agora = window.agora || {};
 			mainWorkbook.getParametersAsync().then(onSuccess, onError);
 		},
 
+		counter: 0, 
+
 		_ventOnFilterChanged: function() {
+			// To stop Tableau iterating over each listener event, we implement a
+			// counter with a timeout. With the first iteration we set the counter to 1 
+			// and subsequently return if greater than 0. The timeout resets the counter; 
+			if(agora.vizfuncs.counter > 0) {
+				return; 
+			}
+
 			agora.vizfuncs._getFiltersAsync();
+			agora.vizfuncs.counter++; 
+
+			setTimeout(function(){ 
+				agora.vizfuncs.counter--; 
+			}, 3000);
+
+
 		},
 
+		history: [], 
 
+		filters: {},
 
 		_getFiltersAsync: function() {
-
-
+			delete agora.vizfuncs.filters;
+			agora.vizfuncs.filters = {};
 			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 			// get dashboard			
 			var activeSheet = mainWorkbook.getActiveSheet();
-
 			// get worksheets
 			var worksheets = activeSheet.getWorksheets();
 
 			var worksheet = worksheets[1];
 
-			werk = worksheet;
-
 			var onSuccess = function(filters) {
-				console.log(filters);
-				var outputText = "";
-				var selectedCategories = [];
-				// filter[0] = Category Filter
-				$.each(filters[0].getAppliedValues(), function(filter, i) {
-					// use .value property of each DataValue object
-					var str = i.value;
-					selectedCategories.push(str);
-				});
-				outputText = outputText + "Applied Values: " + selectedCategories.join(", ");
+				var filterName = filters[0].$2;
 
-				console.log(outputText);
+				$.each(filters, function(value, key) {
+					if (!agora.vizfuncs.filters.hasOwnProperty(key.$2)) {
+						agora.vizfuncs.filters[key.$2] = [];
+						$.each(key.getAppliedValues(), function(v, k) {							
+							agora.vizfuncs.filters[key.$2].push(k.formattedValue);
+						});
+					}
+
+				});
+
+				agora.vizfuncs.history.push(agora.vizfuncs.filters); 
 			};
 
 			var onError = function(err) {
@@ -176,7 +192,30 @@ var agora = window.agora || {};
 			}
 
 			worksheet.getFiltersAsync().then(onSuccess, onError);
-			// console.dir(worksheet); 
+		},
+
+
+		applyFilterAsync: function() {
+
+			// newSheet.applyFilterAsync("Gender", ["Woman"], "REPLACE"); 
+			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+			// get dashboard			
+			var activeSheet = mainWorkbook.getActiveSheet();
+			// get worksheets
+			var worksheets = activeSheet.getWorksheets();
+
+			var worksheet = worksheets[1];
+
+			
+			werk = worksheet; 
+
+			worksheet.applyFilterAsync("Gender", ["Female"], "REPLACE"); 
+			worksheet.applyFilterAsync("Ethnicity", ["Asian or Asian British"], "REPLACE"); 
+
+			
+		}, 
+
+		test: function() {
 
 		}
 

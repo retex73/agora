@@ -55,7 +55,7 @@ angular.module('agoraApp')
 
       var html = ''; 
       angular.forEach(reportSections, function(value, key){
-        // console.log('Key: ' + key); 
+        console.log('Key: ' + key); 
         html += "<li><a href='/#reports/" + group + "/" + key + "/report1'>" + key + "</a></li>"; 
       }); 
 
