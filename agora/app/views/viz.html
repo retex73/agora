@@ -174,7 +174,7 @@
 			</div>
 			<button data-toggle="tooltip" data-placement="bottom" title="Clear filters" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
 			<button data-toggle="tooltip" data-placement="bottom" title="View in fullscreen" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-fullscreen"></span></button>
-			<button data-toggle="tooltip" data-placement="bottom" title="Clear filters" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
+			
 
 		</div>
 	</div>
@@ -189,7 +189,7 @@
 <script>
 $(document).ready(function(){
 $(function () {
-$('[data-toggle="tooltip"]').tooltip()
+	$('[data-toggle="tooltip"]').tooltip({container: 'body'})
 })
 });
 </script>
