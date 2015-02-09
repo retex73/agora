@@ -7,7 +7,7 @@ var agora = window.agora || {};
 		getGroups: function() {
 			var groups = []; 
 			$.each(this.dataSrc.repGroup, function(index, value) {
-				groups.push(value.groupName); 
+				groups.push(value.groupName); 				
 			}); 
 
 			return groups; 
@@ -56,9 +56,22 @@ var agora = window.agora || {};
 			}); 
 
 			return results; 
-		} 
+		}, 
 
+		getReportStructure: function() {
+			var structure = {}; 
+			var groups = this.getGroups(); 
 
+			$.each(groups, function(key, value) {
+				// structure[value] = ["one", "two", "three"]; 
+				var pages = agora.reports.getPages(value); 
+				structure[value] = pages; 
+			}); 
+
+			return structure; 
+		}
 	}; 
+
+	groups = agora.reports.getReportStructure(); 
 
 })();

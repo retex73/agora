@@ -5,12 +5,13 @@
 			
 			<!-- <div ng-repeat="page in pages"> -->
 			<div ng-repeat="(key, value) in pages">
-				<div class="col-md-4">
+				<div class="col-xs-4">
 					
 					<div class="panel panel-default reports-box">
 						<div class=" hvr-border-fade">
 							<div class="panel-heading reports-box-title">
-								{{value.groupName}}
+								
+								<a ng-href="#/reports/{{value.groupName}}">{{value.groupName}}</a>
 							</div>
 							<div class="panel-body">
 								<div ng-bind-html="value.description" class="reports-box-description"></div>

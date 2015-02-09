@@ -14,29 +14,68 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Add your site or application content here -->
-<nav class="menu slide-menu-left">
-    <ul>
-        <li><button class="close-menu">&larr; Close</button></li>
-        <li><a href="#">Broccoli</a></li>
-        <li><a href="#">Tomato</a></li>
-        <li><a href="#">Cucumber</a></li>
-        <li><a href="#">Kale</a></li>
-        <li><a href="#">Celery</a></li>
+
+
+
+
+
+
+<nav id="slide-nav" ng-controller="NavCtrl" class="menu slide-menu-left">
+
+<div class="row" style="border: 1px solid green;">
+  <div class="col-xs-2">
+    
+    <ul class="no-bullets">
+      
+      <button class="btn btn-default close-menu"><span class="glyphicon glyphicon-backward"></span> Close</button>
     </ul>
-</nav>
+  </div>
+
+  <div class="col-xs-10"> 
+  <ul class="no-bullets">    
+    <li class="close-menu" ng-repeat="(key, value) in structure"><h3 class="nav-h3"><a ng-href="#/reports/{{key}}">{{key}}</a></h3>
+      <ul class="no-bullets"> 
+        <li class="close-menu" ng-repeat="(k, v) in value"><h4 class="nav-h4"><a ng-href="#/reports/{{key}}/{{k}}"> / {{k}}</a></h4></li>
+      </ul>
+    </li>
+  </ul>
+  </div>
+
+
+
+</div>
+
+
+
+</nav><!-- /push menu left -->
+
+
+<!-- <div ng-controller="NavCtrl">
+  <ul>
+    <li ng-repeat="(key, value) in structure">{{key}}
+      <ul> 
+        <li ng-repeat="(key, value) in value">{{key}}
+          <ul>
+            <li ng-repeat="(key, value) in value">{{value.description}}</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div> -->
+
 
 
 <div class="buttons">
-                <button class="nav-toggler toggle-slide-left">Slide Menu Left</button>
-                <button class="nav-toggler toggle-slide-right">Slide Menu Right</button>
-                <button class="nav-toggler toggle-slide-top">Slide Menu Top</button>
-                <button class="nav-toggler toggle-slide-bottom">Slide Menu Bottom</button><br>
-                <button class="nav-toggler toggle-push-left">Push Menu Left</button>
-                <button class="nav-toggler toggle-push-right">Push Menu Right</button>
-                <button class="nav-toggler toggle-push-top">Push Menu Top</button>
-                <button class="nav-toggler toggle-push-bottom">Push Menu Bottom</button>
-            </div><!-- /buttons -->
-    
+  <!-- <button class="nav-toggler toggle-slide-left">Slide Menu Left</button> -->
+
+<button class="nav-toggler toggle-slide-left btn btn-sm btn-default"><span class="glyphicon glyphicon-align-justify"></span></button>
+
+
+
+
+</div><!-- /buttons -->
+
     <div class="container-fluid">
       <!-- logo and banner -->
       <header>
@@ -47,6 +86,7 @@
           </div>
         </div>
       </header>
+
       <!-- navigation menu -->
       <div class="row">
         <!-- <div ng-include="'views/partials/nav.html'"></div> -->
@@ -74,7 +114,7 @@
     
     <!-- <div class="row custom-tier2-bootstrap-menu-spacer">&nbsp;</div> -->
     
-    <div class="row custom-tier2-bootstrap-menu-row">
+    <!-- <div class="row custom-tier2-bootstrap-menu-row">
       <nav ng-controller="NavCtrl" class="custom-tier2-bootstrap-menu-nav">
         <div id="custom-tier2-bootstrap-menu" class="navbar navbar-default " role="navigation">
           <div class="container-fluid">
@@ -93,10 +133,10 @@
           </div>
         </div>
       </nav>
-    </div>
+    </div> -->
 
     <!-- third tier nav --> 
-<div class="row custom-tier3-bootstrap-menu-row">
+<!-- <div class="row custom-tier3-bootstrap-menu-row">
       <nav ng-controller="NavCtrl" class="custom-tier3-bootstrap-menu-nav">
         <div id="custom-tier3-bootstrap-menu" class="navbar navbar-default " role="navigation">
           <div class="container-fluid">
@@ -108,14 +148,13 @@
               </button>
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
-              <ul class="nav navbar-nav navbar-left reportSections">
-                <!-- <li ng-repeat="(key, value) in reportSections" ng-model="key" ng-class="{ active: isActive('#/reports/{{key}}') }"><a href="/#reports/{{key}}">{{key}}</a></li> -->
+              <ul class="nav navbar-nav navbar-left reportSections">                
               </ul>
             </div>
           </div>
         </div>
       </nav>
-    </div>
+    </div> -->
 
 
 

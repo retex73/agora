@@ -10,24 +10,13 @@
 angular.module('agoraApp')
   .controller('NavCtrl', function($scope, $route, $parse, $templateCache, $location) {
 
-    
+    $scope.structure = agora.reports.getReportStructure(); 
 
     $scope.isActive = function(viewLocation) {
       var active = (viewLocation === "#" + $location.path());
 
       // var parts = window.location.pathname.split('/'); 
       var parts = $location.path().split('/'); 
-
-
-      // console.log($location.path());
-
-      // console.log(parts); 
-
-      // angular.forEach(parts, function(value, key) {
-      //   console.log(value); 
-
-      // }); 
-
       return active;
     };
 
