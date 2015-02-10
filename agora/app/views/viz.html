@@ -1,163 +1,32 @@
-<div class="row">
-	<div class="col-sm-8">
-		<!-- megamenu -->
-		<div id="mega" class="container">
-			<nav class="navbar">
-				<li class="dropdown mega-dropdown">	
 
 
 
-	<button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span></button>	
-
-					<ul class="dropdown-menu mega-dropdown-menu row">
-						<li class="col-sm-3">
-							<ul>
-								<li class="dropdown-header">The Register</li>
-								<div id="myCarousel" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<h4><small>Info about register</small></h4>
-										</div>
-									</div>
-									<!-- End Carousel Inner -->
-								</div>
-								<!-- /.carousel -->
-								<li class="divider"></li>
-								<li>Some text</li>
-							</li>
-						</ul>
-					</li>
+    
 
 
-					<li class="col-sm-3">
-						<ul>
-							<li class="dropdown-header">Revalidation</li>
-								<div id="myCarousel" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<h4><small>Info about Revalidation</small></h4>
-										</div>
-									</div>
-									<!-- End Carousel Inner -->
-								</div>
-								<!-- /.carousel -->
-								<li class="divider"></li>
-								<li>Some text</li>
-							</li>
-						</ul>
-					</li>
+  
 
 
 
-					<li class="col-sm-3">
-						<ul>
-							<li class="dropdown-header">FTP</li>
-								<div id="myCarousel" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<h4><small>Info about FTP</small></h4>
-										</div>
-									</div>
-									<!-- End Carousel Inner -->
-								</div>
-								<!-- /.carousel -->
-								<li class="divider"></li>
-								<li>Some text</li>
-							</li>
-						</ul>
-					</li>
-
-
-					<li class="col-sm-3">
-						<ul>
-							<li class="dropdown-header">Employers</li>
-								<div id="myCarousel" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<h4><small>Info about Employers</small></h4>
-										</div>
-									</div>
-									<!-- End Carousel Inner -->
-								</div>
-								<!-- /.carousel -->
-								<li class="divider"></li>
-								<li>Some text</li>
-							</li>
-						</ul>
-					</li>
-
-					<li class="col-sm-3">
-						<ul>
-							<li class="dropdown-header">Medical Schools</li>
-								<div id="myCarousel" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<h4><small>Medical Schools</small></h4>
-										</div>
-									</div>
-									<!-- End Carousel Inner -->
-								</div>
-								<!-- /.carousel -->
-								<li class="divider"></li>
-								<li>Some text</li>
-							</li>
-						</ul>
-					</li>
-
-					<li class="col-sm-3">
-						<ul>
-							<li class="dropdown-header">Royal Colleges</li>
-								<div id="myCarousel" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<h4><small>Info about Royal Colleges</small></h4>
-										</div>
-									</div>
-									<!-- End Carousel Inner -->
-								</div>
-								<!-- /.carousel -->
-								<li class="divider"></li>
-								<li>Some text</li>
-							</li>
-						</ul>
-					</li>
-
-
-					<li class="col-sm-3">
-						<ul>
-							<li class="dropdown-header">Deaneries</li>
-								<div id="myCarousel" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<h4><small>Info about Deaneries</small></h4>
-										</div>
-									</div>
-									<!-- End Carousel Inner -->
-								</div>
-								<!-- /.carousel -->
-								<li class="divider"></li>
-								<li>Some text</li>
-							</li>
-						</ul>
-					</li>
 
 
 
-				</ul>
-			</li>
-			
-			<!-- /.nav-collapse -->
-		</nav>
-	</div>
-	<!-- megamenu -->
-	
-	<h1 ng-model="h1">{{h1}}</h1>
+
+
+
+<div class="row breadcrumbs">
+	<div class="col-xs-9">
+		<button class="nav-toggler toggle-slide-left btn btn-sm btn-default">
+			<span class="glyphicon glyphicon-align-justify"></span>
+		</button>
+		<a ng-href="#/reports/{{breadCrumbs.id}}">{{breadCrumbs.id}}</a> 
+		/
+		<a ng-href="#/reports/{{breadCrumbs.id}}/{{breadCrumbs.report}}/report">{{breadCrumbs.report}}</a>
+	<!-- <h1 ng-model="h1">{{h1}}</h1> -->
 	<h2 ng-model="h2">{{h2}}</h2>
 </div>
-<div class="col-sm-4">
-	<div class="pull-right">
-		<p>&nbsp;</p>
-		<p>&nbsp;</p>
+<div class="col-xs-3" style="height:50px;">
+	<div class="pull-right">		
 		<div class="btn-group btn-group-sm" role="group" aria-label="viz actions">
 			<button data-toggle="tooltip" data-placement="bottom" title="Undo last action" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Undo</button>
 		</div>
@@ -182,7 +51,7 @@
 </div>
 <div class="row">
 <div class="md-col-12">
-	<div id="mainViz" style="min-height: 500px; border: 1px solid green;"></div>
+	<div id="mainViz" style="min-height: 500px;"></div>
 </div>
 </div>
 <!-- enable tooltips -->

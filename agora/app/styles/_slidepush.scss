@@ -63,7 +63,7 @@ section.toggle {
     z-index: 15;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.2);
 }
 /* ------------------------------------------------------------ *\
 |* ------------------------------------------------------------ *|
@@ -107,9 +107,20 @@ nav.menu {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
+    opacity: 0.9; 
 }
 
+.slide-nav-logo {
+    height: 100px; 
+    margin-top: 20px; 
+    margin-left: 30px; 
+    background-image: url('../images/logos/gmc_logo.gif');
+    background-repeat: no-repeat;
+}
 
+.slide-menu-left .no-bullets { 
+    margin-left: 10px; 
+}
 
 
 nav.menu ul {
@@ -118,8 +129,17 @@ nav.menu ul {
     padding: 0;
 }
 
+.shunt-up-15 {
+    margin-top: -15px; 
+}
 
-
+.slide-nav-section-one-divider {
+    border-bottom: 4px solid $gmc_dark_blue; 
+    width: 100%; 
+    height: 50px; 
+    position: fixed; 
+    margin-top: 49px; 
+}
 
 nav.menu a {
     font-weight: 300;

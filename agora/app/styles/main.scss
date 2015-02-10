@@ -13,6 +13,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 .gmc-container {
   min-height: 400px; 
+  // margin-top: -25px; 
+}
+
+
+.border-bottom {
+  border-bottom: 4px solid $gmc_dark_blue;  
+  margin-top: -25px; 
+
 }
 
 .browsehappy {

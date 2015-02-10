@@ -9,7 +9,12 @@
  */
 angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) {
 
-	$scope.h1 = $routeParams.reportname;
+	// $scope.h1 = $routeParams.reportname;
+
+	
+
+	$scope.breadCrumbs = $routeParams; 
+
 
 
 	$scope.showMegaBox = function() {
@@ -50,11 +55,14 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 		$scope.pages = result;
 		// console.log(result[0].pages[group][0].pageSubheading); 
+		$scope.h1 = result[0].pages[group][0].pageHeading;
 		$scope.h2 = result[0].pages[group][0].pageSubheading;
+
+		$routeParams.reportname = $scope.h1; 
 		return pagesObj.reportsBaseUrl + result[0].pages[group][0].url;
 	};
 
-	
+
 
 
 	// VizFuncs.setReportTitle('PRU1'); 
@@ -63,6 +71,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	agora.vizfuncs.renderViz($routeParams, $scope);
 	agora.vizfuncs.addEventListeners();
+	getReportUrl(); 
 	// VizFuncs.addEventListeners(); 
 
 	
