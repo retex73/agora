@@ -21,6 +21,10 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		console.log('clicked on the mega menu'); 
 	}; 
 
+	$scope.onBack = function() {
+		agora.vizfuncs.onBack(); 
+	}; 
+
 	var refreshScopeVars = function() {
 		$scope.$apply(function() {
 			$scope.h1 = agora.vizfuncs.h1;
@@ -29,7 +33,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 			$scope.pages = agora.vizfuncs.pages;
 			$scope.url = agora.vizfuncs.url;
 		});
-	}
+	}; 
 
 
 
@@ -72,12 +76,24 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	agora.vizfuncs.renderViz($routeParams, $scope);
 	agora.vizfuncs.addEventListeners();
 	getReportUrl(); 
+	
+	setTimeout(function(){
+		agora.vizfuncs.recordHistory(); 	
+	}, 5000); 
 	// VizFuncs.addEventListeners(); 
 
 	
 	Object.observe(agora.vizfuncs, function(changes){
 		console.log('changes'); 
 		refreshScopeVars(); 
+
+		if(agora.vizfuncs.customViewName <= 1) {
+			console.log('add disabed'); 
+			$("#undo").attr('disabled', 'disabled'); 
+		} else {
+			console.log('remove disabled')
+			$("#undo").removeAttr('disabled'); 
+		}
 	}); 
 
 
