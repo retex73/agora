@@ -11,19 +11,62 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	// $scope.h1 = $routeParams.reportname;
 
-	
-
-	$scope.breadCrumbs = $routeParams; 
 
 
+	$scope.breadCrumbs = $routeParams;
 
-	$scope.showMegaBox = function() {
-		console.log('clicked on the mega menu'); 
-	}; 
+	var slideNav = function() {
+
+		var body = document.body,
+			mask = document.createElement("div"),
+			toggleSlideLeft = document.querySelector(".toggle-slide-left"),			
+			activeNav;
+
+		mask.className = "mask";
+
+		/* hide active menu if mask is clicked */
+		mask.addEventListener("click", function() {
+			classie.remove(body, activeNav);
+			activeNav = "";
+			document.body.removeChild(mask);
+		});
+
+		/* hide active menu if close menu button is clicked */
+		[].slice.call(document.querySelectorAll(".close-menu")).forEach(function(el, i) {
+			el.addEventListener("click", function() {
+				classie.remove(body, activeNav);
+				activeNav = "";
+				document.body.removeChild(mask);
+			});
+		});
+
+		$(document).ready(function() {
+			$(".close-menu").on("click", function() {
+				activeNav = "sml-open";
+				classie.remove(body, activeNav);
+				activeNav = "";
+				// document.body.removeChild(mask);
+				
+				$(".mask").remove(); 
+			});
+
+			setTimeout(function() {
+				$(".toggle-slide-left").on("click", function() {
+					classie.add(body, "sml-open");
+					document.body.appendChild(mask);
+					activeNav = "sml-open";
+				});
+
+			}, 250);
+		});
+	};
+
+
+	slideNav(); 
 
 	$scope.onBack = function() {
-		agora.vizfuncs.onBack(); 
-	}; 
+		agora.vizfuncs.onBack();
+	};
 
 	var refreshScopeVars = function() {
 		$scope.$apply(function() {
@@ -33,17 +76,13 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 			$scope.pages = agora.vizfuncs.pages;
 			$scope.url = agora.vizfuncs.url;
 		});
-	}; 
+	};
 
 
-
-	// agora.vizfuncs.testSetH1('ABCDE'); 
-
-	// refreshPageHeadings(); 
 
 
 	var getReportUrl = function() {
-
+		console.log('The get report url function is called'); 
 		var group = $routeParams.report,
 			cName = $routeParams.id;
 
@@ -62,10 +101,9 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		$scope.h1 = result[0].pages[group][0].pageHeading;
 		$scope.h2 = result[0].pages[group][0].pageSubheading;
 
-		$routeParams.reportname = $scope.h1; 
+		$routeParams.reportname = $scope.h1;
 		return pagesObj.reportsBaseUrl + result[0].pages[group][0].url;
 	};
-
 
 
 
@@ -75,26 +113,39 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	agora.vizfuncs.renderViz($routeParams, $scope);
 	agora.vizfuncs.addEventListeners();
-	getReportUrl(); 
-	
-	setTimeout(function(){
-		agora.vizfuncs.recordHistory(); 	
-	}, 5000); 
+	getReportUrl();
+
+	setTimeout(function() {
+		agora.vizfuncs.recordHistory();
+	}, 5000);
 	// VizFuncs.addEventListeners(); 
 
-	
-	Object.observe(agora.vizfuncs, function(changes){
-		console.log('changes'); 
-		refreshScopeVars(); 
 
-		if(agora.vizfuncs.customViewName <= 1) {
-			console.log('add disabed'); 
-			$("#undo").attr('disabled', 'disabled'); 
+	Object.observe(agora.vizfuncs, function(changes) {
+		console.log('changes');
+		refreshScopeVars();
+
+		if (agora.vizfuncs.customViewName <= 1) {
+			console.log('add disabed');
+			$("#undo").attr('disabled', 'disabled');
 		} else {
 			console.log('remove disabled')
-			$("#undo").removeAttr('disabled'); 
+			$("#undo").removeAttr('disabled');
 		}
-	}); 
+	});
 
 
 });
+
+
+
+/**
+ * The nav stuff
+ */
+// (function( window ){
+
+// 'use strict';
+
+
+
+// })( window );

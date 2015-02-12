@@ -15,11 +15,13 @@ var agora = window.agora || {};
 		history: [], 
 		filters: {},
 		customViewName: 0, 
+		counter: 0, 
 		customUrl: '', 		
 		
 
 		renderViz: function(routeParams) {
 
+			this.customViewName = 0; 
 			this.routeParams = routeParams;
 			this.getReportUrl(routeParams);
 			var mainVizDiv = $("#mainViz");
@@ -43,12 +45,14 @@ var agora = window.agora || {};
 			
 		},
 
-		
-
-
+		/**
+		 * TO DO 
+		 * @return {[type]} [description]
+		 */
 		onResize: function() {
 
 		},
+
 
 		getVizOptions: function() {
 
@@ -62,6 +66,11 @@ var agora = window.agora || {};
 			agora.vizfuncs.vizParams.push(histObj); 
 		},
 
+		/**
+		 * Looks up the report details based on the url parameters
+		 * and sets the page's h1 and h2 attributes
+		 * @param  {[object]} routeParams [description]		 
+		 */
 		getReportUrl: function(routeParams) {
 			var group = routeParams.report,
 				cName = routeParams.id;
@@ -80,6 +89,10 @@ var agora = window.agora || {};
 			}
 		},
 
+		/**
+		 * Sets the report title 
+		 * @param {[string]} reportName [description]
+		 */
 		setReportTitle: function(reportName) {
 			console.log(reportName);
 			this.getReportUrl(this.routeParams);
@@ -110,69 +123,39 @@ var agora = window.agora || {};
 		},
 
 
-
+		/**
+		 * What to do when the tabs switch		 
+		 */
 		_ventOnTabSwitch: function() {
 			var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
 			agora.vizfuncs.setReportTitle(tabName);
 			agora.vizfuncs.recordHistory(); 
 		},
 
+		/**
+		 * What to do when the parameters change		 
+		 */
 		_ventOnParameterChanged: function() {
-			console.log('parameter changed');
+			// Save the current state to history
 			agora.vizfuncs.recordHistory(); 
 			return; 
 			agora.vizfuncs._getParametersAsync();
 		},
 
-		_getParametersAsync: function() {
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 
-			var onSuccess = function(params) {
-
-				var paramNames = [];
-				var paramsArr = [];
-				var histObj = {};  
-				$.each(params, function(index, value) {
-				
-					// console.log(value._impl.$1); 
-					// console.log(params.get(value._impl.$1).getCurrentValue()); 
-					var key = value._impl.$1;
-					var value = params.get(value._impl.$1).getCurrentValue();
-					// agora.vizfuncs.setVizParams(key, value.value);
-					// console.log(value.formattedValue); 
-					
-					console.log(value); 
-					histObj[key] = value; 
-					paramsArr.push(histObj); 
-				});
-
-				agora.vizfuncs.vizParams.push(params); 
-				// console.log(agora.vizfuncs.getVizOptions());
-
-			};
-
-			var onError = function(err) {
-				console.log('error!!!');
-			};
-
-			mainWorkbook.getParametersAsync().then(onSuccess, onError);
-		},
-
-		counter: 0, 
-
+		
+		/**
+		 * What to do when the filters change
+		 * @return {[type]} [description]
+		 */
 		_ventOnFilterChanged: function() {
-
-
-
-
 			// To stop Tableau iterating over each listener event, we implement a
 			// counter with a timeout. With the first iteration we set the counter to 1 
 			// and subsequently return if greater than 0. The timeout resets the counter; 
 			if(agora.vizfuncs.counter > 0) {
 				return; 
 			}
-
-			console.log('filter changed'); 
+			// Save the current state to history
 			agora.vizfuncs.recordHistory(); 
 			
 			// agora.vizfuncs._getFiltersAsync();
@@ -185,115 +168,61 @@ var agora = window.agora || {};
 
 		},
 
-
-
-		_getFiltersAsync: function() {
-			delete agora.vizfuncs.filters;
-			agora.vizfuncs.filters = {};
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
-			// get dashboard			
-			var activeSheet = mainWorkbook.getActiveSheet();
-			// get worksheets
-			var worksheets = activeSheet.getWorksheets();
-
-			var worksheet = worksheets[1];
-
-			var onSuccess = function(filters) {
-				var filterName = filters[0].$2;
-
-				$.each(filters, function(value, key) {
-					if (!agora.vizfuncs.filters.hasOwnProperty(key.$2)) {
-						agora.vizfuncs.filters[key.$2] = [];
-						$.each(key.getAppliedValues(), function(v, k) {							
-							agora.vizfuncs.filters[key.$2].push(k.formattedValue);
-						});
-					}
-
-				});
-
-				agora.vizfuncs.history.push(agora.vizfuncs.filters); 
-			};
-
-			var onError = function(err) {
-				console.log('error!!!');
-			}
-
-			worksheet.getFiltersAsync().then(onSuccess, onError);
-		},
-
-
-		applyFilterAsync: function() {
-
-			// newSheet.applyFilterAsync("Gender", ["Woman"], "REPLACE"); 
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
-			// get dashboard			
-			var activeSheet = mainWorkbook.getActiveSheet();
-			// get worksheets
-			var worksheets = activeSheet.getWorksheets();
-
-			var worksheet = worksheets[1];
-
-			
-			werk = worksheet; 
-
-			worksheet.applyFilterAsync("Gender", ["Female"], "REPLACE"); 
-			worksheet.applyFilterAsync("Ethnicity", ["Asian or Asian British"], "REPLACE"); 
-
-			
-		}, 
-
-		getHistory: function(i) {
-			var params = this.vizParams[i]; 
-
-		}, 
-
 		// Called on param or filter change, or tab change maybe??
-		recordHistory: function() {
-			console.log('recording history'); 							
+		recordHistory: function() {								
 			var that = agora.vizfuncs; 
-			var customName = that.createCustomViewName().toString(); 
 
-			that.saveCustomView(customName); 			
+			// var customName = that.createCustomViewName().toString(); 
+
+			var customName = that.customViewName.toString(); 
+			that.saveCustomView(customName);
+			// increment the value
+			that.customViewName++; 
 		}, 
 
 		onBack: function() {			
 			var that = agora.vizfuncs;
-			var viewName = that.getCustomViewName(); 
+			// var viewName = that.getCustomViewName(); 
+			// Decrement viewname
+			that.customViewName--; 
 
-			if(viewName <= 0) {
+			if(that.customViewName <= -0) {
 				console.log('no more history'); 
 				return; 
 			}
-			console.log('View Name: ' + viewName); 
+			console.log('View Name: ' + that.customViewName); 
 			
-			that.showCustomView(viewName.toString()); 
+			that.showCustomView(that.customViewName.toString()); 
 			// Remove previous custom view from server
 			that.removeCustomView(that.customViewName); 
-			// Decrement custom name
-			that.customViewName--; 
+			
 		}, 
 
 		// Should incorporate a guid but because I want to manually clean 
 		// the custom views, not yet impletmented
 		createCustomViewName: function() {
 			var customName = this.customViewName; 
+			console.log('current name: ' + customName); 
 			this.customViewName++; 
+			console.log('after update name: ' + customName); 
+			console.log('updated global name: ' + this.customViewName); 
 			return customName; 
 		}, 
 
 		// As this will be called on back button, 
 		// we should decrement the view name
 		getCustomViewName: function() {
-			var that = agora.vizfuncs; 
-
-			return that.customViewName - 1; 			
+			var that = agora.vizfuncs; 			
+			
+			// return that.customViewName -1; 
+			return that.customViewName; 
 		}, 
 
 		saveCustomView: function(name) {
 			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook(); 			
 
 			var onSuccess = function(view) {
-				console.log('saving custom view'); 
+				
 				newCustomView = view; 
 			}; 
 
@@ -305,9 +234,11 @@ var agora = window.agora || {};
 		}, 
 
 		showCustomView: function(name) {
+
+			console.log('Showing: ' + name); 
 			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook(); 
 
-			mainWorkbook.showCustomViewAsync(name); 
+			mainWorkbook.showCustomViewAsync(name.toString()).then(onSuccess, onError); 
 		}, 
 
 		generateLink: function() {

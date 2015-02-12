@@ -865,7 +865,7 @@ function saveAsync() {
 function setAdvertised() {
 
     // Allows other people to see this custom view   
-    newCustomView.setAdvertised(true);
+    newCustomView.setAdvertised(true);                                                                                                                                                                                                                                                                                                              
     //Re-Save
     newCustomView.saveAsync();
 }
