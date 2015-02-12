@@ -54,12 +54,13 @@
     <!-- logo and banner -->
     <header>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12">          
           <div class="pull-right strapline">Working with doctors Working for patients</div>
           
           <a href="#/">
             <div class="gmc-logo-large">
-              &nbsp; 
+              <!-- &nbsp;  -->
+              <img ng-src="/images/logos/gmc_logo.gif" style="width:50px;"></img>
             </div>
           </a>
 
@@ -72,18 +73,19 @@
       <nav ng-controller="NavCtrl" class="custom-bootstrap-menu-nav">
         <div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
           <div class="container-fluid border-bottom">
-            <div class="navbar-header"><!-- <a class="navbar-brand" href="#">GMC Logo</a> -->
+            <!-- <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span><span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-          </div>
-          <div class="collapse navbar-collapse navbar-menubuilder">
+          </div> -->
+          <!-- <div class="collapse navbar-collapse navbar-menubuilder"> -->
+          <div class="navbar-menubuilder">
             <ul class="nav navbar-nav navbar-right">
-              <li ng-click="toggleTier('hide', '.custom-tier2-bootstrap-menu-nav')" ng-class="{ active: isActive('#/') }"><a href="#/">Home</a></li>
-              <li ng-click="toggleTier('show', '.custom-tier2-bootstrap-menu-nav')" ng-class="{ active: isActive('#/reports') }"><a href="#/reports">Reports</a></li>
-              <li ng-click="toggleTier('hide', '.custom-tier2-bootstrap-menu-nav')" id="test" ng-class="{ active: isActive('#/about') }"><a href="#/about">About</a></li>
+              <li ng-class="{ active: isActive('#/') }"><a href="#/">Home</a></li>
+              <li ng-class="{ active: isActive('#/reports') }"><a href="#/reports">Reports</a></li>
+              <li ng-class="{ active: isActive('#/about') }"><a href="#/about">About</a></li>
             </ul>
           </div>
         </div>
@@ -91,49 +93,7 @@
     </nav>
   </div>
   
-  <!-- <div class="row custom-tier2-bootstrap-menu-spacer">&nbsp;</div> -->
   
-  <!-- <div class="row custom-tier2-bootstrap-menu-row">
-    <nav ng-controller="NavCtrl" class="custom-tier2-bootstrap-menu-nav">
-      <div id="custom-tier2-bootstrap-menu" class="navbar navbar-default " role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span><span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse navbar-menubuilder">
-            <ul class="nav navbar-nav navbar-left">
-              <li ng-repeat="group in groups" ng-click="reportSelect(group); toggleTier('show', '.custom-tier3-bootstrap-menu-nav')" ng-class="{ active: isActive('#/reports/{{group}}') }"><a href="/#reports/{{group}}">{{group}}</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div> -->
-  <!-- third tier nav -->
-  <!-- <div class="row custom-tier3-bootstrap-menu-row">
-    <nav ng-controller="NavCtrl" class="custom-tier3-bootstrap-menu-nav">
-      <div id="custom-tier3-bootstrap-menu" class="navbar navbar-default " role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span><span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse navbar-menubuilder">
-            <ul class="nav navbar-nav navbar-left reportSections">
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div> -->
-  <!-- end of nav -->
 
   <!-- Main body content --> 
   <div ng-view="" class="gmc-container"></div>

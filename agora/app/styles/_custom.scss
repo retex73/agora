@@ -17,6 +17,7 @@ p, div {
     font-family: 'Tahoma';
 }
 
+
 .container-fluid {
     max-width: 1200px; 
 }
@@ -74,18 +75,35 @@ p, div {
 .gmc-logo-large {
 	height: 70px; 
 	width: 84px;
-	background-image: url('../images/logos/gmc_logo.gif');
+	// background-image: url('../images/logos/gmc_logo.gif');
 	background-repeat: no-repeat;
+    margin-top: -15px; 
 	// margin-bottom: 23px;
 	// margin-left: 23px;     
 }
 
 .strapline {
-	font-size: 18px;
+	// font-size: 18px;
+    font-size: 2.5vw; 
 	color: $gmc_light_blue;
 	padding-top: 10px;
-	margin-right: 23px; 
+	
 }
+
+@media screen and (min-width: 960px) {
+    .strapline {
+        padding-top: 0px; 
+        font-size: 18px; 
+    }
+}
+
+// @media screen and (max-width: 500px) {
+//     .strapline {
+//         font-size: 9px;  
+//     }
+// }
+
+
 
 .purple_bottom {
 	border-bottom: 8px solid $gmc_purple !important;

@@ -1,3 +1,7 @@
+
+// Break the nav to mobile version at 300px width
+$grid-float-breakpoint: 300px; 
+
 @import "_custom.scss"; 
 @import "_slidepush.scss"; 
 @import "_footer.scss"; 
@@ -10,6 +14,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+
+
+
+
 
 .gmc-container {
   min-height: 400px; 
