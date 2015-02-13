@@ -118,3 +118,43 @@ body {
     border-bottom: 0;
   }
 }
+
+
+.bg-img-home {  
+  background-image: url('/images/surgeon.png'); 
+  background-size: 125vw 107vw; 
+  background-repeat: no-repeat;
+  background-position: right; 
+  height: 300px; 
+}
+
+.image-text {
+   
+  height: 300px;
+  width: 100vw;
+  margin-top: -20px;
+  margin-left: -20px;
+
+  background: rgba(215,239,252,1);
+background: -moz-linear-gradient(left, rgba(215,239,252,1) 0%, rgba(215,239,252,0.9) 60%, rgba(215,239,252,0.88) 61%, rgba(39,64,230,0.02) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(215,239,252,1)), color-stop(60%, rgba(215,239,252,0.9)), color-stop(61%, rgba(215,239,252,0.88)), color-stop(100%, rgba(39,64,230,0.02)));
+background: -webkit-linear-gradient(left, rgba(215,239,252,1) 0%, rgba(215,239,252,0.9) 60%, rgba(215,239,252,0.88) 61%, rgba(39,64,230,0.02) 100%);
+background: -o-linear-gradient(left, rgba(215,239,252,1) 0%, rgba(215,239,252,0.9) 60%, rgba(215,239,252,0.88) 61%, rgba(39,64,230,0.02) 100%);
+background: -ms-linear-gradient(left, rgba(215,239,252,1) 0%, rgba(215,239,252,0.9) 60%, rgba(215,239,252,0.88) 61%, rgba(39,64,230,0.02) 100%);
+background: linear-gradient(to right, rgba(215,239,252,1) 0%, rgba(215,239,252,0.9) 60%, rgba(215,239,252,0.88) 61%, rgba(39,64,230,0.02) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#2740e6', GradientType=1 );
+}
+
+.homepage-introduction-text {
+  width: 60%; 
+  padding-left: 20px; 
+
+}
+
+.homepage-introduction-text h3 {
+  color: $gmc_purple; 
+  padding-top: 20px; 
+}
+
+
+// 222, 221, 223

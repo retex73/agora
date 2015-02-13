@@ -55,6 +55,9 @@ $navHeight:30px;
     border: none; 
     padding: 0px; 
 }
+
+
+
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
     color: rgba(0, 55, 123, 1);
     background-color: rgba(255, 255, 255, 1);
@@ -64,7 +67,9 @@ $navHeight:30px;
     -webkit-transition:color 120ms ease-out, background 120ms ease-in;
     /* ...and now override with proper CSS property */
     transition:color 120ms ease-out, background 120ms ease-in;
+    border-radius: 0 0 4px 4px; 
 }
+
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
     color: rgba(48, 165, 190, 1);
