@@ -1,12 +1,20 @@
 .navbar-bottom {
-	border-radius: 1px !important; 
-	// min-height: 300px;
-	// margin-top: 100px;
-	background-color: #4C4C4C;
 	
-	// padding-top: 35px;
-	color:#FFFFFF;
 	font-size: 11px; 
-	margin-left: -15px;
-	margin-right: -15px;  
+	margin-left: -20px;
+	margin-right: -20px;  
+	border-top: 1px solid $gmc_light_grey !important; 
+}
+
+.footer-links {
+	color: $gmc_dark_blue; 
+	font-weight: bold; 
+}
+
+
+
+.footer-links li {
+	display: inline;
+	list-style-type: none;
+	padding-right: 20px;
 }
