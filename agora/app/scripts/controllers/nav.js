@@ -12,13 +12,23 @@ angular.module('agoraApp')
 
     $scope.structure = agora.reports.getReportStructure(); 
 
-    $scope.isActive = function(viewLocation) {
-      var active = (viewLocation === "#" + $location.path());
 
-      // var parts = window.location.pathname.split('/'); 
-      var parts = $location.path().split('/'); 
-      return active;
+    
+
+    $scope.isActive = function(viewLocation) {
+
+      var parts = $location.path().split('/'), 
+      mainPart = "#/" + parts[1];      
+
+      return viewLocation === mainPart; 
     };
+
+
+
+
+
+
+
 
     $scope.toggleTier = function(action, selector) {
       if (action == 'show') {
@@ -82,3 +92,7 @@ angular.module('agoraApp')
     $scope.groups = agora.reports.getGroups(); 
 
   });
+
+
+
+
