@@ -20,8 +20,7 @@
 			<span class="glyphicon glyphicon-align-justify"></span>
 		</button>
 		<a ng-href="#/reports/{{breadCrumbs.id}}">{{breadCrumbs.id}}</a> 
-		/
-		<a ng-href="#/reports/{{breadCrumbs.id}}/{{breadCrumbs.report}}/report">{{breadCrumbs.report}}</a>
+		/ {{breadCrumbs.report}}
 	<!-- <h1 ng-model="h1">{{h1}}</h1> -->
 	<h2 ng-model="h2">{{h2}}</h2>
 </div>
@@ -43,15 +42,13 @@
 			</div>
 			<button data-toggle="tooltip" data-placement="bottom" title="Clear filters" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
 			<button data-toggle="tooltip" data-placement="bottom" title="View in fullscreen" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-fullscreen"></span></button>
-			
-
 		</div>
 	</div>
 </div>
 </div>
 <div class="row">
 <div class="md-col-12">
-	<div id="mainViz" style="min-height: 500px;"></div>
+	<div id="mainViz"></div>
 </div>
 </div>
 <!-- enable tooltips -->

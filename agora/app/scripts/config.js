@@ -102,65 +102,22 @@ var pagesObj = {
         }
 
     }, {
-        groupName: 'FTP',
+        groupName: 'Ftp',
         description: 'At the GMC we maintain the Fitness To Practice. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
             stats: [{
                 pageId: 'PFS1',
                 description: 'FTP Stats',
                 pageHeading: 'Fitness to practice',
-                pageSubheading: 'Key volumes by year'
-            }, {
-                pageId: 'PFS2',
-                description: 'allegations',
-                pageHeading: 'Fitness to practice',
-                pageSubheading: 'Volumes of allegations'
-            }, {
-                pageId: 'PFS3',
-                description: 'Allegations mapped',
-                pageHeading: 'Fitness to practice',
-                pageSubheading: 'Volumes of Allegations'
-            }, {
-                pageId: 'PFS4',
-                description: 'Complaints',
-                pageHeading: 'FTP-Complaints and Referrals',
-                pageSubheading: 'Complaints/Referrals (by doctor) received'
-            }, {
-                pageId: 'PFS4_H',
-                description: 'Complaints over time',
-                pageHeading: 'FTP-Complaints and Referrals',
-                pageSubheading: 'Complaints/Referrals (by doctor) received'
-            }, {
-                pageId: 'PFS5',
-                description: 'Sanctions',
-                pageHeading: 'FTP-Sanctions',
-                pageSubheading: 'FTP sanctions imposed'
-            }, {
-                pageId: 'PFS5_H',
-                description: 'Sanctions over time',
-                pageHeading: 'FTP-Sanctions',
-                pageSubheading: 'FTP sanctions imposed over time'
+                pageSubheading: 'Key volumes by year',
+                url: 'FitnesstoPractice_pub/PFS1'
+
             }],
             uk: [{
                 pageId: 'PFU1',
                 description: 'FTP UK Map',
                 pageHeading: 'FTP-UK Map',
                 pageSubheading: 'Current Designated Body of doctors with current sanctions'
-            }, {
-                pageId: 'PFU2',
-                description: 'FTP UK Map by % DB pop ',
-                pageHeading: 'FTP-UK Map',
-                pageSubheading: 'Current Designated Body of doctors with current sanctions by % DB population'
-            }, {
-                pageId: 'PFU3',
-                description: 'FTP UK Map Uni Locations',
-                pageHeading: 'FTP-UK Map',
-                pageSubheading: 'PMQ University of doctors with current sanctions'
-            }, {
-                pageId: 'PFU4',
-                description: 'FTP UK Map Uni Locations by % pop',
-                pageHeading: 'FTP-UK Map',
-                pageSubheading: 'PMQ University of doctors with current sanctions, considering Uni size'
             }],
             world: [{
                 pageId: 'PFW1',

@@ -105,6 +105,7 @@ $navHeight:30px;
 .breadcrumbs {    
     font-weight: bold; 
     text-transform: capitalize; 
+
     a {
         color: $gmc_dark_blue;         
     }
@@ -124,8 +125,12 @@ $navHeight:30px;
 .breadcrumbs .pull-right {
     position: absolute; 
     bottom: 0; 
+    right: 0; 
 }
 
+.breadcrumbs {
+    margin-top: -40px; 
+}
 
 
 
