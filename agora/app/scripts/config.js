@@ -1,5 +1,7 @@
 var pagesObj = {
     reportsBaseUrl: 'http://s1tsttabaps01/views/', 
+    //http://s1prdtabaps01/views/TheRegister_pub/PRS1
+
     // reportsBaseUrl: 'https://public.tableausoftware.com/',    
 
     sectionDescriptions: {
@@ -102,7 +104,7 @@ var pagesObj = {
         }
 
     }, {
-        groupName: 'Ftp',
+        groupName: 'Fitness to practice',
         description: 'At the GMC we maintain the Fitness To Practice. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
             stats: [{

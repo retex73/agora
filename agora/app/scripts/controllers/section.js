@@ -10,9 +10,11 @@
 angular.module('agoraApp')
   .controller('SectionCtrl', function($scope, $route, $parse, $location) {
 
-    // console.log($route.current.params); 
+    console.log($route.current.params); 
 
     $scope.sectionName = agora.reports.sanitizeCategoryName($route.current.params.id);
+
+    console.log($scope.sectionName); 
 
     $scope.pages = agora.reports.getPages($route.current.params.id);
 

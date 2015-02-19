@@ -81,8 +81,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 
 
-	var getReportUrl = function() {
-		console.log('The get report url function is called'); 
+	var getReportUrl = function() {		
 		var group = $routeParams.report,
 			cName = $routeParams.id;
 
@@ -113,7 +112,8 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	agora.vizfuncs.renderViz($routeParams, $scope);
 	agora.vizfuncs.addEventListeners();
-	getReportUrl();
+	// getReportUrl();
+	agora.vizfuncs.getReportUrl($routeParams); 
 
 	setTimeout(function() {
 		agora.vizfuncs.recordHistory();
@@ -122,16 +122,18 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 
 	Object.observe(agora.vizfuncs, function(changes) {
-		console.log('changes');
+		// console.log('changed');  
+		// var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
+		// agora.vizfuncs.setReportTitle(tabName);
+		
 		refreshScopeVars();
 
-		if (agora.vizfuncs.customViewName <= 1) {
-			console.log('add disabed');
-			$("#undo").attr('disabled', 'disabled');
-		} else {
-			console.log('remove disabled')
-			$("#undo").removeAttr('disabled');
-		}
+		// if (agora.vizfuncs.customViewName <= 1) {
+			
+		// 	$("#undo").attr('disabled', 'disabled');
+		// } else {			
+		// 	$("#undo").removeAttr('disabled');
+		// }
 	});
 
 
