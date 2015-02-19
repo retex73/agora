@@ -21,6 +21,7 @@
 <!-- Download button group -->
 
 <div class="btn-group btn-group-sm">
+<button id="shareData" data-toggle="tooltip" data-placement="bottom" title="Share" class="btn btn-mini btn-default"><span class="glyphicon glyphicon-share"></span></button>
   <button data-toggle="tooltip" data-placement="bottom" title="Download this report" type="button" class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span></button>
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
     <span class="caret"></span>
@@ -33,6 +34,8 @@
     <li class="divider"></li>
     <li><a id="downloadPdf" href="#">PDF</a></li>
   </ul>
+
+
 </div>
 
 
@@ -79,6 +82,10 @@ $(function () {
 		e.preventDefault(); 
 		
 		agora.vizfuncs.showExportPDFDialog(); 
+	}); 
+
+	$("#shareData").on("click", function() {
+		agora.vizfuncs.showShareDialog(); 
 	}); 
 
 });
