@@ -60,6 +60,32 @@ var agora = window.agora || {};
 
 		},
 
+		showDownloadWorkbookDialog: function() {
+			agora.vizfuncs.mainViz.showDownloadWorkbookDialog(); 
+		}, 
+
+		showExportPDFDialog: function() {
+			agora.vizfuncs.mainViz.showExportPDFDialog(); 
+		}, 
+
+		showShareDialog: function() {
+			agora.vizfuncs.mainViz.showShareDialog(); 
+		}, 
+
+		showExportDataDialog: function() {
+			agora.vizfuncs.mainViz.showExportDataDialog(); 
+		}, 
+
+		showExportImageDialog: function() {
+			agora.vizfuncs.mainViz.showExportImageDialog(); 
+		}, 
+
+		showExportCrossTabDialog: function() {
+			agora.vizfuncs.mainViz.showExportCrossTabDialog(); 
+		}, 
+		
+
+
 
 		getVizOptions: function() {
 

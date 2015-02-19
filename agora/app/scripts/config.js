@@ -1,8 +1,9 @@
 var pagesObj = {
-    reportsBaseUrl: 'http://s1tsttabaps01/views/', 
+    // reportsBaseUrl: 'http://s1tsttabaps01/views/', 
     //http://s1prdtabaps01/views/TheRegister_pub/PRS1
 
     // reportsBaseUrl: 'https://public.tableausoftware.com/',    
+    reportsBaseUrl: 'https://public.tableausoftware.com/views/', 
 
     sectionDescriptions: {
         stats: 'Graphs describing the medical register',
@@ -20,8 +21,9 @@ var pagesObj = {
                 description: 'The Register Stats',
                 pageHeading: 'The Register',
                 pageSubheading: 'Key stats from the medical register',
-                url: 'TheRegister_pub/PRS1'                
+                // url: 'TheRegister_pub/PRS1'                
                 // url: 'shared/RXR9Q6PPD?:display_count=yes'
+                url: 'USForestFires/Dashboard1?:embed=y&:display_count=yes&:loadOrderID=0'
             }, {
                 pageId: 'PRS1_H',
                 description: 'The Register over time',

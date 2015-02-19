@@ -137,6 +137,22 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	});
 
 
+	$scope.downloadData = function() {
+		
+		console.log('downloading data'); 
+		agora.vizfuncs.downloadData(); 
+	}; 
+
+	$scope.downloadImage = function() {
+		console.log('downloading image'); 
+		agora.vizfuncs.downloadImage(); 
+	}; 
+
+	$scope.downloadPdf = function() {
+		console.log('downloading pdf'); 
+		agora.vizfuncs.downloadPdf(); 
+	}; 
+
 });
 
 
