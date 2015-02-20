@@ -56,8 +56,12 @@ var agora = window.agora || {};
 		 * TO DO
 		 * @return {[type]} [description]
 		 */
-		onResize: function() {
+		resizeViz: function() {			
+			var height = $("#mainViz").height(); 
+			var width = $("#mainViz").width(); 
 
+   	 		agora.vizfuncs.mainViz.setFrameSize(width, height); 
+   	 		console.log(agora.vizfuncs.mainViz.getIsHidden()); 
 		},
 
 		showDownloadWorkbookDialog: function() {
