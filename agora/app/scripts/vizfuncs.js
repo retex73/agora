@@ -84,8 +84,9 @@ var agora = window.agora || {};
 			agora.vizfuncs.mainViz.showExportCrossTabDialog(); 
 		}, 
 		
-
-
+		revertAll: function() {						
+			agora.vizfuncs.mainViz.revertAllAsync();
+		}, 
 
 		getVizOptions: function() {
 
@@ -274,12 +275,6 @@ var agora = window.agora || {};
 				// console.log(v.values); 
 				worksheet.applyFilterAsync(v.name, v.values, "REPLACE"); 
 			});
-
-
-					
-    
-
-
 		},
 
 
