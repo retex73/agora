@@ -8,6 +8,7 @@ $gmc_purple: #3e2782;
 $gmc_dark_blue: #00377b; 
 $gmc_light_blue: #30a5be; 
 $gmc_light_grey: #edece4; 
+$font_colour: #333; 
 
 
 h1, h2, h3, h4, h5, h6 {
@@ -15,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 p, div {
     font-family: 'Tahoma';
-    color: #333; 
+    color: $font_colour; 
 }
 
 

@@ -16,40 +16,6 @@
     <![endif]-->
     <!-- Add your site or application content here -->
 
-    <!-- /push menu left -->
-    <nav id="slide-nav" ng-controller="NavCtrl" class="menu slide-menu-left">
-    <div class="row">
-      <div class="col-xs-12 slide-nav-logo">
-        &nbsp;
-      </div>
-      <div class="slide-nav-section-one-divider" style="border-bottom: 4px solid blue;"></div>
-    </div>
-
-      <div class="row">
-        <div class="col-xs-2">
-          
-          <ul class="no-bullets">
-            
-            <button class="btn btn-default close-menu">
-              <span class="glyphicon glyphicon-remove-sign"></span>
-              
-            </button>
-          </ul>
-        </div>
-        <div class="col-xs-10 shunt-up-15">
-          <ul>
-            <li class="close-menu" ng-repeat="(key, value) in structure"><h3 class="nav-h3"><a ng-href="#/reports/{{key}}">{{key}}</a></h3>
-            <ul class="no-bullets">
-              <li class="close-menu" ng-repeat="(k, v) in value"><h4 class="nav-h4"><a ng-href="#/reports/{{key}}/{{k}}"> / {{k}}</a></h4></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  
-
 
   <div class="container-fluid">
     <!-- logo and banner -->
@@ -73,26 +39,36 @@
       <!-- <div ng-include="'views/partials/nav.html'"></div> -->
       <nav ng-controller="NavCtrl" class="custom-bootstrap-menu-nav">
         <div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
-          <div class="container-fluid border-bottom">
-            <!-- <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span><span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-          </div> -->
-          <!-- <div class="collapse navbar-collapse navbar-menubuilder"> -->
-          <div class="navbar-menubuilder">
-            <ul class="nav navbar-nav navbar-right">
-              <li ng-class="{ active: isActive('#/') }"><a href="#/">Home</a></li>
-              <li ng-class="{ active: isActive('#/reports') }"><a href="#/reports">Reports</a></li>
-              <li ng-class="{ active: isActive('#/about') }"><a href="#/about">About</a></li>
-            </ul>
+          <div class="container-fluid">            
+            <div class="navbar-menubuilder">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="nav-main" id="home" ng-class="{ active: isActive('#/') }"><a href="#/">Home</a></li>
+                <li class="nav-main" id="reports" ng-class="{ active: isActive('#/reports') }"><a href="#/reports">Reports</a></li>
+                <li class="nav-main" id="about" ng-class="{ active: isActive('#/about') }"><a href="#/about">About</a></li>
+              </ul>
+            </div>          
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
+
+  
+<div ng-controller="NavCtrl">
+<div id="reports-tier">
+  <ul>
+    <li ng-repeat="(key, value) in groups" ng-class="{ active: isActive('#/') }"><a ng-mouseover="showSections(value);" ng-mouseleave="hideSections();" href="#/">{{value}}</a></li>
+  </ul>
   </div>
+
+  <div id="reports-tier-one" class="{{showTierOne}}" ng-mouseover="persistSections();" ng-mouseleave="hideSections();">
+    <ul>
+      <li ng-class="{active: isActive('#/')}" ng-repeat="t in tierOne"><a href="#/">{{t}}</a></li>
+    </ul>
+    
+  </div>
+
+</div>
+  
   
   
 

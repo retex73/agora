@@ -12,7 +12,7 @@ var pagesObj = {
     }, 
     
     repGroup: [{
-        groupName: 'The Register',
+        groupName: 'The Register',        
         description: 'At the GMC we maintain the UK Medical Register. Here we describe lots of stuff<br/>And here is another introduction sentence', 
 
         pages: {
