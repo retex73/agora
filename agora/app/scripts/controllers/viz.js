@@ -35,20 +35,28 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	// Take initial snapshot of history
 	setTimeout(function() {
-		agora.vizfuncs.recordHistory();
+		// agora.vizfuncs.recordHistory();
+		console.log('running on change event'); 
+		agora.vizfuncs.onChange();
 	}, 5000);
 	
 
 
+	var setUndoButtonState = function() {
+		// if (agora.vizfuncs.customViewName <= 1) {
+		if (agora.vizfuncs.tabHistory.length <= 0) {			
+			$("#undo").attr('disabled', 'disabled');
+		} else {			
+			$("#undo").removeAttr('disabled');
+		}
+	}; 
+
+
+	setUndoButtonState(); 
+
 	Object.observe(agora.vizfuncs, function(changes) {
 		
 		refreshScopeVars();
-
-		// if (agora.vizfuncs.customViewName <= 1) {
-			
-		// 	$("#undo").attr('disabled', 'disabled');
-		// } else {			
-		// 	$("#undo").removeAttr('disabled');
-		// }
+		setUndoButtonState(); 
 	});
 });

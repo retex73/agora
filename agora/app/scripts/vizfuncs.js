@@ -23,6 +23,8 @@ var agora = window.agora || {};
 		filterHistory: [],
 		parameterHistory: [],
 		tabHistory: [], 
+		locked: false,
+		goingBack: false, 
 
 		renderViz: function(routeParams) {
 
@@ -173,17 +175,18 @@ var agora = window.agora || {};
 		},
 
 		recordLastTab: function(tabName) {
-			var that = agora.vizfuncs; 
-			// Do the real history store here
-			
+			var that = agora.vizfuncs; 			
+
+			// If the user clicked on back, don't record the tab
+			if(that.goingBack) {
+				that.goingBack = false; 
+				return; 
+			}
 
 			var lastObj = that.history[that.historyCounter - 1];
 			lastObj['tabName'] = tabName; 
-
-
 			that.tabHistory.push(lastObj);
-
-			console.log(that.tabHistory);  
+			that.goingBack = false;  
 		}, 
 
 		/**
@@ -294,7 +297,7 @@ var agora = window.agora || {};
 			return lastObj;
 		},
 
-		locked: false,
+		
 
 		onBackAll: function() {
 
@@ -309,10 +312,12 @@ var agora = window.agora || {};
 
 		onBack: function() {
 			var that = agora.vizfuncs; 
-			that.locked = true; 			
+			that.locked = true; 
+			that.goingBack	= true; 
+			that.ba		
 			var lastTabHistory =  that.tabHistory[Object.keys(that.tabHistory)[Object.keys(that.tabHistory).length - 1]];
 
-			 
+			that.tabHistory.pop();  
 
 			that.changeTab(lastTabHistory); 
 
@@ -336,6 +341,9 @@ var agora = window.agora || {};
 			that.applyParams(params); 
 			that.applyFilters(filters); 
 
+			// Remove the newly created entry after tab change 
+			// as we're not interested in this one. 
+			that.tabHistory.pop(); 
 			// that.mainViz.resumeAutomaticUpdatesAsync(); 
 		}, 
 
