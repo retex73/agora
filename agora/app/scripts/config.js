@@ -16,7 +16,7 @@ var pagesObj = {
         description: 'At the GMC we maintain the UK Medical Register. Here we describe lots of stuff<br/>And here is another introduction sentence', 
 
         pages: {
-            stats: [{
+            'Stats': [{
                 pageId: 'PRS1',
                 description: 'The Register Stats',
                 pageHeading: 'The Register',
@@ -58,14 +58,14 @@ var pagesObj = {
                 pageSubheading: 'Total number of GPs on the register over time',
                 url: 'TheRegisterv5/PRS4'
             }],
-            uk: [{
+            'UK maps': [{
                 pageId: 'PRU1',
                 description: 'The Register UK Map',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by area', 
                 url: 'TheRegisterv5/PRS4'
             }],
-            world: [{
+            'World maps': [{
                 pageId: 'PRW1',
                 description: 'The Register World Map',
                 pageHeading: 'The Register',
@@ -77,7 +77,7 @@ var pagesObj = {
         groupName: 'Revalidation',
         description: 'At the GMC we maintain Revalidation. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
-            stats: [{
+            'Stats': [{
                 pageId: 'PVS1',
                 description: 'Revalidation',
                 pageHeading: 'Revalidation',
@@ -109,7 +109,7 @@ var pagesObj = {
         groupName: 'Fitness to practice',
         description: 'At the GMC we maintain the Fitness To Practice. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
-            stats: [{
+            'Stats': [{
                 pageId: 'PFS1',
                 description: 'FTP Stats',
                 pageHeading: 'Fitness to practice',
@@ -117,13 +117,13 @@ var pagesObj = {
                 url: 'FitnesstoPractice_pub/PFS1'
 
             }],
-            uk: [{
+            'UK Maps': [{
                 pageId: 'PFU1',
                 description: 'FTP UK Map',
                 pageHeading: 'FTP-UK Map',
                 pageSubheading: 'Current Designated Body of doctors with current sanctions'
             }],
-            world: [{
+            'World Maps': [{
                 pageId: 'PFW1',
                 description: 'FTP World Map',
                 pageHeading: 'FTP-World Map',
@@ -144,7 +144,7 @@ var pagesObj = {
         groupName: 'Employers',
         description: 'At the GMC we maintain Employers. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
-            stats: [{
+            'Stats': [{
                 pageId: 'PES1',
                 description: 'Employers Stats (Register)',
                 pageHeading: 'Employers overview',
@@ -226,7 +226,7 @@ var pagesObj = {
                 pageSubheading: '% Late submissions over time'
             }],
 
-            uk: [{
+            'UK maps': [{
                 pageId: 'PEU1',
                 description: 'Employers UK Map',
                 pageHeading: 'Employers',
@@ -238,19 +238,19 @@ var pagesObj = {
         groupName: 'Medical Schools',
         description: 'At the GMC we maintain Medical Schools. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
-            stats: [{
+            'Stats': [{
                 pageId: 'X__PMS1',
                 description: 'Medical Schools stats',
                 pageHeading: '-',
                 pageSubheading: ''
             }],
-            uk: [{
+            'UK maps': [{
                 pageId: 'X__PMU1',
                 description: 'Medical Schools UK Map',
                 pageHeading: '-',
                 pageSubheading: '-'
             }],
-            world: [{
+            'World maps': [{
                 pageId: 'X__PMW1',
                 description: 'Medical Schools World Map',
                 pageHeading: '-',
@@ -261,13 +261,13 @@ var pagesObj = {
         groupName: 'Royal Colleges',
         description: 'At the GMC we maintain Royal Colleges. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
-            stats: [{
+            'Stats': [{
                 pageId: 'X_PCS1',
                 description: 'Royal Colleges/Specialities Stats',
                 pageHeading: '-',
                 pageSubheading: '-'
             }],
-            uk: [{
+            'UK maps': [{
                 pageId: 'X_PCU1',
                 description: 'Royal Colleges/Specialities UK Map'
             }]
@@ -277,7 +277,7 @@ var pagesObj = {
         groupName: 'Deaneries',
         description: 'At the GMC we maintain Deaneries. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
-            stats: [{
+            'Stats': [{
                 pageId: 'X__PDS1',
                 description: 'Deaneries Stats',
                 pageHeading: '-',

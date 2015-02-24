@@ -16,53 +16,45 @@ angular.module('agoraApp')
 
     window.lastSelected = ''; 
 
-    $scope.showSections = function(section) {
-      lastSelected = section; 
-      console.log('showing sections: ' + section); 
-      console.log(Object.keys(groups[section])); 
+    $scope.timer = ''; 
+
+    $scope.showSections = function(e, section) {      
+
+      lastSelected = section;       
+      
       $scope.tierOne = Object.keys(groups[section]); 
       $scope.showTierOne = "show-tier-one"; 
+
+      $scope.marginLeft = (e.offsetX - 100) + "px";   
+
+      var delay = 100; 
+
+
+
+
+      $scope.timer = setTimeout(function() {
+        var marginLeft = (e.offsetX - 100) + "px";  
+        $('#tier-one-ul').hide(); 
+        $('#tier-one-ul li:first').css('margin-left', marginLeft); 
+        $('#tier-one-ul').fadeIn(100); 
+      }, delay);  
     }; 
 
-    $scope.hideSections = function() {
-      console.log('leaving'); 
+
+    
+
+    $scope.hideSections = function() {                      
       $scope.showTierOne = ""; 
       $('#reports-tier').find("li:contains(" + lastSelected  + ")").removeClass('persisting-hover'); 
     }; 
     
 
-
-
-
-
-
-
-
-
-    $scope.persistSections = function() {
-      console.log('persisting visualisation'); 
-      console.log('last selected: ' + lastSelected); 
-      
+    $scope.persistSections = function() { 
+      clearTimeout($scope.timer); 
       $scope.showTierOne = "show-tier-one"; 
 
       $('#reports-tier').find("li:contains(" + lastSelected  + ")").addClass('persisting-hover'); 
     }; 
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     $scope.isActive = function(viewLocation) {
@@ -152,17 +144,20 @@ $(document).ready(function(){
 
   if(window.location.hash != "#/reports") {
     $("#reports-tier").addClass("reports-tier-hide");
+    $("#reports-tier ul").hide(); 
   }
 
 
   $(".nav-main").on("click", function(){
     var id = $(this).attr('id'); 
-    console.log('id : ' + id); 
+    
 
     if(id == "reports") {
       $("#reports-tier").removeClass("reports-tier-hide");  
+      $("#reports-tier ul").show(); 
     } else {
       $("#reports-tier").addClass("reports-tier-hide"); 
+      $("#reports-tier ul").hide(); 
     }
   }); 
 }); 
