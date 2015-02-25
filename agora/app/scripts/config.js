@@ -257,23 +257,28 @@ var pagesObj = {
                 pageSubheading: '-'
             }]
         }
-    }, {
-        groupName: 'Royal Colleges',
-        description: 'At the GMC we maintain Royal Colleges. Here we describe lots of stuff<br/>And here is another introduction sentence', 
-        pages: {
-            'Stats': [{
-                pageId: 'X_PCS1',
-                description: 'Royal Colleges/Specialities Stats',
-                pageHeading: '-',
-                pageSubheading: '-'
-            }],
-            'UK maps': [{
-                pageId: 'X_PCU1',
-                description: 'Royal Colleges/Specialities UK Map'
-            }]
+    }, 
 
-        }
-    }, {
+    // {
+    //     groupName: 'Royal Colleges',
+    //     description: 'At the GMC we maintain Royal Colleges. Here we describe lots of stuff<br/>And here is another introduction sentence', 
+    //     pages: {
+    //         'Stats': [{
+    //             pageId: 'X_PCS1',
+    //             description: 'Royal Colleges/Specialities Stats',
+    //             pageHeading: '-',
+    //             pageSubheading: '-'
+    //         }],
+    //         'UK maps': [{
+    //             pageId: 'X_PCU1',
+    //             description: 'Royal Colleges/Specialities UK Map'
+    //         }]
+
+    //     }
+    // }, 
+
+
+    {
         groupName: 'Deaneries',
         description: 'At the GMC we maintain Deaneries. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
