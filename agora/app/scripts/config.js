@@ -13,7 +13,7 @@ var pagesObj = {
     
     repGroup: [{
         groupName: 'The Register',        
-        description: 'At the GMC we maintain the UK Medical Register. Here we describe lots of stuff<br/>And here is another introduction sentence', 
+        description: 'At the GMC we maintain the UK Medical Register. Here we describe lots of stuff. And here is another introduction sentence', 
 
         pages: {
             'Stats': [{
@@ -75,7 +75,7 @@ var pagesObj = {
         },
     }, {
         groupName: 'Revalidation',
-        description: 'At the GMC we maintain Revalidation. Here we describe lots of stuff<br/>And here is another introduction sentence', 
+        description: 'At the GMC we maintain Revalidation. Here we describe lots of stuff. And here is another introduction sentence', 
         pages: {
             'Stats': [{
                 pageId: 'PVS1',
@@ -107,7 +107,7 @@ var pagesObj = {
 
     }, {
         groupName: 'Fitness to practice',
-        description: 'At the GMC we maintain the Fitness To Practice. Here we describe lots of stuff<br/>And here is another introduction sentence', 
+        description: 'At the GMC we maintain the Fitness To Practice. Here we describe lots of stuff. And here is another introduction sentence', 
         pages: {
             'Stats': [{
                 pageId: 'PFS1',
@@ -142,7 +142,7 @@ var pagesObj = {
         }
     }, {
         groupName: 'Employers',
-        description: 'At the GMC we maintain Employers. Here we describe lots of stuff<br/>And here is another introduction sentence', 
+        description: 'At the GMC we maintain Employers. Here we describe lots of stuff. And here is another introduction sentence', 
         pages: {
             'Stats': [{
                 pageId: 'PES1',
@@ -236,7 +236,7 @@ var pagesObj = {
         }
     }, {
         groupName: 'Medical Schools',
-        description: 'At the GMC we maintain Medical Schools. Here we describe lots of stuff<br/>And here is another introduction sentence', 
+        description: 'At the GMC we maintain Medical Schools. Here we describe lots of stuff. And here is another introduction sentence', 
         pages: {
             'Stats': [{
                 pageId: 'X__PMS1',
@@ -261,7 +261,7 @@ var pagesObj = {
 
     // {
     //     groupName: 'Royal Colleges',
-    //     description: 'At the GMC we maintain Royal Colleges. Here we describe lots of stuff<br/>And here is another introduction sentence', 
+    //     description: 'At the GMC we maintain Royal Colleges. Here we describe lots of stuff. And here is another introduction sentence', 
     //     pages: {
     //         'Stats': [{
     //             pageId: 'X_PCS1',
@@ -280,7 +280,7 @@ var pagesObj = {
 
     {
         groupName: 'Deaneries',
-        description: 'At the GMC we maintain Deaneries. Here we describe lots of stuff<br/>And here is another introduction sentence', 
+        description: 'At the GMC we maintain Deaneries. Here we describe lots of stuff. And here is another introduction sentence', 
         pages: {
             'Stats': [{
                 pageId: 'X__PDS1',

@@ -1,5 +1,6 @@
-<div ng-controller="ReportsCtrl">
+<div ng-controller="ReportsCtrl" class="reports-background" ng-class="{{bgClass}}">
 	<p>&nbsp;</p>
+
 	<div class="row">
 		<div class="col-xs-3 report-groups">
 
@@ -7,7 +8,7 @@
 			<ul>
 				<li ng-repeat="(key, value) in pages">
 					<a ng-href="#/reports/{{value.groupName}}">
-					<div class="report-group-link-box">
+					<div ng-mouseover="getDescription(value.description, key);"class="report-group-link-box">
 					{{value.groupName}}
 					</div>
 					</a>
@@ -40,8 +41,8 @@
 			</div> -->
 		</div>
 		<div class="col-xs-9">
-			<div class="report-group-info-text">
-				Please choose the data report you would like to explore
+			<div class="report-group-info-text" ng-bind-html="defaultText">
+				
 			</div>
 			
 		</div>
