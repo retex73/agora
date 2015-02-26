@@ -1,28 +1,49 @@
 <div ng-controller="ReportsCtrl">
 	<p>&nbsp;</p>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-xs-3 report-groups">
 
 
+			<ul>
+				<li ng-repeat="(key, value) in pages">
+					<a ng-href="#/reports/{{value.groupName}}">
+					<div class="report-group-link-box">
+					{{value.groupName}}
+					</div>
+					</a>
+					<span style="display:none;" ng-bind-html="value.description"></span>
+				</li>
+			</ul>
+
+
+			
 			
 			
 			<!-- <div ng-repeat="page in pages"> -->
-			<div ng-repeat="(key, value) in pages">
-				<div class="col-xs-4">
+			<!-- <div ng-repeat="(key, value) in pages">
+				<div class="col-xs-12">
 					
 					<div class="panel panel-default reports-box">
-						<div class=" hvr-border-fade">
+						
 							<div class="panel-heading reports-box-title">
 								
 								<a ng-href="#/reports/{{value.groupName}}">{{value.groupName}}</a>
+
+
 							</div>
-							<div class="panel-body">
+							<div class="panel-body" style="display:none;">
 								<div ng-bind-html="value.description" class="reports-box-description"></div>
 							</div>
-						</div>
+						
 					</div>
 				</div>
+			</div> -->
+		</div>
+		<div class="col-xs-9">
+			<div class="report-group-info-text">
+				Please choose the data report you would like to explore
 			</div>
+			
 		</div>
 	</div>
 </div>
