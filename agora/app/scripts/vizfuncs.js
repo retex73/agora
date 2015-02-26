@@ -11,7 +11,8 @@ var agora = window.agora || {};
 		mainViz: '',
 		routeParams: '',
 		vizParams: [],
-		mainVizDiv: $("#mainViz"),
+		mainVizDiv: "#mainViz",
+		div: '', 
 		history: [],
 		filters: {},
 		customViewName: 0,
@@ -25,35 +26,62 @@ var agora = window.agora || {};
 		tabHistory: [], 
 		locked: false,
 		goingBack: false, 
+		
 
 		renderViz: function(routeParams) {
+
+			
+
 
 			this.customViewName = 0;
 			this.routeParams = routeParams;
 			this.getReportUrl(routeParams);
-			var mainVizDiv = $("#mainViz");
-			// var mainVizDiv = this.mainVizDiv; 
+
+			// html structure to paint viz into
+			this.div = $(this.mainVizDiv); 
+
 			var mainWorkbookUrl = this.url;
+
+
 			var vizOpts = {
 				hideTabs: true,
 				hideToolbar: true,
-				width: mainVizDiv.parent().innerWidth() + "px",
-				height: mainVizDiv.parent().innerHeight() + "px",
+				width: this.div.parent().innerWidth() + "px",
+				height: this.div.parent().innerHeight() + "px",
 				onFirstInteractive: function() {
 					mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 				}
 			};
-
-			// this.setVizParams('Show by', 'Nationality');
-
+			
 			var mainVizOptions = $.extend({}, vizOpts, this.getVizOptions());
 
-			this.mainViz = new tableauSoftware.Viz(mainVizDiv[0], mainWorkbookUrl, mainVizOptions);
 
 
 
+
+			// if (typeof this.mainViz == 'object') {
+			// 	console.log('disposing'); 
+			// 	console.log(this.div); 
+   //      		this.mainViz.dispose(); 
+   //      		this.mainViz = new tableauSoftware.Viz(this.div[0], mainWorkbookUrl, mainVizOptions);
+   //  		} 
+
+   //  		else {
+    		this.mainViz = new tableauSoftware.Viz(this.div[0], mainWorkbookUrl, mainVizOptions);
+    		console.log(this.div[0]); 
+    		console.log(mainWorkbookUrl); 
+    		console.log(mainVizOptions); 
+
+
+    		// }	
+
+			// this.mainViz = new tableauSoftware.Viz(mainVizDiv[0], mainWorkbookUrl, mainVizOptions);
 		},
 
+
+		
+
+		
 		/**
 		 * TO DO
 		 * @return {[type]} [description]
@@ -152,7 +180,7 @@ var agora = window.agora || {};
 			});
 		},
 
-		addEventListeners: function() {
+		addEventListeners: function() {			
 			this.mainViz.addEventListener("tabswitch", this._ventOnTabSwitch);
 			this.mainViz.addEventListener("parametervaluechange", this._ventOnParameterChanged);
 			this.mainViz.addEventListener("filterchange", this._ventOnFilterChanged);

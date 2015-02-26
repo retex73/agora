@@ -22,7 +22,10 @@ angular.module('agoraApp')
 
       lastSelected = section;       
       
-      $scope.tierOne = Object.keys(groups[section]); 
+       
+      $scope.tierOne = (Object.keys(groups[section])); 
+      $scope.tierOne.push(section); 
+
       $scope.showTierOne = "show-tier-one"; 
 
       $scope.marginLeft = (e.offsetX - 100) + "px";   

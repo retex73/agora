@@ -1,6 +1,6 @@
 var pagesObj = {
-    // reportsBaseUrl: 'http://s1tsttabaps01/views/', 
-    reportsBaseUrl: 'http://s1prdtabaps01/views/', 
+    reportsBaseUrl: 'http://s1tsttabaps01/views/', 
+    // reportsBaseUrl: 'http://s1prdtabaps01/views/', 
 
     // reportsBaseUrl: 'https://public.tableausoftware.com/',    
     // reportsBaseUrl: 'https://public.tableausoftware.com/views/', 
@@ -28,24 +28,26 @@ var pagesObj = {
                 pageId: 'PRS1_H',
                 description: 'The Register over time',
                 pageHeading: 'The Register',
-                pageSubheading: 'The medical register over time'
+                pageSubheading: 'The medical register over time', 
+                url: 'TheRegister_pub/PRS1_H'
             }, {
                 pageId: 'PRS2',
                 description: 'The Specialist Register',
                 pageHeading: 'The Specialist Register',
                 pageSubheading: 'Key stats from the Specialist Register',
-                url: 'TheRegisterv5/PRS2'
+                url: 'TheRegister_pub/PRS2'
             }, {
                 pageId: 'PRS2_H',
                 description: 'The Specialist Register over time',
                 pageHeading: 'The Specialist Register',
-                pageSubheading: 'The Specialist Register over time'
+                pageSubheading: 'The Specialist Register over time',
+                url: 'TheRegister_pub/PRS2_H'
             }, {
                 pageId: 'PRS3',
                 description: 'Trainees',
                 pageHeading: 'Trainees',
                 pageSubheading: 'Doctors on the register who are known to be in training',
-                url: 'TheRegisterv5/PRS3'
+                url: 'TheRegister_pub/PRS3'
             }, {
                 pageId: 'PRS3_H',
                 description: 'Trainees over time',
@@ -56,21 +58,27 @@ var pagesObj = {
                 description: 'The GP Register',
                 pageHeading: 'The GP Register',
                 pageSubheading: 'Total number of GPs on the register over time',
-                url: 'TheRegisterv5/PRS4'
+                url: 'TheRegister_pub/PRS4'
             }],
             'UK maps': [{
                 pageId: 'PRU1',
                 description: 'The Register UK Map',
                 pageHeading: 'The Register',
-                pageSubheading: 'Doctor population by area', 
-                url: 'TheRegisterv5/PRS4'
+                pageSubheading: 'Doctor population by UK country', 
+                url: 'TheRegister_pub/PRU1'
+            }, {
+                pageId: 'PRU2',
+                description: 'The Register UK Map',
+                pageHeading: 'The Register',
+                pageSubheading: 'Doctor population by UK postcode', 
+                url: 'TheRegister_pub/PRU2'
             }],
             'World maps': [{
                 pageId: 'PRW1',
                 description: 'The Register World Map',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by country of qualification', 
-                url: 'TheRegisterv5/PRS4'
+                url: 'TheRegister_pub/PRW1'
             }]
         },
     }, {
@@ -78,66 +86,80 @@ var pagesObj = {
         description: 'At the GMC we maintain Revalidation. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
             'Stats': [{
-                pageId: 'PVS1',
-                description: 'Revalidation',
-                pageHeading: 'Revalidation',
-                pageSubheading: 'Revalidation connections'
-            }, {
-                pageId: 'PVS1_H',
-                description: 'Revalidation over time',
-                pageHeading: 'Revalidation',
-                pageSubheading: 'Revalidation connections over time'
-            }, {
                 pageId: 'PVS2',
                 description: 'Connected Doctors',
                 pageHeading: 'Revalidation',
-                pageSubheading: 'Revalidation connections'
-            }, {
-                pageId: 'PVS3',
-                description: 'Unconnected Doctors',
-                pageHeading: 'Revalidation',
-                pageSubheading: 'Locations of doctors with no revalidation connection'
-            }, {
-                pageId: 'PVS4',
-                description: 'NPC Doctors',
-                pageHeading: 'Revalidation',
-                pageSubheading: 'Doctors with No prescribed connection'
+                pageSubheading: 'Revalidation connections',
+                url: 'Revalidation_Pub/PVS1'
             }]
         }
 
     }, {
-        groupName: 'Fitness to practice',
-        description: 'At the GMC we maintain the Fitness To Practice. Here we describe lots of stuff<br/>And here is another introduction sentence', 
+        groupName: 'Fitness to practise',
+        description: 'At the GMC we maintain the Fitness To Practise. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {
             'Stats': [{
                 pageId: 'PFS1',
                 description: 'FTP Stats',
-                pageHeading: 'Fitness to practice',
+                pageHeading: 'Fitness to practise',
                 pageSubheading: 'Key volumes by year',
-                url: 'FitnesstoPractice_pub/PFS1'
-
+                url: 'FitnesstoPractise_pub/PFS1'
+            }, {
+                pageId: 'PFS2',
+                description: 'Allegations',
+                pageHeading: 'Fitness to practise',
+                pageSubheading: 'Volumes of Allegations',
+                url: 'FitnesstoPractise_pub/PFS2'
+            }, {
+                pageId: 'PFS3',
+                description: 'Allegations mapped',
+                pageHeading: 'Fitness to practise',
+                pageSubheading: 'Volumes of Allegations',
+                url: 'FitnesstoPractise_pub/PFS3'
+            }, {
+                pageId: 'PFS4',
+                description: 'Complaints',
+                pageHeading: 'Complaints',
+                pageSubheading: 'Complaints received, and their overall Outcome',
+                url: 'FitnesstoPractise_pub/PFS4'
+            }, {
+                pageId: 'PFS5',
+                description: 'Sanctions',
+                pageHeading: 'Fitness to practise sanctions',
+                pageSubheading: 'FtP Sanctions imposed',
+                url: 'FitnesstoPractise_pub/PFS5'
             }],
             'UK Maps': [{
                 pageId: 'PFU1',
                 description: 'FTP UK Map',
-                pageHeading: 'FTP-UK Map',
-                pageSubheading: 'Current Designated Body of doctors with current sanctions'
+                pageHeading: 'Ftp Sanctions mapped',
+                pageSubheading: 'Current Designated Body of doctors with sanctions', 
+                url: 'FitnesstoPractise_pub/PFU1'
+            }, {
+                pageId: 'PFU2',
+                description: 'FTP UK Map',
+                pageHeading: 'FtP Sanctions mapped',
+                pageSubheading: 'Current Designated Body of doctors with sanctions (relative to DB size)',
+                        url: 'FitnesstoPractise_pub/PFU2'
+            }, {
+                pageId: 'PFU3',
+                description: 'FTP UK Map',
+                pageHeading: 'FtP Sanctions mapped',
+                pageSubheading: 'Medical School of doctors with sanctions', 
+                url: 'FitnesstoPractise_pub/PFU3'
             }],
             'World Maps': [{
                 pageId: 'PFW1',
                 description: 'FTP World Map',
-                pageHeading: 'FTP-World Map',
-                pageSubheading: 'PMQ Country of doctors with sanctions granted in the selected period'
+                pageHeading: 'FtP Sanctions mapped',
+                pageSubheading: 'Country of primary medical qualifiation of doctors with sanctions', 
+                url: 'FitnesstoPractise_pub/PFW1'
             }, {
                 pageId: 'PFW2',
                 description: 'FTP World Map Active sanctions',
-                pageHeading: 'FTP-World Map',
-                pageSubheading: 'PMQ country of doctors with current sanctions'
-            }, {
-                pageId: 'PFW3',
-                description: 'FTP World map Active sanctions % pop',
-                pageHeading: '-',
-                pageSubheading: '-'
+                pageHeading: 'FtP Sanctions mapped',
+                pageSubheading: 'Country of PMQ of doctors with current sanctions - relative to PMQ population', 
+                url: 'FitnesstoPractise_pub/PFW2'
             }]
         }
     }, {
@@ -146,91 +168,43 @@ var pagesObj = {
         pages: {
             'Stats': [{
                 pageId: 'PES1',
-                description: 'Employers Stats (Register)',
+                description: 'Employers Stats (The Register)',
                 pageHeading: 'Employers overview',
-                pageSubheading: 'Key stats from the register, by organisation (Drs\' Designated Bodies)'
+                pageSubheading: 'Key stats from the register, by organisation (Drs\' Designated Bodies)', 
+                url: 'Employers_pub/PES1'
             }, {
                 pageId: 'PES10',
-                description: 'Employer Stats (FTP)',
+                description: 'Employer Stats (FtP)',
                 pageHeading: 'Employers overview',
-                pageSubheading: 'Key FTP Stats by Designated Body'
-            }, {
-                pageId: 'PES11',
-                description: '% Doctors complained about over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '% Doctors complained about over time'
-            }, {
-                pageId: 'PES12',
-                description: '# Doctors referred over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: 'Doctors referred over time'
-            }, {
-                pageId: 'PES13',
-                description: '# Complaints reported here over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '# Complaints reported here over time'
-            }, {
-                pageId: 'PES14',
-                description: '% Doctors with cases over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '% Doctors with cases over time'
-            }, {
-                pageId: 'PES15',
-                description: '% Doctors with Advice over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '% Doctors with Advice over time'
-            }, {
-                pageId: 'PES16',
-                description: '% Doctors with Warnings over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '% Doctors with Warnings over time'
-            }, {
-                pageId: 'PES17',
-                description: '% Doctors with U\'takings over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '% Doctors with U\'takings over time'
-            }, {
-                pageId: 'PES18',
-                description: '% Doctors with Conditions over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '% Doctors with Conditions over time'
-            }, {
-                pageId: 'PES10',
-                description: '% Doctors suspended over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '% Doctors suspended over time'
-            }, {
-                pageId: 'PES2',
-                description: '# Doctors over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: 'Number of connected/employed doctors over time'
-            }, {
-                pageId: 'PES20',
-                description: '% Doctors Erased over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '% Doctors Erased over time'
+                pageSubheading: 'Key FtP Stats by organisation (Drs\' Designated Bodies)',
+                url: 'Employers_pub/PES10'
+
             }, {
                 pageId: 'PES21',
                 description: 'Employer Stats (Reval)',
                 pageHeading: 'Employers overview',
-                pageSubheading: 'Key Revalidation stats by Designated Body'
+                pageSubheading: 'Key Revalidation stats by Designated Body',
+                url: 'Employers_pub/PES21'
             }, {
-                pageId: 'PES22',
-                description: '% Not revalidated in 5 years over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '% Not revalidated in 5 years over time'
+                pageId: 'PES34',
+                description: 'Employer Summary (The Register)',
+                pageHeading: 'Employer summary',
+                pageSubheading: 'Stats from the medical register',
+                url: 'Employers_pub/PES34'
             }, {
-                pageId: 'PES23',
-                description: '% Late submissions over time',
-                pageHeading: 'Employers overview',
-                pageSubheading: '% Late submissions over time'
+                pageId: 'PES35',
+                description: 'Employer Summary (FtP)',
+                pageHeading: 'Employer summary',
+                pageSubheading: 'Fitness to Practise information',
+                url: 'Employers_pub/PES35'
             }],
 
             'UK maps': [{
                 pageId: 'PEU1',
                 description: 'Employers UK Map',
-                pageHeading: 'Employers',
-                pageSubheading: 'Doctor\'s employers (Disignated Bodies), by location'
+                pageHeading: 'Employers mapped',
+                pageSubheading: 'Doctor\'s employers (Designated Bodies), by location',
+                url: 'Employers_pub/PEU1'
             }]
 
         }
@@ -257,28 +231,23 @@ var pagesObj = {
                 pageSubheading: '-'
             }]
         }
-    }, 
+    }, {
+        groupName: 'Royal Colleges',
+        description: 'At the GMC we maintain Royal Colleges. Here we describe lots of stuff<br/>And here is another introduction sentence', 
+        pages: {
+            'Stats': [{
+                pageId: 'X_PCS1',
+                description: 'Royal Colleges/Specialities Stats',
+                pageHeading: '-',
+                pageSubheading: '-'
+            }],
+            'UK maps': [{
+                pageId: 'X_PCU1',
+                description: 'Royal Colleges/Specialities UK Map'
+            }]
 
-    // {
-    //     groupName: 'Royal Colleges',
-    //     description: 'At the GMC we maintain Royal Colleges. Here we describe lots of stuff<br/>And here is another introduction sentence', 
-    //     pages: {
-    //         'Stats': [{
-    //             pageId: 'X_PCS1',
-    //             description: 'Royal Colleges/Specialities Stats',
-    //             pageHeading: '-',
-    //             pageSubheading: '-'
-    //         }],
-    //         'UK maps': [{
-    //             pageId: 'X_PCU1',
-    //             description: 'Royal Colleges/Specialities UK Map'
-    //         }]
-
-    //     }
-    // }, 
-
-
-    {
+        }
+    }, {
         groupName: 'Deaneries',
         description: 'At the GMC we maintain Deaneries. Here we describe lots of stuff<br/>And here is another introduction sentence', 
         pages: {

@@ -17,20 +17,32 @@
       <!-- Add your site or application content here -->
       <div class="container-fluid">
         <!-- logo and banner -->
-        <header>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="pull-right strapline">Working with doctors Working for patients</div>
-              
-              <a href="#/">
-                <div class="gmc-logo-large">
-                  <!-- &nbsp;  -->
-                  <img ng-src="/images/logos/gmc_logo.gif" style="width:50px;"></img>
-                </div>
-              </a>
-            </div>
+        
+
+      <header>
+      <div class="row heading">
+        <div class="col-xs-2">
+          <div class="gmc-logo-large">
+            <img ng-src="/images/logos/gmc_logo.gif" style="width:50px;"></img>
           </div>
-        </header>
+        </div>
+        <div class="col-xs10">
+          <div class="strapline">
+            Working with doctors Working for patients
+          </div>
+        </div>
+      </div>
+
+      </header>
+
+
+
+
+
+
+
+
+
         <!-- navigation menu -->
         <div class="row">
 
@@ -38,7 +50,7 @@
           <nav ng-controller="NavCtrl" class="custom-bootstrap-menu-nav">
             <div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
               <div class="container-fluid">
-                <div class="navbar-menubuilder">
+                <div class="navbar-menubuilder margin-right-20">
                   <ul class="nav navbar-nav navbar-right">
                     <li class="nav-main" id="home" ng-class="{ active: isActive('#/') }"><a href="#/">Home</a></li>
                     <li class="nav-main" id="reports" ng-class="{ active: isActive('#/reports') }"><a href="#/reports">Reports</a></li>
@@ -49,16 +61,22 @@
             </div>
           </nav>
         </div>
+
+        <!-- reports tier nav -->
         <div class="row full-width">
           <div ng-controller="NavCtrl">
             <div id="reports-tier">
               <ul>
-                <li ng-repeat="(key, value) in groups" ng-class="{ active: isActive('#/') }"><a ng-mouseover="showSections($event, value);" ng-mouseleave="hideSections();" href="#/"><span class='reports-tier-text'>{{value}}</span></a></li>
+                <li ng-repeat="(key, value) in groups" ng-class="{ active: isActive('#/') }">
+                  <a ng-mouseover="showSections($event, value);" ng-mouseleave="hideSections();" ng-href="#/reports/{{value}}"><span class='reports-tier-text'>{{value}}</span></a></li>
               </ul>
             </div>
             <div id="reports-tier-one" class="{{showTierOne}}" ng-mouseover="persistSections(e);" ng-mouseleave="hideSections();">
               <ul id="tier-one-ul">
-                <li ng-class="{active: isActive('#/')}" ng-repeat="t in tierOne"><a href="#/">{{t}}</a></li>
+                <li ng-repeat="t in tierOne" ng-show="!$last" ng-class="{active: isActive('#/reports/')}"><a ng-href="#/reports/{{tierOne[tierOne.length-1]}}/{{t}}/report">{{t}} </a>
+
+                </li>
+
               </ul>
               
             </div>

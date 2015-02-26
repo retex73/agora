@@ -28,6 +28,10 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		});
 	};
 
+	
+
+
+
 	agora.vizfuncs.renderViz($routeParams, $scope);
 	agora.vizfuncs.addEventListeners();
 	
@@ -36,7 +40,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	// Take initial snapshot of history
 	setTimeout(function() {
 		// agora.vizfuncs.recordHistory();
-		console.log('running on change event'); 
+		 
 		agora.vizfuncs.onChange();
 	}, 5000);
 	
@@ -60,3 +64,10 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		setUndoButtonState(); 
 	});
 });
+
+$(document).ready(function(){
+	// Show the reports top tier nav
+	$("#reports-tier").removeClass("reports-tier-hide");  
+    $("#reports-tier ul").show(); 
+
+}); 
