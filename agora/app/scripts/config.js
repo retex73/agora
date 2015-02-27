@@ -152,8 +152,8 @@ var pagesObj = {
                 pageId: 'PFW1',
                 description: 'FTP World Map',
                 pageHeading: 'FtP Sanctions mapped',
-                pageSubheading: 'Country of primary medical qualifiation of doctors with sanctions'
-                                                                url: 'FitnesstoPractise_pub/PFW1'
+                pageSubheading: 'Country of primary medical qualifiation of doctors with sanctions',
+                url: 'FitnesstoPractise_pub/PFW1'
             }, {
                 pageId: 'PFW2',
                 description: 'FTP World Map Active sanctions',
