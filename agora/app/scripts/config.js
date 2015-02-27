@@ -1,6 +1,6 @@
 var pagesObj = {
-    reportsBaseUrl: 'http://s1tsttabaps01/views/', 
-    // reportsBaseUrl: 'http://s1prdtabaps01/views/', 
+    // reportsBaseUrl: 'http://s1tsttabaps01/views/', 
+    reportsBaseUrl: 'http://s1prdtabaps01/views/', 
 
     // reportsBaseUrl: 'https://public.tableausoftware.com/',    
     // reportsBaseUrl: 'https://public.tableausoftware.com/views/', 
@@ -28,7 +28,7 @@ var pagesObj = {
                 pageId: 'PRS1_H',
                 description: 'The Register over time',
                 pageHeading: 'The Register',
-                pageSubheading: 'The medical register over time', 
+                pageSubheading: 'The medical register over time',
                 url: 'TheRegister_pub/PRS1_H'
             }, {
                 pageId: 'PRS2',
@@ -133,32 +133,32 @@ var pagesObj = {
                 pageId: 'PFU1',
                 description: 'FTP UK Map',
                 pageHeading: 'Ftp Sanctions mapped',
-                pageSubheading: 'Current Designated Body of doctors with sanctions', 
+                pageSubheading: 'Current Designated Body of doctors with sanctions',
                 url: 'FitnesstoPractise_pub/PFU1'
             }, {
                 pageId: 'PFU2',
                 description: 'FTP UK Map',
                 pageHeading: 'FtP Sanctions mapped',
                 pageSubheading: 'Current Designated Body of doctors with sanctions (relative to DB size)',
-                        url: 'FitnesstoPractise_pub/PFU2'
+                url: 'FitnesstoPractise_pub/PFU2'
             }, {
                 pageId: 'PFU3',
                 description: 'FTP UK Map',
                 pageHeading: 'FtP Sanctions mapped',
-                pageSubheading: 'Medical School of doctors with sanctions', 
+                pageSubheading: 'Medical School of doctors with sanctions',
                 url: 'FitnesstoPractise_pub/PFU3'
             }],
             'World Maps': [{
                 pageId: 'PFW1',
                 description: 'FTP World Map',
                 pageHeading: 'FtP Sanctions mapped',
-                pageSubheading: 'Country of primary medical qualifiation of doctors with sanctions', 
-                url: 'FitnesstoPractise_pub/PFW1'
+                pageSubheading: 'Country of primary medical qualifiation of doctors with sanctions'
+                                                                url: 'FitnesstoPractise_pub/PFW1'
             }, {
                 pageId: 'PFW2',
                 description: 'FTP World Map Active sanctions',
                 pageHeading: 'FtP Sanctions mapped',
-                pageSubheading: 'Country of PMQ of doctors with current sanctions - relative to PMQ population', 
+                pageSubheading: 'Country of PMQ of doctors with current sanctions - relative to PMQ population',
                 url: 'FitnesstoPractise_pub/PFW2'
             }]
         }
@@ -170,7 +170,7 @@ var pagesObj = {
                 pageId: 'PES1',
                 description: 'Employers Stats (The Register)',
                 pageHeading: 'Employers overview',
-                pageSubheading: 'Key stats from the register, by organisation (Drs\' Designated Bodies)', 
+                pageSubheading: 'Key stats from the register, by organisation (Drs\' Designated Bodies)',
                 url: 'Employers_pub/PES1'
             }, {
                 pageId: 'PES10',

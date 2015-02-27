@@ -1,44 +1,91 @@
 
-.reports-box {
-	border-radius: 0px !important; 
-	border: none !important; 
-    background:$gmc_light_grey !important; 
-    -o-transition:color 520ms ease-out, background 520ms ease-in;
-    -ms-transition:color 520ms ease-out, background 520ms ease-in;
-    -moz-transition:color 520ms ease-out, background 520ms ease-in;
-    -webkit-transition:color 520ms ease-out, background 520ms ease-in;
-    transition:color 520ms ease-out, background 520ms ease-in;
+.report-groups {
+	/*border: 1px solid green;*/
 }
 
-.reports-box:hover {
-    // box-shadow: 1px 1px 1px 1px; 
-     box-shadow: 0 4px 6px -6px #222;
+.report-groups ul {
+	list-style-type: none; 
+	padding: 0;
 }
 
-.reports-box-title {
-	font-weight: bold; 
-	box-shadow: 0 4px 6px -6px #222; 
-	margin: 4px; 
-	padding: 2px; 
-	background-color: $gmc_light_blue; 
+.report-groups ul li {
 	
-	color: white; 
-	border-radius: 0px !important; 
+	margin-top: 20px; 
+	transition: all 120ms ease-out;
 }
 
-.reports-box-title:hover {
-	color: #fff; 
-}
-
-.reports-box .panel {
-	border: none !important; 
-}
-
-.panel-height-100 {
-	min-height: 200px; 
+.report-group-link-box {
+	color: #fff;
+	transition: all 120ms ease-out;
+	padding: 20px; 
 }
 
 
-.sections {
-	padding: 4px; 
+.report-groups ul li:hover {
+	
+	opacity: 0.8; 
 }
+
+.report-groups ul li a {
+	color: #fff;
+	transition: all 120ms ease-out;
+}
+
+.report-groups ul li a:hover {
+	color: $gmc_light_blue; 
+	text-decoration: none; 
+}
+
+.report-groups ul li:nth-child(1) {
+	background: #2a3f61;
+}
+
+.report-groups ul li:nth-child(2) {
+	background: #2ca7bf;
+}
+
+.report-groups ul li:nth-child(3) {
+	background: #5a2a80;
+}
+
+.report-groups ul li:nth-child(4) {
+	background: #b05898;
+}
+
+.report-groups ul li:nth-child(5) {
+	background: #7c418c;
+}
+
+.report-groups ul li:nth-child(6) {
+	background: #7a71ad;
+}
+
+.report-groups ul li:nth-child(7) {
+	background: #4275b3;
+}
+
+.report-group-info-text {
+	font-size: 21px;
+	margin-top: 20px;
+	padding: 20px;
+}
+
+.reports-background {
+	margin-top: 30px; 
+	padding: 20px; 
+	max-height: 866px; 
+	max-width: 1293px; 
+	min-height: 866px; 
+	min-width: 700px; 
+	display: block;
+	position: relative;
+	background-image: url('/images/reports-1.jpg'); 
+	background-size: 1293px 866px;
+	background-repeat: no-repeat; 
+	transition: all 300ms ease-out;
+}
+
+
+
+
+
