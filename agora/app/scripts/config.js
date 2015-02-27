@@ -1,6 +1,6 @@
 var pagesObj = {
-    // reportsBaseUrl: 'http://s1tsttabaps01/views/', 
-    reportsBaseUrl: 'http://s1prdtabaps01/views/', 
+    reportsBaseUrl: 'http://s1tsttabaps01/views/', 
+    // reportsBaseUrl: 'http://s1prdtabaps01/views/', 
 
     // reportsBaseUrl: 'https://public.tableausoftware.com/',    
     // reportsBaseUrl: 'https://public.tableausoftware.com/views/', 
