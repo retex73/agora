@@ -26,6 +26,21 @@ var agora = window.agora || {};
 			}
 		}, 
 
+		getSectionDescription: function(categoryName){
+			var cName = this.sanitizeCategoryName(categoryName); 
+			var result = $.grep(this.dataSrc.repGroup, function(e) {
+				return e.groupName == cName; 
+			}); 
+
+			if(typeof result[0] == "undefined") {
+				return false; 
+			} else {
+				// console.log(result[0].description); 
+				return result[0].description; 
+			}
+		}, 
+
+
 		sanitizeCategoryName: function(categoryName) {
 			// replace underscores with spaces
 			var str = categoryName.replace("_", " "); 
@@ -38,13 +53,15 @@ var agora = window.agora || {};
 		}, 
 
 		getSectionDescriptions: function(where, cats) {
+
 			var result = []; 
+
 			$.each(cats, function(index, value) {
 				var the_string = value; 
 				var desc = where.sectionDescriptions[value]; 
-
+			
 				result[value] = desc; 
-			}); 
+			}); 			
 
 			return result; 
 		}, 
@@ -57,6 +74,8 @@ var agora = window.agora || {};
 
 			return results; 
 		}, 
+
+
 
 		getReportStructure: function() {
 			var structure = {}; 

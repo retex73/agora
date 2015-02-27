@@ -6,9 +6,9 @@ var pagesObj = {
     // reportsBaseUrl: 'https://public.tableausoftware.com/views/', 
 
     sectionDescriptions: {
-        stats: 'Graphs describing the medical register',
-        uk: 'Maps describing the medical register',
-        world: 'World maps describing the medical register'
+        'Stats': 'Graphs describing the medical register',
+        'UK maps' : 'Maps describing the medical register',
+        'World maps': 'World maps describing the medical register'
     }, 
     
     repGroup: [{
