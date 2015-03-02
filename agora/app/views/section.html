@@ -1,7 +1,7 @@
 <div ng-controller="SectionCtrl" class="reports-background" ng-class="{{bgClass}}">
 
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col-xs-12 section-h1">
 		<h1>{{sectionName}}</h1>
 	</div>
 </div>
@@ -12,13 +12,13 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-3 report-groups {{sectionName}}">
+	<div class="col-xs-3 report-groups report-section {{sectionName}}">
 		
-			<ul>
+			<ul class="section-list">
 				<li ng-repeat="(key, data) in pages">
 					<a ng-href="#/reports/{{sectionName}}/{{key}}/report">
-						<div ng-mouseover="getDescription(sectionDescriptions[key])" ng-class="report-group-link-box">
-							{{key}}	
+						<div ng-mouseover="getDescription(sectionDescriptions[key])" class="report-group-link-box">
+							{{key}}	<img class="section-images" ng-src="/images/{{sectionImages[key]}}" style="width: 50px"></img>
 						</div>
 						
 					</a>

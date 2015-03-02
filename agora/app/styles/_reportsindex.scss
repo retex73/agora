@@ -86,6 +86,36 @@
 }
 
 
+.report-group-link-box {
+	color: #fff !important; 
+	transition: all 120ms ease-out; 
+}
 
 
+.section-description {
+	background-color: rgba(255, 255, 255, 0.3); 
+	font-size: 14px; 
+	font-weight: bold; 
+	margin-left: 15px; 
+	width: 89% !important; 
+}
 
+#section-info {
+	padding: 20px; 
+	background-color: rgba(62, 39, 130, 0.9);
+	margin-top: 20px; 
+	color: #fff; 
+	font-weight: bold; 
+}
+
+.section-h1 {
+	color: $gmc_dark_blue; 
+}
+
+.section-images {
+	width: 40px;
+	position: relative;
+	float: right;
+	bottom: 15px;
+	filter: brightness(100); 
+}
