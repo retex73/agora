@@ -1,0 +1,79 @@
+<div class="row breadcrumbs"> <div class="container-fluid no-padding-sides"> <div class="col-xs-6"> <span class="glyph-breadcrumb"><a ng-href="#/" class="glyphicon glyphicon-home glyph-breadcrumb"></a></span> <span class="breadcrumb-location"> {{breadCrumbs.report}} </span> <span class="glyphicon glyphicon-chevron-right glyph-breadcrumb" aria-hidden="true"></span> <span class="breadcrumb-h2">{{h2}} <span class="glyphicon glyphicon-info-sign viz-info-button" data-toggle="tooltip" data-placement="right" title="{{info}}"></span> </span> </div> <div class="col-xs-6 viz-controls"> <div class="pull-right"> <div class="btn-group btn-group-xs" role="group" aria-label="viz actions"> <button id="undo" ng-click="onBack();" data-toggle="tooltip" data-placement="bottom" title="Undo last action" class="btn btn-mini btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back</button> <button id="shareData" data-toggle="tooltip" data-placement="bottom" title="Share" class="btn btn-mini btn-default"><span class="glyphicon glyphicon-share"></span></button> <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <span data-toggle="tooltip" data-placement="bottom" title="Download this report" class="glyphicon glyphicon-download-alt"></span> <span class="sr-only">Toggle Dropdown</span> </button> <ul class="dropdown-menu" role="menu"> <li><a id="downloadData" href="#">Data</a></li> <li class="divider"></li> <li><a id="downloadImage" href="#">Image</a></li> <li class="divider"></li> <li><a id="downloadPdf" href="#">PDF</a></li> </ul> </div> <div class="btn-group btn-group-xs" role="group" aria-label="viz actions"> <button id="revertAll" data-toggle="tooltip" data-placement="bottom" title="Clear filters" class="btn btn-mini btn-default"><span class="glyphicon glyphicon-refresh"></span></button> <button id="fullScreen" data-toggle="tooltip" data-placement="bottom" title="View in fullscreen" class="btn btn-mini btn-default"><span class="glyphicon glyphicon-fullscreen"></span></button> </div> </div> </div> </div> </div> <!-- Main Viz --> <div class="row"> <div class="md-col-12"> <div id="mainViz"></div> </div> </div> <!-- enable tooltips --> <script>$(document).ready(function(){
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip({container: 'body'})
+});
+	$("#downloadData").on("click", function(e){
+		e.preventDefault();
+		
+		agora.vizfuncs.showExportDataDialog();
+	});
+	$("#downloadImage").on("click", function(e){
+		e.preventDefault();
+		agora.vizfuncs.showExportImageDialog();
+		
+	});
+	$("#downloadPdf").on("click", function(e){
+		e.preventDefault();
+		
+		agora.vizfuncs.showExportPDFDialog();
+	});
+	$("#shareData").on("click", function() {
+		agora.vizfuncs.showShareDialog();
+	});
+	$("#revertAll").on("click", function() {
+		agora.vizfuncs.revertAll();
+	});
+	$("#fullScreen").on("click", function() {
+		$('button:not(:last-child)').toggle();
+		function blink(elem, times, speed) {
+		if (times > 0 || times < 0) {
+		if ($(elem).hasClass("blink"))
+		$(elem).removeClass("blink");
+		else
+		$(elem).addClass("blink");
+		}
+		clearTimeout(function () {
+		blink(elem, times, speed);
+		});
+		if (times > 0 || times < 0) {
+		setTimeout(function () {
+		blink(elem, times, speed);
+		}, speed);
+		times -= .5;
+		}
+		}
+				$("#mainViz").toggleClass("viz-full-screen");
+		$("#fullScreen").toggleClass("full-screen-button-position");
+		blink("#fullScreen", 5, 100 );
+		agora.vizfuncs.resizeViz();
+		
+	});
+});
+// Resizer
+(function($,sr){
+	// debouncing function from John Hann
+	// http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+	var debounce = function (func, threshold, execAsap) {
+	var timeout;
+	return function debounced () {
+		var obj = this, args = arguments;
+		function delayed () {
+			if (!execAsap)
+			func.apply(obj, args);
+			timeout = null;
+		};
+	if (timeout)
+		clearTimeout(timeout);
+	else if (execAsap)
+		func.apply(obj, args);
+		timeout = setTimeout(delayed, threshold || 100);
+	};
+	}
+	// smartresize
+	jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+})(jQuery,'smartresize');
+// usage:
+	$(window).smartresize(function(){
+	console.log('resizing');
+	agora.vizfuncs.resizeViz();
+});</script>
