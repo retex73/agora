@@ -10,68 +10,61 @@
 angular.module('agoraApp')
   .controller('NavCtrl', function($scope, $route, $parse, $templateCache, $location) {
 
-    $scope.structure = agora.reports.getReportStructure(); 
+    $scope.structure = agora.reports.getReportStructure();
 
-    $scope.groups = groups; 
+    $scope.groups = groups;
 
-    window.lastSelected = ''; 
+    window.lastSelected = '';
 
-    $scope.timer = ''; 
+    $scope.timer = '';
 
-    $scope.showSections = function(e, section) {      
+    $scope.showSections = function(e, section) {
 
-      lastSelected = section;       
-      
-       
-      $scope.tierOne = (Object.keys(groups[section])); 
-      $scope.tierOne.push(section); 
+      lastSelected = section;
 
-      $scope.showTierOne = "show-tier-one"; 
 
-      $scope.marginLeft = (e.offsetX - 100) + "px";   
+      $scope.tierOne = (Object.keys(groups[section]));
+      $scope.tierOne.push(section);
 
-      var delay = 100; 
+      $scope.showTierOne = "show-tier-one";
 
+      $scope.marginLeft = (e.offsetX - 100) + "px";
+
+      var delay = 100;
 
 
 
       $scope.timer = setTimeout(function() {
-        var marginLeft = (e.offsetX - 100) + "px";  
-        $('#tier-one-ul').hide(); 
-        $('#tier-one-ul li:first').css('margin-left', marginLeft); 
-        $('#tier-one-ul').fadeIn(100); 
-      }, delay);  
-    }; 
-
-
-    
-
-    $scope.hideSections = function() {                      
-      $scope.showTierOne = ""; 
-      $('#reports-tier').find("li:contains(" + lastSelected  + ")").removeClass('persisting-hover'); 
-    }; 
-    
-
-    $scope.persistSections = function() { 
-      clearTimeout($scope.timer); 
-      $scope.showTierOne = "show-tier-one"; 
-
-      $('#reports-tier').find("li:contains(" + lastSelected  + ")").addClass('persisting-hover'); 
-    }; 
-
-
-    $scope.isActive = function(viewLocation) {
-
-      var parts = $location.path().split('/'), 
-      mainPart = "#/" + parts[1];      
-
-      return viewLocation === mainPart; 
+        var marginLeft = (e.offsetX - 100) + "px";
+        $('#tier-one-ul').hide();
+        $('#tier-one-ul li:first').css('margin-left', marginLeft);
+        $('#tier-one-ul').fadeIn(100);
+      }, delay);
     };
 
 
 
+    $scope.hideSections = function() {
+      $scope.showTierOne = "";
+      $('#reports-tier').find("li:contains(" + lastSelected + ")").removeClass('persisting-hover');
+    };
 
 
+    $scope.persistSections = function() {
+      clearTimeout($scope.timer);
+      $scope.showTierOne = "show-tier-one";
+
+      $('#reports-tier').find("li:contains(" + lastSelected + ")").addClass('persisting-hover');
+    };
+
+
+    $scope.isActive = function(viewLocation) {
+
+      var parts = $location.path().split('/'),
+        mainPart = "#/" + parts[1];
+
+      return viewLocation === mainPart;
+    };
 
 
 
@@ -80,31 +73,31 @@ angular.module('agoraApp')
         showTier(selector);
       } else {
         hideTier(selector);
-        hideTier(".custom-tier3-bootstrap-menu-nav"); 
+        hideTier(".custom-tier3-bootstrap-menu-nav");
       }
     };
 
     /**
      * Show third tier nav based on report group selected
      */
-    $scope.reportSections = {}; 
+    $scope.reportSections = {};
 
     $scope.reportSelect = function(group) {
 
-      
+
       // var reportSections = Pages.getPages(group); 
-      var reportSections = agora.reports.getPages(group); 
-      
-      $(".reportSections").html(""); 
+      var reportSections = agora.reports.getPages(group);
 
-      var html = ''; 
-      angular.forEach(reportSections, function(value, key){
-        console.log('Key: ' + key); 
-        html += "<li><a href='/#reports/" + group + "/" + key + "/report'>" + key + "</a></li>"; 
-      }); 
+      $(".reportSections").html("");
+
+      var html = '';
+      angular.forEach(reportSections, function(value, key) {
+        console.log('Key: ' + key);
+        html += "<li><a href='/#reports/" + group + "/" + key + "/report'>" + key + "</a></li>";
+      });
 
 
-      $(".reportSections").append(html); 
+      $(".reportSections").append(html);
       // $scope.reportSections = Pages.getPages('The Register'); 
     }
 
@@ -119,12 +112,12 @@ angular.module('agoraApp')
           queue: false,
           duration: 'slow'
         });
-      
+
     };
 
     var hideTier = function(selector) {
       $(selector)
-      .css('opacity', 1)
+        .css('opacity', 1)
         .slideUp('fast')
         .animate({
           opacity: 1
@@ -133,37 +126,34 @@ angular.module('agoraApp')
           duration: 'slow'
         });
     };
-    
-    $scope.groups = agora.reports.getGroups(); 
+
+    $scope.groups = agora.reports.getGroups();
 
   });
 
 
 
-$(document).ready(function(){
+$(document).ready(function() {
+  $(".nav-main").on("click", function() {
+    var id = $(this).attr('id');
 
-  
-
-
-  if(window.location.hash != "#/reports") {
-    $("#reports-tier").addClass("reports-tier-hide");
-    $("#reports-tier ul").hide(); 
-  }
-
-
-  $(".nav-main").on("click", function(){
-    var id = $(this).attr('id'); 
-    
-
-    if(id == "reports") {
-      $("#reports-tier").removeClass("reports-tier-hide");  
-      $("#reports-tier ul").show(); 
+    if (id == "reports") {
+      $("#reports-tier").removeClass("reports-tier-hide");
+      $("#reports-tier ul").show();
+      console.log('showing stuff');
     } else {
-      $("#reports-tier").addClass("reports-tier-hide"); 
-      $("#reports-tier ul").hide(); 
+      $("#reports-tier").addClass("reports-tier-hide");
+      $("#reports-tier ul").hide();
     }
-  }); 
-}); 
+  });
+});
 
 
+window.onload = function() {
+  if (window.location.hash != "#/reports") {
+    console.log('we should be hiding');
 
+    $("#reports-tier").addClass("reports-tier-hide");
+    $("#reports-tier ul").hide();
+  }
+}

@@ -11,13 +11,18 @@
   </head>
   <body ng-app="agoraApp">
     <div class="wrapper">
+
       <!--[if lt IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
       <!-- Add your site or application content here -->
       <div class="container-fluid">
         <!-- logo and banner -->
-        
+      <div class="row">
+        <div class="col-xs-12 header-grey-bar">
+          &nbsp; 
+        </div>
+      </div>  
 
       <header>
       <div class="row heading">
@@ -86,15 +91,26 @@
         
         <!-- Main body content -->
         <div ng-view="" class="gmc-container"></div>
+
+
+
         <!-- footer -->
         <nav class="navbar navbar-bottom">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-xs-12 footer-grey-bar">
+                &nbsp; 
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="row footer-full-width">
+              <div class="col-xs-6 footer-light-grey-bar">
                 The GMC is a registered charity in England and Wales (1089278) and Scotland (SC037750).<br/>
                 &copy Copyright General Medical Council 2015. All rights reserved
               </div>
-              <div class="col-md-6 pull-right footer-links">
+              <div class="col-xs-6 pull-right footer-links footer-light-grey-bar">
                 <ul>
                   <li><a href="/contact">Contact us</a></li>
                   <li>|</li>
