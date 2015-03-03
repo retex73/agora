@@ -129,7 +129,7 @@ var pagesObj = {
                 pageSubheading: 'FtP Sanctions imposed',
                 url: 'FitnesstoPractise_pub/PFS5'
             }],
-            'UK Maps': [{
+            'UK maps': [{
                 pageId: 'PFU1',
                 description: 'FTP UK Map',
                 pageHeading: 'Ftp Sanctions mapped',

@@ -140,10 +140,11 @@ $navHeight:30px;
     margin: 0px; 
     font-weight: bold; 
     background: #efefef; 
-    height: 52px; 
+    
     z-index: 1; 
-    margin-top: 30px; 
-    height: 22px; 
+    margin-top: 28px; 
+    height: 25px; 
+    padding: 2px; 
     
 
     a {
@@ -215,7 +216,7 @@ $navHeight:30px;
 
 .viz-controls {
     z-index: 999; 
-    top: -30px; 
+    top: -28px; 
 }
 
 .viz-full-screen {
