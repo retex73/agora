@@ -27,7 +27,7 @@
 // }
 
 
-$default_nav_colour: #1b4d5b; 
+$default_nav_colour: #797979; 
 
 $navHeight:30px; 
 
@@ -223,7 +223,7 @@ $navHeight:30px;
     height: 100%;
     width: 100%;    
     position: absolute;
-    top: 0;
+    top: -40px;
     left: 0;
     background: #fff;     
     z-index: 998; 
@@ -235,6 +235,7 @@ $navHeight:30px;
     right: 0px;
     color: red !important;
     opacity: 0.5; 
+    z-index: 999; 
     // transition: all 0.6s ease;
 }
 
@@ -271,12 +272,13 @@ $navHeight:30px;
     position: relative;
     float: left;
     width: 101vw;
-    background: $default_nav_colour !important; 
+    // background: $default_nav_colour !important; 
+    background: $default_nav_colour; 
     top: 5px;
     height: 23px;
     margin-left: auto; 
     margin-right: auto;         
-    transition: height 120ms ease-out, color 120ms ease-out; 
+    transition: all 120ms ease-out; 
     z-index: 99; 
     text-align: center; 
 }

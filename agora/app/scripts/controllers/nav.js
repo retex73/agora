@@ -20,6 +20,13 @@ angular.module('agoraApp')
 
     $scope.showSections = function(e, section) {
 
+      var theme = agora.themr.setCurrentState(section); 
+      var sectionColour = theme.colour; 
+      var sectionImage = "/images/" + theme.image; 
+
+      $("#reports-tier").css('background', sectionColour); 
+      
+
       lastSelected = section;
 
 
@@ -31,6 +38,7 @@ angular.module('agoraApp')
       $scope.marginLeft = (e.offsetX - 100) + "px";
 
       var delay = 100;
+
 
 
 

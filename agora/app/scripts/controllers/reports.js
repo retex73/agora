@@ -14,6 +14,8 @@ angular.module('agoraApp')
     $scope.bgClass = ""; 
 
     $scope.defaultText = "Please choose the data report you would like to explore"; 
+    
+
     $scope.getDescription = function(desc, key) {
     	
     	$scope.defaultText = desc; 
@@ -24,7 +26,9 @@ angular.module('agoraApp')
     		'background-image': 'url("' + img + '")', 
     	});
 
+        
 
+        
     	var colours = ['#2a3f61','#2ca7bf','#5a2a80','#b05898','#7c418c','#7a71ad','#4275b3']; 
 
 

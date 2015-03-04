@@ -59,7 +59,9 @@
                   <ul class="nav navbar-nav navbar-right">
                     <li class="nav-main" id="home" ng-class="{ active: isActive('#/') }"><a href="#/">Home</a></li>
                     <li class="nav-main" id="reports" ng-class="{ active: isActive('#/reports') }"><a href="#/reports">Reports</a></li>
-                    <li class="nav-main" id="about" ng-class="{ active: isActive('#/about') }"><a href="#/about">About</a></li>
+                    <li class="nav-main" id="about" ng-class="{ active: isActive('#/about') }">
+                      <a href="#/">About</a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -112,11 +114,11 @@
               </div>
               <div class="col-xs-6 pull-right footer-links footer-light-grey-bar">
                 <ul>
-                  <li><a href="/contact">Contact us</a></li>
+                  <li><a href="#/">Contact us</a></li>
                   <li>|</li>
-                  <li><a href="/disclaimer">Disclaimer</a></li>
+                  <li><a href="#/">Disclaimer</a></li>
                   <li>|</li>
-                  <li><a href="/privacy_and_cookies">Privacy and Cookies</a></li>
+                  <li><a href="#/">Privacy and Cookies</a></li>
                 </ul>
               </div>
             </div>
@@ -160,13 +162,15 @@
     <!-- <script src="scripts/tableautest.js"></script> -->
     <script src="scripts/vizfuncs.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/image-preloader.js"></script>
+
     <script src="scripts/controllers/nav.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/section.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/reports.js"></script>
     <script src="scripts/controllers/viz.js"></script>
-    <script src="scripts/classie.js"></script>
+    
     <!-- <script src="scripts/nav.js"></script> -->
     <!-- endbuild -->
   </body>

@@ -26,6 +26,8 @@
 	opacity: 0.8; 
 }
 
+
+
 .report-groups ul li a {
 	color: #fff;
 	transition: all 120ms ease-out;
@@ -35,6 +37,9 @@
 	color: $gmc_light_blue; 
 	text-decoration: none; 
 }
+
+
+
 
 .report-groups ul li:nth-child(1) {
 	background: #2a3f61;
@@ -71,7 +76,7 @@
 }
 
 .reports-background {
-	margin-top: 30px; 
+	margin-top: 52px; 
 	padding: 20px; 
 	max-height: 866px; 
 	max-width: 1293px; 
@@ -93,23 +98,24 @@
 
 
 .section-description {
-	background-color: rgba(255, 255, 255, 0.3); 
+	
 	font-size: 14px; 
 	font-weight: bold; 
-	margin-left: 15px; 
-	width: 89% !important; 
+	
+	width: 89% !important;
+	
 }
 
 #section-info {
 	padding: 20px; 
-	background-color: rgba(62, 39, 130, 0.9);
+	
 	margin-top: 20px; 
-	color: #fff; 
+	
 	font-weight: bold; 
 }
 
 .section-h1 {
-	color: $gmc_dark_blue; 
+	
 }
 
 .section-images {

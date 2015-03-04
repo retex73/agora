@@ -28,6 +28,10 @@ angular.module('agoraApp')
 
     
 
-    
+    $scope.gotoReports = function() {
+        $("#reports-tier").removeClass("reports-tier-hide");
+        $("#reports-tier ul").show();
+        window.location.href = "#/reports"; 
+    }; 
 
   });

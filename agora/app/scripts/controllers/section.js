@@ -15,6 +15,11 @@ angular.module('agoraApp')
 
     $scope.sectionName = agora.reports.sanitizeCategoryName($route.current.params.id);
 
+
+
+    agora.themr.setCurrentState($route.current.params.id); 
+
+
     $scope.sectionDescription = agora.reports.getSectionDescription($scope.sectionName); 
 
     $scope.pages = agora.reports.getPages($route.current.params.id);
@@ -53,31 +58,21 @@ angular.module('agoraApp')
         return rgba;
     }
 
-    var getSectionColour = function() {
-      var colours = ['#2a3f61','#2ca7bf','#5a2a80','#b05898','#7c418c','#7a71ad','#4275b3']; 
-      var colour = 0; 
-      var retColour; 
-      $.each(groups, function(key, val){
-      
-        if(key == $scope.sectionName) {
-          // console.log(key + ' is eq to ' + $scope.sectionName); 
-          // console.log(colours[colour]); 
-          retColour = colours[colour]; 
-        }
-        colour++; 
-      }); 
 
-      return retColour; 
-    }; 
+    var theme = agora.themr.setCurrentState($route.current.params.id); 
+    $scope.sectionColour = theme.colour; 
+    $scope.sectionImage = "/images/" + theme.image; 
 
 
-    $scope.sectionColour = getSectionColour(); 
+    // $scope.sectionColour = getSectionColour(); 
 
     // console.log('Section Colour: ' + $scope.sectionColour); 
     
     var setSectioncolour = function() {   
-      $(".report-groups ul li").css('background', $scope.sectionColour);  
-      $("#section-info").css('background', hex2rgba($scope.sectionColour, 0.9)); 
+      $(".report-groups ul li").css('background', $scope.sectionColour); 
+      $(".reports-background").css('background-image', 'url(' + $scope.sectionImage +')');  
+      // $("#section-info").css('background', hex2rgba($scope.sectionColour, 0.9));
+      // $(".section-description").css('background', hex2rgba($scope.sectionColour, 0.9)); 
 
     }; 
     

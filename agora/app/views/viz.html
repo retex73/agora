@@ -18,7 +18,7 @@
 				<div class="btn-group btn-group-xs" role="group" aria-label="viz actions">
 					<button id="undo" ng-click="onBack();" data-toggle="tooltip" data-placement="bottom" title="Undo last action" class="btn btn-mini btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
 					
-					<button id="shareData" data-toggle="tooltip" data-placement="bottom" title="Share" class="btn btn-mini btn-default"><span class="glyphicon glyphicon-share"></span></button>
+					<button id="shareData" data-toggle="tooltip" data-placement="bottom" title="Share" class="btn btn-mini btn-default"><span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-share"></span></button>
 					
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 					
@@ -50,12 +50,43 @@
 		<div id="mainViz"></div>
 	</div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Share</h4>
+      </div>
+      <div class="modal-body">        
+        <p><h3><span class="label label-info">Copy and paste the link below</span></h3></p>
+        <br>
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">Copy</span>
+			<input id="modal-url" class="form-control" type="text" value="" style="width: 500px;"></input>	
+		</div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <!-- enable tooltips -->
 <script>
 $(document).ready(function(){
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip({container: 'body'})
 });
+	
+
 	$("#downloadData").on("click", function(e){
 		e.preventDefault();
 		
@@ -72,31 +103,48 @@ $(function () {
 		agora.vizfuncs.showExportPDFDialog();
 	});
 	$("#shareData").on("click", function() {
-		agora.vizfuncs.showShareDialog();
+		// agora.vizfuncs.showShareDialog();
+		$("#modal-url").val(window.location.href); 
 	});
 	$("#revertAll").on("click", function() {
 		agora.vizfuncs.revertAll();
 	});
+
+
+	$(document).keyup(function(e) {
+  		if (e.keyCode == 27) { 
+  			console.log('You pressed esc'); 
+			$("#mainViz").toggleClass("viz-full-screen");
+			$("#fullScreen").toggleClass("full-screen-button-position");
+			
+			agora.vizfuncs.resizeViz();
+
+  		}   
+	});
+
+
 	$("#fullScreen").on("click", function() {
 		$('button:not(:last-child)').toggle();
 		function blink(elem, times, speed) {
 		if (times > 0 || times < 0) {
-		if ($(elem).hasClass("blink"))
-		$(elem).removeClass("blink");
+			if ($(elem).hasClass("blink"))
+				$(elem).removeClass("blink");
 		else
-		$(elem).addClass("blink");
+			$(elem).addClass("blink");
 		}
+
 		clearTimeout(function () {
-		blink(elem, times, speed);
+			blink(elem, times, speed);
 		});
 		if (times > 0 || times < 0) {
-		setTimeout(function () {
-		blink(elem, times, speed);
+			setTimeout(function () {
+			blink(elem, times, speed);
 		}, speed);
-		times -= .5;
+			times -= .5;
 		}
 		}
-				$("#mainViz").toggleClass("viz-full-screen");
+				
+		$("#mainViz").toggleClass("viz-full-screen");
 		$("#fullScreen").toggleClass("full-screen-button-position");
 		blink("#fullScreen", 5, 100 );
 		agora.vizfuncs.resizeViz();
