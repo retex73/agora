@@ -68,9 +68,9 @@ var agora = window.agora || {};
 
    //  		else {
     		this.mainViz = new tableauSoftware.Viz(this.div[0], mainWorkbookUrl, mainVizOptions);
-    		console.log(this.div[0]); 
-    		console.log(mainWorkbookUrl); 
-    		console.log(mainVizOptions); 
+    		// console.log(this.div[0]); 
+    		// console.log(mainWorkbookUrl); 
+    		// console.log(mainVizOptions); 
 
 
     		// }	
@@ -380,11 +380,11 @@ var agora = window.agora || {};
 			if (agora.vizfuncs.locked) {
 				// var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
 				// agora.vizfuncs.setReportTitle(tabName);
-				console.log('locked');
+				// console.log('locked');
 				agora.vizfuncs.locked = false;
 				return;
 			} else {
-				console.log('not locked');
+				// console.log('not locked');
 			}
 
 			if (agora.vizfuncs.counter <= 0) {
@@ -480,7 +480,7 @@ var agora = window.agora || {};
 				});
 
 				// console.log(arrFilters); 
-				console.log('Pusihing to filterHistory');
+				// console.log('Pusihing to filterHistory');
 				agora.vizfuncs.filterHistory.push(arrFilters);
 			};
 			var onError = function(err) {

@@ -10,6 +10,10 @@
 angular.module('agoraApp')
   .controller('NavCtrl', function($scope, $route, $parse, $templateCache, $location) {
 
+    // preload images
+    agora.themr.preloader(); 
+
+
     $scope.structure = agora.reports.getReportStructure();
 
     $scope.groups = groups;
@@ -158,9 +162,7 @@ $(document).ready(function() {
 
 
 window.onload = function() {
-  if (window.location.hash != "#/reports") {
-    console.log('we should be hiding');
-
+  if (window.location.hash != "#/reports") {    
     $("#reports-tier").addClass("reports-tier-hide");
     $("#reports-tier ul").hide();
   }

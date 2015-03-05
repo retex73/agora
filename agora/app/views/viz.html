@@ -1,6 +1,6 @@
 <div class="row breadcrumbs">
 	<div class="container-fluid no-padding-sides">
-		<div class="col-xs-6">
+		<div class="col-xs-6 viz-breadcrumb-info">
 			
 			<span class="glyph-breadcrumb"><a ng-href="#/" class="glyphicon glyphicon-home glyph-breadcrumb"></a></span>
 			
@@ -111,41 +111,42 @@ $(function () {
 	});
 
 
-	$(document).keyup(function(e) {
-  		if (e.keyCode == 27) { 
-  			console.log('You pressed esc'); 
-			$("#mainViz").toggleClass("viz-full-screen");
-			$("#fullScreen").toggleClass("full-screen-button-position");
-			
-			agora.vizfuncs.resizeViz();
-
-  		}   
-	});
-
-
 	$("#fullScreen").on("click", function() {
 		$('button:not(:last-child)').toggle();
-		function blink(elem, times, speed) {
-		if (times > 0 || times < 0) {
-			if ($(elem).hasClass("blink"))
-				$(elem).removeClass("blink");
-		else
-			$(elem).addClass("blink");
-		}
 
-		clearTimeout(function () {
-			blink(elem, times, speed);
-		});
-		if (times > 0 || times < 0) {
-			setTimeout(function () {
-			blink(elem, times, speed);
-		}, speed);
+
+		$('.breadcrumbs').toggle(
+			function() {
+				$('.breadcrumbs').css('margin-top', '80px'); 
+			}, 
+			function() {
+				$('.breadcrumbs').css('margin-top', '28px'); 
+			}
+		); 
+		function blink(elem, times, speed) {
+			if (times > 0 || times < 0) {
+				if ($(elem).hasClass("blink"))
+					$(elem).removeClass("blink");
+				else
+					$(elem).addClass("blink");
+			}
+
+			clearTimeout(function () {
+				blink(elem, times, speed);
+			});
+
+			if (times > 0 || times < 0) {
+				setTimeout(function () {
+				blink(elem, times, speed);
+			}, speed);
+
 			times -= .5;
-		}
+			}
 		}
 				
 		$("#mainViz").toggleClass("viz-full-screen");
 		$("#fullScreen").toggleClass("full-screen-button-position");
+		$(".top").toggle(); 
 		blink("#fullScreen", 5, 100 );
 		agora.vizfuncs.resizeViz();
 		
