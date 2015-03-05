@@ -8,10 +8,33 @@
  * Controller of the agoraApp
  */
 angular.module('agoraApp')
-  .controller('NavCtrl', function($scope, $route, $parse, $templateCache, $location) {
+  .controller('NavCtrl', function($scope, $route, $parse, $templateCache, $location, $window) {
+
+  function hashChanged() {
+
+    var isReportPage = window.location.hash.search("reports");
+
+    if (isReportPage > 0) {
+
+      $("#reports-tier").removeClass("reports-tier-hide");
+      $("#reports-tier ul").show();
+    } else {
+
+      $("#reports-tier").addClass("reports-tier-hide");
+      $("#reports-tier ul").hide();
+    }
+  }
+
+  $window.onload = function(){
+    hashChanged();   
+  }
+
+
+    window.addEventListener("hashchange", hashChanged);
+
 
     // preload images
-    agora.themr.preloader(); 
+    agora.themr.preloader();
 
 
     $scope.structure = agora.reports.getReportStructure();
@@ -22,15 +45,14 @@ angular.module('agoraApp')
 
     $scope.timer = '';
 
-    $scope.showSections = function(e, section) {
+    $scope.showSections = function(e, section, key) {
+      console.log('showSections');
+      // Get selector for parent element so we can find the position  
+      var marginLeft = getElementPosition(key);
 
-      var theme = agora.themr.setCurrentState(section); 
-      var sectionColour = theme.colour; 
-      var sectionImage = "/images/" + theme.image; 
-
-      $("#reports-tier").css('background', sectionColour); 
-      
-
+      // Set the theme based on the sections
+      setSectionColour(section);
+      // globally set lastSelected
       lastSelected = section;
 
 
@@ -39,35 +61,71 @@ angular.module('agoraApp')
 
       $scope.showTierOne = "show-tier-one";
 
-      $scope.marginLeft = (e.offsetX - 100) + "px";
 
-      var delay = 100;
+      $('#tier-one-ul').hide(); 
+      $('#tier-one-ul li:first').css('margin-left', marginLeft); 
+      $('#tier-one-ul').show();       
 
 
-
-
-      $scope.timer = setTimeout(function() {
-        var marginLeft = (e.offsetX - 100) + "px";
-        $('#tier-one-ul').hide();
-        $('#tier-one-ul li:first').css('margin-left', marginLeft);
-        $('#tier-one-ul').fadeIn(100);
-      }, delay);
+      $(".viz-breadcrumb-info").hide();
+      $(".viz-controls").hide(); 
     };
 
 
+
+
+    var setSectionColour = function(section) {
+      var theme = agora.themr.setCurrentState(section);
+      var sectionColour = theme.colour;
+
+
+      $("#reports-tier").css('background', sectionColour);
+    };
+
+    var getElementPosition = function(key) {
+      var selector = "#" + key;
+      var pos = $(selector).offset();
+      var marginLeft = (pos.left - 50) + "px";
+
+      return marginLeft;
+    };
 
     $scope.hideSections = function() {
+      // $(".viz-breadcrumb-info").fadeIn("slow");
+
+      setTimeout(function(){
+        $(".viz-breadcrumb-info").fadeIn("fast");
+        $(".viz-controls").fadeIn("fast"); 
+      }, 300); 
+
+      // $("#reports-tier-one").fadeOut("normal", function(){
+      //   $scope.showTierOne = "";
+
+      //   $('#reports-tier').find("li:contains(" + lastSelected + ")").removeClass('persisting-hover');
+      // }); 
+      // return; 
+
+      console.log('hide sections');
+
       $scope.showTierOne = "";
+
       $('#reports-tier').find("li:contains(" + lastSelected + ")").removeClass('persisting-hover');
+
+
+
     };
+
 
 
     $scope.persistSections = function() {
-      clearTimeout($scope.timer);
+      console.log('persistSections');
+
+
       $scope.showTierOne = "show-tier-one";
 
       $('#reports-tier').find("li:contains(" + lastSelected + ")").addClass('persisting-hover');
     };
+
 
 
     $scope.isActive = function(viewLocation) {
@@ -141,29 +199,7 @@ angular.module('agoraApp')
 
     $scope.groups = agora.reports.getGroups();
 
+
+
   });
 
-
-
-$(document).ready(function() {
-  $(".nav-main").on("click", function() {
-    var id = $(this).attr('id');
-
-    if (id == "reports") {
-      $("#reports-tier").removeClass("reports-tier-hide");
-      $("#reports-tier ul").show();
-      console.log('showing stuff');
-    } else {
-      $("#reports-tier").addClass("reports-tier-hide");
-      $("#reports-tier ul").hide();
-    }
-  });
-});
-
-
-window.onload = function() {
-  if (window.location.hash != "#/reports") {    
-    $("#reports-tier").addClass("reports-tier-hide");
-    $("#reports-tier ul").hide();
-  }
-}

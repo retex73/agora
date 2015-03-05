@@ -77,7 +77,7 @@
             <div id="reports-tier">
               <ul>
                 <li ng-repeat="(key, value) in groups" ng-class="{ active: isActive('#/') }">
-                  <a ng-mouseover="showSections($event, value);" ng-mouseleave="hideSections();" ng-href="#/reports/{{value}}"><span class='reports-tier-text'>{{value}}</span></a></li>
+                  <a ng-mouseover="showSections($event, value, key);" ng-mouseleave="hideSections();" ng-href="#/reports/{{value}}"><span class='reports-tier-text' id="{{key}}">{{value}}</span></a></li>
               </ul>
             </div>
             <div id="reports-tier-one" class="{{showTierOne}}" ng-mouseover="persistSections(e);" ng-mouseleave="hideSections();">
