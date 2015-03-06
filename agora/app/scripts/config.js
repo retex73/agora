@@ -1,6 +1,7 @@
 var pagesObj = {
-    reportsBaseUrl: 'http://s1tsttabaps01/views/', 
+    // reportsBaseUrl: 'http://s1tsttabaps01/views/', 
     // reportsBaseUrl: 'http://s1prdtabaps01/views/', 
+    reportsBaseUrl: 'http://tsttabappvip/views/', 
 
     // reportsBaseUrl: 'https://public.tableausoftware.com/',    
     // reportsBaseUrl: 'https://public.tableausoftware.com/views/', 
@@ -23,7 +24,8 @@ var pagesObj = {
                 description: 'The Register Stats',
                 pageHeading: 'The Register',
                 pageSubheading: 'Key stats from the medical register',
-                url: 'TheRegister_pub/PRS1'                
+                url: 'TheRegister/PRS1'
+                // url: 'TheRegister_pub/PRS1'                
                 // url: 'shared/RXR9Q6PPD?:display_count=yes'
                 // url: 'USForestFires/Dashboard1?:embed=y&:display_count=yes&:loadOrderID=0'
             }, {
@@ -31,19 +33,19 @@ var pagesObj = {
                 description: 'The Register over time',
                 pageHeading: 'The Register',
                 pageSubheading: 'The medical register over time',
-                url: 'TheRegister_pub/PRS1_H'
+                url: 'TheRegister/PRS1_H'
             }, {
                 pageId: 'PRS2',
                 description: 'The Specialist Register',
                 pageHeading: 'The Specialist Register',
                 pageSubheading: 'Key stats from the Specialist Register',
-                url: 'TheRegister_pub/PRS2'
+                url: 'TheRegister/PRS2'
             }, {
                 pageId: 'PRS2_H',
                 description: 'The Specialist Register over time',
                 pageHeading: 'The Specialist Register',
                 pageSubheading: 'The Specialist Register over time',
-                url: 'TheRegister_pub/PRS2_H'
+                url: 'TheRegister/PRS2_H'
             }, {
                 pageId: 'PRS3',
                 description: 'Trainees',
@@ -67,7 +69,7 @@ var pagesObj = {
                 description: 'The Register UK Map',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by UK country', 
-                url: 'TheRegister_pub/PRU1'
+                url: 'TheRegister/PRU1'
             }, {
                 pageId: 'PRU2',
                 description: 'The Register UK Map',
@@ -80,7 +82,7 @@ var pagesObj = {
                 description: 'The Register World Map',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by country of qualification', 
-                url: 'TheRegister_pub/PRW1'
+                url: 'TheRegister/PRW1'
             }]
         },
     }, {
@@ -108,7 +110,7 @@ var pagesObj = {
                 description: 'FTP Stats',
                 pageHeading: 'Fitness to practise',
                 pageSubheading: 'Key volumes by year',
-                url: 'FitnesstoPractise_pub/PFS1'
+                url: 'FitnesstoPractice_1/PFS1'
             }, {
                 pageId: 'PFS2',
                 description: 'Allegations',
@@ -139,7 +141,7 @@ var pagesObj = {
                 description: 'FTP UK Map',
                 pageHeading: 'Ftp Sanctions mapped',
                 pageSubheading: 'Current Designated Body of doctors with sanctions',
-                url: 'FitnesstoPractise_pub/PFU1'
+                url: 'FitnesstoPractice_1/PFU1'
             }, {
                 pageId: 'PFU2',
                 description: 'FTP UK Map',
@@ -178,7 +180,7 @@ var pagesObj = {
                 description: 'Employers Stats (The Register)',
                 pageHeading: 'Employers overview',
                 pageSubheading: 'Key stats from the register, by organisation (Drs\' Designated Bodies)',
-                url: 'Employers_pub/PES1'
+                url: 'Employers_0/PES1'
             }, {
                 pageId: 'PES10',
                 description: 'Employer Stats (FtP)',
@@ -211,7 +213,7 @@ var pagesObj = {
                 description: 'Employers UK Map',
                 pageHeading: 'Employers mapped',
                 pageSubheading: 'Doctor\'s employers (Designated Bodies), by location',
-                url: 'Employers_pub/PEU1'
+                url: 'Employers_0/PEU1'
             }]
 
         }
@@ -225,13 +227,15 @@ var pagesObj = {
                 pageId: 'X__PMS1',
                 description: 'Medical Schools stats',
                 pageHeading: '-',
-                pageSubheading: ''
+                pageSubheading: '', 
+                url: 'MedicalSchools/PMS1'
             }],
             'UK maps': [{
                 pageId: 'X__PMU1',
                 description: 'Medical Schools UK Map',
                 pageHeading: '-',
-                pageSubheading: '-'
+                pageSubheading: '-', 
+                url: 'MedicalSchools/PMu1'
             }],
             'World maps': [{
                 pageId: 'X__PMW1',

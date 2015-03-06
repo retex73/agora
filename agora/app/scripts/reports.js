@@ -90,6 +90,11 @@ var agora = window.agora || {};
 			return structure; 
 		}, 
 
+		/**
+		 * returns the colour and image for a section
+		 * @param  {[type]} sectionName [description]
+		 * @return obj colour, theme
+		 */
 		getSectionTheme: function(sectionName) {
 			var theme = {}; 
 			var result = $.grep(this.dataSrc.repGroup, function(e) {

@@ -74,7 +74,7 @@
         <!-- reports tier nav -->
         <div class="row full-width">
           <div ng-controller="NavCtrl">
-            <div id="reports-tier">
+            <div id="reports-tier" style="background: {{defaultColour}}">
               <ul>
                 <li ng-repeat="(key, value) in groups" ng-class="{ active: isActive('#/') }">
                   <a ng-mouseover="showSections($event, value, key);" ng-mouseleave="hideSections();" ng-href="#/reports/{{value}}"><span class='reports-tier-text' id="{{key}}">{{value}}</span></a></li>
@@ -167,7 +167,7 @@
     <!-- <script src="scripts/tableautest.js"></script> -->
     <script src="scripts/vizfuncs.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/image-preloader.js"></script>
+    <script src="scripts/agora-themr.js"></script>
 
     <script src="scripts/controllers/nav.js"></script>
     <script src="scripts/controllers/main.js"></script>

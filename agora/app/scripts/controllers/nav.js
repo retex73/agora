@@ -10,7 +10,13 @@
 angular.module('agoraApp')
   .controller('NavCtrl', function($scope, $route, $parse, $templateCache, $location, $window) {
 
+    $scope.defaultColour = '#797979'; 
+
+
+
   function hashChanged() {
+
+    $scope.defaultColour = agora.themr.getDefaultColour(); 
 
     var isReportPage = window.location.hash.search("reports");
 
@@ -91,6 +97,9 @@ angular.module('agoraApp')
     };
 
     $scope.hideSections = function() {
+      console.log($scope.defaultColour); 
+      $("#reports-tier").css('background', $scope.defaultColour);
+
       // $(".viz-breadcrumb-info").fadeIn("slow");
 
       setTimeout(function(){
