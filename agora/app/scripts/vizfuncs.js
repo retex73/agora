@@ -77,15 +77,17 @@ var agora = window.agora || {};
 				delete agora.vizfuncs.mainViz; 
 				setTimeout(function(){
 					agora.vizfuncs.renderViz(agora.vizfuncs.routeParams); 
-					agora.vizfuncs.addEventListeners();	
-					agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
+					// agora.vizfuncs.addEventListeners();	
+					// agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
+					agora.vizfuncs.vizEnhancement(); 
 				}, 500); 
 				
 
 			} else {
 				this.render(); 
-				agora.vizfuncs.addEventListeners();	
-				agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
+				agora.vizfuncs.vizEnhancement(); 
+				// agora.vizfuncs.addEventListeners();	
+				// agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
 			}
 
 			
@@ -93,6 +95,11 @@ var agora = window.agora || {};
 			
 		}, 
 		
+
+		vizEnhancement: function() {
+			agora.vizfuncs.addEventListeners();	
+			agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
+		}, 
 
 		
 		/**
