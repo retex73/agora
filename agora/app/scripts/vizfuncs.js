@@ -26,59 +26,72 @@ var agora = window.agora || {};
 		tabHistory: [], 
 		locked: false,
 		goingBack: false, 
+		routeParams: '', 
 		
 
-		renderViz: function(routeParams) {
-
+		renderViz: function(routeParams){
+			this.routeParams = routeParams; 
+			this.dispose(); 
 			
+		}, 
 
-
-			this.customViewName = 0;
-			this.routeParams = routeParams;
-			this.getReportUrl(routeParams);
+		render: function() {
+			console.log('rendering'); 
+			var routeParams = agora.vizfuncs.routeParams; 
+			var placeholderDiv = document.getElementById("mainViz");
+			
+			agora.vizfuncs.customViewName = 0;
+			agora.vizfuncs.routeParams = routeParams;
+			agora.vizfuncs.getReportUrl(routeParams);
 
 			// html structure to paint viz into
-			this.div = $(this.mainVizDiv); 
+			agora.vizfuncs.div = $(agora.vizfuncs.mainVizDiv); 
 
-			var mainWorkbookUrl = this.url;
+			var mainWorkbookUrl = agora.vizfuncs.url;
 
 
 			var vizOpts = {
 				hideTabs: true,
 				hideToolbar: true,
-				width: this.div.parent().innerWidth() + "px",
-				height: this.div.parent().innerHeight() + "px",
+				width: agora.vizfuncs.div.parent().innerWidth() + "px",
+				height: agora.vizfuncs.div.parent().innerHeight() + "px",
 				onFirstInteractive: function() {
 					mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 				}
 			};
 			
-			var mainVizOptions = $.extend({}, vizOpts, this.getVizOptions());
+			var mainVizOptions = $.extend({}, vizOpts, agora.vizfuncs.getVizOptions());
 
+			
+    		agora.vizfuncs.mainViz = new tableauSoftware.Viz(placeholderDiv, mainWorkbookUrl, mainVizOptions);
 
-
-
-
-			// if (typeof this.mainViz == 'object') {
-			// 	console.log('disposing'); 
-			// 	console.log(this.div); 
-   //      		this.mainViz.dispose(); 
-   //      		this.mainViz = new tableauSoftware.Viz(this.div[0], mainWorkbookUrl, mainVizOptions);
-   //  		} 
-
-   //  		else {
-    		this.mainViz = new tableauSoftware.Viz(this.div[0], mainWorkbookUrl, mainVizOptions);
-    		// console.log(this.div[0]); 
-    		// console.log(mainWorkbookUrl); 
-    		// console.log(mainVizOptions); 
-
-
-    		// }	
-
-			// this.mainViz = new tableauSoftware.Viz(mainVizDiv[0], mainWorkbookUrl, mainVizOptions);
+    		
 		},
 
+		dispose: function(){
+			
+			
+			if(typeof agora.vizfuncs.mainViz == 'object') {
+				console.log('viz exists'); 
+				this.mainViz.dispose(); 
+				delete agora.vizfuncs.mainViz; 
+				setTimeout(function(){
+					agora.vizfuncs.renderViz(agora.vizfuncs.routeParams); 
+					agora.vizfuncs.addEventListeners();	
+					agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
+				}, 500); 
+				
 
+			} else {
+				this.render(); 
+				agora.vizfuncs.addEventListeners();	
+				agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
+			}
+
+			
+
+			
+		}, 
 		
 
 		
@@ -389,7 +402,7 @@ var agora = window.agora || {};
 
 			if (agora.vizfuncs.counter <= 0) {
 				// doing the onchange first time to get the tab title
-				console.log('setting report title');
+				
 				var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
 				agora.vizfuncs.setReportTitle(tabName);
 				agora.vizfuncs.counter++;

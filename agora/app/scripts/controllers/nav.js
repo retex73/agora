@@ -46,7 +46,7 @@ angular.module('agoraApp')
     $scope.timer = '';
 
     $scope.showSections = function(e, section, key) {
-      console.log('showSections');
+      
       // Get selector for parent element so we can find the position  
       var marginLeft = getElementPosition(key);
 
@@ -105,7 +105,7 @@ angular.module('agoraApp')
       // }); 
       // return; 
 
-      console.log('hide sections');
+      
 
       $scope.showTierOne = "";
 
@@ -118,7 +118,7 @@ angular.module('agoraApp')
 
 
     $scope.persistSections = function() {
-      console.log('persistSections');
+      
 
 
       $scope.showTierOne = "show-tier-one";
@@ -162,7 +162,7 @@ angular.module('agoraApp')
 
       var html = '';
       angular.forEach(reportSections, function(value, key) {
-        console.log('Key: ' + key);
+        
         html += "<li><a href='/#reports/" + group + "/" + key + "/report'>" + key + "</a></li>";
       });
 

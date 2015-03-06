@@ -33,9 +33,11 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 
 	agora.vizfuncs.renderViz($routeParams, $scope);
-	agora.vizfuncs.addEventListeners();
 	
-	agora.vizfuncs.getReportUrl($routeParams); 
+
+	// agora.vizfuncs.addEventListeners();
+	
+	// agora.vizfuncs.getReportUrl($routeParams); 
 
 	// Take initial snapshot of history
 	setTimeout(function() {
