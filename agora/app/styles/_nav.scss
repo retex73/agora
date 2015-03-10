@@ -75,7 +75,42 @@ $navHeight:30px;
      border-bottom: 10px solid $default_nav_colour; 
      left: calc(50% - 10px);
      bottom: -10px; 
+     transition: all 120ms ease-out; 
 }
+
+
+.the_register::after {     
+    border-bottom: 10px solid #334773 !important; 
+}
+
+.fitness_to_practise::after {     
+    border-bottom: 10px solid #20a6c3 !important; 
+}
+
+.employers::after {     
+    border-bottom: 10px solid #5c2682 !important; 
+}
+
+.medical_schools::after {     
+    border-bottom: 10px solid #b3549b !important; 
+}
+
+.deaneries::after {     
+    border-bottom: 10px solid #7f3d90 !important; 
+}
+
+.royal_colleges::after {     
+    border-bottom: 10px solid #7b6fb1 !important; 
+}
+
+.revalidation::after {     
+    border-bottom: 10px solid #4072b7 !important; 
+}
+
+
+
+
+
 
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
     color: rgba(0, 55, 123, 1);

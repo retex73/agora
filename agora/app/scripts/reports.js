@@ -96,20 +96,26 @@ var agora = window.agora || {};
 		 * @return obj colour, theme
 		 */
 		getSectionTheme: function(sectionName) {
+
 			var theme = {}; 
 			var result = $.grep(this.dataSrc.repGroup, function(e) {
 				return e.groupName == sectionName; 
 			}); 
 
+
+
 			if(typeof result[0] == "undefined") {
-				return false; 
+				theme['colour'] = "#797979";
+				theme['image'] = '';  
+				
 			} else {
 				// console.log(result[0].description);
 				theme['colour'] = result[0].colour; 
 				theme['image'] = result[0].image;  
 				// return result[0].colour; 
-				return theme; 
+				
 			}
+			return theme; 
 		}
 	}; 
 

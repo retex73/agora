@@ -15,7 +15,7 @@ var pagesObj = {
     repGroup: [{
         groupName: 'The Register',        
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quia dolore, dicta, minus amet, voluptas aliquid praesentium sequi nam accusamus repellat ratione consectetur. Laborum commodi doloremque, repellendus qui veniam corporis.', 
-        colour: '#2a3f61', 
+        colour: '#334773', 
         image: 'reports-0.jpg', 
 
         pages: {
@@ -88,7 +88,7 @@ var pagesObj = {
     }, {
         groupName: 'Revalidation',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum animi placeat, molestias, esse quam id eligendi, deleniti quia neque distinctio quis enim! Consequatur magni, dignissimos et facere quod vero tenetur!', 
-        colour: '#2ca7bf', 
+        colour: '#4072b7', 
         image: 'reports-1.jpg',         
         pages: {
             'Stats': [{
@@ -103,7 +103,7 @@ var pagesObj = {
         groupName: 'Fitness to practise',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, illum dignissimos, quaerat, eveniet repellat ullam dicta nesciunt iusto, harum necessitatibus fugiat labore repellendus reprehenderit. Doloribus mollitia, magni voluptatum eum ratione.', 
         image: 'reports-2.jpg', 
-        colour: '#5a2a80', 
+        colour: '#20a6c3', 
         pages: {
             'Stats': [{
                 pageId: 'PFS1',
@@ -173,7 +173,7 @@ var pagesObj = {
         groupName: 'Employers',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius dicta eos ullam beatae temporibus odit deleniti ad explicabo facilis totam dolorum ducimus, porro deserunt magni nobis, recusandae vel! At, quidem!', 
         image: 'reports-3.jpg', 
-        colour: '#b05898',         
+        colour: '#5c2682',         
         pages: {
             'Stats': [{
                 pageId: 'PES1',
@@ -221,7 +221,7 @@ var pagesObj = {
         groupName: 'Medical Schools',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod temporibus delectus sit a ullam aliquam animi ex, nam voluptates ut deleniti repellendus sunt dolore magnam voluptatibus id hic molestiae! Quod.', 
         image: 'reports-4.jpg', 
-        colour: '#7c418c',            
+        colour: '#b3549b',            
         pages: {
             'Stats': [{
                 pageId: 'X__PMS1',
@@ -248,7 +248,7 @@ var pagesObj = {
         groupName: 'Royal Colleges',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis in laborum sint molestias. Voluptate placeat harum pariatur? Eius, saepe id mollitia facere numquam recusandae, itaque blanditiis quibusdam molestias odio nobis?', 
         image: 'reports-5.jpg', 
-        colour: '#7a71ad',            
+        colour: '#7b6fb1',            
         pages: {
             'Stats': [{
                 pageId: 'X_PCS1',
@@ -266,7 +266,7 @@ var pagesObj = {
         groupName: 'Deaneries',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quis autem consequuntur sapiente tempore deserunt odit sunt magni, earum totam consectetur enim aliquam dolorum explicabo quam sequi blanditiis beatae. Perspiciatis.', 
         image: 'reports-6.jpg', 
-        colour: '#4275b3',            
+        colour: '#7f3d90',            
         pages: {
             'Stats': [{
                 pageId: 'X__PDS1',

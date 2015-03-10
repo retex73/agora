@@ -12,7 +12,18 @@ angular.module('agoraApp')
 
     $scope.defaultColour = '#797979'; 
 
+    var setSectionColour = function(section) {
+      console.log('called'); 
+      if(section.length == 0) {
+        console.log('no section'); 
+      } else {
+        console.log('a section was supplied: ' + section); 
+      }
+      var theme = agora.themr.setCurrentState(section);
+      var sectionColour = theme.colour;
 
+      $("#reports-tier").css('background', sectionColour);
+    };
 
   function hashChanged() {
 
@@ -33,6 +44,8 @@ angular.module('agoraApp')
 
   $window.onload = function(){
     hashChanged();   
+    console.log('loaded'); 
+    setSectionColour(''); 
   }
 
 
@@ -53,6 +66,7 @@ angular.module('agoraApp')
 
     $scope.showSections = function(e, section, key) {
       
+      
       // Get selector for parent element so we can find the position  
       var marginLeft = getElementPosition(key);
 
@@ -61,6 +75,7 @@ angular.module('agoraApp')
       // globally set lastSelected
       lastSelected = section;
 
+      agora.themr.setHoverClass(); 
 
       $scope.tierOne = (Object.keys(groups[section]));
       $scope.tierOne.push(section);
@@ -80,13 +95,7 @@ angular.module('agoraApp')
 
 
 
-    var setSectionColour = function(section) {
-      var theme = agora.themr.setCurrentState(section);
-      var sectionColour = theme.colour;
 
-
-      $("#reports-tier").css('background', sectionColour);
-    };
 
     var getElementPosition = function(key) {
       var selector = "#" + key;
@@ -97,7 +106,9 @@ angular.module('agoraApp')
     };
 
     $scope.hideSections = function() {
-      console.log($scope.defaultColour); 
+      
+      agora.themr.removeHoverClass(); 
+
       $("#reports-tier").css('background', $scope.defaultColour);
 
       // $(".viz-breadcrumb-info").fadeIn("slow");

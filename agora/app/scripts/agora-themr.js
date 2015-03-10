@@ -4,12 +4,13 @@ var agora = window.agora || {};
 	agora.themr = {
 
 		
-
+		className: '', 
+		hoverClassName: '', 
 		/**
 		 * Actually gets the current theme for section 
 		 * @param {[type]} section [description]
 		 */
-		setCurrentState: function(section) {						
+		setCurrentState: function(section) {				
 			return agora.reports.getSectionTheme(section); 
 		}, 
 
@@ -35,8 +36,74 @@ var agora = window.agora || {};
 			}); 
 		}, 
 
+		convertSectionNameToUnderscore: function(section) {
+			var toLower = section.toLowerCase(); 
+			var toUnderscore = toLower.split(' ').join('_'); 
+			
+			return toUnderscore; 
+		}, 
+
+		setClassName: function(section) {
+			this.className = this.convertSectionNameToUnderscore(section); 
+		}, 
+
+		getClassName: function() {
+			return this.className; 
+		}, 
+
+
+		setHoverClassName: function(section) {
+			this.hoverClassName = this.convertSectionNameToUnderscore(section); 
+		}, 
+
+		getHoverClassName: function() {
+			return this.hoverClassName; 
+		}, 
+
+		setHoverClass: function() {			
+			console.log('adding hover'); 
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
+			this.hoverClassName = this.convertSectionNameToUnderscore(lastSelected); 
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.hoverClassName); 
+
+		}, 
+
+		removeHoverClass: function() {	
+			console.log('removing hover'); 
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.className); 
+		}, 
+
 		getDefaultColour: function() {
-			return "#797979"; 
+			// Detect section from url 
+			var url = decodeURIComponent(window.location.hash); 
+			
+			var sections = Object.keys(groups); 
+
+			var section = ''; 
+			$.each(sections, function(key, val){				
+				var search = url.search(val);
+
+				if(search > 0) {
+					section = val; 
+				}
+				
+			}); 
+
+			// Now we have the section name, get the theme
+			var theme = this.setCurrentState(section); 
+
+			// Remove any previously set className
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.className); 			
+
+			// Get the associated class name by converting spaces to underscores
+			this.setClassName(section); 			
+
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.className); 
+
+			return theme.colour; 
+
+			
 		}
 
 		
