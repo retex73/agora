@@ -60,16 +60,22 @@ var agora = window.agora || {};
 			return this.hoverClassName; 
 		}, 
 
-		setHoverClass: function() {			
-			console.log('adding hover'); 
-			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
-			this.hoverClassName = this.convertSectionNameToUnderscore(lastSelected); 
-			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.hoverClassName); 
+		setHoverClass: function(section) {		
+			var className; 
 
+			if(typeof section == 'undefined') {
+				className = lastSelected; 
+			} else {
+				className = section; 
+			}
+			
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
+			this.hoverClassName = this.convertSectionNameToUnderscore(className); 
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.hoverClassName); 
 		}, 
 
-		removeHoverClass: function() {	
-			console.log('removing hover'); 
+		removeHoverClass: function() {				
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(); 
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.className); 
 		}, 
@@ -94,6 +100,7 @@ var agora = window.agora || {};
 			var theme = this.setCurrentState(section); 
 
 			// Remove any previously set className
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(); 
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.className); 			
 
 			// Get the associated class name by converting spaces to underscores

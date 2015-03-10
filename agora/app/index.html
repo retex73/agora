@@ -19,7 +19,7 @@
       <div class="container-fluid">
         <!-- logo and banner -->
       <div class="row">
-        <div class="col-xs-12 header-grey-bar">
+        <div class="col-xs-12">
           &nbsp; 
         </div>
       </div>  
@@ -76,13 +76,14 @@
           <div ng-controller="NavCtrl">
             <div id="reports-tier" style="background: {{defaultColour}}">
               <ul>
-                <li ng-repeat="(key, value) in groups" ng-class="{ active: isActive('#/') }">
+                <li ng-repeat="(key, value) in groups" ng-class="{ active: isActiveReport('#/reports/{{value}}') }">
+
                   <a ng-mouseover="showSections($event, value, key);" ng-mouseleave="hideSections();" ng-href="#/reports/{{value}}"><span class='reports-tier-text' id="{{key}}">{{value}}</span></a></li>
               </ul>
             </div>
             <div id="reports-tier-one" class="{{showTierOne}}" ng-mouseover="persistSections(e);" ng-mouseleave="hideSections();">
               <ul id="tier-one-ul">
-                <li ng-repeat="t in tierOne" ng-show="!$last" ng-class="{active: isActive('#/reports/')}"><a ng-href="#/reports/{{tierOne[tierOne.length-1]}}/{{t}}/report">{{t}} </a>
+                <li ng-repeat="t in tierOne" ng-show="!$last"><a ng-href="#/reports/{{tierOne[tierOne.length-1]}}/{{t}}/report">{{t}} </a>
 
                 </li>
 
@@ -164,7 +165,7 @@
     <script src="scripts/config.js"></script>
     <script src="scripts/reports.js"></script>
     <script src="scripts/tableau.js"></script>
-    <!-- <script src="scripts/tableautest.js"></script> -->
+    
     <script src="scripts/vizfuncs.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/agora-themr.js"></script>

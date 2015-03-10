@@ -111,7 +111,7 @@ var agora = window.agora || {};
 			var width = $("#mainViz").width(); 
 
    	 		agora.vizfuncs.mainViz.setFrameSize(width, height); 
-   	 		console.log(agora.vizfuncs.mainViz.getIsHidden()); 
+
 		},
 
 		showDownloadWorkbookDialog: function() {

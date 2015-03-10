@@ -187,6 +187,11 @@ $navHeight:30px;
     }
 }
 
+.move-up {
+    margin-top: 0; 
+    top: 0; 
+}
+
 .breadcrumbs a:hover {
     color: $gmc_light_blue !important; 
 }
@@ -332,7 +337,12 @@ $navHeight:30px;
 } 
 
 
-#reports-tier>ul>li>a:hover {
+// #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+// #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+// #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+
+#reports-tier>ul>li>a:hover, 
+#reports-tier>ul>li.active>a {
     color: rgba(48, 165, 190, 1);
     background-color: rgba(248, 248, 248, 0);
     text-decoration: none;
@@ -340,6 +350,8 @@ $navHeight:30px;
     padding: 1px 15px 6px 15px; 
     border-radius: 2px 2px 0px 0px; 
 }
+
+
 
 .persisting-hover a {        
     // text-decoration: none;

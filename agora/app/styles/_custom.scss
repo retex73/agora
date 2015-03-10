@@ -120,6 +120,15 @@ p, div {
     margin-top: 50px; 
 }
 
+.mainViz-fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    margin-top: 20px !important;
+    height: 100%;
+    width: 100%; 
+}
+
 .heading {
     position: absolute; 
     float: right; 
@@ -127,4 +136,8 @@ p, div {
     height: 50px; 
     z-index: 99; 
     min-width: 500px; 
+}
+
+.fullScreenButtonActive {
+    color: red !important; 
 }

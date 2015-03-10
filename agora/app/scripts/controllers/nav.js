@@ -10,43 +10,39 @@
 angular.module('agoraApp')
   .controller('NavCtrl', function($scope, $route, $parse, $templateCache, $location, $window) {
 
-    $scope.defaultColour = '#797979'; 
+    $scope.defaultColour = '#797979';
 
     var setSectionColour = function(section) {
-      console.log('called'); 
-      if(section.length == 0) {
-        console.log('no section'); 
-      } else {
-        console.log('a section was supplied: ' + section); 
-      }
+
+
       var theme = agora.themr.setCurrentState(section);
       var sectionColour = theme.colour;
 
       $("#reports-tier").css('background', sectionColour);
     };
 
-  function hashChanged() {
+    function hashChanged() {
 
-    $scope.defaultColour = agora.themr.getDefaultColour(); 
+      $scope.defaultColour = agora.themr.getDefaultColour();
 
-    var isReportPage = window.location.hash.search("reports");
+      var isReportPage = window.location.hash.search("reports");
 
-    if (isReportPage > 0) {
+      if (isReportPage > 0) {
 
-      $("#reports-tier").removeClass("reports-tier-hide");
-      $("#reports-tier ul").show();
-    } else {
+        $("#reports-tier").removeClass("reports-tier-hide");
+        $("#reports-tier ul").show();
+      } else {
 
-      $("#reports-tier").addClass("reports-tier-hide");
-      $("#reports-tier ul").hide();
+        $("#reports-tier").addClass("reports-tier-hide");
+        $("#reports-tier ul").hide();
+      }
     }
-  }
 
-  $window.onload = function(){
-    hashChanged();   
-    console.log('loaded'); 
-    setSectionColour(''); 
-  }
+    $window.onload = function() {
+      hashChanged();
+
+      // setSectionColour(''); 
+    }
 
 
     window.addEventListener("hashchange", hashChanged);
@@ -62,11 +58,13 @@ angular.module('agoraApp')
 
     window.lastSelected = '';
 
+
     $scope.timer = '';
 
     $scope.showSections = function(e, section, key) {
-      
-      
+
+      $scope.section = section; 
+
       // Get selector for parent element so we can find the position  
       var marginLeft = getElementPosition(key);
 
@@ -75,7 +73,7 @@ angular.module('agoraApp')
       // globally set lastSelected
       lastSelected = section;
 
-      agora.themr.setHoverClass(); 
+      agora.themr.setHoverClass();
 
       $scope.tierOne = (Object.keys(groups[section]));
       $scope.tierOne.push(section);
@@ -83,17 +81,14 @@ angular.module('agoraApp')
       $scope.showTierOne = "show-tier-one";
 
 
-      $('#tier-one-ul').hide(); 
-      $('#tier-one-ul li:first').css('margin-left', marginLeft); 
-      $('#tier-one-ul').show();       
+      $('#tier-one-ul').hide();
+      $('#tier-one-ul li:first').css('margin-left', marginLeft);
+      $('#tier-one-ul').show();
 
 
       $(".viz-breadcrumb-info").hide();
-      $(".viz-controls").hide(); 
+      $(".viz-controls").hide();
     };
-
-
-
 
 
 
@@ -106,26 +101,16 @@ angular.module('agoraApp')
     };
 
     $scope.hideSections = function() {
-      
-      agora.themr.removeHoverClass(); 
+
+      agora.themr.removeHoverClass();
 
       $("#reports-tier").css('background', $scope.defaultColour);
 
-      // $(".viz-breadcrumb-info").fadeIn("slow");
-
-      setTimeout(function(){
+      setTimeout(function() {
         $(".viz-breadcrumb-info").fadeIn("fast");
-        $(".viz-controls").fadeIn("fast"); 
-      }, 300); 
+        $(".viz-controls").fadeIn("fast");
+      }, 300);
 
-      // $("#reports-tier-one").fadeOut("normal", function(){
-      //   $scope.showTierOne = "";
-
-      //   $('#reports-tier').find("li:contains(" + lastSelected + ")").removeClass('persisting-hover');
-      // }); 
-      // return; 
-
-      
 
       $scope.showTierOne = "";
 
@@ -138,9 +123,12 @@ angular.module('agoraApp')
 
 
     $scope.persistSections = function() {
+
       
+      agora.themr.setHoverClass($scope.section);
 
 
+      setSectionColour($scope.section);
       $scope.showTierOne = "show-tier-one";
 
       $('#reports-tier').find("li:contains(" + lastSelected + ")").addClass('persisting-hover');
@@ -149,12 +137,23 @@ angular.module('agoraApp')
 
 
     $scope.isActive = function(viewLocation) {
-
       var parts = $location.path().split('/'),
         mainPart = "#/" + parts[1];
 
+      
+
       return viewLocation === mainPart;
     };
+
+    $scope.isActiveReport = function(viewLocation) {
+      var parts = $location.path().split('/'),
+        mainPart = parts[2], 
+        viewLocationParts = viewLocation.split('/'), 
+        mainLocationPart = viewLocationParts[2]; 
+            
+      return mainLocationPart === mainPart; 
+    }, 
+
 
 
 
@@ -182,7 +181,7 @@ angular.module('agoraApp')
 
       var html = '';
       angular.forEach(reportSections, function(value, key) {
-        
+
         html += "<li><a href='/#reports/" + group + "/" + key + "/report'>" + key + "</a></li>";
       });
 
@@ -222,4 +221,3 @@ angular.module('agoraApp')
 
 
   });
-
