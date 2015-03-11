@@ -12,9 +12,7 @@ angular.module('agoraApp')
 
     $scope.defaultColour = '#797979';
 
-    var setSectionColour = function(section) {
-
-
+    var setSectionColour = function(section) {      
       var theme = agora.themr.setCurrentState(section);
       var sectionColour = theme.colour;
 
@@ -22,39 +20,41 @@ angular.module('agoraApp')
     };
 
     function hashChanged() {
-
+      // Determine what the section colour is
       $scope.defaultColour = agora.themr.getDefaultColour();
-
+      // If we are on a reports page, show the navigation bar, else hide it
       var isReportPage = window.location.hash.search("reports");
 
-      if (isReportPage > 0) {
-
+      if (isReportPage > 0) {        
         $("#reports-tier").removeClass("reports-tier-hide");
         $("#reports-tier ul").show();
-      } else {
-
+      } 
+      else {
         $("#reports-tier").addClass("reports-tier-hide");
         $("#reports-tier ul").hide();
       }
+
+      // Reset nav bar to default colour
+      agora.themr.removeHoverClass();
+      $("#reports-tier").css('background', $scope.defaultColour);  
     }
 
     $window.onload = function() {
       hashChanged();
-
-      // setSectionColour(''); 
     }
 
-
+    // Listen for changes in the address bar
     window.addEventListener("hashchange", hashChanged);
 
 
-    // preload images
+    // preload images for faster loading
     agora.themr.preloader();
 
 
     $scope.structure = agora.reports.getReportStructure();
 
     $scope.groups = groups;
+
 
     window.lastSelected = '';
 
@@ -73,7 +73,7 @@ angular.module('agoraApp')
       // globally set lastSelected
       lastSelected = section;
 
-      agora.themr.setHoverClass();
+      agora.themr.setHoverClass($scope.section);
 
       $scope.tierOne = (Object.keys(groups[section]));
       $scope.tierOne.push(section);
@@ -123,11 +123,7 @@ angular.module('agoraApp')
 
 
     $scope.persistSections = function() {
-
-      
       agora.themr.setHoverClass($scope.section);
-
-
       setSectionColour($scope.section);
       $scope.showTierOne = "show-tier-one";
 
@@ -140,8 +136,6 @@ angular.module('agoraApp')
       var parts = $location.path().split('/'),
         mainPart = "#/" + parts[1];
 
-      
-
       return viewLocation === mainPart;
     };
 
@@ -153,9 +147,6 @@ angular.module('agoraApp')
             
       return mainLocationPart === mainPart; 
     }, 
-
-
-
 
     $scope.toggleTier = function(action, selector) {
       if (action == 'show') {
@@ -171,23 +162,17 @@ angular.module('agoraApp')
      */
     $scope.reportSections = {};
 
-    $scope.reportSelect = function(group) {
-
-
-      // var reportSections = Pages.getPages(group); 
-      var reportSections = agora.reports.getPages(group);
-
+    $scope.reportSelect = function(group) {      
+      var reportSections = agora.reports.getPages(group),
+      html = '';
       $(".reportSections").html("");
 
-      var html = '';
+      
       angular.forEach(reportSections, function(value, key) {
-
         html += "<li><a href='/#reports/" + group + "/" + key + "/report'>" + key + "</a></li>";
       });
 
-
-      $(".reportSections").append(html);
-      // $scope.reportSections = Pages.getPages('The Register'); 
+      $(".reportSections").append(html);      
     }
 
 
@@ -217,7 +202,5 @@ angular.module('agoraApp')
     };
 
     $scope.groups = agora.reports.getGroups();
-
-
 
   });

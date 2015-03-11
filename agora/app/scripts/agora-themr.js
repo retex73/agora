@@ -61,6 +61,7 @@ var agora = window.agora || {};
 		}, 
 
 		setHoverClass: function(section) {		
+			console.log('set hover class'); 
 			var className; 
 
 			if(typeof section == 'undefined') {
@@ -68,13 +69,16 @@ var agora = window.agora || {};
 			} else {
 				className = section; 
 			}
-			
-			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
 			this.hoverClassName = this.convertSectionNameToUnderscore(className); 
+
+			// this.applyClassNames(); 
+
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.hoverClassName); 
 		}, 
 
 		removeHoverClass: function() {				
+
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(); 
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.className); 
@@ -98,19 +102,24 @@ var agora = window.agora || {};
 
 			// Now we have the section name, get the theme
 			var theme = this.setCurrentState(section); 
-
-			// Remove any previously set className
-			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(); 
-			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.className); 			
-
 			// Get the associated class name by converting spaces to underscores
-			this.setClassName(section); 			
-
+			this.setClassName(section); 
+			// Remove any previously set className
+			// this.applyClassNames(); 
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(); 
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.className); 									
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.className); 
 
 			return theme.colour; 
+		}, 
 
+		applyClassNames: function() {
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(); 
+			// $('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.hoverClassName); 
 			
+			// $('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.className); 									
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.className); 
 		}
 
 		

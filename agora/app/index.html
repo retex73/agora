@@ -11,9 +11,27 @@
   </head>
   <body ng-app="agoraApp">
     <div class="wrapper">
+ <script>
+    function isIE () {
+      var myNav = navigator.userAgent.toLowerCase();
+      return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+    }
+
+
+
+var browserVersion = isIE(); 
+
+    if (browserVersion == 7 || browserVersion == 8){
+      alert('wrong IE');       
+      window.location.href = "https://html5test.com/"; 
+      window.stop(); 
+    } 
+ </script>   
+ 
+
 
       <!--[if lt IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>   
       <![endif]-->
       <!-- Add your site or application content here -->
       <div class="container-fluid">
@@ -177,7 +195,7 @@
     <script src="scripts/controllers/reports.js"></script>
     <script src="scripts/controllers/viz.js"></script>
     
-    <!-- <script src="scripts/nav.js"></script> -->
+    
     <!-- endbuild -->
   </body>
 </html>

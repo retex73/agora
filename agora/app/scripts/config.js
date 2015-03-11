@@ -1,3 +1,4 @@
+
 var pagesObj = {
     // reportsBaseUrl: 'http://s1tsttabaps01/views/', 
     // reportsBaseUrl: 'http://s1prdtabaps01/views/', 
@@ -7,21 +8,24 @@ var pagesObj = {
     // reportsBaseUrl: 'https://public.tableausoftware.com/views/', 
 
     sectionDescriptions: {
-        'Stats': 'Graphs describing the medical register',
-        'UK maps' : 'Maps describing the medical register',
-        'World maps': 'World maps describing the medical register'
+        'Stats': 'See how many doctors are registered with the GMC, their demographic groups, and more.',
+        'UK maps' : 'See where in the UK our registered doctors are based.',
+        'World maps': 'See in which countries doctors on the register qualified from.'
     }, 
     
     repGroup: [{
         groupName: 'The Register',        
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quia dolore, dicta, minus amet, voluptas aliquid praesentium sequi nam accusamus repellat ratione consectetur. Laborum commodi doloremque, repellendus qui veniam corporis.', 
+        description: "The register contains information about all doctors who are registered with the GMC.<br/><br/>"
+        + "You can explore who doctors on the register are by gender, age bands, ethnicity, nationality and country of medical qualification. "
+        + "You can view how many doctors are on the GP or specialist register, as well as their area of speciality. You can also view how many doctors "
+        + "in training there are in each speciality, and what stage of training they are at.",         
         colour: '#334773', 
         image: 'reports-0.jpg', 
 
         pages: {
             'Stats': [{
                 pageId: 'PRS1',
-                description: 'The Register Stats',
+                description: "See how many doctors are registered with the GMC, their demographic groups, and more.",
                 pageHeading: 'The Register',
                 pageSubheading: 'Key stats from the medical register',
                 url: 'TheRegister/PRS1'
@@ -66,7 +70,7 @@ var pagesObj = {
             }],
             'UK maps': [{
                 pageId: 'PRU1',
-                description: 'The Register UK Map',
+                description: 'See where in the UK our registered doctors are based.',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by UK country', 
                 url: 'TheRegister/PRU1'
@@ -79,7 +83,7 @@ var pagesObj = {
             }],
             'World maps': [{
                 pageId: 'PRW1',
-                description: 'The Register World Map',
+                description: 'See in which countries doctors on the register qualified from.',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by country of qualification', 
                 url: 'TheRegister/PRW1'
@@ -87,7 +91,10 @@ var pagesObj = {
         },
     }, {
         groupName: 'Revalidation',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum animi placeat, molestias, esse quam id eligendi, deleniti quia neque distinctio quis enim! Consequatur magni, dignissimos et facere quod vero tenetur!', 
+        description: "Every five years each doctor is required to demonstrate they are fit to practise and that their knowledge and skills are up to date."
+        + "This helps to ensure that all doctors in the UK are giving patients a good standard of care<br/><br/>"
+        + "This section contains data about how many doctors have revalidated. As the revalidation process continues this data will become more complete untill all doctors "
+        + "practising in the UK have completed their first revalidation cycle.", 
         colour: '#4072b7', 
         image: 'reports-1.jpg',         
         pages: {
@@ -101,7 +108,9 @@ var pagesObj = {
         }
     }, {
         groupName: 'Fitness to practise',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, illum dignissimos, quaerat, eveniet repellat ullam dicta nesciunt iusto, harum necessitatibus fugiat labore repellendus reprehenderit. Doloribus mollitia, magni voluptatum eum ratione.', 
+        description: "This section contains data about our fitness to practise processes, for occasions when doctors' performance falls below the expected standard."
+        + "You can explore data on how many complaints lead to investigation and how many investigations lead to sanctions against doctors. "
+        + " You can see what sort of allegations we receive, and data about the doctors who end up in our fitness to practise process.", 
         image: 'reports-2.jpg', 
         colour: '#20a6c3', 
         pages: {
@@ -171,7 +180,12 @@ var pagesObj = {
         }
     }, {
         groupName: 'Employers',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius dicta eos ullam beatae temporibus odit deleniti ad explicabo facilis totam dolorum ducimus, porro deserunt magni nobis, recusandae vel! At, quidem!', 
+        description: "Doctors in the UK are employed in a wide range of different environments. "
+        + "From large hospitals to GP clinics to other organisations, the profession is diverse and ever evolving. "
+        + "We work with all kinds of employers to ensure patients receive the best possible care and that doctors can practise successfully.<br/><br/>"
+        + "This section contains data about organisations who employ the doctors on our register."
+        + "It aims to show the population of doctors that work in an organisation, the geographic spread of doctors across the UK, and some of the outcomes "
+        + "for doctors working in these locations", 
         image: 'reports-3.jpg', 
         colour: '#5c2682',         
         pages: {
@@ -219,7 +233,10 @@ var pagesObj = {
         }
     }, {
         groupName: 'Medical Schools',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod temporibus delectus sit a ullam aliquam animi ex, nam voluptates ut deleniti repellendus sunt dolore magnam voluptatibus id hic molestiae! Quod.', 
+        description: "This section contains data about doctors who have registered with us from UK medical schools.<br/><br/>"
+        + "You can explore different cohort groups by year of graduation, gender, age bands, ethnicity and nationality. "
+        + "You can also view data on doctors in training, their training speciality and level. "
+        + "And you can see what specialities doctors have completed training in and what their current roles are.", 
         image: 'reports-4.jpg', 
         colour: '#b3549b',            
         pages: {
@@ -244,27 +261,33 @@ var pagesObj = {
                 pageSubheading: '-'
             }]
         }
-    }, {
-        groupName: 'Royal Colleges',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis in laborum sint molestias. Voluptate placeat harum pariatur? Eius, saepe id mollitia facere numquam recusandae, itaque blanditiis quibusdam molestias odio nobis?', 
-        image: 'reports-5.jpg', 
-        colour: '#7b6fb1',            
-        pages: {
-            'Stats': [{
-                pageId: 'X_PCS1',
-                description: 'Royal Colleges/Specialities Stats',
-                pageHeading: '-',
-                pageSubheading: '-'
-            }],
-            'UK maps': [{
-                pageId: 'X_PCU1',
-                description: 'Royal Colleges/Specialities UK Map'
-            }]
+    }, 
 
-        }
-    }, {
+    // {
+    //     groupName: 'Royal Colleges',
+    //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis in laborum sint molestias. Voluptate placeat harum pariatur? Eius, saepe id mollitia facere numquam recusandae, itaque blanditiis quibusdam molestias odio nobis?', 
+    //     image: 'reports-5.jpg', 
+    //     colour: '#7b6fb1',            
+    //     pages: {
+    //         'Stats': [{
+    //             pageId: 'X_PCS1',
+    //             description: 'Royal Colleges/Specialities Stats',
+    //             pageHeading: '-',
+    //             pageSubheading: '-'
+    //         }],
+    //         'UK maps': [{
+    //             pageId: 'X_PCU1',
+    //             description: 'Royal Colleges/Specialities UK Map'
+    //         }]
+
+    //     }
+    // }, 
+    {
         groupName: 'Deaneries',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quis autem consequuntur sapiente tempore deserunt odit sunt magni, earum totam consectetur enim aliquam dolorum explicabo quam sequi blanditiis beatae. Perspiciatis.', 
+        description: "We assure the quality of doctors' training and that involves us working with Postgraduate Deaneries and Local Eduction and Training Boards (LETBs), " 
+        + "who are responsible for training doctors across the UK.<br/><br/>"
+        + "This section contains data about these bodies and doctors in postgraduate training who fall under them, "
+        + "the programmes they are training in and outcomes from different cohort groups.", 
         image: 'reports-6.jpg', 
         colour: '#7f3d90',            
         pages: {
