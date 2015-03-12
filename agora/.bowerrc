@@ -1,3 +1,6 @@
 {
-  "directory": "bower_components"
+  "directory": "bower_components", 
+
+  "proxy": "http://pwilliams2:Evere123@s1prdwebsec01.gmc-uk.org:8080", 
+  "https-proxy": "http://pwilliams2:Harvey123@s1prdwebsec01.gmc-uk.org:8080"
 }
