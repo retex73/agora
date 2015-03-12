@@ -241,24 +241,18 @@ var pagesObj = {
         colour: '#b3549b',            
         pages: {
             'Stats': [{
-                pageId: 'X__PMS1',
+                pageId: 'PMS1',
                 description: 'Medical Schools stats',
-                pageHeading: '-',
-                pageSubheading: '', 
+                pageHeading: 'Medical schools',
+                pageSubheading: 'Key stats about doctors who graduated at UK medical schools', 
                 url: 'MedicalSchools/PMS1'
             }],
             'UK maps': [{
-                pageId: 'X__PMU1',
+                pageId: 'PMU1',
                 description: 'Medical Schools UK Map',
-                pageHeading: '-',
-                pageSubheading: '-', 
+                pageHeading: 'Medical schools',
+                pageSubheading: 'Locations of UK medical schools', 
                 url: 'MedicalSchools/PMu1'
-            }],
-            'World maps': [{
-                pageId: 'X__PMW1',
-                description: 'Medical Schools World Map',
-                pageHeading: '-',
-                pageSubheading: '-'
             }]
         }
     }, 
@@ -283,7 +277,7 @@ var pagesObj = {
     //     }
     // }, 
     {
-        groupName: 'Deaneries',
+        groupName: 'Deaneries & LETBs',
         description: "We assure the quality of doctors' training and that involves us working with Postgraduate Deaneries and Local Eduction and Training Boards (LETBs), " 
         + "who are responsible for training doctors across the UK.<br/><br/>"
         + "This section contains data about these bodies and doctors in postgraduate training who fall under them, "
@@ -292,10 +286,18 @@ var pagesObj = {
         colour: '#7f3d90',            
         pages: {
             'Stats': [{
-                pageId: 'X__PDS1',
+                pageId: 'PDS1',
                 description: 'Deaneries Stats',
-                pageHeading: '-',
-                pageSubheading: '-'
+                pageHeading: 'Deaneries & LETBs',
+                pageSubheading: 'Key stats about trainees at Deaneries and LETBs', 
+                url: 'Deaneries_pub/PDS1', 
+            }], 
+            'UK maps': [{
+                pageId: 'PDU1', 
+                description: '', 
+                pageHeading: 'Deaneries and LETBs', 
+                pageSubheading: 'Locations of Deaneries and LETBs', 
+                url: 'Deaneries_pub/PDU1'
             }]
         }
     }]

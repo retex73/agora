@@ -11,19 +11,44 @@
   </head>
   <body ng-app="agoraApp">
     <div class="wrapper">
+ <script>
+    function isIE () {
+      var myNav = navigator.userAgent.toLowerCase();
+      return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+    }
+
+
+
+var browserVersion = isIE(); 
+
+    if (browserVersion == 7 || browserVersion == 8){
+      alert('wrong IE');       
+      window.location.href = "https://html5test.com/"; 
+      window.stop(); 
+    } 
+ </script>   
+ 
+
+
       <!--[if lt IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>   
       <![endif]-->
       <!-- Add your site or application content here -->
       <div class="container-fluid">
         <!-- logo and banner -->
-        
+      <div class="row">
+        <div class="col-xs-12">
+          &nbsp; 
+        </div>
+      </div>  
 
+
+<div class="top">
       <header>
       <div class="row heading">
         <div class="col-xs-2">
           <div class="gmc-logo-large">
-            <img ng-src="/images/logos/gmc_logo.gif" style="width:50px;"></img>
+            <img ng-src="/images/logos/gmc_logo.jpg"></img>
           </div>
         </div>
         <div class="col-xs10">
@@ -54,7 +79,9 @@
                   <ul class="nav navbar-nav navbar-right">
                     <li class="nav-main" id="home" ng-class="{ active: isActive('#/') }"><a href="#/">Home</a></li>
                     <li class="nav-main" id="reports" ng-class="{ active: isActive('#/reports') }"><a href="#/reports">Reports</a></li>
-                    <li class="nav-main" id="about" ng-class="{ active: isActive('#/about') }"><a href="#/about">About</a></li>
+                    <li class="nav-main" id="about" ng-class="{ active: isActive('#/about') }">
+                      <a href="#/">About</a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -65,15 +92,16 @@
         <!-- reports tier nav -->
         <div class="row full-width">
           <div ng-controller="NavCtrl">
-            <div id="reports-tier">
+            <div id="reports-tier" style="background: {{defaultColour}}">
               <ul>
-                <li ng-repeat="(key, value) in groups" ng-class="{ active: isActive('#/') }">
-                  <a ng-mouseover="showSections($event, value);" ng-mouseleave="hideSections();" ng-href="#/reports/{{value}}"><span class='reports-tier-text'>{{value}}</span></a></li>
+                <li ng-repeat="(key, value) in groups" ng-class="{ active: isActiveReport('#/reports/{{value}}') }">
+
+                  <a ng-mouseover="showSections($event, value, key);" ng-mouseleave="hideSections();" ng-href="#/reports/{{value}}"><span class='reports-tier-text' id="{{key}}">{{value}}</span></a></li>
               </ul>
             </div>
             <div id="reports-tier-one" class="{{showTierOne}}" ng-mouseover="persistSections(e);" ng-mouseleave="hideSections();">
               <ul id="tier-one-ul">
-                <li ng-repeat="t in tierOne" ng-show="!$last" ng-class="{active: isActive('#/reports/')}"><a ng-href="#/reports/{{tierOne[tierOne.length-1]}}/{{t}}/report">{{t}} </a>
+                <li ng-repeat="t in tierOne" ng-show="!$last"><a ng-href="#/reports/{{tierOne[tierOne.length-1]}}/{{t}}/report">{{t}} </a>
 
                 </li>
 
@@ -82,25 +110,33 @@
             </div>
           </div>
         </div>
-        
+        </div> <!-- end of top class -->
         
         <!-- Main body content -->
         <div ng-view="" class="gmc-container"></div>
+
+
+
         <!-- footer -->
         <nav class="navbar navbar-bottom">
+          
+
           <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-6">
-                The GMC is a registered charity in England and Wales (1089278) and Scotland (SC037750).<br/>
-                &copy Copyright General Medical Council 2015. All rights reserved
+            <div class="row footer-full-width">
+              <div class="col-xs-6 footer-light-grey-bar">
+                <div class="footer-content">
+                  The GMC is a registered charity in England and Wales (1089278) and Scotland (SC037750).<br/>
+                  &copy Copyright General Medical Council 2015. All rights reserved
+                </div>
+                
               </div>
-              <div class="col-md-6 pull-right footer-links">
-                <ul>
-                  <li><a href="/contact">Contact us</a></li>
+              <div class="col-xs-6 pull-right footer-links footer-light-grey-bar">
+                <ul class="footer-links-ul-position">
+                  <li><a href="#/">Contact us</a></li>
                   <li>|</li>
-                  <li><a href="/disclaimer">Disclaimer</a></li>
+                  <li><a href="#/">Disclaimer</a></li>
                   <li>|</li>
-                  <li><a href="/privacy_and_cookies">Privacy and Cookies</a></li>
+                  <li><a href="#/">Privacy and Cookies</a></li>
                 </ul>
               </div>
             </div>
@@ -141,17 +177,19 @@
     <script src="scripts/config.js"></script>
     <script src="scripts/reports.js"></script>
     <script src="scripts/tableau.js"></script>
-    <!-- <script src="scripts/tableautest.js"></script> -->
+    
     <script src="scripts/vizfuncs.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/agora-themr.js"></script>
+
     <script src="scripts/controllers/nav.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/section.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/reports.js"></script>
     <script src="scripts/controllers/viz.js"></script>
-    <script src="scripts/classie.js"></script>
-    <!-- <script src="scripts/nav.js"></script> -->
+    
+    
     <!-- endbuild -->
   </body>
 </html>
