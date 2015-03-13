@@ -8,7 +8,7 @@
  * Controller of the agoraApp
  */
 angular.module('agoraApp')
-  .controller('MainCtrl', function ($scope, $templateCache) {
+  .controller('MainCtrl', function ($scope) {
 
 
     
@@ -26,7 +26,6 @@ angular.module('agoraApp')
 
     $scope.groups = Pages.search(pagesObj.repGroup, 'The Register'); 
 
-    
 
     $scope.gotoReports = function() {
         $("#reports-tier").removeClass("reports-tier-hide");

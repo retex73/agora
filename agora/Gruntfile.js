@@ -1,6 +1,16 @@
 // Generated on 2015-01-11 using generator-angular 0.10.0
 'use strict';
 
+// If we have issues with grunt build or serve:dist where
+// imagemin is the culprit, try the folowing lines: 
+//###############################
+// npm uninstall --save-dev grunt-contrib-imagemin 
+// and then
+
+// npm install --save-dev grunt-contrib-imagemin
+
+//###############################
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'

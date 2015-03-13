@@ -60,8 +60,7 @@ var agora = window.agora || {};
 			return this.hoverClassName; 
 		}, 
 
-		setHoverClass: function(section) {		
-			console.log('set hover class'); 
+		setHoverClass: function(section) {					
 			var className; 
 
 			if(typeof section == 'undefined') {
