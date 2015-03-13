@@ -28,10 +28,9 @@ var pagesObj = {
                 description: "See how many doctors are registered with the GMC, their demographic groups, and more.",
                 pageHeading: 'The Register',
                 pageSubheading: 'Key stats from the medical register',
-                url: 'TheRegister/PRS1'
-                // url: 'TheRegister_pub/PRS1'                
-                // url: 'shared/RXR9Q6PPD?:display_count=yes'
-                // url: 'USForestFires/Dashboard1?:embed=y&:display_count=yes&:loadOrderID=0'
+                url: 'TheRegister/PRS1', 
+                thumb: 'TheRegisterStats.png'
+                
             }, {
                 pageId: 'PRS1_H',
                 description: 'The Register over time',
@@ -73,7 +72,8 @@ var pagesObj = {
                 description: 'See where in the UK our registered doctors are based.',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by UK country', 
-                url: 'TheRegister/PRU1'
+                url: 'TheRegister/PRU1', 
+                thumb: 'TheRegisterUKmaps.png'
             }, {
                 pageId: 'PRU2',
                 description: 'The Register UK Map',
@@ -86,7 +86,8 @@ var pagesObj = {
                 description: 'See in which countries doctors on the register qualified from.',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by country of qualification', 
-                url: 'TheRegister/PRW1'
+                url: 'TheRegister/PRW1', 
+                thumb: 'TheRegisterWorldMaps.png'
             }]
         },
     }, {
@@ -116,7 +117,7 @@ var pagesObj = {
         pages: {
             'Stats': [{
                 pageId: 'PFS1',
-                description: 'FTP Stats',
+                description: 'See how many complaints we have received. Explore the number of doctors who have received complaints, what sorts of allegations are investigated and what sort of outcomes there were.',
                 pageHeading: 'Fitness to practise',
                 pageSubheading: 'Key volumes by year',
                 url: 'FitnesstoPractice_1/PFS1'
@@ -147,7 +148,7 @@ var pagesObj = {
             }],
             'UK maps': [{
                 pageId: 'PFU1',
-                description: 'FTP UK Map',
+                description: 'See where doctors who are complained about were practising.',
                 pageHeading: 'Ftp Sanctions mapped',
                 pageSubheading: 'Current Designated Body of doctors with sanctions',
                 url: 'FitnesstoPractice_1/PFU1'
@@ -166,7 +167,7 @@ var pagesObj = {
             }],
             'World Maps': [{
                 pageId: 'PFW1',
-                description: 'FTP World Map',
+                description: 'See how many doctors from each country were involved in fitness to practise proceedings.',
                 pageHeading: 'FtP Sanctions mapped',
                 pageSubheading: 'Country of primary medical qualifiation of doctors with sanctions',
                 url: 'FitnesstoPractise_pub/PFW1'
@@ -191,7 +192,7 @@ var pagesObj = {
         pages: {
             'Stats': [{
                 pageId: 'PES1',
-                description: 'Employers Stats (The Register)',
+                description: "See how many doctors work for each trust, agency and other emplying bodies. Find out the breakdown of the doctors's specialities, demographics and more in each case.",
                 pageHeading: 'Employers overview',
                 pageSubheading: 'Key stats from the register, by organisation (Drs\' Designated Bodies)',
                 url: 'Employers_0/PES1'
@@ -224,7 +225,7 @@ var pagesObj = {
 
             'UK maps': [{
                 pageId: 'PEU1',
-                description: 'Employers UK Map',
+                description: "See where employers are based and how many employers are in each region.",
                 pageHeading: 'Employers mapped',
                 pageSubheading: 'Doctor\'s employers (Designated Bodies), by location',
                 url: 'Employers_0/PEU1'
@@ -242,14 +243,14 @@ var pagesObj = {
         pages: {
             'Stats': [{
                 pageId: 'PMS1',
-                description: 'Medical Schools stats',
+                description: 'See how many doctors have registered from each UK medical school over time, their demographics, what they have specialised in, their current roles and more',
                 pageHeading: 'Medical schools',
                 pageSubheading: 'Key stats about doctors who graduated at UK medical schools', 
                 url: 'MedicalSchools/PMS1'
             }],
             'UK maps': [{
                 pageId: 'PMU1',
-                description: 'Medical Schools UK Map',
+                description: 'See where each medical school is and summary information on each school.',
                 pageHeading: 'Medical schools',
                 pageSubheading: 'Locations of UK medical schools', 
                 url: 'MedicalSchools/PMu1'
@@ -287,14 +288,14 @@ var pagesObj = {
         pages: {
             'Stats': [{
                 pageId: 'PDS1',
-                description: 'Deaneries Stats',
+                description: "See how many postgraduate doctors are in training by deanery/LETB, their training specialities and level, demographics and more",
                 pageHeading: 'Deaneries & LETBs',
                 pageSubheading: 'Key stats about trainees at Deaneries and LETBs', 
                 url: 'Deaneries_pub/PDS1', 
             }], 
             'UK maps': [{
                 pageId: 'PDU1', 
-                description: '', 
+                description: "See where each Postgraduate Deanery/LETB is and summary information on each.", 
                 pageHeading: 'Deaneries and LETBs', 
                 pageSubheading: 'Locations of Deaneries and LETBs', 
                 url: 'Deaneries_pub/PDU1'

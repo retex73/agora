@@ -18,7 +18,9 @@ angular.module('agoraApp')
 
     $scope.getDescription = function(desc, key) {
     	
-    	$scope.defaultText = desc; 
+        $scope.descTitle = desc.groupName;  
+    	$scope.defaultText = desc.description; 
+        $scope.descPages = desc.pages; 
     	// $scope.bgClass="background-" + key; 
     	var img = "/images/reports-" + key + ".jpg"; 
     	$('.reports-background').after().css(
@@ -42,7 +44,9 @@ angular.module('agoraApp')
 
     }; 
 
-
-    
     
   });
+
+
+
+
