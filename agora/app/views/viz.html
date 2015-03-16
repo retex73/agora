@@ -2,7 +2,7 @@
 	<div class="container-fluid no-padding-sides">
 		<div class="col-xs-9 viz-breadcrumb-info">
 			
-			<span class="glyph-breadcrumb"><a ng-href="#/" class="glyphicon glyphicon-home glyph-breadcrumb"></a></span>
+			<!-- <span class="glyph-breadcrumb"><a ng-href="#/" class="glyphicon glyphicon-home glyph-breadcrumb"></a></span> -->
 			
 			<span class="breadcrumb-location">
 			{{breadCrumbs.report}}
@@ -16,7 +16,7 @@
 		<div class="col-xs-3 viz-controls">
 			<div class="pull-right">
 				<div class="btn-group btn-group-xs" role="group" aria-label="viz actions">
-					<button id="undo" ng-click="onBack();" data-toggle="tooltip" data-placement="bottom" title="Undo last action" class="btn btn-mini btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
+					<button id="undo" ng-click="onBack();" data-toggle="tooltip" data-placement="bottom" title="Go back to previous report page" class="btn btn-mini btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
 					
 					<button id="shareData" data-toggle="tooltip" data-placement="bottom" title="Share" class="btn btn-mini btn-default"><span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-share"></span></button>
 					
@@ -117,6 +117,7 @@ $(function () {
 		$(".breadcrumbs").toggleClass('move-up'); 
 		$("#mainViz").toggleClass('mainViz-fullscreen'); 
 		$("#fullScreen").toggleClass('fullScreenButtonActive'); 
+		$(".navbar-bottom").toggle(); 
 		agora.vizfuncs.resizeViz();
 			
 	}); 
