@@ -39,7 +39,7 @@ angular.module('agoraApp')
 
 
     	$(".report-group-info-text").css({
-    		'background': 'rgba(' + colours[key] + ', 0.4)', 
+    		'background': 'rgba(' + colours[key] + ', 0.8)', 
     		'color': '#fff'
     	}); 
 
@@ -72,7 +72,7 @@ $(document.body).on('click', '.report-group-link-box', function(e){
         'top': top, 
     }); 
 
-    var rgba = n.toString() + ", 0.4"; 
+    var rgba = n.toString() + ", 0.8"; 
     var bgProp = "50px solid rgba(" + rgba + ")"; 
     
     

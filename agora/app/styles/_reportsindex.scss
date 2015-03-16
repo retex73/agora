@@ -74,6 +74,17 @@
 	margin-top: 20px;
 	padding: 5px;
 	border-radius: 4px; 
+	margin-left: -25px; 
+	padding: 20px; 
+
+}
+
+.report-group-h3 {
+	margin-top: -2px !important; 
+}
+
+.no-left-margin {
+	margin-left: 0; 
 }
 
 .reports-background {
@@ -152,6 +163,7 @@
 	position: absolute; 	
 	display: none; 
 	top: 20px; 
+	margin-left: -25px; 
 }
 
 .arrow-move-left {
@@ -167,4 +179,14 @@
 .section-info-rollover a:hover {
 	text-decoration: none; 
 	color: $gmc_light_blue; 
+}
+
+.report-group-padding {
+	padding-bottom: 4px; 
+}
+
+.report-section-text {
+	color: #fff; 
+	padding-top: 10px; 
+	padding-bottom: 10px; 
 }
