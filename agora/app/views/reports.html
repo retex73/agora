@@ -20,27 +20,39 @@
 			
 		</div>
 		<div class="col-xs-9">
-			<!-- <div class="report-group-info-text" ng-bind-html="defaultText"> -->
+			
 			<div class="report-group-info-text">
 				<h3 ng-bind-html="descTitle"></h3>
 				<p  class="report-group-info-text" ng-bind-html="defaultText"></p>
-				<div class="row">
+				<div class="row equal">
 				
 				<div class="col-xs-4" ng-repeat="(k, v) in descPages">
-					<!-- <div class="panel panel-default" style="min-height: 300px;overflow-y: scroll;"> -->
+			
 					<div class="panel panel-default">
+						<div id="{{v[0].pageId}}" class="panel-heading section-info-rollover">
+						<a href="#/reports/{{descTitle}}/{{k}}/report">{{k}}</a>
+						</div>
+						<div class="panel-body">
+							<!-- http://localhost:9000/#/reports/The%20Register/Stats/report -->
+
+							<a href="#/reports/{{descTitle}}/{{k}}/report" class="thumbnail">
+
+
+
+							<img ng-src="images/vizthumbs/{{v[0].thumb}}" alt="{{v[0].description}}" style="width:100%;">
+
+
+
+
+						</a>
+							{{v[0].description}}	
+
+							<div class="get-started">
+						<button ng-click="gotoReports();">View <span class="glyphicon glyphicon-chevron-right"></span></button>
+					</div>
+						</div>						
 						
-						<div class="panel-body"  style="min-height:300px;overflow-y:scroll">
-							<div id="panel-{{v[0].pageId}}">
-							<img ng-src="images/vizthumbs/{{v[0].thumb}}" alt="{{v[0].description}}">
-							</div>
-						</div>
 						
-						<div id="{{v[0].pageId}}" class="panel-footer section-info-rollover"><a class="section-info-link" href="#">{{k}}   <span class="glyphicon glyphicon-chevron-up"></span></a>
-						</div>
-						<div class="{{v[0].pageId}}" style="display:none;">
-						{{v[0].description}}
-						</div>
 					</div>
 
 				</div>
@@ -64,7 +76,14 @@
 </style>
 
 <script>
+
+var rotation = 0;
+
+
+
+
 $(document.body).on('click', '.section-info-link', function(e){
+
 	e.preventDefault(); 
 	var id = $(this).parent().attr('id'); 
 	var className = "." + id; 
@@ -76,6 +95,7 @@ $(document.body).on('click', '.section-info-link', function(e){
 	$(nextClassName).slideToggle(); 
 	
 	$(this).find('span').toggleClass('glyphicon-chevron-down').toggleClass("glyphicon-chevron-up");
+	
 	
 
 	$(divId).toggleClass('move-top'); 

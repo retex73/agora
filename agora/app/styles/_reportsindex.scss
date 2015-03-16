@@ -70,9 +70,9 @@
 }
 
 .report-group-info-text {
-	font-size: 21px;
+	font-size: 15px;
 	margin-top: 20px;
-	padding: 20px;
+	padding: 5px;
 }
 
 .reports-background {
@@ -124,4 +124,17 @@
 	float: right;
 	bottom: 15px;
 	filter: brightness(100); 
+}
+
+
+.equal, .equal > div[class*='col-'] {  
+    display: -webkit-flex;
+    display: flex;
+    flex:1 1 auto;
+}
+
+
+.section-info-link a{
+	font-weight: bold; 
+	transition: all 120ms ease-out; 
 }
