@@ -8,7 +8,7 @@
 			<ul>
 				<li ng-repeat="(key, value) in pages">
 					<a ng-href="#/reports/{{value.groupName}}">
-					<div ng-mouseover="getDescription(value, key);"class="report-group-link-box">
+					<div ng-click="getDescription(value, key);"class="report-group-link-box" id="box-{{key}}">
 					{{value.groupName}}
 					</div>
 					</a>
@@ -19,7 +19,12 @@
 
 			
 		</div>
-		<div class="col-xs-9">
+
+		<div class="col-xs-1 arrow-move-left">
+			<div class="bubble">&nbsp;</div>
+		</div>
+
+		<div class="col-xs-8">
 			
 			<div class="report-group-info-text">
 				<h3 ng-bind-html="descTitle"></h3>
@@ -30,7 +35,7 @@
 			
 					<div class="panel panel-default">
 						<div id="{{v[0].pageId}}" class="panel-heading section-info-rollover">
-						<a href="#/reports/{{descTitle}}/{{k}}/report">{{k}}</a>
+						<a href="#/reports/{{descTitle}}/{{k}}/report">{{k}} <span class="glyphicon glyphicon-chevron-right"></span></a>
 						</div>
 						<div class="panel-body">
 							<!-- http://localhost:9000/#/reports/The%20Register/Stats/report -->
@@ -46,11 +51,15 @@
 
 						</a>
 							{{v[0].description}}	
-
+						
+							
 							<div class="get-started">
-						<button ng-click="gotoReports();">View <span class="glyphicon glyphicon-chevron-right"></span></button>
-					</div>
-						</div>						
+								<button ng-click="gotoReports('#/reports/{{descTitle}}/{{k}}/report');">View <span class="glyphicon glyphicon-chevron-right"></span></button>
+							</div>
+						</div>	
+
+							
+						
 						
 						
 					</div>
@@ -65,54 +74,8 @@
 		</div>
 	</div>
 </div>
-<style>
-	.move-top {
-		margin-top: -300px;
-	}
-
-	.section-height {
-		height: 300px; 
-	}
-</style>
 
 <script>
-
-var rotation = 0;
-
-
-
-
-$(document.body).on('click', '.section-info-link', function(e){
-
-	e.preventDefault(); 
-	var id = $(this).parent().attr('id'); 
-	var className = "." + id; 
-	var nextClassName = "." + id; 
-	var panelName = "#panel-" + id; 
-	var divId = "#" + id; 
-	console.log(panelName); 
-
-	$(nextClassName).slideToggle(); 
-	
-	$(this).find('span').toggleClass('glyphicon-chevron-down').toggleClass("glyphicon-chevron-up");
-	
-	
-
-	$(divId).toggleClass('move-top'); 
-
-	$(className).toggleClass('section-height'); 
-
-
-	// $("trigger-element").toggle( function() {
- //   			$(element-to-change).css({ 'border' : '5px solid #000'});
- //   		}, 
- //   		function () {
- //   			$(element-to-change).css({ 'border' : 'none'
- //   		});
-	// });
-
-	$(panelName).slideToggle(); 
-}); 
 
 
 </script>

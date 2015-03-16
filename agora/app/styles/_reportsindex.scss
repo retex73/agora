@@ -73,6 +73,7 @@
 	font-size: 15px;
 	margin-top: 20px;
 	padding: 5px;
+	border-radius: 4px; 
 }
 
 .reports-background {
@@ -137,4 +138,33 @@
 .section-info-link a{
 	font-weight: bold; 
 	transition: all 120ms ease-out; 
+}
+
+
+
+.bubble {
+	font-size: 0px;
+	line-height: 0%;
+	width: 100%;
+	border-top: 25px solid transparent;
+	border-right: 50px solid #77c;
+	border-bottom: 25px solid transparent;
+	position: absolute; 	
+	display: none; 
+	top: 20px; 
+}
+
+.arrow-move-left {
+	margin-left: -30px; 
+}
+
+.section-info-rollover a {
+	font-weight: bold; 
+	text-decoration: none; 
+	transition: all 120ms ease-out; 
+}
+
+.section-info-rollover a:hover {
+	text-decoration: none; 
+	color: $gmc_light_blue; 
 }
