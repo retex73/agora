@@ -149,8 +149,7 @@ var agora = window.agora || {};
 			width = $("#mainViz").width(); 
 
 			// Compensate for scrollbars appearing
-			if(fullSize) {
-				console.log('we are fullsize'); 
+			if(fullSize) {				
 				width = (width+16); 
 			}
 			
