@@ -27,6 +27,7 @@ var agora = window.agora || {};
 		locked: false,
 		goingBack: false, 
 		routeParams: '', 
+
 		
 
 		renderViz: function(routeParams){
@@ -36,7 +37,20 @@ var agora = window.agora || {};
 		}, 
 
 		render: function() {
-			console.log('rendering'); 
+
+			var browserHeight = $(window).height(); 
+
+			browserHeight = browserHeight - 125; 
+
+  			$("#mainViz").css("min-height", browserHeight); 
+
+  			
+
+  			
+
+  			
+
+			
 			var routeParams = agora.vizfuncs.routeParams; 
 			var placeholderDiv = document.getElementById("mainViz");
 			
@@ -106,7 +120,26 @@ var agora = window.agora || {};
 		 * TO DO
 		 * @return {[type]} [description]
 		 */
-		resizeViz: function() {			
+		resizeViz: function() {	
+
+
+			// $("#fullScreen").toggleClass('fullScreenButtonActive'); 
+			var gap; 
+
+			if($("#fullScreen").hasClass("fullScreenButtonActive")) {
+				gap = 20; 
+			} else {
+				gap = 125; 
+			}
+			
+			
+
+			var browserHeight = $(window).height(); 
+			browserHeight = (browserHeight - gap); 
+			
+
+  			$("#mainViz").css("height", browserHeight); 
+
 			var height = $("#mainViz").height(); 
 			var width = $("#mainViz").width(); 
 

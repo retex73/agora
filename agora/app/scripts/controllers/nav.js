@@ -204,3 +204,5 @@ angular.module('agoraApp')
     $scope.groups = agora.reports.getGroups();
 
   });
+
+
