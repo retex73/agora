@@ -12,6 +12,12 @@ angular.module('agoraApp')
 
     $scope.defaultColour = '#797979';
 
+    $scope.doNothing = function($event) {
+      $event.preventDefault(); 
+
+      console.log('do nothing method called'); 
+    }; 
+
     var setSectionColour = function(section) {      
       var theme = agora.themr.setCurrentState(section);
       var sectionColour = theme.colour;

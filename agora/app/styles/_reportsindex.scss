@@ -162,7 +162,7 @@
 	border-bottom: 25px solid transparent;
 	position: absolute; 	
 	display: none; 
-	top: 20px; 
+	top: 24px; 
 	margin-left: -25px; 
 }
 
@@ -193,4 +193,10 @@
 
 .reports-box-position {
 	margin-top: -50px; 
+}
+
+.default-text {
+	color: $gmc_dark_blue; 
+	font-weight: bold; 
+	font-size: 18px; 
 }

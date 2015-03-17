@@ -150,7 +150,8 @@ var agora = window.agora || {};
 
 			// Compensate for scrollbars appearing
 			if(fullSize) {
-				width = (width+18); 
+				console.log('we are fullsize'); 
+				width = (width+16); 
 			}
 			
 			agora.vizfuncs.mainViz.setFrameSize(width, height); 

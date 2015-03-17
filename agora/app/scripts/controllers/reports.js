@@ -18,7 +18,15 @@ angular.module('agoraApp')
             window.location.href = link; 
     }; 
 
+
+    var addDefaultTextClass = function(){
+        $(".report-section-text").addClass('default-text'); 
+    }; 
+
+    addDefaultTextClass(); 
     $scope.getDescription = function(desc, key) {
+        $(".report-section-text").removeClass('default-text'); 
+        // Remove default text class
     	
         $scope.descTitle = desc.groupName;  
     	$scope.defaultText = desc.description; 

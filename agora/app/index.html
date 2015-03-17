@@ -48,7 +48,7 @@ var browserVersion = isIE();
       <div class="row heading">
         <div class="col-xs-2">
           <div class="gmc-logo-large">
-            <img ng-src="/images/logos/gmc_logo.jpg"></img>
+            <img ng-src="/images/logos/gmc_logo_small.png"></img>
           </div>
         </div>
         <div class="col-xs10">
@@ -96,7 +96,7 @@ var browserVersion = isIE();
               <ul>
                 <li ng-repeat="(key, value) in groups" ng-class="{ active: isActiveReport('#/reports/{{value}}') }">
 
-                  <a ng-mouseover="showSections($event, value, key);" ng-mouseleave="hideSections();" ng-href="#/reports/{{value}}"><span class='reports-tier-text' id="{{key}}">{{value}}</span></a></li>
+                  <a ng-mouseover="showSections($event, value, key);" ng-mouseleave="hideSections();" ng-href="#" ng-click="doNothing($event);"><span class='reports-tier-text' id="{{key}}">{{value}}</span></a></li>
               </ul>
             </div>
             <div id="reports-tier-one" class="{{showTierOne}}" ng-mouseover="persistSections(e);" ng-mouseleave="hideSections();">

@@ -53,7 +53,7 @@ var agora = window.agora || {};
 		}, 
 
 		getSectionDescriptions: function(where, cats) {
-
+			// Remove class for default text 
 			var result = []; 
 
 			$.each(cats, function(index, value) {
