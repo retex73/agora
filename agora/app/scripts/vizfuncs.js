@@ -123,29 +123,39 @@ var agora = window.agora || {};
 		resizeViz: function() {	
 
 
-			// $("#fullScreen").toggleClass('fullScreenButtonActive'); 
-			var gap; 
-
+			// Calculate height based on if fullscreen or not as we 
+			// take into account the headers
+			var gap, 
+				fullSize, 
+				height, 
+				width, 
+				browserHeight = $(window).height();  
 			if($("#fullScreen").hasClass("fullScreenButtonActive")) {
 				gap = 20; 
-			} else {
-				gap = 125; 
+			} 
+			// When exiting fullscreen
+			else {
+				gap = 125; 			
+				fullSize = 1; 
 			}
 			
 			
-
-			var browserHeight = $(window).height(); 
 			browserHeight = (browserHeight - gap); 
 			
 
   			$("#mainViz").css("height", browserHeight); 
 
-			var height = $("#mainViz").height(); 
-			var width = $("#mainViz").width(); 
+			height = $("#mainViz").height(); 
+			width = $("#mainViz").width(); 
 
-   	 		agora.vizfuncs.mainViz.setFrameSize(width, height); 
-
+			// Compensate for scrollbars appearing
+			if(fullSize) {
+				width = (width+18); 
+			}
+			
+			agora.vizfuncs.mainViz.setFrameSize(width, height); 
 		},
+
 
 		showDownloadWorkbookDialog: function() {
 			agora.vizfuncs.mainViz.showDownloadWorkbookDialog(); 
