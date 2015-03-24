@@ -29,8 +29,44 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	};
 
 	
+	$scope.downloadData = function($event) {
+		$event.preventDefault(); 
+		console.log('downloading data'); 
+		agora.vizfuncs.showExportDataDialog();
+	}; 
+
+	$scope.downloadImage = function($event) {
+		$event.preventDefault(); 
+		console.log('download image'); 
+		agora.vizfuncs.showExportImageDialog();
+	}; 
+
+	$scope.downloadPdf = function($event) {
+		$event.preventDefault(); 
+		console.log('Download pdf'); 
+		agora.vizfuncs.showExportPDFDialog();
+	}; 
 
 
+	$scope.shareData = function($event) {
+		console.log('showing modal'); 
+		$("#modal-url").val(window.location.href); 
+	}; 
+
+	$scope.fullScreen = function($event) {
+		$event.preventDefault(); 
+		$(".top").toggle(); 
+		$(".breadcrumbs").toggleClass('move-up'); 
+		$("#mainViz").toggleClass('mainViz-fullscreen'); 
+		$("#fullScreen").toggleClass('fullScreenButtonActive'); 
+		$(".navbar-bottom").toggle(); 
+		agora.vizfuncs.resizeViz();
+	}; 
+
+	$scope.revertAll = function($event){
+		$event.preventDefault(); 
+		agora.vizfuncs.revertAll();
+	}
 
 	agora.vizfuncs.renderViz($routeParams, $scope);
 	
