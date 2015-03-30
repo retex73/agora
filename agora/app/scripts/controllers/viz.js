@@ -17,6 +17,15 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		agora.vizfuncs.onBack();
 	};
 
+
+	$scope.getInfoLink = function($event) {
+		$event.preventDefault(); 
+		// $("#help-link").html("This is some help text"); 
+		$("#help-link").load("http://www.gmc-uk.org/help/PRS1.asp"); 
+		$("#frame").attr("src", "http://www.gmc-uk.org/help/PRS1.asp");
+	}; 
+
+
 	var refreshScopeVars = function() {
 		$scope.$apply(function() {
 			$scope.h1 = agora.vizfuncs.h1;
@@ -67,6 +76,8 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		$event.preventDefault(); 
 		agora.vizfuncs.revertAll();
 	}
+
+
 
 	agora.vizfuncs.renderViz($routeParams, $scope);
 	

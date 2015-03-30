@@ -12,13 +12,22 @@
 			
 			<span class="glyphicon glyphicon-info-sign viz-info-button" data-html="true" data-toggle="tooltip" data-placement="right" title="{{info}}"></span>
 			</span>
+
+			<span ng-click="getInfoLink($event);" data-toggle="modal" data-target="#infoModal" class="glyphicon glyphicon-share"></span>
+
+			
 		</div>
 		<div class="col-xs-3 viz-controls">
 			<div class="pull-right">
 				<div class="btn-group btn-group-xs" role="group" aria-label="viz actions">
 					<button id="undo" ng-click="onBack();" data-toggle="tooltip" data-placement="bottom" title="Go back to previous report page" class="btn btn-mini btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
 					
-					<button id="shareData" ng-click="shareData($event);" data-toggle="tooltip" data-placement="bottom" title="Share" class="btn btn-mini btn-default"><span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-share"></span></button>
+
+
+
+					<button id="shareData" ng-click="shareData($event);" data-toggle="tooltip" data-placement="bottom" title="Share" class="btn btn-mini btn-default">
+					<span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-share"></span>
+					</button>
 					
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 					
@@ -77,6 +86,28 @@
   </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" width="900">
+  <div class="modal-dialog" style="width:900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Information</h4>
+      </div>
+      <div class="modal-body" id="help-link">        
+     
+        <iframe id="frame" src="" width="100%" height="900">
+   </iframe>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <!-- enable tooltips -->
