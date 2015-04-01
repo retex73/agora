@@ -6,6 +6,10 @@ var Mapper = {
         var url = window.location.origin; 
         
         switch(url) {
+            case "http://localhost:9000": 
+            this.env = "local"; 
+            break; 
+
             case "http://agoradev.gmc-uk.org/": 
             this.env = "dev"; 
             break; 
@@ -18,9 +22,7 @@ var Mapper = {
             this.env = "prod"; 
             break; 
 
-            default: 
-            this.env = "local"; 
-            break; 
+            
         }
     }, 
 
