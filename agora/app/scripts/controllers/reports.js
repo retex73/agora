@@ -58,6 +58,8 @@ angular.module('agoraApp')
 
 $(document.body).on('click', '.report-group-link-box', function(e){
     e.preventDefault(); 
+
+
     
     var top = $(this).position().top; 
     top = top + 4; 
@@ -88,6 +90,12 @@ $(document.body).on('click', '.report-group-link-box', function(e){
     $('.bubble').css("border-right", bgProp); 
     $('.get-started button').css('background', bgCol);
     $('.section-info-rollover a').css('color', bgCol);     
+
+
+    // Set view button width
+    var buttonWidth = $(".panel-body").width(); 
+    buttonWidth = buttonWidth + 30; 
+    $(".get-started-bottom").width(buttonWidth); 
 
 }); 
 
