@@ -169,27 +169,27 @@ body {
 
 .homepage-boxes {
   background: white; 
-  font-size: 20px; 
+  font-size: 16px; 
   margin-top: 20px; 
   height: 20vw; 
 }
 
 .get-started button {
-  background: $gmc_purple;
-  color: white;  
-  border-radius: 4px;
-  border: none;
-  font-size: 30px;
-  letter-spacing: 0.5px; 
-  margin-top: 15px;
-  transition: all 0.3s ease 0s;
-  opacity: 1; 
-  width: 210px; 
-  height: 75px;
+background: #3e2782;
+color: #fff;
+border-radius: 8px;
+border: none;
+font-size: 26px;
+letter-spacing: .5px;
+margin-top: 15px;
+transition: all .3s ease 0s;
+opacity: 1;
+width: 200px;
+height: 56px;
 }
 
 .get-started-small button {
-  background: $gmc_purple;
+  background: #797979;
   color: white;  
   border-radius: 4px;
   border: none;

@@ -20,7 +20,14 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	$scope.getInfoLink = function($event, help) {
 		$event.preventDefault(); 
-		console.log('help: ' + help); 
+		
+		var height = $(window).height(); 
+		height = height;
+
+		// Get 80 percent of height
+		var percentHeight = height * 0.65;  
+
+		$("#frame").css("height", percentHeight); 
 		
 		
 		$("#frame").attr("src", help);
