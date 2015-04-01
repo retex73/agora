@@ -18,11 +18,12 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	};
 
 
-	$scope.getInfoLink = function($event) {
+	$scope.getInfoLink = function($event, help) {
 		$event.preventDefault(); 
-		// $("#help-link").html("This is some help text"); 
-		$("#help-link").load("http://www.gmc-uk.org/help/PRS1.asp"); 
-		$("#frame").attr("src", "http://www.gmc-uk.org/help/PRS1.asp");
+		console.log('help: ' + help); 
+		
+		
+		$("#frame").attr("src", help);
 	}; 
 
 
@@ -31,6 +32,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 			$scope.h1 = agora.vizfuncs.h1;
 			$scope.h2 = agora.vizfuncs.h2;
 			$scope.info = agora.vizfuncs.pages[0].description; 
+			$scope.help = agora.vizfuncs.help; 
 			$scope.reportUrl = agora.vizfuncs.reportUrl;
 			$scope.pages = agora.vizfuncs.pages;
 			$scope.url = agora.vizfuncs.url;

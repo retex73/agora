@@ -6,6 +6,7 @@ var agora = window.agora || {};
 		reportUrl: '',
 		h1: '',
 		h2: '',
+		help: '', 
 		pages: '',
 		url: '',
 		mainViz: '',
@@ -217,6 +218,7 @@ var agora = window.agora || {};
 				this.pages = result;
 				this.h2 = result[0].pages[group][0].pageSubheading;
 				this.url = pagesObj.reportsBaseUrl + result[0].pages[group][0].url;
+				this.help = result[0].pages[group][0].help;
 			}
 		},
 
