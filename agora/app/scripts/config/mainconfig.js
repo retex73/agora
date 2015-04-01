@@ -1,12 +1,140 @@
 
+var Mapper = {
+    env: '', 
+    // Get url and determine environment
+    setEnv: function() {
+        var url = window.location.origin; 
+        
+        switch(url) {
+            case "http://agoradev.gmc-uk.org/": 
+            this.env = "dev"; 
+            break; 
+
+            case "http://agoratest.gmc-uk.org/": 
+            this.env = "test"; 
+            break; 
+
+            case "http://reports.gmc-uk.org/": 
+            this.env = "prod"; 
+            break; 
+
+            default: 
+            this.env = "local"; 
+            break; 
+        }
+    }, 
+
+       getBaseUrl: function() {
+        var baseUrl = {
+            'local': 'http://tsttabappvip/views/', 
+            'dev': 'http://tsttabappvip/views/', 
+            'test': 'http://tsttabappvip/views/', 
+            'prod': 'http://s1prdtabaps01/views/'
+        }; 
+
+        return baseUrl[this.env]; 
+    }, 
+
+    map: {
+        'PRS1': {
+            'local': 'TheRegister_pub/PRS1', 
+            'dev':   'TheRegister_pub/PRS1', 
+            'test':  'TheRegister/PRS1', 
+            'prod':  'TheRegister/PRS1'
+        }, 
+        'PRU1': {
+            'local': 'TheRegister_pub/PRU1', 
+            'dev':   'TheRegister_pub/PRU1', 
+            'test':  'TheRegister/PRU1', 
+            'prod':  'TheRegister/PRU1'
+        }, 
+        'PRW1': {
+            'local': 'TheRegister_pub/PRW1', 
+            'dev':   'TheRegister_pub/PRW1', 
+            'test':  'TheRegister/PRW1', 
+            'prod':  'TheRegister/PRW1'
+        }, 
+        'PVS1': {
+            'local': 'Revalidation_pub/PVS1', 
+            'dev':   'Revalidation_pub/PVS1', 
+            'test':  'Revalidation/PVS1', 
+            'prod':  'Revalidation/PVS1'
+        }, 
+        'PVS2': {
+            'local': 'Revalidation_pub/PVS2', 
+            'dev':   'Revalidation_pub/PVS2', 
+            'test':  'Revalidation/PVS2', 
+            'prod':  'Revalidation/PVS2'
+        }, 
+        'PFS1': {
+            'local': 'FitnesstoPractice_pub/PFS1', 
+            'dev':   'FitnesstoPractice_pub/PFS1', 
+            'test':  'FitnesstoPractice_1/PFS1', 
+            'prod':  'FitnesstoPractice_1/PFS1'
+        },  
+            'PFU1': {
+            'local': 'FitnesstoPractice_pub/PFU1', 
+            'dev':   'FitnesstoPractice_pub/PFU1', 
+            'test':  'FitnesstoPractice_1/PFU1', 
+            'prod':  'FitnesstoPractice_1/PFU1'
+        },  
+        'PFW1': {
+            'local': 'FitnesstoPractice_pub/PFW1', 
+            'dev':   'FitnesstoPractice_pub/PFW1', 
+            'test':  'FitnesstoPractice_1/PFW1', 
+            'prod':  'FitnesstoPractice_1/PFW1'
+        }, 
+        'PES1': {
+            'local': 'Employers_pub/PES1', 
+            'dev':   'Employers_pub/PES1', 
+            'test':  'Employers_0/PES1', 
+            'prod':  'Employers_0/PES1'
+        }, 
+        'PEU1': {
+            'local': 'Employers_pub/PEU1', 
+            'dev':   'Employers_pub/PEU1', 
+            'test':  'Employers_0/PEU1', 
+            'prod':  'Employers_0/PEU1'
+        }, 
+        'PMS1': {
+            'local': 'MedicalSchools_pub/PMS1', 
+            'dev':   'MedicalSchools_pub/PMS1', 
+            'test':  'MedicalSchools/PMS1', 
+            'prod':  'MedicalSchools/PMS1'
+        }, 
+        'PMU1': {
+            'local': 'MedicalSchools_pub/PMU1', 
+            'dev':   'MedicalSchools_pub/PMU1', 
+            'test':  'MedicalSchools/PMU1', 
+            'prod':  'MedicalSchools/PMU1'
+        }, 
+        'PDS1': {
+            'local': 'Deaneries_pub/PDS1', 
+            'dev':   'Deaneries_pub/PDS1', 
+            'test':  'DeaneriesLETBs/PDS1', 
+            'prod':  'DeaneriesLETBs/PDS1'
+        }, 
+        'PDU1': {
+            'local': 'Deaneries_pub/PDU1', 
+            'dev':   'Deaneries_pub/PDU1', 
+            'test':  'DeaneriesLETBs/PDU1', 
+            'prod':  'DeaneriesLETBs/PDU1'
+        }
+    }, 
+
+
+    getUrl: function(pageId) {
+        return this.map[pageId][this.env]; 
+    }, 
+
+}; 
+
+Mapper.setEnv(); 
+
 var pagesObj = {
-    // reportsBaseUrl: 'http://s1tsttabaps01/views/', 
-    // reportsBaseUrl: 'http://s1prdtabaps01/views/', 
-    reportsBaseUrl: 'http://tsttabappvip/views/', 
-
-    // reportsBaseUrl: 'https://public.tableausoftware.com/',    
-    // reportsBaseUrl: 'https://public.tableausoftware.com/views/', 
-
+        
+    reportsBaseUrl: Mapper.getBaseUrl(), 
+ 
     sectionDescriptions: {
         'Stats': 'See how many doctors are registered with the GMC, their demographic groups, and more.',
         'UK maps' : 'See where in the UK our registered doctors are based.',
@@ -28,8 +156,9 @@ var pagesObj = {
                 description: "See how many doctors are registered with the GMC, their demographic groups, and more.",
                 pageHeading: 'The Register',
                 pageSubheading: 'Key stats from the medical register',
-                url: 'TheRegister/PRS1', 
-                thumb: 'TheRegisterStats.png', 
+                // url: 'TheRegister/PRS1', 
+                url: Mapper.getUrl('PRS1'), 
+                thumb: 'prs1.png', 
                 help: 'http://www.gmc-uk.org/help/PRS1.asp'
                 
             }, {
@@ -77,8 +206,8 @@ var pagesObj = {
                 description: 'See where in the UK our registered doctors are based.',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by UK country', 
-                url: 'TheRegister/PRU1', 
-                thumb: 'TheRegisterUKmaps.png', 
+                url: Mapper.getUrl('PRU1'), 
+                thumb: 'pru1.png', 
                 help: 'http://www.gmc-uk.org/help/PRU1.asp'
             }, {
                 pageId: 'PRU2',
@@ -93,8 +222,8 @@ var pagesObj = {
                 description: 'See in which countries doctors on the register qualified from.',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by country of qualification', 
-                url: 'TheRegister/PRW1', 
-                thumb: 'TheRegisterWorldMaps.png'
+                url: Mapper.getUrl('PRW1'), 
+                thumb: 'prw1.png'
             }]
         },
     }, {
@@ -107,11 +236,12 @@ var pagesObj = {
         image: 'reports-1.jpg',         
         pages: {
             'Stats': [{
-                pageId: 'PVS2',
-                description: 'Connected Doctors',
+                pageId: 'PVS1',
+                description: 'Under construction...',
                 pageHeading: 'Revalidation',
                 pageSubheading: 'Revalidation connections',
-                url: 'Revalidation_Pub/PVS1'
+                url: Mapper.getUrl('PVS1'), 
+                thumb: 'pvs1.png'
             }]
         }
     }, {
@@ -127,7 +257,8 @@ var pagesObj = {
                 description: 'See how many complaints we have received. Explore the number of doctors who have received complaints, what sorts of allegations are investigated and what sort of outcomes there were.',
                 pageHeading: 'Fitness to practise',
                 pageSubheading: 'Key volumes by year',
-                url: 'FitnesstoPractice_1/PFS1'
+                url: Mapper.getUrl('PFS1'), 
+                thumb: 'pfs1.png'
             }, {
                 pageId: 'PFS2',
                 description: 'Allegations',
@@ -140,51 +271,61 @@ var pagesObj = {
                 description: 'Allegations mapped',
                 pageHeading: 'Fitness to practise',
                 pageSubheading: 'Volumes of Allegations',
-                url: 'FitnesstoPractise_pub/PFS3'
+                url: 'FitnesstoPractise_pub/PFS3', 
+                help: 'http://www.gmc-uk.org/help/PFS3.asp'
             }, {
                 pageId: 'PFS4',
                 description: 'Complaints',
                 pageHeading: 'Complaints',
                 pageSubheading: 'Complaints received, and their overall Outcome',
-                url: 'FitnesstoPractise_pub/PFS4'
+                url: 'FitnesstoPractise_pub/PFS4', 
+                help: 'http://www.gmc-uk.org/help/PFS4.asp'
             }, {
                 pageId: 'PFS5',
                 description: 'Sanctions',
                 pageHeading: 'Fitness to practise sanctions',
                 pageSubheading: 'FtP Sanctions imposed',
-                url: 'FitnesstoPractise_pub/PFS5'
+                url: 'FitnesstoPractise_pub/PFS5', 
+                help: 'http://www.gmc-uk.org/help/PFS5.asp'
             }],
             'UK maps': [{
                 pageId: 'PFU1',
                 description: 'See where doctors who are complained about were practising.',
                 pageHeading: 'Ftp Sanctions mapped',
                 pageSubheading: 'Current Designated Body of doctors with sanctions',
-                url: 'FitnesstoPractice_1/PFU1'
+                url: Mapper.getUrl('PFU1'), 
+                thumb: 'pfu1.png', 
+                help: 'http://www.gmc-uk.org/help/PFU1.asp'
             }, {
                 pageId: 'PFU2',
                 description: 'FTP UK Map',
                 pageHeading: 'FtP Sanctions mapped',
                 pageSubheading: 'Current Designated Body of doctors with sanctions (relative to DB size)',
-                url: 'FitnesstoPractise_pub/PFU2'
+                url: 'FitnesstoPractise_pub/PFU2', 
+                help: 'http://www.gmc-uk.org/help/PFU2.asp'
             }, {
                 pageId: 'PFU3',
                 description: 'FTP UK Map',
                 pageHeading: 'FtP Sanctions mapped',
                 pageSubheading: 'Medical School of doctors with sanctions',
-                url: 'FitnesstoPractise_pub/PFU3'
+                url: 'FitnesstoPractise_pub/PFU3', 
+                help: 'http://www.gmc-uk.org/help/PFU3.asp', 
             }],
             'World Maps': [{
                 pageId: 'PFW1',
                 description: 'See how many doctors from each country were involved in fitness to practise proceedings.',
                 pageHeading: 'FtP Sanctions mapped',
                 pageSubheading: 'Country of primary medical qualifiation of doctors with sanctions',
-                url: 'FitnesstoPractise_pub/PFW1'
+                url: Mapper.getUrl('PFW1'), 
+                thumb: 'pfw1.png', 
+                help: 'http://www.gmc-uk.org/help/PFW1.asp'
             }, {
                 pageId: 'PFW2',
                 description: 'FTP World Map Active sanctions',
                 pageHeading: 'FtP Sanctions mapped',
                 pageSubheading: 'Country of PMQ of doctors with current sanctions - relative to PMQ population',
-                url: 'FitnesstoPractise_pub/PFW2'
+                url: 'FitnesstoPractise_pub/PFW2', 
+                help: 'http://www.gmc-uk.org/help/PFW2.asp'
             }]
         }
     }, {
@@ -203,7 +344,8 @@ var pagesObj = {
                 description: "See how many doctors work for each trust, agency and other emplying bodies. Find out the breakdown of the doctors's specialities, demographics and more in each case.",
                 pageHeading: 'Employers overview',
                 pageSubheading: 'Key stats from the register, by organisation (Drs\' Designated Bodies)',
-                url: 'Employers_0/PES1'
+                url: Mapper.getUrl('PES1'), 
+                thumb: 'pes1.png'
             }, {
                 pageId: 'PES10',
                 description: 'Employer Stats (FtP)',
@@ -236,7 +378,8 @@ var pagesObj = {
                 description: "See where employers are based and how many employers are in each region.",
                 pageHeading: 'Employers mapped',
                 pageSubheading: 'Doctor\'s employers (Designated Bodies), by location',
-                url: 'Employers_0/PEU1'
+                url: Mapper.getUrl('PEU1'), 
+                thumb: 'peu1.png'
             }]
 
         }
@@ -254,7 +397,8 @@ var pagesObj = {
                 description: 'See how many doctors have registered from each UK medical school over time, their demographics, what they have specialised in, their current roles and more',
                 pageHeading: 'Medical schools',
                 pageSubheading: 'Doctors attaining Primary Medical Qualification at UK Medical Schools', 
-                url: 'MedicalSchools/PMS1'
+                url: Mapper.getUrl('PMS1'), 
+                thumb: 'pms1.png'
             }, {
                 pageId: 'PMS2', 
                 description: 'See how many doctors have registered from each UK medical school over time, their demographics, what they have specialised in, their current roles and more',
@@ -267,7 +411,8 @@ var pagesObj = {
                 description: 'See where each medical school is and summary information on each school.',
                 pageHeading: 'Medical schools',
                 pageSubheading: 'Locations of UK medical schools', 
-                url: 'MedicalSchools/PMu1'
+                url: Mapper.getUrl('PMU1'), 
+                thumb: 'pmu1.png'
             }]
         }
     }, 
@@ -305,14 +450,16 @@ var pagesObj = {
                 description: "See how many postgraduate doctors are in training by deanery/LETB, their training specialities and level, demographics and more",
                 pageHeading: 'Deaneries & LETBs',
                 pageSubheading: 'Postgraduate trainees at Deaneries / LETBs', 
-                url: 'Deaneries_pub/PDS1', 
+                url: Mapper.getUrl('PDS1'), 
+                thumb: 'pds1.png'
             }], 
             'UK maps': [{
                 pageId: 'PDU1', 
                 description: "See where each Postgraduate Deanery/LETB is and summary information on each.", 
                 pageHeading: 'Deaneries and LETBs', 
                 pageSubheading: 'Locations of Deaneries and LETBs', 
-                url: 'Deaneries_pub/PDU1'
+                url: Mapper.getUrl('PDU1'), 
+                thumb: 'pdu1.png'
             }]
         }
     }]
