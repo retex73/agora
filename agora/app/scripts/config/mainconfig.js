@@ -29,26 +29,30 @@ var pagesObj = {
                 pageHeading: 'The Register',
                 pageSubheading: 'Key stats from the medical register',
                 url: 'TheRegister/PRS1', 
-                thumb: 'TheRegisterStats.png'
+                thumb: 'TheRegisterStats.png', 
+                help: 'http://www.gmc-uk.org/help/PRS1.asp'
                 
             }, {
                 pageId: 'PRS1_H',
                 description: 'The Register over time',
                 pageHeading: 'The Register',
                 pageSubheading: 'The medical register over time',
-                url: 'TheRegister/PRS1_H'
+                url: 'TheRegister/PRS1_H', 
+                help: 'http://www.gmc-uk.org/help/PRS1_H.asp'
             }, {
                 pageId: 'PRS2',
                 description: 'The Specialist Register',
                 pageHeading: 'The Specialist Register',
                 pageSubheading: 'Key stats from the Specialist Register',
-                url: 'TheRegister/PRS2'
+                url: 'TheRegister/PRS2', 
+                help: 'http://www.gmc-uk.org/help/PRS2.asp'
             }, {
                 pageId: 'PRS2_H',
                 description: 'The Specialist Register over time',
                 pageHeading: 'The Specialist Register',
                 pageSubheading: 'The Specialist Register over time',
-                url: 'TheRegister/PRS2_H'
+                url: 'TheRegister/PRS2_H', 
+                help: 'http://www.gmc-uk.org/help/PRS2_H.asp'
             }, {
                 pageId: 'PRS3',
                 description: 'Trainees',
@@ -65,7 +69,8 @@ var pagesObj = {
                 description: 'The GP Register',
                 pageHeading: 'The GP Register',
                 pageSubheading: 'Total number of GPs on the register over time',
-                url: 'TheRegister_pub/PRS4'
+                url: 'TheRegister_pub/PRS4', 
+                help: 'http://www.gmc-uk.org/help/PRS4.asp'
             }],
             'UK maps': [{
                 pageId: 'PRU1',
@@ -73,13 +78,15 @@ var pagesObj = {
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by UK country', 
                 url: 'TheRegister/PRU1', 
-                thumb: 'TheRegisterUKmaps.png'
+                thumb: 'TheRegisterUKmaps.png', 
+                help: 'http://www.gmc-uk.org/help/PRU1.asp'
             }, {
                 pageId: 'PRU2',
                 description: 'The Register UK Map',
                 pageHeading: 'The Register',
                 pageSubheading: 'Doctor population by UK postcode', 
-                url: 'TheRegister_pub/PRU2'
+                url: 'TheRegister_pub/PRU2', 
+                help: 'http://www.gmc-uk.org/help/PRU2.asp'
             }],
             'World maps': [{
                 pageId: 'PRW1',
@@ -126,7 +133,8 @@ var pagesObj = {
                 description: 'Allegations',
                 pageHeading: 'Fitness to practise',
                 pageSubheading: 'Volumes of Allegations',
-                url: 'FitnesstoPractise_pub/PFS2'
+                url: 'FitnesstoPractise_pub/PFS2', 
+                help: 'http://www.gmc-uk.org/help/PFS2.asp'
             }, {
                 pageId: 'PFS3',
                 description: 'Allegations mapped',
@@ -296,7 +304,7 @@ var pagesObj = {
                 pageId: 'PDS1',
                 description: "See how many postgraduate doctors are in training by deanery/LETB, their training specialities and level, demographics and more",
                 pageHeading: 'Deaneries & LETBs',
-                pageSubheading: 'Key stats about trainees at Deaneries and LETBs', 
+                pageSubheading: 'Postgraduate trainees at Deaneries / LETBs', 
                 url: 'Deaneries_pub/PDS1', 
             }], 
             'UK maps': [{
