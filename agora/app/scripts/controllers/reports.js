@@ -58,6 +58,7 @@ angular.module('agoraApp')
 
 $(document.body).on('click', '.report-group-link-box', function(e){
     e.preventDefault(); 
+    
     var top = $(this).position().top; 
     top = top + 4; 
     var bgCol = $(this).closest('li').css("background-color");
@@ -86,8 +87,7 @@ $(document.body).on('click', '.report-group-link-box', function(e){
     
     $('.bubble').css("border-right", bgProp); 
     $('.get-started button').css('background', bgCol);
-    $('.section-info-rollover a').css('color', bgCol); 
-
+    $('.section-info-rollover a').css('color', bgCol);     
 
 }); 
 

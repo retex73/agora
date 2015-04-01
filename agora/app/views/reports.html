@@ -40,24 +40,35 @@
 						<a href="#/reports/{{descTitle}}/{{k}}/report">{{k}} <span class="glyphicon glyphicon-chevron-right"></span></a>
 						</div>
 						<div class="panel-body">
-							<!-- http://localhost:9000/#/reports/The%20Register/Stats/report -->
-
-							<a href="#/reports/{{descTitle}}/{{k}}/report" class="thumbnail">
-
-
-
-							<img ng-src="images/vizthumbs/{{v[0].thumb}}" alt="{{v[0].description}}" style="width:100%;">
-
-
-
-
-						</a>
-							{{v[0].description}}	
-						
 							
-							<div class="get-started-small">
-								<button ng-click="gotoReports('#/reports/{{descTitle}}/{{k}}/report');">View <span class="glyphicon glyphicon-chevron-right"></span></button>
+							<div class="row">
+								<div class="col-xs-12">
+									<a href="#/reports/{{descTitle}}/{{k}}/report" class="thumbnail">
+							<img ng-src="images/vizthumbs/{{v[0].thumb}}" alt="{{v[0].description}}" style="width:100%;"></a>		
+								</div>								
 							</div>
+
+							<div class="row" style="margin-bottom: 50px; ">
+								<div class="col-xs-12">
+									{{v[0].description}}			
+								</div>
+							</div>	
+
+							<div class="row get-started-bottom">
+								<div class="col-xs-12">
+							<div class="get-started-small">
+								<button ng-click="gotoReports('#/reports/{{descTitle}}/{{k}}/report');">View <span class="glyphicon glyphicon-chevron-right"></span></button>	
+							</div>			
+								</div>
+							</div>
+							
+							
+							
+							
+							
+
+							
+							
 						</div>	
 
 							
