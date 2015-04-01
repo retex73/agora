@@ -10,15 +10,15 @@ var Mapper = {
             this.env = "local"; 
             break; 
 
-            case "http://agoradev.gmc-uk.org/": 
+            case "http://agoradev.gmc-uk.org":
             this.env = "dev"; 
             break; 
 
-            case "http://agoratest.gmc-uk.org/": 
+            case "http://agoratest.gmc-uk.org": 
             this.env = "test"; 
             break; 
 
-            case "http://reports.gmc-uk.org/": 
+            case "http://reports.gmc-uk.org": 
             this.env = "prod"; 
             break; 
 
