@@ -245,9 +245,15 @@ var pagesObj = {
                 pageId: 'PMS1',
                 description: 'See how many doctors have registered from each UK medical school over time, their demographics, what they have specialised in, their current roles and more',
                 pageHeading: 'Medical schools',
-                pageSubheading: 'Key stats about doctors who graduated at UK medical schools', 
+                pageSubheading: 'Doctors attaining Primary Medical Qualification at UK Medical Schools', 
                 url: 'MedicalSchools/PMS1'
-            }],
+            }, {
+                pageId: 'PMS2', 
+                description: 'See how many doctors have registered from each UK medical school over time, their demographics, what they have specialised in, their current roles and more',
+                pageHeading: 'Medical schools', 
+                pageSubheading: 'Doctors with sanctions per 1000 doctors qualified'
+            } 
+            ],
             'UK maps': [{
                 pageId: 'PMU1',
                 description: 'See where each medical school is and summary information on each school.',
