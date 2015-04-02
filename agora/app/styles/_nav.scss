@@ -80,31 +80,31 @@ $navHeight:30px;
 
 
 .the_register::after {     
-    border-bottom: 10px solid #334773 !important; 
+    border-bottom: 10px solid $the_register !important; 
 }
 
 .fitness_to_practise::after {     
-    border-bottom: 10px solid #20a6c3 !important; 
+    border-bottom: 10px solid $ftp !important; 
 }
 
 .employers::after {     
-    border-bottom: 10px solid #5c2682 !important; 
+    border-bottom: 10px solid $employers !important; 
 }
 
 .medical_schools::after {     
-    border-bottom: 10px solid #b3549b !important; 
+    border-bottom: 10px solid $medical_schools !important; 
 }
 
-.deaneries::after {     
-    border-bottom: 10px solid #7f3d90 !important; 
+.deaneries_and_letbs::after {     
+    border-bottom: 10px solid $deaneries !important; 
 }
 
 .royal_colleges::after {     
-    border-bottom: 10px solid #7b6fb1 !important; 
+    border-bottom: 10px solid $royal_colleges !important; 
 }
 
 .revalidation::after {     
-    border-bottom: 10px solid #4072b7 !important; 
+    border-bottom: 10px solid $revalidation !important; 
 }
 
 

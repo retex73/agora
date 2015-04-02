@@ -41,13 +41,51 @@ angular.module('agoraApp')
         
 
 
+        // $the_register: #334773; 
+        // $ftp: #20a6c3; 
+        // $employers: #5c2682; 
+        // $medical_schools: #b3549b; 
+        // $deaneries: #7f3d90; 
+        // $royal_colleges: #7b6fb1; 
+        // $revalidation: #4072b7;
+    	var colours = [
+            '#334773', // The register
+            '#4072b7', // revalidation 
+            '#20a6c3', // ftp
+            '#5c2682', // employers
+            '#b3549b', // medical schools
+            '#7f3d90' // deaneries
+            ]; 
+        // var colours = ['42,63,97','44,167,191','90,42,128','176,88,152','124,65,140','122,113,173','66,117,179']; 
+
+
+
+
+        // convert a hexidecimal color string to 0..255 R,G,B
+        var hexToRGB = function(hex){
+            var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? {
+                    r: parseInt(result[1], 16),
+                    g: parseInt(result[2], 16),
+                    b: parseInt(result[3], 16)
+                } : null;
+        }; 
+
         
-    	// var colours = ['#2a3f61','#2ca7bf','#5a2a80','#b05898','#7c418c','#7a71ad','#4275b3']; 
-        var colours = ['42,63,97','44,167,191','90,42,128','176,88,152','124,65,140','122,113,173','66,117,179']; 
+
+        var c = hexToRGB(colours[key]); 
+
+        var rgb = c.r + ',' + c.g + ',' + c.b; 
+
+        console.log(rgb); 
 
 
     	$(".report-group-info-text").css({
-    		'background': 'rgba(' + colours[key] + ', 0.8)', 
+
+
+
+    		'background': 'rgba(' + rgb + ', 0.8)', 
+            
     		'color': '#fff'
     	}); 
 

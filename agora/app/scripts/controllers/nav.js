@@ -15,7 +15,7 @@ angular.module('agoraApp')
     $scope.doNothing = function($event) {
       $event.preventDefault(); 
 
-      console.log('do nothing method called'); 
+      
     }; 
 
     var setSectionColour = function(section) {      
@@ -68,6 +68,8 @@ angular.module('agoraApp')
     $scope.timer = '';
 
     $scope.showSections = function(e, section, key) {
+
+
 
       $scope.section = section; 
 

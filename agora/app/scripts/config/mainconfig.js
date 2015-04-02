@@ -149,7 +149,7 @@ var pagesObj = {
         + "You can explore who doctors on the register are by gender, age bands, ethnicity, nationality and country of medical qualification. "
         + "You can view how many doctors are on the GP or specialist register, as well as their area of speciality. You can also view how many doctors "
         + "in training there are in each speciality, and what stage of training they are at.",         
-        colour: '#334773', 
+        colour: '#2a3f61', 
         image: 'reports-0.jpg', 
 
         pages: {
@@ -234,7 +234,7 @@ var pagesObj = {
         + "This helps to ensure that all doctors in the UK are giving patients a good standard of care<br/><br/>"
         + "This section contains data about how many doctors have revalidated. As the revalidation process continues this data will become more complete untill all doctors "
         + "practising in the UK have completed their first revalidation cycle.", 
-        colour: '#4072b7', 
+        colour: '#2ca7bf', 
         image: 'reports-1.jpg',         
         pages: {
             'Stats': [{
@@ -252,7 +252,7 @@ var pagesObj = {
         + "You can explore data on how many complaints lead to investigation and how many investigations lead to sanctions against doctors. "
         + " You can see what sort of allegations we receive, and data about the doctors who end up in our fitness to practise process.", 
         image: 'reports-2.jpg', 
-        colour: '#20a6c3', 
+        colour: '#5a2a80', 
         pages: {
             'Stats': [{
                 pageId: 'PFS1',
@@ -339,7 +339,7 @@ var pagesObj = {
         + "It aims to show the population of doctors that work in an organisation, the geographic spread of doctors across the UK, and some of the outcomes "
         + "for doctors working in these locations", 
         image: 'reports-3.jpg', 
-        colour: '#5c2682',         
+        colour: '#b05898',         
         pages: {
             'Stats': [{
                 pageId: 'PES1',
@@ -392,7 +392,7 @@ var pagesObj = {
         + "You can also view data on doctors in training, their training speciality and level. "
         + "And you can see what specialities doctors have completed training in and what their current roles are.", 
         image: 'reports-4.jpg', 
-        colour: '#b3549b',            
+        colour: '#7c418c',            
         pages: {
             'Stats': [{
                 pageId: 'PMS1',
@@ -439,13 +439,13 @@ var pagesObj = {
     //     }
     // }, 
     {
-        groupName: 'Deaneries & LETBs',
+        groupName: 'Deaneries and LETBs',
         description: "We assure the quality of doctors' training and that involves us working with Postgraduate Deaneries and Local Eduction and Training Boards (LETBs), " 
         + "who are responsible for training doctors across the UK.<br/><br/>"
         + "This section contains data about these bodies and doctors in postgraduate training who fall under them, "
         + "the programmes they are training in and outcomes from different cohort groups.", 
         image: 'reports-6.jpg', 
-        colour: '#7f3d90',            
+        colour: '#4275b3',            
         pages: {
             'Stats': [{
                 pageId: 'PDS1',

@@ -45,31 +45,31 @@
 
 
 .report-groups ul li:nth-child(1) {
-	background: #2a3f61;
+	background: $the_register; 
 }
 
 .report-groups ul li:nth-child(2) {
-	background: #2ca7bf;
+	background: $revalidation; 
 }
 
 .report-groups ul li:nth-child(3) {
-	background: #5a2a80;
+	background: $ftp; 
 }
 
 .report-groups ul li:nth-child(4) {
-	background: #b05898;
+	background: $employers; 
 }
 
 .report-groups ul li:nth-child(5) {
-	background: #7c418c;
+	background: $medical_schools;  
 }
 
 .report-groups ul li:nth-child(6) {
-	background: #7a71ad;
+	background: $deaneries; 
 }
 
 .report-groups ul li:nth-child(7) {
-	background: #4275b3;
+	background: $revalidation; 
 }
 
 .report-group-info-text {

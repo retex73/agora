@@ -43,7 +43,7 @@ var agora = window.agora || {};
 			return toUnderscore; 
 		}, 
 
-		setClassName: function(section) {
+		setClassName: function(section) {			
 			this.className = this.convertSectionNameToUnderscore(section); 
 		}, 
 
