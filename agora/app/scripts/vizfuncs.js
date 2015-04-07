@@ -27,7 +27,7 @@ var agora = window.agora || {};
 		tabHistory: [], 
 		locked: false,
 		goingBack: false, 
-		routeParams: '', 
+		routeParams: '', 		
 
 		
 
@@ -132,10 +132,12 @@ var agora = window.agora || {};
 				width, 
 				browserHeight = $(window).height();  
 			if($("#fullScreen").hasClass("fullScreenButtonActive")) {
+				
 				gap = 20; 
 			} 
 			// When exiting fullscreen
 			else {
+				
 				gap = 125; 			
 				fullSize = 1; 
 			}
@@ -150,8 +152,9 @@ var agora = window.agora || {};
 			width = $("#mainViz").width(); 
 
 			// Compensate for scrollbars appearing
-			if(fullSize) {				
-				width = (width+16); 
+			if(fullSize) {		
+				// commented out this line as original problem seems to have resolved
+				// width = (width+16); 
 			}
 			
 			agora.vizfuncs.mainViz.setFrameSize(width, height); 
@@ -580,6 +583,7 @@ var agora = window.agora || {};
 			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 
 			var onSuccess = function(view) {
+				console.log('view: ' + view); 
 
 				newCustomView = view;
 			};

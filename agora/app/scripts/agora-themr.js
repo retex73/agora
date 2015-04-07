@@ -120,11 +120,5 @@ var agora = window.agora || {};
 			// $('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.className); 									
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.className); 
 		}
-
-		
-
-
-
-
 	}
 })();

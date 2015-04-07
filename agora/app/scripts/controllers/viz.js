@@ -103,6 +103,21 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	}, 5000);
 	
 
+	angular.element(document).ready(function(){
+		console.log('angular doc ready'); 
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip({container: 'body'})
+		});
+
+		$("#revertAll").on("click", function() {
+			agora.vizfuncs.revertAll();
+		});
+		// Show the reports top tier nav
+		$("#reports-tier").removeClass("reports-tier-hide");  
+    	$("#reports-tier ul").show(); 
+	}); 
+
+
 
 	var setUndoButtonState = function() {
 		// if (agora.vizfuncs.customViewName <= 1) {
@@ -122,13 +137,3 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		setUndoButtonState(); 
 	});
 });
-
-$(document).ready(function(){
-	// Show the reports top tier nav
-	$("#reports-tier").removeClass("reports-tier-hide");  
-    $("#reports-tier ul").show(); 
-
-}); 
-
-
-
