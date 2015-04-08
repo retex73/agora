@@ -52,11 +52,11 @@ var agora = window.agora || {};
 		}, 
 
 
-		setHoverClassName: function(section) {
+		setHoverClassName: function(section) {			
 			this.hoverClassName = this.convertSectionNameToUnderscore(section); 
 		}, 
 
-		getHoverClassName: function() {
+		getHoverClassName: function() {			
 			return this.hoverClassName; 
 		}, 
 
@@ -71,7 +71,8 @@ var agora = window.agora || {};
 			this.hoverClassName = this.convertSectionNameToUnderscore(className); 
 
 			// this.applyClassNames(); 
-
+			console.log(this.hoverClassName); 
+			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(); 
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.hoverClassName); 
 		}, 

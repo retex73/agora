@@ -19,6 +19,115 @@ $deaneries: #4275b3;
 $royal_colleges: #7a71ad;  
 $revalidation: #2CA7BF; 
 
+.the_register_text_box {
+    background-color: $the_register !important; 
+    color: #fff;     
+}
+
+.fitness_to_practise_text_box {
+    background-color: $ftp !important;        
+    color: #fff; 
+}
+
+.employers_text_box {
+    background-color: $employers !important; 
+    color: #fff; 
+}
+
+.medical_schools_text_box {
+    background-color: $medical_schools !important; 
+    color: #fff; 
+}
+
+.deaneries_and_letbs_text_box {
+    background-color: $deaneries !important; 
+    color: #fff; 
+}
+
+.royal_colleges_text_box {
+    background-color: $royal_colleges !important; 
+    color: #fff; 
+}
+
+.revalidation_text_box {
+    background-color: $revalidation !important; 
+    color: #fff; 
+}
+
+
+.the_register::after {     
+    border-bottom: 10px solid $the_register !important; 
+    
+}
+
+.fitness_to_practise::after {     
+    border-bottom: 10px solid $ftp !important; 
+    
+}
+
+.employers::after {     
+    border-bottom: 10px solid $employers !important; 
+    
+}
+
+.medical_schools::after {     
+    border-bottom: 10px solid $medical_schools !important; 
+    
+}
+
+.deaneries_and_letbs::after {     
+    border-bottom: 10px solid $deaneries !important; 
+    
+}
+
+.royal_colleges::after {     
+    border-bottom: 10px solid $royal_colleges !important; 
+
+}
+
+.revalidation::after {     
+    border-bottom: 10px solid $revalidation !important; 
+}
+
+
+///
+.the_register_border_right {     
+    border-right: 50px solid $the_register !important; 
+    
+}
+
+.fitness_to_practise_border_right {     
+    border-right: 50px solid $ftp !important; 
+    
+}
+
+.employers_border_right {     
+    border-right: 50px solid $employers !important; 
+    
+}
+
+.medical_schools_border_right {     
+    border-right: 50px solid $medical_schools !important; 
+    
+}
+
+.deaneries_and_letbs_border_right {     
+    border-right: 50px solid $deaneries !important; 
+    
+}
+
+.royal_colleges_border_right {     
+    border-right: 50px solid $royal_colleges !important; 
+
+}
+
+.revalidation_border_right {     
+    border-right: 50px solid $revalidation !important; 
+}
+
+
+
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Tahoma';

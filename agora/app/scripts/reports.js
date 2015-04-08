@@ -41,7 +41,7 @@ var agora = window.agora || {};
 		}, 
 
 
-		sanitizeCategoryName: function(categoryName) {
+		sanitizeCategoryName: function(categoryName) {			
 			// replace underscores with spaces
 			var str = categoryName.replace("_", " "); 
 			// Ucwords

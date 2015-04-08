@@ -69,8 +69,6 @@ angular.module('agoraApp')
 
     $scope.showSections = function(e, section, key) {
 
-
-
       $scope.section = section; 
 
       // Get selector for parent element so we can find the position  
@@ -78,6 +76,7 @@ angular.module('agoraApp')
 
       // Set the theme based on the sections
       setSectionColour(section);
+
       // globally set lastSelected
       lastSelected = section;
 
