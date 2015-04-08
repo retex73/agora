@@ -12,19 +12,19 @@ angular.module('agoraApp')
 
 
     
-    var Pages = {
-    	search: function(where, q){
-    		var results = []; 
-    		$.each(where, function(index, value){
-    			results.push(value); 
-    		}); 
+    // var Pages = {
+    // 	search: function(where, q){
+    // 		var results = []; 
+    // 		$.each(where, function(index, value){
+    // 			results.push(value); 
+    // 		}); 
 
-    		return results; 
-    	}
-    }; 
+    // 		return results; 
+    // 	}
+    // }; 
 
 
-    $scope.groups = Pages.search(pagesObj.repGroup, 'The Register'); 
+    // $scope.groups = Pages.search(pagesObj.repGroup, 'The Register'); 
 
 
     $scope.gotoReports = function() {

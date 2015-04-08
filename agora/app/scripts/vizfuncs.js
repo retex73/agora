@@ -279,7 +279,23 @@ var agora = window.agora || {};
 				return; 
 			}
 
-			var lastObj = that.history[that.historyCounter - 1];
+			console.log('recording last tab'); 
+			
+
+			if(that.history.length == 0) {
+				var histObj = {
+					report: agora.vizfuncs.pageId,
+					filters: agora.vizfuncs.filterHistory,
+					params: agora.vizfuncs.parameterHistory
+				};
+				// Push the entire filters and params to history obj
+				agora.vizfuncs.history.push(histObj);
+				// Increment history counter; 
+				agora.vizfuncs.historyCounter++;
+			} 
+				
+			var lastObj = that.history[that.historyCounter - 1];	
+			
 			lastObj['tabName'] = tabName; 
 			that.tabHistory.push(lastObj);
 			that.goingBack = false;  

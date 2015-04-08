@@ -12,10 +12,10 @@ angular.module('agoraApp')
 
     $scope.defaultColour = '#797979';
 
+    // When a user clicks on a top level nav we want to prevent the hyperlink
+    // from working (for now) 
     $scope.doNothing = function($event) {
       $event.preventDefault(); 
-
-      
     }; 
 
     var setSectionColour = function(section) {      
@@ -209,7 +209,9 @@ angular.module('agoraApp')
         });
     };
 
-    $scope.groups = agora.reports.getGroups();
+    
+
+    $scope.groups = Object.keys(groups); 
 
   });
 
