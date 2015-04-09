@@ -116,12 +116,31 @@ var agora = window.agora || {};
 			agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
 		}, 
 
+
+		resizeViewButton: function() {			
+			if($(".panel-body").length > 0) {				
+				// Set view button width
+	    		var buttonWidth = $(".panel-body").width(); 
+	    		buttonWidth = buttonWidth + 30; 
+	    		$(".get-started-bottom").width(buttonWidth); 	
+			} else {				
+				return; 
+			}
+			
+		}, 
 		
 		/**
 		 * TO DO
 		 * @return {[type]} [description]
 		 */
 		resizeViz: function() {	
+			// If we have the mainViz defined we don't need to 
+			// resize the 'view' button on the reports page :) 
+			if(typeof mainViz == "undefined") {								
+				this.resizeViewButton(); 
+				// No need to do any other resizing magic here
+				return; 
+			}
 
 
 			// Calculate height based on if fullscreen or not as we 

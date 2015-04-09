@@ -70,8 +70,7 @@ var agora = window.agora || {};
 			}
 			this.hoverClassName = this.convertSectionNameToUnderscore(className); 
 
-			// this.applyClassNames(); 
-			console.log(this.hoverClassName); 
+			// this.applyClassNames(); 			
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(); 
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').removeClass(this.hoverClassName); 
 			$('#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a').addClass(this.hoverClassName); 

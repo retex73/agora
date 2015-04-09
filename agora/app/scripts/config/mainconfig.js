@@ -244,7 +244,7 @@ var pagesObj = {
     }, {
         groupName: 'Revalidation',
         description: "Every five years each doctor is required to demonstrate they are fit to practise and that their knowledge and skills are up to date."
-        + "This helps to ensure that all doctors in the UK are giving patients a good standard of care<br/><br/>"
+        + "This helps to ensure that all doctors in the UK are giving patients a good standard of care.<br/><br/>"
         + "This section contains data about how many doctors have revalidated. As the revalidation process continues this data will become more complete untill all doctors "
         + "practising in the UK have completed their first revalidation cycle.", 
         colour: '#2ca7bf', 
