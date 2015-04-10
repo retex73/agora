@@ -248,8 +248,6 @@ var agora = window.agora || {};
 			}
 		},
 
-		
-
 		/**
 		 * Sets the report title
 		 * @param {[string]} reportName [description]
