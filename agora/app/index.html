@@ -43,6 +43,32 @@ var browserVersion = isIE();
       </div>  
 
 
+<!-- Modal -->
+<div class="modal fade" id="feedBack" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Feedback</h4>
+      </div>
+      <div class="modal-body">        
+        <p><h3><span class="label label-info">Feedback form coming soon</span></h3></p>
+        <br>
+
+        <!-- feedback form --> 
+
+        <!-- end of feedback form --> 
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 
 <div class="top">
@@ -82,7 +108,17 @@ var browserVersion = isIE();
                     <li class="nav-main" id="home" ng-class="{ active: isActive('#/') }"><a href="#/">Home</a></li>
                     <li class="nav-main" id="reports" ng-class="{ active: isActive('#/reports') }"><a href="#/reports">Reports</a></li>
                     <li class="nav-main" id="about" ng-class="{ active: isActive('#/about') }">
-                      <a href="#/about">Acceptable use policy</a>
+                      <a href="#/about">Terms of use</a>
+                    </li>
+
+
+
+
+
+                    <li class="nav-main" id="Feedback">
+                      <a ng-click="feedBack($event);" href="#" data-toggle="modal" data-target="#feedBack">
+                        Feedback
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -123,7 +159,7 @@ var browserVersion = isIE();
         <nav class="navbar navbar-bottom">
           
 
-          <div class="container-fluid">
+          <div class="container-fluid" ng-controller="NavCtrl">
             <div class="row footer-full-width">
               <div class="col-xs-6 footer-light-grey-bar">
                 <div class="footer-content">
@@ -133,12 +169,18 @@ var browserVersion = isIE();
                 
               </div>
               <div class="col-xs-6 pull-right footer-links footer-light-grey-bar">
-                <ul class="footer-links-ul-position">
-                  <li><a href="#/">Contact us</a></li>
+                <ul class="footer-links-ul-position">  
+
+                
+
+
+
+
+                  <li><a ng-click="openLink($event,'http://www.gmc-uk.org/disclaimer.asp');" href="#">Disclaimer</a></li>
+
+
                   <li>|</li>
-                  <li><a href="#/">Disclaimer</a></li>
-                  <li>|</li>
-                  <li><a href="#/">Privacy and Cookies</a></li>
+                  <li><a ng-click="openLink($event,'http://www.gmc-uk.org/privacy_policy.asp');" href="#">Privacy and Cookies</a></li>
                 </ul>
               </div>
             </div>

@@ -2642,7 +2642,11 @@
 			return this.$4;
 		},
 		get_$27: function() {
-			return this.$7.get_workbook();
+
+			if(this.$7 !== null) {
+
+				return this.$7.get_workbook();	
+			} 
 		},
 		get__workbookImpl: function() {
 			return this.$7;

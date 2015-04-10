@@ -27,7 +27,10 @@ var agora = window.agora || {};
 		tabHistory: [], 
 		locked: false,
 		goingBack: false, 
-		routeParams: '', 		
+		routeParams: '', 
+		help: '', 					
+		tabName: '', 
+		 	
 
 		
 
@@ -45,13 +48,6 @@ var agora = window.agora || {};
 
   			$("#mainViz").css("min-height", browserHeight); 
 
-  			
-
-  			
-
-  			
-
-			
 			var routeParams = agora.vizfuncs.routeParams; 
 			var placeholderDiv = document.getElementById("mainViz");
 			
@@ -84,10 +80,7 @@ var agora = window.agora || {};
 		},
 
 		dispose: function(){
-			
-			
-			if(typeof agora.vizfuncs.mainViz == 'object') {
-				console.log('viz exists'); 
+			if(typeof agora.vizfuncs.mainViz == 'object') {				
 				this.mainViz.dispose(); 
 				delete agora.vizfuncs.mainViz; 
 				setTimeout(function(){
@@ -225,7 +218,7 @@ var agora = window.agora || {};
 		 * and sets the page's h1 and h2 attributes
 		 * @param  {[object]} routeParams [description]
 		 */
-		getReportUrl: function(routeParams) {
+		getReportUrl: function(routeParams) {			 
 			var group = routeParams.report,
 				cName = routeParams.id;
 
@@ -236,13 +229,20 @@ var agora = window.agora || {};
 			if (typeof result[0] == "undefined") {
 				console.log('not found');
 				return false;
-			} else {
+			} else {				
 				this.pages = result;
 				this.h2 = result[0].pages[group][0].pageSubheading;
 				this.url = pagesObj.reportsBaseUrl + result[0].pages[group][0].url;
-				this.help = result[0].pages[group][0].help;
+				// Dynamically look up the help link if the tab has changed. 
+				if(this.tabName.length == 0) { // Invoked if no tab change 					
+					this.help = result[0].pages[group][0].help;	
+				} else { // If tab change, get the link based on the tab name. 					
+					this.help = Mapper.getHelp(this.tabName); 					
+				}
 			}
 		},
+
+		
 
 		/**
 		 * Sets the report title
@@ -278,18 +278,20 @@ var agora = window.agora || {};
 		 * What to do when the tabs switch
 		 */
 		_ventOnTabSwitch: function(e) {
-			
-			var oldSheetName = e.getOldSheetName(); 
-			agora.vizfuncs.recordLastTab(oldSheetName); 
-			
-			var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
-			agora.vizfuncs.setReportTitle(tabName);
-			// agora.vizfuncs.recordHistory(); 
-			// var oldName = agora.v
-			agora.vizfuncs.onChange();
+			// Get the previous tabname to record into history			
+			// and write the old sheet name to history model
+			agora.vizfuncs.recordLastTab(e.getOldSheetName()); 
+			// Get the current tabname			
+			agora.vizfuncs.tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
+			// Update the report titles with the new tab name
+			agora.vizfuncs.setReportTitle(agora.vizfuncs.tabName);
+			// Update the viz wrapper			
+			agora.vizfuncs.onChange();		
+			// Update the help link based on the tab name
+			agora.vizfuncs.help = Mapper.getHelp(agora.vizfuncs.tabName); 
 		},
 
-		recordLastTab: function(tabName) {
+		recordLastTab: function(tabName) {			
 			var that = agora.vizfuncs; 			
 
 			// If the user clicked on back, don't record the tab
@@ -297,10 +299,8 @@ var agora = window.agora || {};
 				that.goingBack = false; 
 				return; 
 			}
-
-			console.log('recording last tab'); 
 			
-
+		
 			if(that.history.length == 0) {
 				var histObj = {
 					report: agora.vizfuncs.pageId,
@@ -390,11 +390,13 @@ var agora = window.agora || {};
 
 
 		applyParams: function(params) {
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
-
-			$.each(params[0], function(k, v) {
-				// console.log(v.name); 
-				// console.log(v.values[1]); 
+			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();			
+			
+			if(!params.length) {
+				return; 
+			} 
+			
+			$.each(params[0], function(k, v) {			
 				mainWorkbook.changeParameterValueAsync(v.name, v.values[1]);
 			});
 
@@ -445,7 +447,7 @@ var agora = window.agora || {};
 			var that = agora.vizfuncs; 
 			that.locked = true; 
 			that.goingBack	= true; 
-			that.ba		
+			
 			var lastTabHistory =  that.tabHistory[Object.keys(that.tabHistory)[Object.keys(that.tabHistory).length - 1]];
 
 			that.tabHistory.pop();  
@@ -479,6 +481,7 @@ var agora = window.agora || {};
 		}, 
 
 		onChange: function() {
+			var that = agora.vizfuncs; 
 
 			if (agora.vizfuncs.locked) {
 				// var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
@@ -491,11 +494,17 @@ var agora = window.agora || {};
 			}
 
 			if (agora.vizfuncs.counter <= 0) {
-				// doing the onchange first time to get the tab title
+				// doing the onchange first time to get the tab title. 
+				// Can be slow 
 				
-				var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
-				agora.vizfuncs.setReportTitle(tabName);
-				agora.vizfuncs.counter++;
+				setTimeout(function(){
+					var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
+					agora.vizfuncs.setReportTitle(tabName);
+					agora.vizfuncs.counter++;
+					agora.vizfuncs.tabName = tabName; 
+				}, 1200); 
+
+				
 			}
 
 
@@ -523,6 +532,11 @@ var agora = window.agora || {};
 
 
 			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+
+			if(typeof mainWorkbook == "undefined") {
+				return; 
+			}
+
 			var arrParams = [];
 			var paramValues = [];
 			var onSuccess = function(params) {
@@ -556,7 +570,7 @@ var agora = window.agora || {};
 				console.log('Error!!');
 			};
 
-			mainWorkbook.getParametersAsync().then(onSuccess, onError);
+			mainWorkbook.getParametersAsync().then(onSuccess, onError);			
 		},
 
 		getFilters: function(currentKey, counter) {
@@ -590,7 +604,11 @@ var agora = window.agora || {};
 				console.log('Error!!');
 			};
 
-			mainWorkbook.getActiveSheet().getWorksheets()[0].getFiltersAsync().then(onSuccess, onError);
+			setTimeout(function(){
+				mainWorkbook.getActiveSheet().getWorksheets()[0].getFiltersAsync().then(onSuccess, onError);
+				
+			}, 300); 
+			
 		},
 
 

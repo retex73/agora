@@ -212,6 +212,16 @@ angular.module('agoraApp')
 
     $scope.groups = Object.keys(groups); 
 
+
+    $scope.openLink = function($event, link) {
+      $event.preventDefault(); 
+      window.open(link, link, "width:500, height:900");       
+    }; 
+
+    $scope.feedBack = function($event) {
+      $event.preventDefault(); 
+    }; 
+
   });
 
 

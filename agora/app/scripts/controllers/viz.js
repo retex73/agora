@@ -17,23 +17,27 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		agora.vizfuncs.onBack();
 	};
 
-
 	$scope.getInfoLink = function($event, help) {
-		$event.preventDefault(); 
 		
+		$event.preventDefault(); 	
+
+		// window.open(help); // new tab
+		// window.open(help, help, "height=600,width=900"); // new window
+		
+		// Dynamically set the height of the modal. Because the content is in an 
+		// iframe we can't rely on it to automatically set its own height. 
 		var height = $(window).height(); 
 		height = height;
-
 		// Get 80 percent of height
 		var percentHeight = height * 0.65;  
 
-		$("#frame").css("height", percentHeight); 
-		
-		
+		$("#frame").css("height", percentHeight);
+		// Set the content of the iframe to the correct help page.  				
 		$("#frame").attr("src", help);
 	}; 
 
-
+	// Updates the viz info for h1 and h2 etc on change. 
+	// This is dependent on the observer function within this script
 	var refreshScopeVars = function() {
 		$scope.$apply(function() {
 			$scope.h1 = agora.vizfuncs.h1;
@@ -48,26 +52,22 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	
 	$scope.downloadData = function($event) {
-		$event.preventDefault(); 
-		console.log('downloading data'); 
+		$event.preventDefault(); 		
 		agora.vizfuncs.showExportDataDialog();
 	}; 
 
 	$scope.downloadImage = function($event) {
-		$event.preventDefault(); 
-		console.log('download image'); 
+		$event.preventDefault(); 		
 		agora.vizfuncs.showExportImageDialog();
 	}; 
 
 	$scope.downloadPdf = function($event) {
-		$event.preventDefault(); 
-		console.log('Download pdf'); 
+		$event.preventDefault(); 		
 		agora.vizfuncs.showExportPDFDialog();
 	}; 
 
 
-	$scope.shareData = function($event) {
-		console.log('showing modal'); 
+	$scope.shareData = function($event) {		
 		$("#modal-url").val(window.location.href); 
 	}; 
 
@@ -88,13 +88,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 
 
-	agora.vizfuncs.renderViz($routeParams, $scope);
-	
-
-	// agora.vizfuncs.addEventListeners();
-	
-	// agora.vizfuncs.getReportUrl($routeParams); 
-
+	agora.vizfuncs.renderViz($routeParams, $scope);	
 	// Take initial snapshot of history
 	setTimeout(function() {
 		// agora.vizfuncs.recordHistory();
@@ -102,9 +96,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		agora.vizfuncs.onChange();
 	}, 5000);
 	
-
-	angular.element(document).ready(function(){
-		console.log('angular doc ready'); 
+	angular.element(document).ready(function(){		
 		$(function () {
 			$('[data-toggle="tooltip"]').tooltip({container: 'body'})
 		});
@@ -131,8 +123,10 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	setUndoButtonState(); 
 
-	Object.observe(agora.vizfuncs, function(changes) {
-		
+	// Update the scope values when the viz changes e.g. tab changes updates h1 and h2 values
+	// probably will need to implement a polyfill for older browsers here
+	// see (https://github.com/jdarling/Object.observe/blob/master/Object.observe.poly.js)
+	Object.observe(agora.vizfuncs, function(changes) {		
 		refreshScopeVars();
 		setUndoButtonState(); 
 	});
