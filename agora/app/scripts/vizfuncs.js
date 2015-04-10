@@ -82,6 +82,7 @@ var agora = window.agora || {};
 		dispose: function(){
 			if(typeof agora.vizfuncs.mainViz == 'object') {				
 				this.mainViz.dispose(); 
+				this.tabName = ""; 
 				delete agora.vizfuncs.mainViz; 
 				setTimeout(function(){
 					agora.vizfuncs.renderViz(agora.vizfuncs.routeParams); 
@@ -235,9 +236,14 @@ var agora = window.agora || {};
 				this.url = pagesObj.reportsBaseUrl + result[0].pages[group][0].url;
 				// Dynamically look up the help link if the tab has changed. 
 				if(this.tabName.length == 0) { // Invoked if no tab change 					
-					this.help = result[0].pages[group][0].help;	
+					this.help = result[0].pages[group][0].help;						
 				} else { // If tab change, get the link based on the tab name. 					
-					this.help = Mapper.getHelp(this.tabName); 					
+					if(this.tabName.length == 0) {
+						this.help = result[0].pages[group][0].help;	
+					} else {
+						this.help = Mapper.getHelp(this.tabName); 						
+					}
+					
 				}
 			}
 		},
@@ -289,6 +295,7 @@ var agora = window.agora || {};
 			agora.vizfuncs.onChange();		
 			// Update the help link based on the tab name
 			agora.vizfuncs.help = Mapper.getHelp(agora.vizfuncs.tabName); 
+
 		},
 
 		recordLastTab: function(tabName) {			
