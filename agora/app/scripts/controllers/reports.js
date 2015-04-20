@@ -52,6 +52,8 @@ angular.module('agoraApp')
         $('.bubble').addClass(gn + "_border_right"); 
 
 
+
+        $(".report-section-text").removeClass('report-default-text'); 
         
 
     }; 

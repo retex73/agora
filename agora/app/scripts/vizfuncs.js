@@ -35,6 +35,7 @@ var agora = window.agora || {};
 		
 
 		renderViz: function(routeParams){
+			console.log(routeParams); 
 			this.routeParams = routeParams; 
 			this.dispose(); 
 			

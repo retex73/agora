@@ -8,7 +8,7 @@
  * Controller of the agoraApp
  */
 angular.module('agoraApp')
-  .controller('NavCtrl', function($scope, $route, $parse, $templateCache, $location, $window) {
+  .controller('NavCtrl', function($scope, $route, $routeParams, $parse, $templateCache, $location, $window) {
 
     $scope.defaultColour = '#797979';
 
@@ -17,6 +17,7 @@ angular.module('agoraApp')
     $scope.doNothing = function($event) {
       $event.preventDefault(); 
     }; 
+
 
     var setSectionColour = function(section) {      
       var theme = agora.themr.setCurrentState(section);
@@ -68,6 +69,8 @@ angular.module('agoraApp')
     $scope.timer = '';
 
     $scope.showSections = function(e, section, key) {
+
+      
 
       $scope.section = section; 
 
@@ -176,7 +179,7 @@ angular.module('agoraApp')
 
       
       angular.forEach(reportSections, function(value, key) {
-        html += "<li><a href='/#reports/" + group + "/" + key + "/report'>" + key + "</a></li>";
+        html += "<li class='subsection-hover'><a href='/#reports/" + group + "/" + key + "/report'>" + key + "</a></li>";
       });
 
       $(".reportSections").append(html);      
@@ -220,6 +223,18 @@ angular.module('agoraApp')
 
     $scope.feedBack = function($event) {
       $event.preventDefault(); 
+    
+      var link = 'http://www.gmc-uk.org/help/agora_feedback.asp'; 
+      window.open(link, link, "width:1000, height:600");       
+    }; 
+
+
+    $scope.checkLink = function() {      
+      if(Object.keys($routeParams).length === 0) {
+        return; 
+      } else {
+        agora.vizfuncs.renderViz($routeParams); 
+      }      
     }; 
 
   });

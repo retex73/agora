@@ -22,7 +22,9 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		$event.preventDefault(); 	
 
 		// window.open(help); // new tab
-		// window.open(help, help, "height=600,width=900"); // new window
+		window.open(help, help, "height=600,width=1100"); // new window
+
+		return; 
 		
 		// Dynamically set the height of the modal. Because the content is in an 
 		// iframe we can't rely on it to automatically set its own height. 

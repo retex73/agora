@@ -28,6 +28,17 @@
 	padding-right: 10px;
 }
 
+.footer-links li a {
+	color: $gmc_dark_blue; 
+	font-weight: normal;
+}
+
+
+.footer-links li a:hover {
+	color: $gmc_light_blue; 
+	text-decoration: none; 
+}
+
 .footer-grey-bar {
 	background-color: #bcbcbc; 
 	height: 20px; 
@@ -64,6 +75,7 @@
   text-align: left;
 }
 
-.footer-links-ul-position {  	
+.footer-links-ul-position {  
+
   	line-height: 40px;
 }

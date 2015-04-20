@@ -20,7 +20,7 @@ var Mapper = {
             this.env = "test"; 
             break; 
 
-            case "http://reports.gmc-uk.org": 
+            case "http://gmcreports.gmc-uk.org": 
             this.env = "prod"; 
             break; 
 
@@ -44,85 +44,85 @@ var Mapper = {
             'local': 'TheRegister_pub/PRS1', 
             'dev':   'TheRegister_pub/PRS1', 
             'test':  'TheRegister/PRS1', 
-            'prod':  'TheRegister/PRS1'
+            'prod':  'TheRegister_prod/PRS1'
         }, 
         'PRU1': {
             'local': 'TheRegister_pub/PRU1', 
             'dev':   'TheRegister_pub/PRU1', 
             'test':  'TheRegister/PRU1', 
-            'prod':  'TheRegister/PRU1'
+            'prod':  'TheRegister_prod/PRU1'
         }, 
         'PRW1': {
             'local': 'TheRegister_pub/PRW1', 
             'dev':   'TheRegister_pub/PRW1', 
             'test':  'TheRegister/PRW1', 
-            'prod':  'TheRegister/PRW1'
+            'prod':  'TheRegister_prod/PRW1'
         }, 
         'PVS1': {
             'local': 'Revalidation_pub/PVS1', 
             'dev':   'Revalidation_pub/PVS1', 
             'test':  'Revalidation/PVS1', 
-            'prod':  'Revalidation/PVS1'
+            'prod':  'Revalidation_prod/PVS1'
         }, 
         'PVS2': {
             'local': 'Revalidation_pub/PVS2', 
             'dev':   'Revalidation_pub/PVS2', 
             'test':  'Revalidation/PVS2', 
-            'prod':  'Revalidation/PVS2'
+            'prod':  'Revalidation_prod/PVS2'
         }, 
         'PFS1': {
             'local': 'FitnesstoPractice_pub/PFS1', 
             'dev':   'FitnesstoPractice_pub/PFS1', 
             'test':  'FitnesstoPractice_1/PFS1', 
-            'prod':  'FitnesstoPractice_1/PFS1'
+            'prod':  'FitnesstoPractice_prod/PFS1'
         },  
             'PFU1': {
             'local': 'FitnesstoPractice_pub/PFU1', 
             'dev':   'FitnesstoPractice_pub/PFU1', 
             'test':  'FitnesstoPractice_1/PFU1', 
-            'prod':  'FitnesstoPractice_1/PFU1'
+            'prod':  'FitnesstoPractice_prod/PFU1'
         },  
         'PFW1': {
             'local': 'FitnesstoPractice_pub/PFW1', 
             'dev':   'FitnesstoPractice_pub/PFW1', 
             'test':  'FitnesstoPractice_1/PFW1', 
-            'prod':  'FitnesstoPractice_1/PFW1'
+            'prod':  'FitnesstoPractice_prod/PFW1'
         }, 
         'PES1': {
             'local': 'Employers_pub/PES1', 
             'dev':   'Employers_pub/PES1', 
             'test':  'Employers_0/PES1', 
-            'prod':  'Employers_0/PES1'
+            'prod':  'Employers_prod/PES1'
         }, 
         'PEU1': {
             'local': 'Employers_pub/PEU1', 
             'dev':   'Employers_pub/PEU1', 
             'test':  'Employers_0/PEU1', 
-            'prod':  'Employers_0/PEU1'
+            'prod':  'Employers_prod/PEU1'
         }, 
         'PMS1': {
             'local': 'MedicalSchools_pub/PMS1', 
             'dev':   'MedicalSchools_pub/PMS1', 
             'test':  'MedicalSchools/PMS1', 
-            'prod':  'MedicalSchools/PMS1'
+            'prod':  'MedicalSchools_prod/PMS1'
         }, 
         'PMU1': {
             'local': 'MedicalSchools_pub/PMU1', 
             'dev':   'MedicalSchools_pub/PMU1', 
             'test':  'MedicalSchools/PMU1', 
-            'prod':  'MedicalSchools/PMU1'
+            'prod':  'MedicalSchools_prod/PMU1'
         }, 
         'PDS1': {
             'local': 'Deaneries_pub/PDS1', 
             'dev':   'Deaneries_pub/PDS1', 
             'test':  'DeaneriesLETBs/PDS1', 
-            'prod':  'DeaneriesLETBs/PDS1'
+            'prod':  'DeaneriesLETBs_prod/PDS1'
         }, 
         'PDU1': {
             'local': 'Deaneries_pub/PDU1', 
             'dev':   'Deaneries_pub/PDU1', 
             'test':  'DeaneriesLETBs/PDU1', 
-            'prod':  'DeaneriesLETBs/PDU1'
+            'prod':  'DeaneriesLETBs_prod/PDU1'
         }
     }, 
 
@@ -155,8 +155,8 @@ var pagesObj = {
         groupName: 'The Register',        
         description: "The register contains information about all doctors who are registered with the GMC.<br/><br/>"
         + "You can explore who doctors on the register are by gender, age bands, ethnicity, nationality and country of medical qualification. "
-        + "You can view how many doctors are on the GP or specialist register, as well as their area of speciality. You can also view how many doctors "
-        + "in training there are in each speciality, and what stage of training they are at.",         
+        + "You can view how many doctors are on the GP or specialist register, as well as their area of specialty. You can also view how many doctors "
+        + "in training there are in each specialty, and what stage of training they are at.",         
         colour: '#2a3f61', 
         image: 'reports-0.jpg', 
 
@@ -328,7 +328,7 @@ var pagesObj = {
                 url: 'FitnesstoPractise_pub/PFU3', 
                 help: Mapper.getHelp('PFU3')
             }],
-            'World Maps': [{
+            'World maps': [{
                 pageId: 'PFW1',
                 description: 'See how many doctors from each country were involved in fitness to practise proceedings.',
                 pageHeading: 'FtP Sanctions mapped',
@@ -352,13 +352,13 @@ var pagesObj = {
         + "We work with all kinds of employers to ensure patients receive the best possible care and that doctors can practise successfully.<br/><br/>"
         + "This section contains data about organisations who employ the doctors on our register."
         + "It aims to show the population of doctors that work in an organisation, the geographic spread of doctors across the UK, and some of the outcomes "
-        + "for doctors working in these locations", 
+        + "for doctors working in these locations.", 
         image: 'reports-3.jpg', 
         colour: '#b05898',         
         pages: {
             'Stats': [{
                 pageId: 'PES1',
-                description: "See how many doctors work for each trust, agency and other emplying bodies. Find out the breakdown of the doctors's specialities, demographics and more in each case.",
+                description: "See how many doctors work for each trust, agency and other employing bodies. Find out the breakdown of the doctors' specialties, demographics and more in each case.",
                 pageHeading: 'Employers overview',
                 pageSubheading: 'Key stats from the register, by organisation (Drs\' Designated Bodies)',
                 url: Mapper.getUrl('PES1'), 
@@ -408,17 +408,17 @@ var pagesObj = {
 
         }
     }, {
-        groupName: 'Medical Schools',
+        groupName: 'Medical schools',
         description: "This section contains data about doctors who have registered with us from UK medical schools.<br/><br/>"
         + "You can explore different cohort groups by year of graduation, gender, age bands, ethnicity and nationality. "
-        + "You can also view data on doctors in training, their training speciality and level. "
-        + "And you can see what specialities doctors have completed training in and what their current roles are.", 
+        + "You can also view data on doctors in training, their training specialty and level. "
+        + "And you can see what specialties doctors have completed training in and what their current roles are.", 
         image: 'reports-4.jpg', 
         colour: '#7c418c',            
         pages: {
             'Stats': [{
                 pageId: 'PMS1',
-                description: 'See how many doctors have registered from each UK medical school over time, their demographics, what they have specialised in, their current roles and more',
+                description: 'See how many doctors have registered from each UK medical school over time, their demographics, what they have specialised in, their current roles and more.',
                 pageHeading: 'Medical schools',
                 pageSubheading: 'Doctors attaining Primary Medical Qualification at UK Medical Schools', 
                 url: Mapper.getUrl('PMS1'), 
@@ -426,7 +426,7 @@ var pagesObj = {
                 help: Mapper.getHelp('PMS1')
             }, {
                 pageId: 'PMS2', 
-                description: 'See how many doctors have registered from each UK medical school over time, their demographics, what they have specialised in, their current roles and more',
+                description: 'See how many doctors have registered from each UK medical school over time, their demographics, what they have specialised in, their current roles and more.',
                 pageHeading: 'Medical schools', 
                 pageSubheading: 'Doctors with sanctions per 1000 doctors qualified', 
                 help: Mapper.getHelp('PMS2')
@@ -474,7 +474,7 @@ var pagesObj = {
         pages: {
             'Stats': [{
                 pageId: 'PDS1',
-                description: "See how many postgraduate doctors are in training by deanery/LETB, their training specialities and level, demographics and more",
+                description: "See how many postgraduate doctors are in training by Deanery/LETB, their training specialties and level, demographics and more.",
                 pageHeading: 'Deaneries & LETBs',
                 pageSubheading: 'Postgraduate trainees at Deaneries / LETBs', 
                 url: Mapper.getUrl('PDS1'), 

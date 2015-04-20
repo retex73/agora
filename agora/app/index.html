@@ -43,30 +43,7 @@ var browserVersion = isIE();
       </div>  
 
 
-<!-- Modal -->
-<div class="modal fade" id="feedBack" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Feedback</h4>
-      </div>
-      <div class="modal-body">        
-        <p><h3><span class="label label-info">Feedback form coming soon</span></h3></p>
-        <br>
 
-        <!-- feedback form --> 
-
-        <!-- end of feedback form --> 
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
@@ -116,7 +93,7 @@ var browserVersion = isIE();
 
 
                     <li class="nav-main" id="Feedback">
-                      <a ng-click="feedBack($event);" href="#" data-toggle="modal" data-target="#feedBack">
+                      <a ng-click="feedBack($event);" href="#">
                         Feedback
                       </a>
                     </li>
@@ -139,7 +116,7 @@ var browserVersion = isIE();
             </div>
             <div id="reports-tier-one" class="{{showTierOne}}" ng-mouseover="persistSections(e);" ng-mouseleave="hideSections();">
               <ul id="tier-one-ul">
-                <li ng-repeat="t in tierOne" ng-show="!$last"><a ng-href="#/reports/{{tierOne[tierOne.length-1]}}/{{t}}/report">{{t}} </a>
+                <li ng-repeat="t in tierOne" ng-show="!$last"><a ng-click="checkLink();" ng-href="#/reports/{{tierOne[tierOne.length-1]}}/{{t}}/report">{{t}} </a>
 
                 </li>
 
