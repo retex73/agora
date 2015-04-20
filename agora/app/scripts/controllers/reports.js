@@ -39,11 +39,9 @@ angular.module('agoraApp')
     		'background-image': 'url("' + img + '")', 
     	});
 
-        
         $(".report-group-info-text").removeClass(current_colour_class + "_text_box"); 
         $(".bubble").removeClass(current_colour_class + "_border_right"); 
         
-
         var gn = desc.groupName.replace(new RegExp(" ", 'g'), "_").toLowerCase();
         current_colour_class = gn; 
                 
@@ -51,11 +49,7 @@ angular.module('agoraApp')
         
         $('.bubble').addClass(gn + "_border_right"); 
 
-
-
         $(".report-section-text").removeClass('report-default-text'); 
-        
-
     }; 
     
   });
@@ -63,33 +57,21 @@ angular.module('agoraApp')
 
 $(document.body).on('click', '.report-group-link-box', function(e){
     e.preventDefault(); 
-
-
     
     var top = $(this).position().top; 
     top = top + 4; 
     var bgCol = $(this).closest('li').css("background-color");
 
-    
-    
     $('.bubble').show(); 
     
-
     $('.bubble').stop(); 
      
     $('.bubble').animate({
         'top': top, 
     }); 
 
-    
     $('.get-started button').css('background', bgCol);
     $('.section-info-rollover a').css('color', bgCol);     
-
-
-    // Set view button width
-    var buttonWidth = $(".panel-body").width(); 
-    buttonWidth = buttonWidth + 30; 
-    $(".get-started-bottom").width(buttonWidth); 
 
 }); 
 

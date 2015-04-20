@@ -91,7 +91,7 @@ angular.module('agoraApp')
       $scope.showTierOne = "show-tier-one";
 
 
-      $('#tier-one-ul').hide();
+      $('#tier-one-ul').hide();      
       $('#tier-one-ul li:first').css('margin-left', marginLeft);
       $('#tier-one-ul').show();
 
@@ -103,10 +103,11 @@ angular.module('agoraApp')
 
 
     var getElementPosition = function(key) {
-      var selector = "#" + key;
-      var pos = $(selector).offset();
-      var marginLeft = (pos.left - 50) + "px";
 
+      var selector = "#" + key;      
+      var pos = $(selector).offset();
+      var marginLeft = (pos.left - 30) + "px";
+      
       return marginLeft;
     };
 
