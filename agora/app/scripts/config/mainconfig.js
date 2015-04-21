@@ -23,8 +23,6 @@ var Mapper = {
             case "http://gmcreports.gmc-uk.org": 
             this.env = "prod"; 
             break; 
-
-            
         }
     }, 
 
@@ -33,10 +31,7 @@ var Mapper = {
             'local': 'http://tsttabappvip/views/', 
             'dev': 'http://tsttabappvip/views/', 
             'test': 'http://tsttabappvip/views/', 
-            'prod': 'http://s2tstwebsvc:82/tsttab/submitagora.aspx?view='
-
-
-            
+            'prod': 'http://s1prdwebsvc:83/tab/submitagora.aspx?view='
         }; 
 
         return baseUrl[this.env]; 
