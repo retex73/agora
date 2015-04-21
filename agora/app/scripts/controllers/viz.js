@@ -70,7 +70,18 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 
 	$scope.shareData = function($event) {		
-		$("#modal-url").val(window.location.href); 
+		$("#modal-url").val('Generating...'); 
+		$(".label-info").text("Please wait..."); 
+		$("#modal-url").prop("disabled", true); 		
+
+
+		setTimeout(function(){
+			agora.vizfuncs.saveCustomView(); 
+			$("#model-url").focus(function(){
+				this.select(); 
+			}); 
+		}, 300); 
+		// agora.vizfuncs.saveCustomView(); 
 	}; 
 
 	$scope.fullScreen = function($event) {
@@ -133,3 +144,19 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		setUndoButtonState(); 
 	});
 });
+
+
+$(document).ready(function(){
+	$("#basic-addon1").on('click', function(){
+		console.log('clicked!'); 
+	}); 
+}); 
+
+
+$(document.body).on('click', '#basic-addon1', function(e){
+    e.preventDefault(); 
+
+    console.log('clicked!!!'); 
+
+    $("#modal-url").focus(); 
+}); 

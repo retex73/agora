@@ -30,12 +30,12 @@ var agora = window.agora || {};
 		routeParams: '', 
 		help: '', 					
 		tabName: '', 
+		newCustomView: '', 
 		 	
 
 		
 
-		renderViz: function(routeParams){
-			console.log(routeParams); 
+		renderViz: function(routeParams){			
 			this.routeParams = routeParams; 
 			this.dispose(); 
 			
@@ -111,6 +111,16 @@ var agora = window.agora || {};
 			agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
 		}, 
 
+		hasUrlParams: function() {
+			var urlParams = window.location.href.split('?')[1]; 
+
+			if(typeof urlParams !== 'undefined') {
+				console.log('has url params'); 
+				var customName = urlParams.replace(); 
+			} else {
+				console.log('not has url params'); 
+			}
+		}, 
 
 		resizeViewButton: function() {			
 			if($(".panel-body").length > 0) {				
@@ -272,10 +282,12 @@ var agora = window.agora || {};
 			});
 		},
 
-		addEventListeners: function() {			
-			this.mainViz.addEventListener("tabswitch", this._ventOnTabSwitch);
-			this.mainViz.addEventListener("parametervaluechange", this._ventOnParameterChanged);
-			this.mainViz.addEventListener("filterchange", this._ventOnFilterChanged);
+		addEventListeners: function() {	
+			var that = agora.vizfuncs; 
+
+			that.mainViz.addEventListener("tabswitch", that._ventOnTabSwitch);
+			that.mainViz.addEventListener("parametervaluechange", that._ventOnParameterChanged);
+			that.mainViz.addEventListener("filterchange", that._ventOnFilterChanged);
 		},
 
 
@@ -503,14 +515,28 @@ var agora = window.agora || {};
 				// doing the onchange first time to get the tab title. 
 				// Can be slow 
 				
-				setTimeout(function(){
-					var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
-					agora.vizfuncs.setReportTitle(tabName);
-					agora.vizfuncs.counter++;
-					agora.vizfuncs.tabName = tabName; 
-				}, 1200); 
+				// setTimeout(function(){
+				// 	var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
+				// 	agora.vizfuncs.setReportTitle(tabName);
+				// 	agora.vizfuncs.counter++;
+				// 	agora.vizfuncs.tabName = tabName; 
+				// }, 1200); 
 
-				
+				function waitForElement() {
+					if(typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {						
+						var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
+						agora.vizfuncs.setReportTitle(tabName);
+						agora.vizfuncs.counter++;
+						agora.vizfuncs.tabName = tabName; 
+					} else {
+						console.log('we are not going'); 
+						setTimeout(function(){
+							waitForElement();
+						}, 250); 
+					}
+				}; 
+
+				waitForElement(); 
 			}
 
 
@@ -613,7 +639,10 @@ var agora = window.agora || {};
 			setTimeout(function(){
 				mainWorkbook.getActiveSheet().getWorksheets()[0].getFiltersAsync().then(onSuccess, onError);
 				
-			}, 300); 
+			}, 1200); 
+
+			
+			
 			
 		},
 
@@ -638,31 +667,66 @@ var agora = window.agora || {};
 			return that.customViewName;
 		},
 
-		saveCustomView: function(name) {
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+		getRandomName: function() {
+			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+			    return v.toString(16);
+			});
+		}, 
 
-			var onSuccess = function(view) {
-				console.log('view: ' + view); 
 
-				newCustomView = view;
-			};
+		saveCustomView: function() {
+			var that = agora.vizfuncs; 
+			// Get the current url without any parameters
+			var baseUrl = window.location.href.split('?')[0]; 
+			var name = that.getRandomName(); 
+			var linkUrl = baseUrl + '?view=' + name; 
 
-			var onError = function(err) {
-				console.log('Error!!!');
-			};
 
-			// mainWorkbook.rememberCustomViewAsync(name).then(onSuccess, onError); 
+
+			mainWorkbook.rememberCustomViewAsync(name).then(
+				function(view){
+					console.log('success');
+					$("#spinner").hide(); 
+					$(".label-info").text("Copy and paste the link below"); 
+					$("#modal-url").val(linkUrl); 
+					$("#modal-url").prop("disabled", false); 
+					// that.newCustomView = view; 
+
+					//console.log(that.newCustomView); 
+				}, 
+				function(){
+					console.log('error');
+				}); 
 		},
 
 		showCustomView: function(name) {
 
 			console.log('Showing: ' + name);
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 
-			mainWorkbook.showCustomViewAsync(name.toString()).then(onSuccess, onError);
+			var that = agora.vizfuncs; 
+
+			mainWorkbook.showCustomViewAsync(name.toString()).then(
+				function(msg) {
+					console.log('succeeded'); 
+				}, 
+
+				function(err) {
+					console.log('failed'); 
+				}
+			); 
 		},
 
 		generateLink: function() {
+			var that = agora.vizfuncs; 
+			that.newCustomView.saveAsync().then(function(){				
+				var url = that.newCustomView.getUrl(); 
+
+				console.log('url: ' + url); 
+
+				return url; 
+			}); 
+
 			newCustomView.saveAsync().then(function() {
 				return newCustomView.getUrl();
 			});

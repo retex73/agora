@@ -33,7 +33,10 @@ var Mapper = {
             'local': 'http://tsttabappvip/views/', 
             'dev': 'http://tsttabappvip/views/', 
             'test': 'http://tsttabappvip/views/', 
-            'prod': 'http://s1prdtabaps01/views/'
+            'prod': 'http://s2tstwebsvc:82/tsttab/submitagora.aspx?view='
+
+
+            
         }; 
 
         return baseUrl[this.env]; 
