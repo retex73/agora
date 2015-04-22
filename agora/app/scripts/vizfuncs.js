@@ -69,6 +69,8 @@ var agora = window.agora || {};
 				height: agora.vizfuncs.div.parent().innerHeight() + "px",
 				onFirstInteractive: function() {
 					mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+					
+					agora.vizfuncs.hasUrlParams(); 
 				}
 			};
 			
@@ -108,7 +110,9 @@ var agora = window.agora || {};
 
 		vizEnhancement: function() {
 			agora.vizfuncs.addEventListeners();	
-			agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
+			agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams);
+
+			 
 		}, 
 
 		hasUrlParams: function() {
@@ -116,11 +120,17 @@ var agora = window.agora || {};
 
 			if(typeof urlParams !== 'undefined') {
 				console.log('has url params'); 
-				var customName = urlParams.replace(); 
+				var view = urlParams.replace('view=', '', urlParams); 
+				console.log('custom name: ' + view); 
+
+				agora.vizfuncs.showCustomView(view); 
 			} else {
 				console.log('not has url params'); 
 			}
 		}, 
+
+
+		
 
 		resizeViewButton: function() {			
 			if($(".panel-body").length > 0) {				
@@ -701,10 +711,9 @@ var agora = window.agora || {};
 		},
 
 		showCustomView: function(name) {
-
+			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 			console.log('Showing: ' + name);
 
-			var that = agora.vizfuncs; 
 
 			mainWorkbook.showCustomViewAsync(name.toString()).then(
 				function(msg) {
