@@ -95,14 +95,11 @@ var agora = window.agora || {};
 		 * @param  {[type]} sectionName [description]
 		 * @return obj colour, theme
 		 */
-		getSectionTheme: function(sectionName) {
-
+		getSectionTheme: function(sectionName) {			
 			var theme = {}; 
 			var result = $.grep(this.dataSrc.repGroup, function(e) {
 				return e.groupName == sectionName; 
 			}); 
-
-
 
 			if(typeof result[0] == "undefined") {
 				theme['colour'] = "#797979";

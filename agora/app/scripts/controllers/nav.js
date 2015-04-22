@@ -10,7 +10,19 @@
 angular.module('agoraApp')
   .controller('NavCtrl', function($scope, $route, $routeParams, $parse, $templateCache, $location, $window) {
 
-    $scope.defaultColour = '#797979';
+    // $scope.defaultColour = '#797979';
+    /**
+     * Set the default colour depending on the section
+     * @return {string} [colour as hex]
+     */
+    $scope.defaultColour = function(){
+      // Get section from routeParams            
+      // set agora.themr.setCurrentState(section); 
+      var theme = agora.themr.setCurrentState($routeParams.id); 
+      // Return theme color
+      return theme.colour; 
+      
+    }; 
 
     // When a user clicks on a top level nav we want to prevent the hyperlink
     // from working (for now) 
@@ -19,7 +31,8 @@ angular.module('agoraApp')
     }; 
 
 
-    var setSectionColour = function(section) {      
+    var setSectionColour = function(section) {    
+    
       var theme = agora.themr.setCurrentState(section);
       var sectionColour = theme.colour;
 

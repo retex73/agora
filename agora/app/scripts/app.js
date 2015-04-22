@@ -39,8 +39,12 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
-      })
+      })      
 
+      .when('/ie', {
+        templateUrl: 'views/ie.html',
+        controller: 'IeCtrl'
+      })
       .otherwise({
         // redirectTo: '/'
       });

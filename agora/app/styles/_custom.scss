@@ -39,7 +39,7 @@ $revalidation: #2CA7BF;
     color: #fff; 
 }
 
-.deaneries_and_letbs_text_box {
+.deaneries_text_box {
     background-color: $deaneries !important; 
     color: #fff; 
 }
@@ -75,7 +75,7 @@ $revalidation: #2CA7BF;
     
 }
 
-.deaneries_and_letbs::after {     
+.deaneries::after {     
     border-bottom: 10px solid $deaneries !important; 
     
 }
@@ -89,8 +89,6 @@ $revalidation: #2CA7BF;
     border-bottom: 10px solid $revalidation !important; 
 }
 
-
-///
 .the_register_border_right {     
     border-right: 50px solid $the_register !important; 
     
@@ -111,7 +109,7 @@ $revalidation: #2CA7BF;
     
 }
 
-.deaneries_and_letbs_border_right {     
+.deaneries_border_right {     
     border-right: 50px solid $deaneries !important; 
     
 }

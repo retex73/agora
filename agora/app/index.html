@@ -22,8 +22,8 @@
 var browserVersion = isIE(); 
 
     if (browserVersion == 7 || browserVersion == 8){
-      alert('wrong IE');       
-      window.location.href = "https://html5test.com/"; 
+         window.location.hash = 'ie';     
+      // window.location.href = "https://html5test.com/"; 
       window.stop(); 
     } 
  </script>   
@@ -33,6 +33,8 @@ var browserVersion = isIE();
       <!--[if lt IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>   
       <![endif]-->
+
+
       <!-- Add your site or application content here -->
       <div class="container-fluid">
         <!-- logo and banner -->
@@ -41,7 +43,6 @@ var browserVersion = isIE();
           &nbsp; 
         </div>
       </div>  
-
 
 
 
@@ -210,6 +211,7 @@ var browserVersion = isIE();
     <script src="scripts/controllers/reports.js"></script>
     <script src="scripts/controllers/viz.js"></script>
     <script src="scripts/services/resizer.js"></script>
+    <script src="scripts/controllers/ie.js"></script>
     <!-- endbuild -->
   </body>
 </html>

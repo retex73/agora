@@ -72,8 +72,8 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	$scope.shareData = function($event) {		
 		$("#modal-url").val('Generating...'); 
 		$(".label-info").text("Please wait..."); 
-		$("#modal-url").prop("disabled", true); 		
-
+		$("#modal-url").prop("disabled", true); 
+		$("#spinner, #basic-addon1").show();					
 
 		setTimeout(function(){
 			agora.vizfuncs.saveCustomView(); 

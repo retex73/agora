@@ -677,6 +677,10 @@ var agora = window.agora || {};
 			mainWorkbook.rememberCustomViewAsync(name).then(
 				function(view){
 					console.log('success');
+					that.newCustomView = view; 
+					that.newCustomView.setAdvertised(true); 
+					
+				    
 					$("#spinner, #basic-addon1").hide();
 					
 					$(".label-info").text("Copy and paste the link below"); 
@@ -701,6 +705,7 @@ var agora = window.agora || {};
 
 				function(err) {
 					console.log('failed'); 
+					console.log(err);  
 				}
 			); 
 		}
