@@ -146,7 +146,7 @@ var pagesObj = {
     sectionDescriptions: {
         'Stats': 'See how many doctors are registered with the GMC, their demographic groups, and more.',
         'UK maps' : 'See where in the UK our registered doctors are based.',
-        'World maps': 'See in which countries doctors on the register qualified from.'
+        'World maps': 'See where doctors on the register qualified.'
     }, 
     
     repGroup: [{
@@ -244,13 +244,13 @@ var pagesObj = {
         description: "Every five years each doctor is required to demonstrate they are fit to practise and that their knowledge and skills are up to date."
         + "This helps to ensure that all doctors in the UK are giving patients a good standard of care.<br/><br/>"
         + "This section contains data about how many doctors have revalidated. As the revalidation process continues this data will become more complete untill all doctors "
-        + "practising in the UK have completed their first revalidation cycle.", 
+        + "practising in the UK have revalidated at least once.", 
         colour: '#2ca7bf', 
         image: 'reports-1.jpg',         
         pages: {
             'Stats': [{
                 pageId: 'PVS1',
-                description: 'Under construction...',
+                description: 'See how many doctors are subject to Revalidation, their connections, demographics, revalidation events over time and more.',
                 pageHeading: 'Revalidation',
                 pageSubheading: 'Revalidation connections',
                 url: Mapper.getUrl('PVS1'), 

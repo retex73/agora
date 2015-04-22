@@ -16,7 +16,7 @@ var agora = window.agora || {};
 		div: '', 
 		history: [],
 		filters: {},
-		customViewName: 0,
+		// customViewName: 0,
 		counter: 0,
 		filterCounter: 0,
 		customUrl: '',
@@ -511,10 +511,9 @@ var agora = window.agora || {};
 		onChange: function() {
 			var that = agora.vizfuncs; 
 
+
 			if (agora.vizfuncs.locked) {
-				// var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
-				// agora.vizfuncs.setReportTitle(tabName);
-				// console.log('locked');
+				
 				agora.vizfuncs.locked = false;
 				return;
 			} else {
@@ -522,16 +521,6 @@ var agora = window.agora || {};
 			}
 
 			if (agora.vizfuncs.counter <= 0) {
-				// doing the onchange first time to get the tab title. 
-				// Can be slow 
-				
-				// setTimeout(function(){
-				// 	var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
-				// 	agora.vizfuncs.setReportTitle(tabName);
-				// 	agora.vizfuncs.counter++;
-				// 	agora.vizfuncs.tabName = tabName; 
-				// }, 1200); 
-
 				function waitForElement() {
 					if(typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {						
 						var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
@@ -658,15 +647,6 @@ var agora = window.agora || {};
 
 
 
-		// Should incorporate a guid but because I want to manually clean 
-		// the custom views, not yet impletmented
-		createCustomViewName: function() {
-			var customName = this.customViewName;
-
-			this.customViewName++;
-
-			return customName;
-		},
 
 		// As this will be called on back button, 
 		// we should decrement the view name
@@ -678,7 +658,7 @@ var agora = window.agora || {};
 		},
 
 		getRandomName: function() {
-			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			return 'xxxxxxxx'.replace(/[xy]/g, function(c) {
 			    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
 			    return v.toString(16);
 			});
@@ -697,13 +677,12 @@ var agora = window.agora || {};
 			mainWorkbook.rememberCustomViewAsync(name).then(
 				function(view){
 					console.log('success');
-					$("#spinner").hide(); 
+					$("#spinner, #basic-addon1").hide();
+					
 					$(".label-info").text("Copy and paste the link below"); 
-					$("#modal-url").val(linkUrl); 
-					$("#modal-url").prop("disabled", false); 
-					// that.newCustomView = view; 
-
-					//console.log(that.newCustomView); 
+					$("#modal-url").val(linkUrl).prop("disabled", false).css("font-size", "13px").focus().select();  
+					
+					
 				}, 
 				function(){
 					console.log('error');
@@ -724,26 +703,7 @@ var agora = window.agora || {};
 					console.log('failed'); 
 				}
 			); 
-		},
-
-		generateLink: function() {
-			var that = agora.vizfuncs; 
-			that.newCustomView.saveAsync().then(function(){				
-				var url = that.newCustomView.getUrl(); 
-
-				console.log('url: ' + url); 
-
-				return url; 
-			}); 
-
-			newCustomView.saveAsync().then(function() {
-				return newCustomView.getUrl();
-			});
-		},
-
-		removeCustomView: function(name) {
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
-			mainWorkbook.removeCustomViewAsync(name.toString());
 		}
 	}
+
 })();
