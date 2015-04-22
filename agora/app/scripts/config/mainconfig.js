@@ -20,7 +20,7 @@ var Mapper = {
             this.env = "test"; 
             break; 
 
-            case "http://gmcreports.gmc-uk.org": 
+            case "http://agora.gmc-uk.org": 
             this.env = "prod"; 
             break; 
         }
