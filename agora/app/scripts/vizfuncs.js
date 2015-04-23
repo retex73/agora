@@ -1,6 +1,8 @@
 var agora = window.agora || {};
 
 (function() {
+  
+  'use strict'; 
 	agora.vizfuncs = {
 
 		reportUrl: '',
@@ -26,9 +28,7 @@ var agora = window.agora || {};
 		parameterHistory: [],
 		tabHistory: [], 
 		locked: false,
-		goingBack: false, 
-		routeParams: '', 
-		help: '', 					
+		goingBack: false, 								
 		tabName: '', 
 		newCustomView: '', 
 		 	
@@ -68,7 +68,7 @@ var agora = window.agora || {};
 				width: agora.vizfuncs.div.parent().innerWidth() + "px",
 				height: agora.vizfuncs.div.parent().innerHeight() + "px",
 				onFirstInteractive: function() {
-					mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+					var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 					
 					agora.vizfuncs.hasUrlParams(); 
 				}
@@ -124,9 +124,7 @@ var agora = window.agora || {};
 				console.log('custom name: ' + view); 
 
 				agora.vizfuncs.showCustomView(view); 
-			} else {
-				console.log('not has url params'); 
-			}
+			} 
 		}, 
 
 
@@ -256,10 +254,10 @@ var agora = window.agora || {};
 				this.h2 = result[0].pages[group][0].pageSubheading;
 				this.url = pagesObj.reportsBaseUrl + result[0].pages[group][0].url;
 				// Dynamically look up the help link if the tab has changed. 
-				if(this.tabName.length == 0) { // Invoked if no tab change 					
+				if(this.tabName.length === 0) { // Invoked if no tab change 					
 					this.help = result[0].pages[group][0].help;						
 				} else { // If tab change, get the link based on the tab name. 					
-					if(this.tabName.length == 0) {
+					if(this.tabName.length === 0) {
 						this.help = result[0].pages[group][0].help;	
 					} else {
 						this.help = Mapper.getHelp(this.tabName); 						
@@ -329,7 +327,7 @@ var agora = window.agora || {};
 			}
 			
 		
-			if(that.history.length == 0) {
+			if(that.history.length === 0) {
 				var histObj = {
 					report: agora.vizfuncs.pageId,
 					filters: agora.vizfuncs.filterHistory,
@@ -343,7 +341,7 @@ var agora = window.agora || {};
 				
 			var lastObj = that.history[that.historyCounter - 1];	
 			
-			lastObj['tabName'] = tabName; 
+			lastObj.tabName = tabName; 
 			that.tabHistory.push(lastObj);
 			that.goingBack = false;  
 		}, 
@@ -418,7 +416,7 @@ var agora = window.agora || {};
 
 
 		applyParams: function(params) {
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();			
+			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();			
 			
 			if(!params.length) {
 				return; 
@@ -431,12 +429,12 @@ var agora = window.agora || {};
 		},
 
 		applyFilters: function(filters) {
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 			var activeSheet = mainWorkbook.getActiveSheet(); 
 			var worksheets = activeSheet.getWorksheets(); 
 			var worksheet = worksheets[1]; 			
 
-			var activeSheet = mainWorkbook.getActiveSheet();
+			
 
 			$.each(filters[0], function(k, v){
 				// console.log(v.name);
@@ -488,7 +486,7 @@ var agora = window.agora || {};
 			var that = agora.vizfuncs; 
 
 
-			mainWorkbook = that.mainViz.getWorkbook();
+			var mainWorkbook = that.mainViz.getWorkbook();
 
 			// that.mainViz.pauseAutomaticUpdatesAsync(); 
 
@@ -510,7 +508,18 @@ var agora = window.agora || {};
 
 		onChange: function() {
 			var that = agora.vizfuncs; 
-
+			function waitForElement() {
+					if(typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {						
+						var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
+						agora.vizfuncs.setReportTitle(tabName);
+						agora.vizfuncs.counter++;
+						agora.vizfuncs.tabName = tabName; 
+					} else {						
+						setTimeout(function(){
+							waitForElement();
+						}, 250); 
+					}
+				}
 
 			if (agora.vizfuncs.locked) {
 				
@@ -521,19 +530,7 @@ var agora = window.agora || {};
 			}
 
 			if (agora.vizfuncs.counter <= 0) {
-				function waitForElement() {
-					if(typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {						
-						var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
-						agora.vizfuncs.setReportTitle(tabName);
-						agora.vizfuncs.counter++;
-						agora.vizfuncs.tabName = tabName; 
-					} else {
-						console.log('we are not going'); 
-						setTimeout(function(){
-							waitForElement();
-						}, 250); 
-					}
-				}; 
+				
 
 				waitForElement(); 
 			}
@@ -562,7 +559,7 @@ var agora = window.agora || {};
 		getParameters: function() {
 
 
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 
 			if(typeof mainWorkbook == "undefined") {
 				return; 
@@ -605,7 +602,7 @@ var agora = window.agora || {};
 		},
 
 		getFilters: function(currentKey, counter) {
-			mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 
 
 			var arrFilters = [];
@@ -635,17 +632,28 @@ var agora = window.agora || {};
 				console.log('Error!!');
 			};
 
-			setTimeout(function(){
-				mainWorkbook.getActiveSheet().getWorksheets()[0].getFiltersAsync().then(onSuccess, onError);
+
+
+			// setTimeout(function(){
+
+			// 	mainWorkbook.getActiveSheet().getWorksheets()[0].getFiltersAsync().then(onSuccess, onError);
 				
-			}, 1200); 
+			// }, 1200); 
 
 			
-			
-			
+			function waitForElement() {
+					if(typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {							
+						var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+						mainWorkbook.getActiveSheet().getWorksheets()[0].getFiltersAsync().then(onSuccess, onError);
+					} else {
+						setTimeout(function(){
+							waitForElement();
+						}, 250); 
+					}
+				}
+
+				waitForElement(); 
 		},
-
-
 
 
 		// As this will be called on back button, 
@@ -667,6 +675,7 @@ var agora = window.agora || {};
 
 		saveCustomView: function() {
 			var that = agora.vizfuncs; 
+			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 			// Get the current url without any parameters
 			var baseUrl = window.location.href.split('?')[0]; 
 			var name = that.getRandomName(); 
@@ -709,6 +718,6 @@ var agora = window.agora || {};
 				}
 			); 
 		}
-	}
+	}; 
 
 })();

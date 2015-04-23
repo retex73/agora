@@ -21,6 +21,7 @@ var Mapper = {
             break; 
 
             case "http://agora.gmc-uk.org": 
+            case "agora": 
             this.env = "prod"; 
             break; 
         }

@@ -22,7 +22,18 @@
 var browserVersion = isIE(); 
 
     if (browserVersion == 7 || browserVersion == 8){
-         window.location.hash = 'ie';     
+      alert('asdf'); 
+      
+         var div = document.getElementByClassName('container-fluid'); 
+
+         var menuDiv = document.getElementByClassName('custom-bootstrap-menu-nav'); 
+
+
+         div.style.display = "none";
+         menuDiv.style.display = "none";
+
+
+
       // window.location.href = "https://html5test.com/"; 
       window.stop(); 
     } 
@@ -31,7 +42,10 @@ var browserVersion = isIE();
 
 
       <!--[if lt IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>   
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>  
+      <script>
+        // 
+      </script> 
       <![endif]-->
 
 

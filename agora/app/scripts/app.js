@@ -41,10 +41,6 @@ angular
         controller: 'AboutCtrl'
       })      
 
-      .when('/ie', {
-        templateUrl: 'views/ie.html',
-        controller: 'IeCtrl'
-      })
       .otherwise({
         // redirectTo: '/'
       });
