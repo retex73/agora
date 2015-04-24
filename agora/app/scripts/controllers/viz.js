@@ -107,27 +107,32 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	 */
 	var preAuth = function() {
 		var url, 
-		username; 
+		username, 
+		custView; 
 		switch(Mapper.env) {
 			case "local": 
 			url = 'http://tstagora.gmc-uk.org/trusted/'; 
 			username = 'Svc_agoraint_tst'; 
+			custView = 'TheRegister_pub'; 
 			break; 
 			case "dev": 
 			url = 'http://tstagora.gmc-uk.org/trusted/'; 
 			username = 'Svc_agoraint_tst'; 
+			custView = 'TheRegister_pub'; 
 			break; 
 			case "test": 
 			url = 'http://tstagora.gmc-uk.org/trusted/'; 
 			username = 'Svc_agoraint_tst'; 
+			custView = 'TheRegister_pub'; 
 			break; 
 			case "prod": 
 			url = 'http://agora.gmc-uk.org/trusted/'; 
 			username = 'Svc_agoraint_prd'; 
+			custView = 'TheRegister_prod'; 
 			break; 
 		}
 
-		
+
 
 		// var url = 'http://tstagora.gmc-uk.org/trusted/';
 		$.post(url, {
@@ -136,7 +141,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 			.done(function(data) {
 				// console.log(data);
 
-				var newUrl = url + data + '/views/TheRegister/PRS1';
+				var newUrl = url + data + '/views/' + custView;
 				// console.log(newUrl);
 				$.get(newUrl, function(data) {					
 					agora.vizfuncs.renderViz($routeParams, $scope);
