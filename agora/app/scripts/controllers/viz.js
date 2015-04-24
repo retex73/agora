@@ -100,35 +100,61 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	}
 
 
+	/**
+	 * Presents a hard coded link to Tablue with a credential. Tableau should then 
+	 * authenticate the user and return an auth code. 
+	 * The auth code should be appended to the reportsBaseUrl under pagesObj.reportsBaseUrl
+	 */
+	var preAuth = function() {		
+		var url; 
 
-	var getAuthUrl = function() {		
-		var url = 'http://localhost:9000/ajaxtest.json';
+		// 
+		switch(Mapper.env) {
+			case 'local': 
+			url = ''; 
+			break; 
+			case 'dev': 
+			url = ''; 
+			break; 
+			case 'test': 
+			url = 'http://tstagora.gmc-uk.org/trusted/';
+			break; 
+			case 'prod': 
+			url = ''; 
+			break; 
+		}
+
+
+		url = 'http://tstagora.gmc-uk.org/trusted/'; 
 
 		var baseUrl = Mapper.getBaseUrl(); 
 
 		
-		$.get(url, function(data) {
-			// $(".result").html(data);
-			console.log(data.code); 
-			baseUrl += data.code; 
-			// pagesObj.reportsBaseUrl = baseUrl + data.code; 
-			
-			
+		// $.get(url, function(data) {		
+			 
+		// 	baseUrl += data.code; 
+		// 	pagesObj.reportsBaseUrl = baseUrl + "/"; 			
+		// 	agora.vizfuncs.renderViz($routeParams, $scope);
+		// });
 
 
-			agora.vizfuncs.renderViz($routeParams, $scope);
-		});
-		// $.post(url, {
-		// 		username: "agorapublic"		
-		// 	})
-		// 	.done(function(data) {
-		// 		// Data should be the new url or token
-		// 		// Append to the current url of agora.vizfuncs.url
-		// 		alert("Data Loaded: " + data);
-		// 	});
+		$.post(url, {
+				username: "tstextgmc-uk\\public"		
+			})
+			.done(function(data) {
+				console.log(data); 
+				// Data should be the new url or token
+				// Append to the current url of agora.vizfuncs.url
+				// baseUrl += data; 
+		 	// 	pagesObj.reportsBaseUrl = baseUrl + "/"; 			
+		 	// 	agora.vizfuncs.renderViz($routeParams, $scope);
+		 		pagesObj.reportsBaseUrl = pagesObj.reportsBaseUrl.replace("<ticket>", data); 
+		 		agora.vizfuncs.renderViz($routeParams, $scope); 
+
+			});
 	};
 
-	getAuthUrl(); 
+	preAuth(); 
 
 
 	// agora.vizfuncs.renderViz($routeParams, $scope);

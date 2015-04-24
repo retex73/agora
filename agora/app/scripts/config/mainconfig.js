@@ -2,6 +2,7 @@
 var Mapper = {
     env: '', 
     helpBaseUrl: 'http://www.gmc-uk.org/help/', 
+    ticket: '', 
 
     // Get browser url and determine environment
     setEnv: function() {
@@ -29,11 +30,12 @@ var Mapper = {
 
        getBaseUrl: function() {
         var baseUrl = {
-            'local': 'http://tsttabappvip/views/', 
+            'local': 'http://tsttabappvip/views/' + this.ticket, 
 
             'dev': 'http://tsttabappvip/views/', 
             // 'test': 'http://tsttabappvip/views/', 
-            'test': 'http://tstagora.gmc-uk.org/tsttab/submitagora.aspx?view=', 
+            'test': 'http://tstagora.gmc-uk.org/trusted/<ticket>?view=', 
+            
 
             'prod': 'http://s1prdwebsvc:83/tab/submitagora.aspx?view='
         }; 
