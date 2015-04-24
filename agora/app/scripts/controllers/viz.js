@@ -101,60 +101,58 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 
 	/**
-	 * Presents a hard coded link to Tablue with a credential. Tableau should then 
-	 * authenticate the user and return an auth code. 
+	 * Presents a hard coded link to Tablue with a credential. Tableau should then
+	 * authenticate the user and return an auth code.
 	 * The auth code should be appended to the reportsBaseUrl under pagesObj.reportsBaseUrl
 	 */
-	var preAuth = function() {		
-		var url; 
+	var preAuth = function() {
+		var url;
 
 		// 
-		switch(Mapper.env) {
-			case 'local': 
-			url = ''; 
-			break; 
-			case 'dev': 
-			url = ''; 
-			break; 
-			case 'test': 
-			url = 'http://tstagora.gmc-uk.org/trusted/';
-			break; 
-			case 'prod': 
-			url = ''; 
-			break; 
+		switch (Mapper.env) {
+			case 'local':
+				url = '';
+				break;
+			case 'dev':
+				url = '';
+				break;
+			case 'test':
+				url = 'http://tstagora.gmc-uk.org/trusted/';
+				break;
+			case 'prod':
+				url = '';
+				break;
 		}
 
 
-		url = 'http://tstagora.gmc-uk.org/trusted/'; 
 
-		var baseUrl = Mapper.getBaseUrl(); 
+		var baseUrl = Mapper.getBaseUrl();
 
-		
+
 		// $.get(url, function(data) {		
-			 
+
 		// 	baseUrl += data.code; 
 		// 	pagesObj.reportsBaseUrl = baseUrl + "/"; 			
 		// 	agora.vizfuncs.renderViz($routeParams, $scope);
 		// });
 
-
+		var url = 'http://tstagora.gmc-uk.org/trusted/';
 		$.post(url, {
-				username: "tstextgmc-uk\\public"		
+				username: "tstextgmc-uk\\public"
 			})
 			.done(function(data) {
-				console.log(data); 
-				// Data should be the new url or token
-				// Append to the current url of agora.vizfuncs.url
-				// baseUrl += data; 
-		 	// 	pagesObj.reportsBaseUrl = baseUrl + "/"; 			
-		 	// 	agora.vizfuncs.renderViz($routeParams, $scope);
-		 		pagesObj.reportsBaseUrl = pagesObj.reportsBaseUrl.replace("<ticket>", data); 
-		 		agora.vizfuncs.renderViz($routeParams, $scope); 
+				console.log(data);
 
+				var newUrl = url + data;
+				console.log(newUrl);
+				$.get(newUrl, function(data) {
+					console.log(data);
+					agora.vizfuncs.renderViz($routeParams, $scope);
+				});
 			});
 	};
 
-	preAuth(); 
+	preAuth();
 
 
 	// agora.vizfuncs.renderViz($routeParams, $scope);

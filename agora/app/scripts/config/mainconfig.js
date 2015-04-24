@@ -34,7 +34,7 @@ var Mapper = {
 
             'dev': 'http://tsttabappvip/views/', 
             // 'test': 'http://tsttabappvip/views/', 
-            'test': 'http://tstagora.gmc-uk.org/<ticket>/views/', 
+            'test': 'http://tstagora.gmc-uk.org/views/', 
             
 
             'prod': 'http://s1prdwebsvc:83/tab/submitagora.aspx?view='
