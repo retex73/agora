@@ -113,7 +113,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 		var url = 'http://tstagora.gmc-uk.org/trusted/';
 		$.post(url, {
-				username: "tstextgmc-uk\\agorapublic"
+				username: "kwellock"
 			})
 			.done(function(data) {
 				console.log(data);
