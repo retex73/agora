@@ -113,22 +113,22 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 			case "local": 
 			url = 'http://tstagora.gmc-uk.org/trusted/'; 
 			username = 'Svc_agoraint_tst'; 
-			custView = 'TheRegister_pub'; 
+			custView = 'TheRegister_pub/PRS1'; 
 			break; 
 			case "dev": 
 			url = 'http://tstagora.gmc-uk.org/trusted/'; 
 			username = 'Svc_agoraint_tst'; 
-			custView = 'TheRegister_pub'; 
+			custView = 'TheRegister_pub/PRS1'; 
 			break; 
 			case "test": 
 			url = 'http://tstagora.gmc-uk.org/trusted/'; 
 			username = 'Svc_agoraint_tst'; 
-			custView = 'TheRegister_pub'; 
+			custView = 'TheRegister_pub/PRS1'; 
 			break; 
 			case "prod": 
 			url = 'http://agora.gmc-uk.org/trusted/'; 
 			username = 'Svc_agoraint_prd'; 
-			custView = 'TheRegister_prod'; 
+			custView = 'TheRegister_prod/PRS1'; 
 			break; 
 		}
 
@@ -142,7 +142,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 				// console.log(data);
 
 				var newUrl = url + data + '/views/' + custView;
-				// console.log(newUrl);
+				console.log(newUrl);
 				$.get(newUrl, function(data) {					
 					agora.vizfuncs.renderViz($routeParams, $scope);
 				});
