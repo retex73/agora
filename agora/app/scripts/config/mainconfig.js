@@ -17,11 +17,11 @@ var Mapper = {
             break; 
 
             case "http://agoratest.gmc-uk.org": 
+            case "http://tstagora.gmc-uk.org": 
             this.env = "test"; 
             break; 
 
             case "http://agora.gmc-uk.org": 
-            case "agora": 
             this.env = "prod"; 
             break; 
         }

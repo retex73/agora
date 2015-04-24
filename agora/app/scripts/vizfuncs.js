@@ -238,7 +238,10 @@ var agora = window.agora || {};
 		 * and sets the page's h1 and h2 attributes
 		 * @param  {[object]} routeParams [description]
 		 */
-		getReportUrl: function(routeParams) {			 
+		getReportUrl: function(routeParams) {
+			
+
+
 			var group = routeParams.report,
 				cName = routeParams.id;
 
@@ -265,6 +268,7 @@ var agora = window.agora || {};
 					
 				}
 			}
+
 		},
 
 		/**

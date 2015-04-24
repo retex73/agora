@@ -101,7 +101,13 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 
 
+	var preAuth = function(){
+
+	}; 
+
+
 	agora.vizfuncs.renderViz($routeParams, $scope);	
+	
 	// Take initial snapshot of history
 	setTimeout(function() {
 		// agora.vizfuncs.recordHistory();
