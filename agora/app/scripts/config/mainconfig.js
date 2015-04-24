@@ -37,7 +37,7 @@ var Mapper = {
             'test': 'http://tstagora.gmc-uk.org/views/', 
             
 
-            'prod': 'http://s1prdwebsvc:83/tab/submitagora.aspx?view='
+            'prod': 'http://agora.gmc-uk.org/views/'
         }; 
 
         return baseUrl[this.env]; 
