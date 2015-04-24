@@ -30,7 +30,7 @@ var Mapper = {
 
        getBaseUrl: function() {
         var baseUrl = {
-            'local': 'http://tsttabappvip/views/' + this.ticket, 
+            'local': 'http://tsttabappvip/views/', 
 
             'dev': 'http://tsttabappvip/views/', 
             // 'test': 'http://tsttabappvip/views/', 

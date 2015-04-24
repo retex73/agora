@@ -240,8 +240,6 @@ var agora = window.agora || {};
 		 */
 		getReportUrl: function(routeParams) {
 			
-
-
 			var group = routeParams.report,
 				cName = routeParams.id;
 
@@ -256,6 +254,7 @@ var agora = window.agora || {};
 				this.pages = result;
 				this.h2 = result[0].pages[group][0].pageSubheading;
 				this.url = pagesObj.reportsBaseUrl + result[0].pages[group][0].url;
+				console.log(this.url); 
 				// Dynamically look up the help link if the tab has changed. 
 				if(this.tabName.length === 0) { // Invoked if no tab change 					
 					this.help = result[0].pages[group][0].help;						
