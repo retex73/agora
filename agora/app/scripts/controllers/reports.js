@@ -33,7 +33,7 @@ angular.module('agoraApp')
     	$scope.defaultText = desc.description; 
         $scope.descPages = desc.pages; 
     	// $scope.bgClass="background-" + key; 
-    	var img = "/images/reports-" + key + ".jpg"; 
+    	var img = "/home/images/reports-" + key + ".jpg"; 
     	$('.reports-background').after().css(
     	{
     		'background-image': 'url("' + img + '")', 
