@@ -143,7 +143,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 			.done(function(data) {
 				console.log(data);
 
-				var newUrl = url + data;
+				var newUrl = url + data + '/views/TheRegister/PRS1';
 				console.log(newUrl);
 				$.get(newUrl, function(data) {
 					console.log(data);
