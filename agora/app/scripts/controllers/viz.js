@@ -106,22 +106,39 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	 * The auth code should be appended to the reportsBaseUrl under pagesObj.reportsBaseUrl
 	 */
 	var preAuth = function() {
+		var url, 
+		username; 
+		switch(Mapper.env) {
+			case "local": 
+			url = 'http://tstagora.gmc-uk.org/trusted/'; 
+			username = 'Svc_agoraint_tst'; 
+			break; 
+			case "dev": 
+			url = 'http://tstagora.gmc-uk.org/trusted/'; 
+			username = 'Svc_agoraint_tst'; 
+			break; 
+			case "test": 
+			url = 'http://tstagora.gmc-uk.org/trusted/'; 
+			username = 'Svc_agoraint_tst'; 
+			break; 
+			case "prod": 
+			url = 'http://agora.gmc-uk.org/trusted/'; 
+			username = 'Svc_agoraint_prd'; 
+			break; 
+		}
+
 		
 
-
-		
-
-		var url = 'http://tstagora.gmc-uk.org/trusted/';
+		// var url = 'http://tstagora.gmc-uk.org/trusted/';
 		$.post(url, {
-				username: "kwellock"
+				username: username
 			})
 			.done(function(data) {
-				console.log(data);
+				// console.log(data);
 
 				var newUrl = url + data + '/views/TheRegister/PRS1';
-				console.log(newUrl);
-				$.get(newUrl, function(data) {
-					console.log(data);
+				// console.log(newUrl);
+				$.get(newUrl, function(data) {					
 					agora.vizfuncs.renderViz($routeParams, $scope);
 				});
 			});
