@@ -103,14 +103,23 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	var getAuthUrl = function() {		
 		var url = 'http://localhost:9000/ajaxtest.json';
+
+		var baseUrl = Mapper.getBaseUrl(); 
+
+		
 		$.get(url, function(data) {
 			// $(".result").html(data);
-			console.log(data); 
+			console.log(data.code); 
+			baseUrl += data.code; 
+			// pagesObj.reportsBaseUrl = baseUrl + data.code; 
+			
+			
+
+
 			agora.vizfuncs.renderViz($routeParams, $scope);
 		});
 		// $.post(url, {
-		// 		name: "John",
-		// 		time: "2pm"
+		// 		username: "agorapublic"		
 		// 	})
 		// 	.done(function(data) {
 		// 		// Data should be the new url or token
