@@ -132,13 +132,13 @@ var Mapper = {
         'PES1': {
             'local': 'Employers_pub/PES1', 
             'dev':   'Employers_pub/PES1', 
-            'test':  'Employers_0/PES1', 
+            'test':  'Employers/PES1', 
             'prod':  'Employers_prod/PES1'
         }, 
         'PEU1': {
             'local': 'Employers_pub/PEU1', 
             'dev':   'Employers_pub/PEU1', 
-            'test':  'Employers_0/PEU1', 
+            'test':  'Employers/PEU1', 
             'prod':  'Employers_prod/PEU1'
         }, 
         'PMS1': {
