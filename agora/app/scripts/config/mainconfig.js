@@ -115,19 +115,19 @@ var Mapper = {
         'PFS1': {
             'local': 'FitnesstoPractice_pub/PFS1', 
             'dev':   'FitnesstoPractice_pub/PFS1', 
-            'test':  'FitnesstoPractice/PFS1', 
+            'test':  'FitnesstoPractice_1/PFS1', 
             'prod':  'FitnesstoPractice_prod/PFS1'
         },  
             'PFU1': {
             'local': 'FitnesstoPractice_pub/PFU1', 
             'dev':   'FitnesstoPractice_pub/PFU1', 
-            'test':  'FitnesstoPractice/PFU1', 
+            'test':  'FitnesstoPractice_1/PFU1', 
             'prod':  'FitnesstoPractice_prod/PFU1'
         },  
         'PFW1': {
             'local': 'FitnesstoPractice_pub/PFW1', 
             'dev':   'FitnesstoPractice_pub/PFW1', 
-            'test':  'FitnesstoPractice/PFW1', 
+            'test':  'FitnesstoPractice_1/PFW1', 
             'prod':  'FitnesstoPractice_prod/PFW1'
         }, 
         'PES1': {
