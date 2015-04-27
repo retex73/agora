@@ -30,7 +30,7 @@ var agora = window.agora || {};
 			$.each(images, function(k, v){
 				var img = "img" + i; 
 				img = new Image(); 
-				img.src = "/images/" + v; 
+				img.src = "/home/images/" + v; 
 				i++; 
 				
 			}); 

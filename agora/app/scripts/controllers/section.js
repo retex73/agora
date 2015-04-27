@@ -61,7 +61,7 @@ angular.module('agoraApp')
 
     var theme = agora.themr.setCurrentState($route.current.params.id); 
     $scope.sectionColour = theme.colour; 
-    $scope.sectionImage = "/images/" + theme.image; 
+    $scope.sectionImage = "/home/images/" + theme.image; 
 
 
     // $scope.sectionColour = getSectionColour(); 

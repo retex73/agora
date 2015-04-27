@@ -47,86 +47,86 @@ var Mapper = {
         'PRS1': {
             'local': 'TheRegister_pub/PRS1', 
             'dev':   'TheRegister_pub/PRS1', 
-            'test':  'TheRegister/PRS1', 
+            'test':  'TheRegister_pub/PRS1', 
             'prod':  'TheRegister_prod/PRS1'
         }, 
         'PRU1': {
             'local': 'TheRegister_pub/PRU1', 
             'dev':   'TheRegister_pub/PRU1', 
-            'test':  'TheRegister/PRU1', 
+            'test':  'TheRegister_pub/PRU1', 
             'prod':  'TheRegister_prod/PRU1'
         }, 
 
         'PRU2': {
             'local': 'TheRegister_pub/PRU2', 
             'dev':   'TheRegister_pub/PRU2', 
-            'test':  'TheRegister/PRU2', 
+            'test':  'TheRegister_pub/PRU2', 
             'prod':  'TheRegister_prod/PRU2'
         },   
         'PRU3': {
             'local': 'TheRegister_pub/PRU3', 
             'dev':   'TheRegister_pub/PRU3', 
-            'test':  'TheRegister/PRU3', 
+            'test':  'TheRegister_pub/PRU3', 
             'prod':  'TheRegister_prod/PRU3'
         }, 
         'PRU4': {
             'local': 'TheRegister_pub/PRU4', 
             'dev':   'TheRegister_pub/PRU4', 
-            'test':  'TheRegister/PRU4', 
+            'test':  'TheRegister_pub/PRU4', 
             'prod':  'TheRegister_prod/PRU4'
         }, 
         'PRW1': {
             'local': 'TheRegister_pub/PRW1', 
             'dev':   'TheRegister_pub/PRW1', 
-            'test':  'TheRegister/PRW1', 
+            'test':  'TheRegister_pub/PRW1', 
             'prod':  'TheRegister_prod/PRW1'
         }, 
         'PRW3': {
             'local': 'TheRegister_pub/PRW3', 
             'dev':   'TheRegister_pub/PRW3', 
-            'test':  'TheRegister/PRW3', 
+            'test':  'TheRegister_pub/PRW3', 
             'prod':  'TheRegister_prod/PRW3'
         },         
         'PVS1': {
             'local': 'Revalidation_pub/PVS1', 
             'dev':   'Revalidation_pub/PVS1', 
-            'test':  'Revalidation/PVS1', 
+            'test':  'Revalidation_pub/PVS1', 
             'prod':  'Revalidation_prod/PVS1'
         }, 
         'PVS2': {
             'local': 'Revalidation_pub/PVS2', 
             'dev':   'Revalidation_pub/PVS2', 
-            'test':  'Revalidation/PVS2', 
+            'test':  'Revalidation_pub/PVS2', 
             'prod':  'Revalidation_prod/PVS2'
         }, 
         'PVS3': {
             'local': 'Revalidation_pub/PVS3', 
             'dev':   'Revalidation_pub/PVS3', 
-            'test':  'Revalidation/PVS3', 
+            'test':  'Revalidation_pub/PVS3', 
             'prod':  'Revalidation_prod/PVS3'
         },                 
         'PVS4': {
             'local': 'Revalidation_pub/PVS4', 
             'dev':   'Revalidation_pub/PVS4', 
-            'test':  'Revalidation/PVS4', 
+            'test':  'Revalidation_pub/PVS4', 
             'prod':  'Revalidation_prod/PVS4'
         }, 
         'PFS1': {
             'local': 'FitnesstoPractice_pub/PFS1', 
             'dev':   'FitnesstoPractice_pub/PFS1', 
-            'test':  'FitnesstoPractice_1/PFS1', 
+            'test':  'FitnesstoPractice_pub/PFS1', 
             'prod':  'FitnesstoPractice_prod/PFS1'
         },  
             'PFU1': {
             'local': 'FitnesstoPractice_pub/PFU1', 
             'dev':   'FitnesstoPractice_pub/PFU1', 
-            'test':  'FitnesstoPractice_1/PFU1', 
+            'test':  'FitnesstoPractice_pub/PFU1', 
             'prod':  'FitnesstoPractice_prod/PFU1'
         },  
         'PFW1': {
             'local': 'FitnesstoPractice_pub/PFW1', 
             'dev':   'FitnesstoPractice_pub/PFW1', 
-            'test':  'FitnesstoPractice_1/PFW1', 
+            'test':  'FitnesstoPractice_pub/PFW1', 
             'prod':  'FitnesstoPractice_prod/PFW1'
         }, 
         'PES1': {
@@ -144,44 +144,44 @@ var Mapper = {
         'PMS1': {
             'local': 'MedicalSchools_pub/PMS1', 
             'dev':   'MedicalSchools_pub/PMS1', 
-            'test':  'MedicalSchools/PMS1', 
+            'test':  'MedicalSchools_pub/PMS1', 
             'prod':  'MedicalSchools_prod/PMS1'
         }, 
         'PMU1': {
             'local': 'MedicalSchools_pub/PMU1', 
             'dev':   'MedicalSchools_pub/PMU1', 
-            'test':  'MedicalSchools/PMU1', 
+            'test':  'MedicalSchools_pub/PMU1', 
             'prod':  'MedicalSchools_prod/PMU1'
         }, 
         'PDS1': {
             'local': 'Deaneries_pub/PDS1', 
             'dev':   'Deaneries_pub/PDS1', 
-            'test':  'DeaneriesLETBs/PDS1', 
-            'prod':  'DeaneriesLETBs_prod/PDS1'
+            'test':  'Deaneries_pub/PDS1', 
+            'prod':  'Deaneries_prod/PDS1'
         }, 
         'PDS2': {
             'local': 'Deaneries_pub/PDS2', 
             'dev':   'Deaneries_pub/PDS2', 
-            'test':  'DeaneriesLETBs/PDS2', 
-            'prod':  'DeaneriesLETBs_prod/PDS2'
+            'test':  'Deaneries_pub/PDS2', 
+            'prod':  'Deaneries_prod/PDS2'
         }, 
         'PDS4': {
             'local': 'Deaneries_pub/PDS4', 
             'dev':   'Deaneries_pub/PDS4', 
-            'test':  'DeaneriesLETBs/PDS4', 
-            'prod':  'DeaneriesLETBs_prod/PDS4'
+            'test':  'Deaneries_pub/PDS4', 
+            'prod':  'Deaneries_prod/PDS4'
         },   
         'PDS5': {
             'local': 'Deaneries_pub/PDS5', 
             'dev':   'Deaneries_pub/PDS5', 
-            'test':  'DeaneriesLETBs/PDS5', 
-            'prod':  'DeaneriesLETBs_prod/PDS5'
+            'test':  'Deaneries_pub/PDS5', 
+            'prod':  'Deaneries_prod/PDS5'
         }, 
         'PDU1': {
             'local': 'Deaneries_pub/PDU1', 
             'dev':   'Deaneries_pub/PDU1', 
-            'test':  'DeaneriesLETBs/PDU1', 
-            'prod':  'DeaneriesLETBs_prod/PDU1'
+            'test':  'Deaneries_pub/PDU1', 
+            'prod':  'Deaneries_prod/PDU1'
         }
     }, 
 
