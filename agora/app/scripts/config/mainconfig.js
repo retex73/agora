@@ -32,7 +32,8 @@ var Mapper = {
         var baseUrl = {
             'local': 'http://tsttabappvip/views/', 
 
-            'dev': 'http://tsttabappvip/views/', 
+            // 'dev': 'http://tsttabappvip/views/', 
+            'dev' : 'http://agoradev.gmc-uk.org/views/', 
             // 'test': 'http://tsttabappvip/views/', 
             'test': 'http://tstagora.gmc-uk.org/views/', 
             

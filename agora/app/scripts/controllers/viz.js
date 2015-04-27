@@ -116,7 +116,7 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 			custView = 'TheRegister_pub/PRS1'; 
 			break; 
 			case "dev": 
-			url = 'http://tstagora.gmc-uk.org/trusted/'; 
+			url = 'http://agoradev.gmc-uk.org/trusted/'; 
 			username = 'Svc_agoraint_tst'; 
 			custView = 'TheRegister_pub/PRS1'; 
 			break; 

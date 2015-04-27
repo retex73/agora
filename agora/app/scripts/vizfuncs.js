@@ -712,7 +712,7 @@ var agora = window.agora || {};
 				if (typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {
 					mainWorkbook.showCustomViewAsync(name.toString()).then(
 						function(msg) {
-							console.log('succeeded');
+							console.log('succeeded loading the custom view');
 						},
 
 						function(err) {
