@@ -1,21 +1,21 @@
 var agora = window.agora || {};
 
 (function() {
-  
-  'use strict'; 
+
+	'use strict';
 	agora.vizfuncs = {
 
 		reportUrl: '',
 		h1: '',
 		h2: '',
-		help: '', 
+		help: '',
 		pages: '',
 		url: '',
 		mainViz: '',
 		routeParams: '',
 		vizParams: [],
 		mainVizDiv: "#mainViz",
-		div: '', 
+		div: '',
 		history: [],
 		filters: {},
 		// customViewName: 0,
@@ -26,38 +26,38 @@ var agora = window.agora || {};
 		pageId: 'report',
 		filterHistory: [],
 		parameterHistory: [],
-		tabHistory: [], 
+		tabHistory: [],
 		locked: false,
-		goingBack: false, 								
-		tabName: '', 
-		newCustomView: '', 
-		 	
+		goingBack: false,
+		tabName: '',
+		newCustomView: '',
 
-		
 
-		renderViz: function(routeParams){			
-			this.routeParams = routeParams; 
-			this.dispose(); 
-			
-		}, 
+
+		// Render the Viz
+		renderViz: function(routeParams) {
+			this.routeParams = routeParams;
+			this.dispose();
+
+		},
 
 		render: function() {
 
-			var browserHeight = $(window).height(); 
+			var browserHeight = $(window).height();
 
-			browserHeight = browserHeight - 125; 
+			browserHeight = browserHeight - 125;
 
-  			$("#mainViz").css("min-height", browserHeight); 
+			$("#mainViz").css("min-height", browserHeight);
 
-			var routeParams = agora.vizfuncs.routeParams; 
+			var routeParams = agora.vizfuncs.routeParams;
 			var placeholderDiv = document.getElementById("mainViz");
-			
+
 			agora.vizfuncs.customViewName = 0;
 			agora.vizfuncs.routeParams = routeParams;
 			agora.vizfuncs.getReportUrl(routeParams);
 
 			// html structure to paint viz into
-			agora.vizfuncs.div = $(agora.vizfuncs.mainVizDiv); 
+			agora.vizfuncs.div = $(agora.vizfuncs.mainVizDiv);
 
 			var mainWorkbookUrl = agora.vizfuncs.url;
 
@@ -69,157 +69,155 @@ var agora = window.agora || {};
 				height: agora.vizfuncs.div.parent().innerHeight() + "px",
 				onFirstInteractive: function() {
 					var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
-					
-					agora.vizfuncs.hasUrlParams(); 
+
+					agora.vizfuncs.hasUrlParams();
 				}
 			};
-			
+
 			var mainVizOptions = $.extend({}, vizOpts, agora.vizfuncs.getVizOptions());
 
-			
-    		agora.vizfuncs.mainViz = new tableauSoftware.Viz(placeholderDiv, mainWorkbookUrl, mainVizOptions);
 
-    		
+			agora.vizfuncs.mainViz = new tableauSoftware.Viz(placeholderDiv, mainWorkbookUrl, mainVizOptions);
+
+
 		},
 
-		dispose: function(){
-			if(typeof agora.vizfuncs.mainViz == 'object') {				
-				this.mainViz.dispose(); 
-				this.tabName = ""; 
-				delete agora.vizfuncs.mainViz; 
-				setTimeout(function(){
-					agora.vizfuncs.renderViz(agora.vizfuncs.routeParams); 
+		dispose: function() {
+			if (typeof agora.vizfuncs.mainViz == 'object') {
+				this.mainViz.dispose();
+				this.tabName = "";
+				delete agora.vizfuncs.mainViz;
+				setTimeout(function() {
+					agora.vizfuncs.renderViz(agora.vizfuncs.routeParams);
 					// agora.vizfuncs.addEventListeners();	
 					// agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
-					agora.vizfuncs.vizEnhancement(); 
-				}, 500); 
-				
+					agora.vizfuncs.vizEnhancement();
+				}, 500);
+
 
 			} else {
-				this.render(); 
-				agora.vizfuncs.vizEnhancement(); 
+				this.render();
+				agora.vizfuncs.vizEnhancement();
 				// agora.vizfuncs.addEventListeners();	
 				// agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams); 
 			}
 
-			
 
-			
-		}, 
-		
+
+		},
+
 
 		vizEnhancement: function() {
-			agora.vizfuncs.addEventListeners();	
+			agora.vizfuncs.addEventListeners();
 			agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams);
 
-			 
-		}, 
+
+		},
 
 		hasUrlParams: function() {
-			var urlParams = window.location.href.split('?')[1]; 
+			var urlParams = window.location.href.split('?')[1];
 
-			if(typeof urlParams !== 'undefined') {
-				console.log('has url params'); 
-				var view = urlParams.replace('view=', '', urlParams); 
-				console.log('custom name: ' + view); 
+			if (typeof urlParams !== 'undefined') {
+				console.log('has url params');
+				var view = urlParams.replace('view=', '', urlParams);
+				console.log('custom name: ' + view);
 
-				agora.vizfuncs.showCustomView(view); 
-			} 
-		}, 
-
-
-		
-
-		resizeViewButton: function() {			
-			if($(".panel-body").length > 0) {				
-				// Set view button width
-	    		var buttonWidth = $(".panel-body").width(); 
-	    		buttonWidth = buttonWidth + 30; 
-	    		$(".get-started-bottom").width(buttonWidth); 	
-			} else {				
-				return; 
+				agora.vizfuncs.showCustomView(view);
 			}
-			
-		}, 
-		
+		},
+
+
+
+		resizeViewButton: function() {
+			if ($(".panel-body").length > 0) {
+				// Set view button width
+				var buttonWidth = $(".panel-body").width();
+				buttonWidth = buttonWidth + 30;
+				$(".get-started-bottom").width(buttonWidth);
+			} else {
+				return;
+			}
+
+		},
+
 		/**
 		 * TO DO
 		 * @return {[type]} [description]
 		 */
-		resizeViz: function() {	
+		resizeViz: function() {
 			// If we have the mainViz defined we don't need to 
 			// resize the 'view' button on the reports page :) 
-			if(typeof mainViz == "undefined") {								
-				this.resizeViewButton(); 
+			if (typeof mainViz == "undefined") {
+				this.resizeViewButton();
 				// No need to do any other resizing magic here
-				return; 
+				return;
 			}
 
 
 			// Calculate height based on if fullscreen or not as we 
 			// take into account the headers
-			var gap, 
-				fullSize, 
-				height, 
-				width, 
-				browserHeight = $(window).height();  
-			if($("#fullScreen").hasClass("fullScreenButtonActive")) {
-				
-				gap = 20; 
-			} 
+			var gap,
+				fullSize,
+				height,
+				width,
+				browserHeight = $(window).height();
+			if ($("#fullScreen").hasClass("fullScreenButtonActive")) {
+
+				gap = 20;
+			}
 			// When exiting fullscreen
 			else {
-				
-				gap = 125; 			
-				fullSize = 1; 
+
+				gap = 125;
+				fullSize = 1;
 			}
-			
-			
-			browserHeight = (browserHeight - gap); 
-			
 
-  			$("#mainViz").css("height", browserHeight); 
 
-			height = $("#mainViz").height(); 
-			width = $("#mainViz").width(); 
+			browserHeight = (browserHeight - gap);
+
+
+			$("#mainViz").css("height", browserHeight);
+
+			height = $("#mainViz").height();
+			width = $("#mainViz").width();
 
 			// Compensate for scrollbars appearing
-			if(fullSize) {		
+			if (fullSize) {
 				// commented out this line as original problem seems to have resolved
 				// width = (width+16); 
 			}
-			
-			agora.vizfuncs.mainViz.setFrameSize(width, height); 
+
+			agora.vizfuncs.mainViz.setFrameSize(width, height);
 		},
 
 
 		showDownloadWorkbookDialog: function() {
-			agora.vizfuncs.mainViz.showDownloadWorkbookDialog(); 
-		}, 
+			agora.vizfuncs.mainViz.showDownloadWorkbookDialog();
+		},
 
 		showExportPDFDialog: function() {
-			agora.vizfuncs.mainViz.showExportPDFDialog(); 
-		}, 
+			agora.vizfuncs.mainViz.showExportPDFDialog();
+		},
 
 		showShareDialog: function() {
-			agora.vizfuncs.mainViz.showShareDialog(); 
-		}, 
+			agora.vizfuncs.mainViz.showShareDialog();
+		},
 
 		showExportDataDialog: function() {
-			agora.vizfuncs.mainViz.showExportDataDialog(); 
-		}, 
+			agora.vizfuncs.mainViz.showExportDataDialog();
+		},
 
 		showExportImageDialog: function() {
-			agora.vizfuncs.mainViz.showExportImageDialog(); 
-		}, 
+			agora.vizfuncs.mainViz.showExportImageDialog();
+		},
 
 		showExportCrossTabDialog: function() {
-			agora.vizfuncs.mainViz.showExportCrossTabDialog(); 
-		}, 
-		
-		revertAll: function() {						
+			agora.vizfuncs.mainViz.showExportCrossTabDialog();
+		},
+
+		revertAll: function() {
 			agora.vizfuncs.mainViz.revertAllAsync();
-		}, 
+		},
 
 		getVizOptions: function() {
 
@@ -239,7 +237,7 @@ var agora = window.agora || {};
 		 * @param  {[object]} routeParams [description]
 		 */
 		getReportUrl: function(routeParams) {
-			
+
 			var group = routeParams.report,
 				cName = routeParams.id;
 
@@ -250,21 +248,21 @@ var agora = window.agora || {};
 			if (typeof result[0] == "undefined") {
 				console.log('not found');
 				return false;
-			} else {				
+			} else {
 				this.pages = result;
 				this.h2 = result[0].pages[group][0].pageSubheading;
 				this.url = pagesObj.reportsBaseUrl + result[0].pages[group][0].url;
-				console.log(this.url); 
+				console.log(this.url);
 				// Dynamically look up the help link if the tab has changed. 
-				if(this.tabName.length === 0) { // Invoked if no tab change 					
-					this.help = result[0].pages[group][0].help;						
+				if (this.tabName.length === 0) { // Invoked if no tab change 					
+					this.help = result[0].pages[group][0].help;
 				} else { // If tab change, get the link based on the tab name. 					
-					if(this.tabName.length === 0) {
-						this.help = result[0].pages[group][0].help;	
+					if (this.tabName.length === 0) {
+						this.help = result[0].pages[group][0].help;
 					} else {
-						this.help = Mapper.getHelp(this.tabName); 						
+						this.help = Mapper.getHelp(this.tabName);
 					}
-					
+
 				}
 			}
 
@@ -293,8 +291,8 @@ var agora = window.agora || {};
 			});
 		},
 
-		addEventListeners: function() {	
-			var that = agora.vizfuncs; 
+		addEventListeners: function() {
+			var that = agora.vizfuncs;
 
 			that.mainViz.addEventListener("tabswitch", that._ventOnTabSwitch);
 			that.mainViz.addEventListener("parametervaluechange", that._ventOnParameterChanged);
@@ -308,29 +306,29 @@ var agora = window.agora || {};
 		_ventOnTabSwitch: function(e) {
 			// Get the previous tabname to record into history			
 			// and write the old sheet name to history model
-			agora.vizfuncs.recordLastTab(e.getOldSheetName()); 
+			agora.vizfuncs.recordLastTab(e.getOldSheetName());
 			// Get the current tabname			
 			agora.vizfuncs.tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
 			// Update the report titles with the new tab name
 			agora.vizfuncs.setReportTitle(agora.vizfuncs.tabName);
 			// Update the viz wrapper			
-			agora.vizfuncs.onChange();		
+			agora.vizfuncs.onChange();
 			// Update the help link based on the tab name
-			agora.vizfuncs.help = Mapper.getHelp(agora.vizfuncs.tabName); 
+			agora.vizfuncs.help = Mapper.getHelp(agora.vizfuncs.tabName);
 
 		},
 
-		recordLastTab: function(tabName) {			
-			var that = agora.vizfuncs; 			
+		recordLastTab: function(tabName) {
+			var that = agora.vizfuncs;
 
 			// If the user clicked on back, don't record the tab
-			if(that.goingBack) {
-				that.goingBack = false; 
-				return; 
+			if (that.goingBack) {
+				that.goingBack = false;
+				return;
 			}
-			
-		
-			if(that.history.length === 0) {
+
+
+			if (that.history.length === 0) {
 				var histObj = {
 					report: agora.vizfuncs.pageId,
 					filters: agora.vizfuncs.filterHistory,
@@ -340,14 +338,14 @@ var agora = window.agora || {};
 				agora.vizfuncs.history.push(histObj);
 				// Increment history counter; 
 				agora.vizfuncs.historyCounter++;
-			} 
-				
-			var lastObj = that.history[that.historyCounter - 1];	
-			
-			lastObj.tabName = tabName; 
+			}
+
+			var lastObj = that.history[that.historyCounter - 1];
+
+			lastObj.tabName = tabName;
 			that.tabHistory.push(lastObj);
-			that.goingBack = false;  
-		}, 
+			that.goingBack = false;
+		},
 
 		/**
 		 * What to do when the parameters change
@@ -419,13 +417,13 @@ var agora = window.agora || {};
 
 
 		applyParams: function(params) {
-			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();			
-			
-			if(!params.length) {
-				return; 
-			} 
-			
-			$.each(params[0], function(k, v) {			
+			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+
+			if (!params.length) {
+				return;
+			}
+
+			$.each(params[0], function(k, v) {
 				mainWorkbook.changeParameterValueAsync(v.name, v.values[1]);
 			});
 
@@ -433,16 +431,16 @@ var agora = window.agora || {};
 
 		applyFilters: function(filters) {
 			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
-			var activeSheet = mainWorkbook.getActiveSheet(); 
-			var worksheets = activeSheet.getWorksheets(); 
-			var worksheet = worksheets[1]; 			
+			var activeSheet = mainWorkbook.getActiveSheet();
+			var worksheets = activeSheet.getWorksheets();
+			var worksheet = worksheets[1];
 
-			
 
-			$.each(filters[0], function(k, v){
+
+			$.each(filters[0], function(k, v) {
 				// console.log(v.name);
 				// console.log(v.values); 
-				worksheet.applyFilterAsync(v.name, v.values, "REPLACE"); 
+				worksheet.applyFilterAsync(v.name, v.values, "REPLACE");
 			});
 		},
 
@@ -459,7 +457,7 @@ var agora = window.agora || {};
 			return lastObj;
 		},
 
-		
+
 
 		onBackAll: function() {
 
@@ -473,59 +471,60 @@ var agora = window.agora || {};
 		},
 
 		onBack: function() {
-			var that = agora.vizfuncs; 
-			that.locked = true; 
-			that.goingBack	= true; 
-			
-			var lastTabHistory =  that.tabHistory[Object.keys(that.tabHistory)[Object.keys(that.tabHistory).length - 1]];
+			var that = agora.vizfuncs;
+			that.locked = true;
+			that.goingBack = true;
 
-			that.tabHistory.pop();  
+			var lastTabHistory = that.tabHistory[Object.keys(that.tabHistory)[Object.keys(that.tabHistory).length - 1]];
 
-			that.changeTab(lastTabHistory); 
+			that.tabHistory.pop();
 
-		}, 
+			that.changeTab(lastTabHistory);
+
+		},
 
 		changeTab: function(lastTabHistory) {
-			var that = agora.vizfuncs; 
+			var that = agora.vizfuncs;
 
 
 			var mainWorkbook = that.mainViz.getWorkbook();
 
 			// that.mainViz.pauseAutomaticUpdatesAsync(); 
 
-			var lastTabName = lastTabHistory.tabName; 
-			var filters = lastTabHistory.filters; 
-			var params = lastTabHistory.params; 
+			var lastTabName = lastTabHistory.tabName;
+			var filters = lastTabHistory.filters;
+			var params = lastTabHistory.params;
 
-			
 
-			mainWorkbook.activateSheetAsync(lastTabName); 
-			that.applyParams(params); 
-			that.applyFilters(filters); 
+
+			mainWorkbook.activateSheetAsync(lastTabName);
+			that.applyParams(params);
+			that.applyFilters(filters);
 
 			// Remove the newly created entry after tab change 
 			// as we're not interested in this one. 
-			that.tabHistory.pop(); 
+			that.tabHistory.pop();
 			// that.mainViz.resumeAutomaticUpdatesAsync(); 
-		}, 
+		},
 
 		onChange: function() {
-			var that = agora.vizfuncs; 
+			var that = agora.vizfuncs;
+
 			function waitForElement() {
-					if(typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {						
-						var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
-						agora.vizfuncs.setReportTitle(tabName);
-						agora.vizfuncs.counter++;
-						agora.vizfuncs.tabName = tabName; 
-					} else {						
-						setTimeout(function(){
-							waitForElement();
-						}, 250); 
-					}
+				if (typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {
+					var tabName = agora.vizfuncs.mainViz.getWorkbook().getActiveSheet().getName();
+					agora.vizfuncs.setReportTitle(tabName);
+					agora.vizfuncs.counter++;
+					agora.vizfuncs.tabName = tabName;
+				} else {
+					setTimeout(function() {
+						waitForElement();
+					}, 250);
 				}
+			}
 
 			if (agora.vizfuncs.locked) {
-				
+
 				agora.vizfuncs.locked = false;
 				return;
 			} else {
@@ -533,9 +532,9 @@ var agora = window.agora || {};
 			}
 
 			if (agora.vizfuncs.counter <= 0) {
-				
 
-				waitForElement(); 
+
+				waitForElement();
 			}
 
 
@@ -564,8 +563,8 @@ var agora = window.agora || {};
 
 			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 
-			if(typeof mainWorkbook == "undefined") {
-				return; 
+			if (typeof mainWorkbook == "undefined") {
+				return;
 			}
 
 			var arrParams = [];
@@ -601,7 +600,7 @@ var agora = window.agora || {};
 				console.log('Error!!');
 			};
 
-			mainWorkbook.getParametersAsync().then(onSuccess, onError);			
+			mainWorkbook.getParametersAsync().then(onSuccess, onError);
 		},
 
 		getFilters: function(currentKey, counter) {
@@ -640,22 +639,22 @@ var agora = window.agora || {};
 			// setTimeout(function(){
 
 			// 	mainWorkbook.getActiveSheet().getWorksheets()[0].getFiltersAsync().then(onSuccess, onError);
-				
+
 			// }, 1200); 
 
-			
-			function waitForElement() {
-					if(typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {							
-						var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
-						mainWorkbook.getActiveSheet().getWorksheets()[0].getFiltersAsync().then(onSuccess, onError);
-					} else {
-						setTimeout(function(){
-							waitForElement();
-						}, 250); 
-					}
-				}
 
-				waitForElement(); 
+			function waitForElement() {
+				if (typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {
+					var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+					mainWorkbook.getActiveSheet().getWorksheets()[0].getFiltersAsync().then(onSuccess, onError);
+				} else {
+					setTimeout(function() {
+						waitForElement();
+					}, 250);
+				}
+			}
+
+			waitForElement();
 		},
 
 
@@ -670,57 +669,83 @@ var agora = window.agora || {};
 
 		getRandomName: function() {
 			return 'xxxxxxxx'.replace(/[xy]/g, function(c) {
-			    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-			    return v.toString(16);
+				var r = Math.random() * 16 | 0,
+					v = c == 'x' ? r : (r & 0x3 | 0x8);
+				return v.toString(16);
 			});
-		}, 
+		},
 
 
 		saveCustomView: function() {
-			var that = agora.vizfuncs; 
+			var that = agora.vizfuncs;
 			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 			// Get the current url without any parameters
-			var baseUrl = window.location.href.split('?')[0]; 
-			var name = that.getRandomName(); 
-			var linkUrl = baseUrl + '?view=' + name; 
+			var baseUrl = window.location.href.split('?')[0];
+			var name = that.getRandomName();
+			var linkUrl = baseUrl + '?view=' + name;
 
 
 
 			mainWorkbook.rememberCustomViewAsync(name).then(
-				function(view){
+				function(view) {
 					console.log('success');
-					that.newCustomView = view; 
-					that.newCustomView.setAdvertised(true); 
-					
-				    
+					that.newCustomView = view;
+					that.newCustomView.setAdvertised(true);
+
+
 					$("#spinner, #basic-addon1").hide();
-					
-					$(".label-info").text("Copy and paste the link below"); 
-					$("#modal-url").val(linkUrl).prop("disabled", false).css("font-size", "13px").focus().select();  
-					
-					
-				}, 
-				function(){
+
+					$(".label-info").text("Copy and paste the link below");
+					$("#modal-url").val(linkUrl).prop("disabled", false).css("font-size", "13px").focus().select();
+
+
+				},
+				function() {
 					console.log('error');
-				}); 
+				});
 		},
 
 		showCustomView: function(name) {
+			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
+
+			function waitForElement() {
+				if (typeof agora.vizfuncs.mainViz.getWorkbook() !== "undefined") {
+					mainWorkbook.showCustomViewAsync(name.toString()).then(
+						function(msg) {
+							console.log('succeeded');
+						},
+
+						function(err) {
+							console.log('failed');
+							console.log(err);
+						}
+					);
+				} else {
+					setTimeout(function() {
+						waitForElement();
+					}, 250);
+				}
+			}
+
+			waitForElement();
+
+			return; 
+
 			var mainWorkbook = agora.vizfuncs.mainViz.getWorkbook();
 			console.log('Showing: ' + name);
 
 
 			mainWorkbook.showCustomViewAsync(name.toString()).then(
 				function(msg) {
-					console.log('succeeded'); 
-				}, 
+					console.log('succeeded');
+				},
 
 				function(err) {
-					console.log('failed'); 
-					console.log(err);  
+					console.log('failed');
+					console.log(err);
 				}
-			); 
+			);
 		}
-	}; 
+	};
 
 })();
