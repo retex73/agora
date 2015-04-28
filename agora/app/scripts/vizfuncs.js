@@ -716,6 +716,7 @@ var agora = window.agora || {};
 						},
 
 						function(err) {
+							waitForElement(); 
 							console.log('failed');
 							console.log(err);
 						}

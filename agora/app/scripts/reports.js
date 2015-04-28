@@ -1,9 +1,22 @@
 var agora = window.agora || {}; 
 
 (function(){
+
+	/**
+	 * @ngdoc service
+	 * @name agora.reports
+	 * @description 
+	 * Searches the config file for report names and report sections		
+	 */
 	agora.reports = {
 		dataSrc: pagesObj, 
 
+		/**
+		 * @ngdoc function
+		 * @name getGroups		 		 
+		 * @description 
+		 * Gets groups
+		 */
 		getGroups: function() {
 			var groups = []; 
 			$.each(this.dataSrc.repGroup, function(index, value) {
@@ -40,7 +53,11 @@ var agora = window.agora || {};
 			}
 		}, 
 
-
+		/**
+		 * format the category name
+		 * @param  {string} categoryName [description]
+		 * @return {string}              [description]
+		 */
 		sanitizeCategoryName: function(categoryName) {			
 			// replace underscores with spaces
 			var str = categoryName.replace("_", " "); 

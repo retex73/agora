@@ -31,8 +31,16 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  grunt.loadNpmTasks('grunt-ngdocs'); 
+
+
   // Define the configuration for all the tasks
   grunt.initConfig({
+
+    // ngdocs
+    ngdocs : {
+        all: ['app/scripts/*.js', 'app/scripts/controllers/*.js']
+    }, 
 
     // Project settings
     yeoman: appConfig,
@@ -115,6 +123,7 @@ module.exports = function (grunt) {
           }
         }
       },
+
       dist: {
         options: {
           open: true,
@@ -400,6 +409,7 @@ module.exports = function (grunt) {
     }
   });
 
+  
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -445,6 +455,8 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
+
+  
 
   grunt.registerTask('default', [
     'newer:jshint',
