@@ -278,7 +278,7 @@ var pagesObj = {
                 pageId: 'PRU1',
                 description: 'See where in the UK our registered doctors are based.',
                 pageHeading: 'The Register',
-                pageSubheading: 'Doctor location bu UK country', 
+                pageSubheading: 'Doctor location by UK country', 
                 url: Mapper.getUrl('PRU1'), 
                 thumb: 'pru1.png', 
                 // help: 'http://www.gmc-uk.org/help/PRU1.asp'
@@ -529,7 +529,7 @@ var pagesObj = {
                 pageId: 'PMS1',
                 description: 'See how many doctors have registered from each UK medical school over time, their demographics, what they have specialised in, their current roles and more.',
                 pageHeading: 'Medical schools',
-                pageSubheading: 'Doctors attaining Primary Medical Qualification at UK Medical Schools', 
+                pageSubheading: 'Doctors attaining Primary Medical Qualification at UK medical schools', 
                 url: Mapper.getUrl('PMS1'), 
                 thumb: 'pms1.png', 
                 help: Mapper.getHelp('PMS1')

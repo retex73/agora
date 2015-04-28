@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: controllers/nav.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: controllers/nav.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * @ngdoc function
+ * @name agoraApp.controller:MainCtrl
+ * @description
+ * # NavCtrl
+ * Controller of the agoraApp
+ */
+angular.module('agoraApp')
+  .controller('NavCtrl', function($scope, $route, $routeParams, $parse, $templateCache, $location, $window) {
+
+    // $scope.defaultColour = '#797979';
+    /**
+     * Set the default colour depending on the section
+     * @return {string} [colour as hex]
+     */
+    $scope.defaultColour = function(){
+      // Get section from routeParams            
+      // set agora.themr.setCurrentState(section); 
+      var theme = agora.themr.setCurrentState($routeParams.id); 
+      // Return theme color
+      return theme.colour; 
+      
+    }; 
+
+    // When a user clicks on a top level nav we want to prevent the hyperlink
+    // from working (for now) 
+    $scope.doNothing = function($event) {
+      $event.preventDefault(); 
+    }; 
+
+
+    var setSectionColour = function(section) {    
+    
+      var theme = agora.themr.setCurrentState(section);
+      var sectionColour = theme.colour;
+
+      $("#reports-tier").css('background', sectionColour);
+    };
+
+    function hashChanged() {
+      // Determine what the section colour is
+      $scope.defaultColour = agora.themr.getDefaultColour();
+      // If we are on a reports page, show the navigation bar, else hide it
+      var isReportPage = window.location.hash.search("reports");
+
+      if (isReportPage > 0) {        
+        $("#reports-tier").removeClass("reports-tier-hide");
+        $("#reports-tier ul").show();
+      } 
+      else {
+        $("#reports-tier").addClass("reports-tier-hide");
+        $("#reports-tier ul").hide();
+      }
+
+      // Reset nav bar to default colour
+      agora.themr.removeHoverClass();
+      $("#reports-tier").css('background', $scope.defaultColour);  
+    }
+
+    $window.onload = function() {
+      hashChanged();
+    }
+
+    // Listen for changes in the address bar
+    window.addEventListener("hashchange", hashChanged);
+
+
+    // preload images for faster loading
+    agora.themr.preloader();
+
+
+    $scope.structure = agora.reports.getReportStructure();
+
+    $scope.groups = groups;
+
+
+    window.lastSelected = '';
+
+
+    $scope.timer = '';
+
+    $scope.showSections = function(e, section, key) {
+
+      
+
+      $scope.section = section; 
+
+      // Get selector for parent element so we can find the position  
+      var marginLeft = getElementPosition(key);
+
+      // Set the theme based on the sections
+      setSectionColour(section);
+
+      // globally set lastSelected
+      lastSelected = section;
+
+      agora.themr.setHoverClass($scope.section);
+
+      $scope.tierOne = (Object.keys(groups[section]));
+      $scope.tierOne.push(section);
+
+      $scope.showTierOne = "show-tier-one";
+
+
+      $('#tier-one-ul').hide();      
+      $('#tier-one-ul li:first').css('margin-left', marginLeft);
+      $('#tier-one-ul').show();
+
+
+      $(".viz-breadcrumb-info").hide();
+      $(".viz-controls").hide();
+    };
+
+
+
+    var getElementPosition = function(key) {
+
+      var selector = "#" + key;      
+      var pos = $(selector).offset();
+      var marginLeft = (pos.left - 30) + "px";
+      
+      return marginLeft;
+    };
+
+    $scope.hideSections = function() {
+
+      agora.themr.removeHoverClass();
+
+      $("#reports-tier").css('background', $scope.defaultColour);
+
+      setTimeout(function() {
+        $(".viz-breadcrumb-info").fadeIn("fast");
+        $(".viz-controls").fadeIn("fast");
+      }, 300);
+
+
+      $scope.showTierOne = "";
+
+      $('#reports-tier').find("li:contains(" + lastSelected + ")").removeClass('persisting-hover');
+
+
+
+    };
+
+
+
+    $scope.persistSections = function() {
+      agora.themr.setHoverClass($scope.section);
+      setSectionColour($scope.section);
+      $scope.showTierOne = "show-tier-one";
+
+      $('#reports-tier').find("li:contains(" + lastSelected + ")").addClass('persisting-hover');
+    };
+
+
+
+    $scope.isActive = function(viewLocation) {
+      var parts = $location.path().split('/'),
+        mainPart = "#/" + parts[1];
+
+      return viewLocation === mainPart;
+    };
+
+    $scope.isActiveReport = function(viewLocation) {
+      var parts = $location.path().split('/'),
+        mainPart = parts[2], 
+        viewLocationParts = viewLocation.split('/'), 
+        mainLocationPart = viewLocationParts[2]; 
+            
+      return mainLocationPart === mainPart; 
+    }, 
+
+    $scope.toggleTier = function(action, selector) {
+      if (action == 'show') {
+        showTier(selector);
+      } else {
+        hideTier(selector);
+        hideTier(".custom-tier3-bootstrap-menu-nav");
+      }
+    };
+
+    /**
+     * Show third tier nav based on report group selected
+     */
+    $scope.reportSections = {};
+
+    $scope.reportSelect = function(group) {      
+      var reportSections = agora.reports.getPages(group),
+      html = '';
+      $(".reportSections").html("");
+
+      
+      angular.forEach(reportSections, function(value, key) {
+        html += "&lt;li class='subsection-hover'>&lt;a href='/#reports/" + group + "/" + key + "/report'>" + key + "&lt;/a>&lt;/li>";
+      });
+
+      $(".reportSections").append(html);      
+    }
+
+
+    var showTier = function(selector) {
+      $(selector)
+        .css('opacity', 1)
+        .slideDown('fast')
+        .animate({
+          opacity: 1
+        }, {
+          queue: false,
+          duration: 'slow'
+        });
+
+    };
+
+    var hideTier = function(selector) {
+      $(selector)
+        .css('opacity', 1)
+        .slideUp('fast')
+        .animate({
+          opacity: 1
+        }, {
+          queue: false,
+          duration: 'slow'
+        });
+    };
+
+    
+
+    $scope.groups = Object.keys(groups); 
+
+
+    $scope.openLink = function($event, link) {
+      $event.preventDefault(); 
+      window.open(link, link, "width:500, height:900");       
+    }; 
+
+    $scope.feedBack = function($event) {
+      $event.preventDefault(); 
+    
+      var link = 'http://www.gmc-uk.org/help/agora_feedback.asp'; 
+      window.open(link, link, "width:1000, height:600");       
+    }; 
+
+
+    $scope.checkLink = function() {      
+      if(Object.keys($routeParams).length === 0) {
+        return; 
+      } else {
+        agora.vizfuncs.renderViz($routeParams); 
+      }      
+    }; 
+
+
+  });
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#agora">agora</a></li><li><a href="global.html#agoraApp">agoraApp</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta3</a> on Tue Apr 28 2015 10:21:02 GMT+0100 (GMT Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
