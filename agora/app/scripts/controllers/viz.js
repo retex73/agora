@@ -135,23 +135,23 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 
 		// For local 
-		agora.vizfuncs.renderViz($routeParams, $scope);
+		// agora.vizfuncs.renderViz($routeParams, $scope);
 		
 
 
 		// for test and live
-		// $.post(url, {
-		// 		username: username
-		// 	})
-		// 	.done(function(data) {
-		// 		// console.log(data);
+		$.post(url, {
+				username: username
+			})
+			.done(function(data) {
+				// console.log(data);
 
-		// 		var newUrl = url + data + '/views/' + custView;
-		// 		console.log(newUrl);
-		// 		$.get(newUrl, function(data) {					
-		// 			agora.vizfuncs.renderViz($routeParams, $scope);
-		// 		});
-		// 	});
+				var newUrl = url + data + '/views/' + custView;
+				console.log(newUrl);
+				$.get(newUrl, function(data) {					
+					agora.vizfuncs.renderViz($routeParams, $scope);
+				});
+			});
 	};
 
 	preAuth();
