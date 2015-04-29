@@ -1,14 +1,17 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name agoraApp.controller:ReportsCtrl
+ * @ngdoc controller
+ * @name ng.controller:ReportsCtrl
+ * @requires $scope
  * @description
- * # ReportsCtrl
- * Controller of the agoraApp
+ * Contains methods to handle the reports page
+ * @requires $scope
+ * 
  */
 angular.module('agoraApp')
-  .controller('ReportsCtrl', function ($scope) {    
+  .controller('ReportsCtrl', function ($scope) {  
+
     var pages = agora.reports.search(pagesObj, 'repGroup'); 
     var current_colour_class = ''; 
     $scope.pages = pages[2]; 

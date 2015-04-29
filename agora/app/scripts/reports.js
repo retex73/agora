@@ -2,16 +2,25 @@ var agora = window.agora || {};
 
 (function(){
 
-	/**
-	 * @ngdoc service
-	 * @name agora.reports
-	 * @description 
-	 * Searches the config file for report names and report sections		
-	 */
+/**
+ * @ngdoc service
+ * @name ng.service:reports
+ * @description
+ * Contains methods to select from the mainconfig file
+ */
 	agora.reports = {
 		dataSrc: pagesObj, 
 
-	
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#getGroups
+ * @methodOf ng.service:reports
+ * @description
+ * Grabs the groups and returns an array
+ <pre>
+ 	getGroups(); 
+ </pre>
+ */	
 		getGroups: function() {
 			var groups = []; 
 			$.each(this.dataSrc.repGroup, function(index, value) {
@@ -20,7 +29,17 @@ var agora = window.agora || {};
 
 			return groups; 
 		}, 
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#getPages
+ * @methodOf ng.service:reports
+ * @description
+ * Grabs the pages belonging to a given group
+ * @param {string} string Category Name
+ <pre>
+ 	getPages(categoryName); 
+ </pre>
+ */	
 		getPages: function(categoryName) { 
 			var cName = this.sanitizeCategoryName(categoryName); 
 			var result = $.grep(this.dataSrc.repGroup, function(e) {
@@ -33,7 +52,17 @@ var agora = window.agora || {};
 				return result[0].pages; 
 			}
 		}, 
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#getSectionDescription
+ * @methodOf ng.service:reports
+ * @description
+ * Gets the section description from the config file
+ * @param {string} string Category Name
+ <pre>
+ 	getSectionDescription(categoryName); 
+ </pre>
+ */	
 		getSectionDescription: function(categoryName){
 			var cName = this.sanitizeCategoryName(categoryName); 
 			var result = $.grep(this.dataSrc.repGroup, function(e) {
@@ -53,6 +82,20 @@ var agora = window.agora || {};
 		 * @param  {string} categoryName [description]
 		 * @return {string}              [description]
 		 */
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#sanitizeCategoryName
+ * @methodOf ng.service:reports
+ * @description
+ * Cleans up the category name if it was grabbed from the url for example to convert it to 
+ * lowercase and replace spaces with underscores. 
+ * e.g. Fitness to practise becomes fitness_to_practise
+ * @param {string} string Category Name
+ <pre>
+ 	sanitizeCategoryName(categoryName); 
+ </pre>
+ @return {string} string sanitised category name
+ */			
 		sanitizeCategoryName: function(categoryName) {			
 			// replace underscores with spaces
 			var str = categoryName.replace("_", " "); 
@@ -63,7 +106,18 @@ var agora = window.agora || {};
 
 			return str; 
 		}, 
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#getSectionDescriptions
+ * @methodOf ng.service:reports
+ * @description
+ * Searches the mainconfig for the specific report descriptions 
+ * @param {object} object Where to search (usually master object of mainconfig)
+ * @return {array} array Array of results
+ <pre>
+ 	getSectionDescriptions(where, cats); 
+ </pre>
+ */	
 		getSectionDescriptions: function(where, cats) {
 			// Remove class for default text 
 			var result = []; 
@@ -78,6 +132,7 @@ var agora = window.agora || {};
 			return result; 
 		}, 
 
+
 		search: function(where, q) {
 			var results = []; 
 			$.each(where, function(index, value) {
@@ -88,7 +143,17 @@ var agora = window.agora || {};
 		}, 
 
 
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#getReportStructure
+ * @methodOf ng.service:reports
+ * @description
+ * Puts the mainconfig object into a more readable js object
+ * @return {object} object object of results
+ <pre>
+ 	getReportStructure(); 
+ </pre>
+ */	
 		getReportStructure: function() {
 			var structure = {}; 
 			var groups = this.getGroups(); 
@@ -107,6 +172,18 @@ var agora = window.agora || {};
 		 * @param  {[type]} sectionName [description]
 		 * @return obj colour, theme
 		 */
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#getSectionTheme
+ * @methodOf ng.service:reports
+ * @description
+ * Searches the config for the section's theme (colour and image)
+ * @param {string} string The section name
+ * @return {object} object Object containing colour and image
+ <pre>
+ 	getSectionTheme(sectionName); 
+ </pre>
+ */			
 		getSectionTheme: function(sectionName) {			
 			var theme = {}; 
 			var result = $.grep(this.dataSrc.repGroup, function(e) {

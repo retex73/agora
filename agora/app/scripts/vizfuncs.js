@@ -1,7 +1,12 @@
 var agora = window.agora || {};
 
 (function() {
-
+/**
+ * @ngdoc service
+ * @name ng.service:vizfuncs
+ * @description
+ * Contains methods to implement api calls to Tableau
+ */
 	'use strict';
 	agora.vizfuncs = {
 
@@ -35,12 +40,34 @@ var agora = window.agora || {};
 
 
 		// Render the Viz
+/**
+ * @ngdoc method
+ * @name ng.service:vizfuncs#renderViz
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Grabs the pages belonging to a given group based on the 
+ * route parameters. This links the url to the viz being displayed on the page. 
+ * @param {object} object route parameters
+ <pre>
+ 	renderViz(routeParams); 
+ </pre>
+ */
 		renderViz: function(routeParams) {
 			this.routeParams = routeParams;
 			this.dispose();
 
 		},
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#render
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Creates a container div calles mainViz and inserts the 
+ * Tableau viz as an iframe
+ <pre>
+ 	render();  
+ </pre>
+ */
 		render: function() {
 
 			var browserHeight = $(window).height();
@@ -81,7 +108,17 @@ var agora = window.agora || {};
 
 
 		},
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#dispose
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * removes the currently displayed viz to make room for a new viz to be
+ * displayed. 
+ <pre>
+ 	dispose();  
+ </pre>
+ */
 		dispose: function() {
 			if (typeof agora.vizfuncs.mainViz == 'object') {
 				this.mainViz.dispose();
@@ -106,14 +143,32 @@ var agora = window.agora || {};
 
 		},
 
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#vizEnhancement
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Adds event listeners to the viz to look out for tab, filter and parameter changes. 
+ <pre>
+ 	vizEnhancement();  
+ </pre>
+ */
 		vizEnhancement: function() {
 			agora.vizfuncs.addEventListeners();
 			agora.vizfuncs.getReportUrl(agora.vizfuncs.routeParams);
-
-
 		},
 
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#hasUrlParams
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Detects if there is a query parameter on the url and assumes this is a viz custom name. 
+ * It then calls the viz and applies the custom name via Tableau's API
+ <pre>
+ 	hasUrlParams();  
+ </pre>
+ */
 		hasUrlParams: function() {
 			var urlParams = window.location.href.split('?')[1];
 
@@ -127,7 +182,16 @@ var agora = window.agora || {};
 		},
 
 
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#resizeViewButton
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Increases the view button width
+ <pre>
+ 	resizeViewButton();  
+ </pre>
+ */
 		resizeViewButton: function() {
 			if ($(".panel-body").length > 0) {
 				// Set view button width
@@ -190,27 +254,83 @@ var agora = window.agora || {};
 			agora.vizfuncs.mainViz.setFrameSize(width, height);
 		},
 
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#showDownloadWorkbookDialog
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Invokes the Tableau download API
+ <pre>
+ 	showDownloadWorkbookDialog(); 
+ </pre>
+ */
 		showDownloadWorkbookDialog: function() {
 			agora.vizfuncs.mainViz.showDownloadWorkbookDialog();
 		},
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#showDownloadWorkbookDialog()
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Invokes the Tableau pdf download API
+ <pre>
+ 	showExportPDFDialog(); 
+ </pre>
+ */
 		showExportPDFDialog: function() {
 			agora.vizfuncs.mainViz.showExportPDFDialog();
 		},
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#showShareDialog()
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Invokes a modal dialogue box to show the 'share link'
+ <pre>
+ 	showShareDialog(); 
+ </pre>
+ */
 		showShareDialog: function() {
 			agora.vizfuncs.mainViz.showShareDialog();
 		},
-
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#showExportDataDialog()
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Invokes the Tableau API to show the export data dialogue box
+ <pre>
+ 	showExportDataDialog(); 
+ </pre>
+ */
 		showExportDataDialog: function() {
 			agora.vizfuncs.mainViz.showExportDataDialog();
 		},
 
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#showExportImageDialog()
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Invokes the Tableau API export image functionality
+ <pre>
+ 	showExportImageDialog(); 
+ </pre>
+ */
 		showExportImageDialog: function() {
 			agora.vizfuncs.mainViz.showExportImageDialog();
 		},
 
+/**
+ * @ngdoc method
+ * @name ng.service:reportsl#showExportCrossTabDialog()
+ * @methodOf ng.service:vizfuncs
+ * @description
+ * Invokes the Tableau API invoke export cross tab functionality
+ <pre>
+ 	showExportCrossTabDialog(); 
+ </pre>
+ */
 		showExportCrossTabDialog: function() {
 			agora.vizfuncs.mainViz.showExportCrossTabDialog();
 		},

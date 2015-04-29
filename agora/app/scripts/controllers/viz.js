@@ -1,22 +1,46 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name agoraApp.controller:VizCtrl
+ * @ngdoc controller
+ * @name ng.controller:VizCtrl
+ * @requires $scope
+ * @requires $routeParams
  * @description
- * # VizCtrl
- * Controller of the agoraApp
+ * Contains methods to handle the viz page
  */
 angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) {
 
-	// $scope.h1 = $routeParams.reportname;
+	
 
 	$scope.breadCrumbs = $routeParams;
 
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#onBack
+ * @methodOf ng.controller:VizCtrl
+ * @description
+ * Invokes the viz history back button
+ <pre>
+  	<button id="undo" ng-click="onBack();" ... </button>
+ </pre>
+ */	
 	$scope.onBack = function() {
 		agora.vizfuncs.onBack();
 	};
 
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#getInfoLink
+ * @methodOf ng.controller:VizCtrl
+ * @description
+ * Opens a new page showing the appropriate help pages
+ * at a fixed size of h:600px x w:1100
+ * @param {object} object click event
+ * @param {string} string Help url
+ <pre>
+  	<span ng-click="getInfoLink($event, help);" ... </span>
+ </pre>
+ */	
 	$scope.getInfoLink = function($event, help) {
 
 		$event.preventDefault();
@@ -40,6 +64,19 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 
 	// Updates the viz info for h1 and h2 etc on change. 
 	// This is dependent on the observer function within this script
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#refreshScopeVars
+ * @methodOf ng.controller:VizCtrl
+ * @description
+ * Updates viz titles and attributes 
+ <pre>
+  	Object.observe(agora.vizfuncs, function(changes) {
+		refreshScopeVars();
+		... 
+	});
+ </pre>
+ */	
 	var refreshScopeVars = function() {
 		$scope.$apply(function() {
 			$scope.h1 = agora.vizfuncs.h1;
@@ -52,23 +89,65 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		});
 	};
 
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#downloadData
+ * @methodOf ng.controller:VizCtrl
+ * @description
+ * Invokes the tableau api to show the download data dialogue box
+ * @param {object} object click event
+ <pre>
+  	<a id="downloadData" ng-click="downloadData($event);" ... </a>
+ </pre>
+ */	
 	$scope.downloadData = function($event) {
 		$event.preventDefault();
 		agora.vizfuncs.showExportDataDialog();
 	};
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#downloadImage
+ * @methodOf ng.controller:VizCtrl
+ * @description
+ * Invokes the tableau api to show the download image dialogue box
+ * @param {object} object click event
+ <pre>
+  	<a id="downloadImage" ng-click="downloadImage($event);" href="#"> ... </a>
+ </pre>
+ */	
 	$scope.downloadImage = function($event) {
 		$event.preventDefault();
 		agora.vizfuncs.showExportImageDialog();
 	};
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#downloadPdf
+ * @methodOf ng.controller:VizCtrl
+ * @description
+ * Invokes the tableau api to show the download pdf dialogue box
+ * @param {object} object click event
+ <pre>
+  	<a id="downloadPdf" ng-click="downloadPdf($event);" href="#">PDF</a>
+ </pre>
+ */	
 	$scope.downloadPdf = function($event) {
 		$event.preventDefault();
 		agora.vizfuncs.showExportPDFDialog();
 	};
 
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#shareData
+ * @methodOf ng.controller:VizCtrl
+ * @description
+ * Saves a custom view on the Viz server, generates a url and displays to the user
+ * @param {object} object click event
+ <pre>
+  	<button id="shareData" ng-click="shareData($event);" data-toggle="tooltip" data-placement="bottom" title="Share" class="btn btn-mini btn-default">
+		<span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-share"></span>
+	</button>
+ </pre>
+ */	
 	$scope.shareData = function($event) {
 		$("#modal-url").val('Generating...');
 		$(".label-info").text("Please wait...");
@@ -84,6 +163,18 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		// agora.vizfuncs.saveCustomView(); 
 	};
 
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#fullScreen
+ * @methodOf ng.controller:VizCtrl
+ * @description
+ * Causes the viz to occupy all of the browser window
+ * @param {object} object click event
+ <pre>
+ <button id="fullScreen" ng-click="fullScreen($event);" data-toggle="tooltip" data-placement="bottom" title="View in fullscreen" class="btn btn-mini btn-default">
+ <span class="glyphicon glyphicon-fullscreen"></span></button>
+ </pre>
+ */	
 	$scope.fullScreen = function($event) {
 		$event.preventDefault();
 		$(".top").toggle();
@@ -94,6 +185,19 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 		agora.vizfuncs.resizeViz();
 	};
 
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#revertAll
+ * @methodOf ng.controller:VizCtrl
+ * @description
+ * Removes all of Tableau's filters and parameters
+ * @param {object} object click event
+ <pre>
+	 <button id="revertAll" ng-click="revertAll($event);" data-toggle="tooltip" data-placement="bottom" title="Clear filters" class="btn btn-mini btn-default">
+	 <span class="glyphicon glyphicon-refresh"></span>
+	 </button>
+ </pre>
+ */	
 	$scope.revertAll = function($event) {
 		$event.preventDefault();
 		agora.vizfuncs.revertAll();
@@ -105,6 +209,21 @@ angular.module('agoraApp').controller('VizCtrl', function($scope, $routeParams) 
 	 * authenticate the user and return an auth code.
 	 * The auth code should be appended to the reportsBaseUrl under pagesObj.reportsBaseUrl
 	 */
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#preAuth
+ * @methodOf ng.controller:VizCtrl
+ * @description
+ * Provides an inelegant but working method to silently authorise the user to view a viz without 
+ * invoking Tableau's login window allowing the user to move directly to the viz. 
+ * The method first posts to Tableau to retrieve a token and then makes a further get call 
+ * to Tableau to a random Viz with this token. Further calls to other viz's should now not need 
+ * authentication. 
+ 
+ <pre>
+	 preAuth(); 
+ </pre>
+ */		
 	var preAuth = function() {
 		var url, 
 		username, 

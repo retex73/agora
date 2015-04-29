@@ -140,8 +140,9 @@ angular.module('agoraApp')
 
       window.addEventListener("hashchange", hashChanged);
  </pre>
- * @param {object} object e mouse event
- * @param {string} string 
+ * @param {object} object e Mouse event
+ * @param {string} string Section name
+ * @param {string} string id of parent html element
  */
     $scope.showSections = function(e, section, key) {
 
@@ -173,8 +174,19 @@ angular.module('agoraApp')
       $(".viz-controls").hide();
     };
 
-
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#getElementPosition
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Gets the screen coordinates for a given element to 
+ * align the subsection text
+ <pre>
+      getElementPosition(key)
+ </pre> 
+ * @param {string} string if of parent html element
+ * @return {string} string left position in px
+ */
     var getElementPosition = function(key) {
 
       var selector = "#" + key;      
@@ -183,6 +195,18 @@ angular.module('agoraApp')
       
       return marginLeft;
     };
+
+
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#hideSections
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Hides the subsections on mouseout
+ <pre>
+      <a ... ng-mouseleave="hideSections(); ... </a>
+ </pre>
+ */
 
     $scope.hideSections = function() {
 
@@ -205,7 +229,16 @@ angular.module('agoraApp')
     };
 
 
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#persistSections
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Keeps the subsections visible when the mouse leaves the parent div
+ <pre>
+      <div id="reports-tier-one" class="{{showTierOne}}" ng-mouseover="persistSections(e);" ... </div>
+ </pre> 
+ */
     $scope.persistSections = function() {
       agora.themr.setHoverClass($scope.section);
       setSectionColour($scope.section);
@@ -215,7 +248,18 @@ angular.module('agoraApp')
     };
 
 
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#isActive
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Determines if the nav's element should have the active class
+ <pre>
+      getElementPosition(key)
+ </pre> 
+ * @param {string} string if of parent html element
+ * @return {string} string left position in px
+ */
     $scope.isActive = function(viewLocation) {
       var parts = $location.path().split('/'),
         mainPart = "#/" + parts[1];
@@ -223,6 +267,19 @@ angular.module('agoraApp')
       return viewLocation === mainPart;
     };
 
+
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#isActiveReport
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Determines if the nav's report tier element should have the active class
+ <pre>
+      isActiveReport(viewLocation)
+ </pre> 
+ * @param {string} string viewLocation report url
+ * @return {bool} bool report section should have active class
+ */
     $scope.isActiveReport = function(viewLocation) {
       var parts = $location.path().split('/'),
         mainPart = parts[2], 
@@ -232,6 +289,13 @@ angular.module('agoraApp')
       return mainLocationPart === mainPart; 
     }, 
 
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#toggleTier
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Toggles the second nav tier to show or hide
+ */
     $scope.toggleTier = function(action, selector) {
       if (action == 'show') {
         showTier(selector);
@@ -259,7 +323,17 @@ angular.module('agoraApp')
       $(".reportSections").append(html);      
     }
 
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#showTier
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Handles the animation of the nav showing the second tier
+ <pre>
+      showTier(selector); 
+ </pre> 
+ * @param {string} string Selector The name of the id to apply to
+ */
     var showTier = function(selector) {
       $(selector)
         .css('opacity', 1)
@@ -272,7 +346,17 @@ angular.module('agoraApp')
         });
 
     };
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#hideTier
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Handles the animation of the nav hiding the second tier
+ <pre>
+      hideTier(selector); 
+ </pre> 
+ * @param {string} string Selector The name of the id to apply to
+ */
     var hideTier = function(selector) {
       $(selector)
         .css('opacity', 1)
@@ -289,12 +373,35 @@ angular.module('agoraApp')
 
     $scope.groups = Object.keys(groups); 
 
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#openLink
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Opens a given link in a new window with fixed dimensions of w:500px x h:900px
+ <pre>
+      <a ng-click="openLink($event,'http://www.gmc-uk.org/disclaimer.asp');" href="#">Disclaimer</a>
+ </pre> 
+ * @param {object} object $event The click event object
+ * @param {string} string link The link to open 
+ */
     $scope.openLink = function($event, link) {
       $event.preventDefault(); 
       window.open(link, link, "width:500, height:900");       
     }; 
 
+
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#feedBack
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Opens the feedback form in a new window. The feedback link is hard coded
+ <pre>
+      <a ng-click="feedBack($event);" href="#">Feedback</a>
+ </pre> 
+ * @param {object} object $event The click event object
+ */
     $scope.feedBack = function($event) {
       $event.preventDefault(); 
     
@@ -302,7 +409,16 @@ angular.module('agoraApp')
       window.open(link, link, "width:1000, height:600");       
     }; 
 
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#checkLink
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Opens a viz from the nav if route paramaters are found, otherwise just returns
+ <pre>
+      <a ng-click="checkLink();"...</a>
+ </pre> 
+ */
     $scope.checkLink = function() {      
       if(Object.keys($routeParams).length === 0) {
         return; 

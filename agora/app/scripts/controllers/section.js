@@ -1,11 +1,16 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name agoraApp.controller:MainCtrl
+ * @ngdoc controller
+ * @name ng.controller:SectionCtrl
+ * @requires $scope
+ * @requires $route
+ * @requires $parse
+ * @requires $location
+ * @requires $document 
  * @description
- * # MainCtrl
- * Controller of the agoraApp
+ * Contains methods to handle the Sections page which is now no longer 
+ * required (for now)
  */
 angular.module('agoraApp')
   .controller('SectionCtrl', function($scope, $route, $parse, $location, $document) {
@@ -14,8 +19,6 @@ angular.module('agoraApp')
     $scope.sectionText = "Hover over the left icons for more info"; 
 
     $scope.sectionName = agora.reports.sanitizeCategoryName($route.current.params.id);
-
-
 
     agora.themr.setCurrentState($route.current.params.id); 
 

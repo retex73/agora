@@ -1,13 +1,11 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name agoraApp.controller:AboutCtrl
+ * @ngdoc controller
+ * @name ng.controller:AboutCtrl
+ * @requires $scope
  * @description
- * # AboutCtrl
- * Controller of the agoraApp
- * Doesn't do very much as the about page is currently static 
- * html
+ * Currently about is a static html page with no interactivity
  */
 angular.module('agoraApp')
   .controller('AboutCtrl', function ($scope) {
