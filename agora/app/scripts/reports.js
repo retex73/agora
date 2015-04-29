@@ -11,12 +11,7 @@ var agora = window.agora || {};
 	agora.reports = {
 		dataSrc: pagesObj, 
 
-		/**
-		 * @ngdoc function
-		 * @name getGroups		 		 
-		 * @description 
-		 * Gets groups
-		 */
+	
 		getGroups: function() {
 			var groups = []; 
 			$.each(this.dataSrc.repGroup, function(index, value) {

@@ -1,36 +1,67 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name agoraApp.controller:MainCtrl
+ * @ngdoc controller
+ * @name ng.controller:NavCtrl
+ * @requires $scope
+ * @requires $route
+ * @requires $routeParams
+ * @requires $parse
+ * @requires $templateCache
+ * @requires $location
+ * @requires $window 
  * @description
- * # NavCtrl
- * Controller of the agoraApp
+ * Contains methods to handle the navigation menus. This could probably do with a cleanup as there are some
+ * methods left over from previous iterations of the nav
  */
 angular.module('agoraApp')
   .controller('NavCtrl', function($scope, $route, $routeParams, $parse, $templateCache, $location, $window) {
 
-    // $scope.defaultColour = '#797979';
-    /**
-     * Set the default colour depending on the section
-     * @return {string} [colour as hex]
-     */
-    $scope.defaultColour = function(){
-      // Get section from routeParams            
-      // set agora.themr.setCurrentState(section); 
+    
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#defaultColour
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Sets the default menu colour depending on the section 
+ * as set in the url via $routeParams
+<pre>
+<div id="reports-tier" style="background: {{defaultColour}}">...</div>
+</pre>
+ * @return {String} String colour as hex value
+ */    
+    $scope.defaultColour = function(){      
       var theme = agora.themr.setCurrentState($routeParams.id); 
       // Return theme color
       return theme.colour; 
       
     }; 
 
-    // When a user clicks on a top level nav we want to prevent the hyperlink
-    // from working (for now) 
+
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#doNothing
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * When a user clicks on the top level nav, we want to prevent the hyperlink 
+ * from working (for now)
+ */
     $scope.doNothing = function($event) {
       $event.preventDefault(); 
     }; 
 
-
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#setSectionColour
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Applies the corresponding section colour to the second level nav
+ * based on the given section 
+ <pre>
+  setSectionColour(section);
+ </pre>
+ * @param {string} string Section name e.g. revalidation
+ */
     var setSectionColour = function(section) {    
     
       var theme = agora.themr.setCurrentState(section);
@@ -39,6 +70,21 @@ angular.module('agoraApp')
       $("#reports-tier").css('background', sectionColour);
     };
 
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#hashChanged
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Listens for url hash change on window load and re-applies the appropriate colour
+ * to the nav. 
+ <pre>
+      $window.onload = function() {
+        hashChanged();
+      }
+
+      window.addEventListener("hashchange", hashChanged);
+ </pre> 
+ */
     function hashChanged() {
       // Determine what the section colour is
       $scope.defaultColour = agora.themr.getDefaultColour();
@@ -63,16 +109,16 @@ angular.module('agoraApp')
       hashChanged();
     }
 
-    // Listen for changes in the address bar
+    // Listen for changes in the address bar    
     window.addEventListener("hashchange", hashChanged);
 
 
     // preload images for faster loading
     agora.themr.preloader();
 
-
+    // Grabs the report structure from the main config
     $scope.structure = agora.reports.getReportStructure();
-
+    // Grabs the group names
     $scope.groups = groups;
 
 
@@ -81,9 +127,23 @@ angular.module('agoraApp')
 
     $scope.timer = '';
 
-    $scope.showSections = function(e, section, key) {
+/**
+ * @ngdoc method
+ * @name ng.controller:NavCtrl#showSections
+ * @methodOf ng.controller:NavCtrl
+ * @description
+ * Shows the subsections when hovering over a group name
+ <pre>
+      $window.onload = function() {
+        hashChanged();
+      }
 
-      
+      window.addEventListener("hashchange", hashChanged);
+ </pre>
+ * @param {object} object e mouse event
+ * @param {string} string 
+ */
+    $scope.showSections = function(e, section, key) {
 
       $scope.section = section; 
 

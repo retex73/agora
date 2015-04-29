@@ -23,6 +23,8 @@ var Mapper = {
             break; 
 
             case "http://agora.gmc-uk.org": 
+            case "http://agora": 
+            case "http://agora/home":
             this.env = "prod"; 
             break; 
         }
