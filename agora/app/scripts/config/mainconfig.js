@@ -623,40 +623,40 @@ var pagesObj = {
             }
         },
 
-        {
-            groupName: 'Royal Colleges',
-            description: 'Royal Colleges are responsible for the Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt orci urna, at vulputate purus ullamcorper quis. Ut suscipit tortor eget felis vestibulum dignissim. Morbi a luctus nisl. Aliquam cursus mi ac euismod laoreet. Pellentesque sit amet tincidunt urna. Nam interdum nisl ultricies lectus fringilla, sit amet tempor lacus condimentum.',
-            image: 'reports-5.jpg',
-            colour: '#7b6fb1',
-            pages: {
-                'Stats': [{
-                    pageId: 'POS1',
-                    description: 'Stats about Royal Colleges',
-                    pageSubheading: '-',
-                    url: Mapper.getUrl('POS1'),
-                    thumb: 'POS1.png',
-                    help: Mapper.getHelp('POS1')
-                }, {
-                    pageId: 'POS2',
-                    description: 'Stats about Royal Colleges',
-                    pageSubheading: '-',
-                    help: Mapper.getHelp('POS2')
-                }, {
-                    pageId: 'POS3',
-                    description: 'Stats about Royal Colleges',
-                    pageSubheading: '-',
-                    help: Mapper.getHelp('POS3')
-                }],
-                'UK maps': [{
-                    pageId: 'POU1',
-                    description: 'Stats about Royal Colleges and their curricula',
-                    pageSubheading: '-',
-                    url: Mapper.getUrl('POU1'),
-                    thumb: 'POU1.png',
-                    help: Mapper.getHelp('POU1')
-                }]
+        // {
+        //     groupName: 'Royal Colleges',
+        //     description: 'Royal Colleges are responsible for the Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt orci urna, at vulputate purus ullamcorper quis. Ut suscipit tortor eget felis vestibulum dignissim. Morbi a luctus nisl. Aliquam cursus mi ac euismod laoreet. Pellentesque sit amet tincidunt urna. Nam interdum nisl ultricies lectus fringilla, sit amet tempor lacus condimentum.',
+        //     image: 'reports-5.jpg',
+        //     colour: '#7b6fb1',
+        //     pages: {
+        //         'Stats': [{
+        //             pageId: 'POS1',
+        //             description: 'Stats about Royal Colleges',
+        //             pageSubheading: '-',
+        //             url: Mapper.getUrl('POS1'),
+        //             thumb: 'POS1.png',
+        //             help: Mapper.getHelp('POS1')
+        //         }, {
+        //             pageId: 'POS2',
+        //             description: 'Stats about Royal Colleges',
+        //             pageSubheading: '-',
+        //             help: Mapper.getHelp('POS2')
+        //         }, {
+        //             pageId: 'POS3',
+        //             description: 'Stats about Royal Colleges',
+        //             pageSubheading: '-',
+        //             help: Mapper.getHelp('POS3')
+        //         }],
+        //         'UK maps': [{
+        //             pageId: 'POU1',
+        //             description: 'Stats about Royal Colleges and their curricula',
+        //             pageSubheading: '-',
+        //             url: Mapper.getUrl('POU1'),
+        //             thumb: 'POU1.png',
+        //             help: Mapper.getHelp('POU1')
+        //         }]
 
-            }
-        },
+        //     }
+        // },
     ]
 };
