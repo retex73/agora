@@ -82,7 +82,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "ng",
       "shortDescription": "Contains methods to implement api calls to Tableau",
-      "keywords": "adds api applies assumes based belonging box button calles calls changes container creates currently custom detects dialogue displayed dispose div download event filter grabs group hasurlparams iframe implement increases inserts invokes link links listeners mainviz method methods modal ng object parameter parameters pdf query removes render renderviz resizeviewbutton room route service share showdownloadworkbookdialog showexportpdfdialog showsharedialog tab tableau url view vizenhancement width"
+      "keywords": "adds api applies assumes based belonging box button calles calls changes container creates cross currently custom data detects dialogue displayed dispose div download event export filter functionality grabs group hasurlparams iframe image implement increases inserts invoke invokes link links listeners mainviz method methods modal ng object parameter parameters pdf query removes render renderviz resizeviewbutton room route service share showdownloadworkbookdialog showexportcrosstabdialog showexportdatadialog showexportimagedialog showexportpdfdialog showsharedialog tab tableau url view vizenhancement width"
     }
   ],
   "apis": {
